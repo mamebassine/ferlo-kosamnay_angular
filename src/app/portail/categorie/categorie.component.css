@@ -284,7 +284,6 @@ body {
   padding: 10px;
   width: 300px;
   border: 2px solid #343F69;
-  border-radius: 5px;
   margin-right: 10px;
 }
 
@@ -293,7 +292,7 @@ body {
   background-color: #4CAF50;
   color: white;
   border: none;
-  border-radius: 5px;
+
   cursor: pointer;
 }
 
@@ -355,7 +354,7 @@ body {
   background-color: #3F7E44; /* Couleur verte */
   border-radius: 70px 0 80px 0; /* Bordure arrondie */
   display: flex;
-  width: 500px; /* Largeur de la carte */
+  width: 540px; /* Largeur de la carte */
   margin: 10px;
   overflow: hidden; /* Pour s'assurer que les bordures arrondies sont visibles */
 }
@@ -387,7 +386,6 @@ p {
   color: white;
   border: none;
   padding: 10px 15px;
-  border-radius: 5px;
   cursor: pointer;
 }
 
