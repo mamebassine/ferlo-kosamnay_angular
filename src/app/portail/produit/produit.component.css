@@ -288,7 +288,7 @@ header {
 
 .bacgr {
     font-family: Arial, sans-serif;
-    background-image: url('images/bacgrproduit.png');
+    background-image: url('/assets/images/bacgrproduit.png');
     background-size: cover;
     background-position: center;
     background-attachment: fixed;

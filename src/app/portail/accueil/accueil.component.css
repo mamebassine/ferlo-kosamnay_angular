@@ -210,7 +210,7 @@ nav .bouton-connexion {
 /* Section APROPOS */
 #a-propos {
 
-  /* background-image: url('assets/images/Apropos2.png');  */
+  background-image: url('/assets/images/Apropos2.png'); 
   background-size: cover; /* Ajustement de l'image */
   background-repeat: no-repeat;
   background-position: center;
