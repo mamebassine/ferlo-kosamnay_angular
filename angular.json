@@ -13,6 +13,10 @@
         "build": {
           "builder": "@angular-devkit/build-angular:application",
           "options": {
+            "assets": [
+              "src/assets",
+              "src/favicon.ico"
+            ],
             "outputPath": "dist/ferlo-kosamnay_angular",
             "index": "src/index.html",
             "browser": "src/main.ts",
@@ -20,12 +24,7 @@
               "zone.js"
             ],
             "tsConfig": "tsconfig.app.json",
-            "assets": [
-              {
-                "glob": "**/*",
-                "input": "public"
-              }
-            ],
+          
             "styles": [
               "src/styles.css"
             ],
@@ -90,7 +89,9 @@
               }
             ],
             "styles": [
-              "src/styles.css"
+              "src/styles.css",
+              "src/app/portail/portail.css"
+
             ],
             "scripts": []
           }
@@ -99,3 +100,4 @@
     }
   }
 }
+

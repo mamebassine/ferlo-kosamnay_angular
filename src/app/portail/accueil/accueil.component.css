@@ -1,0 +1,851 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@600&display=swap');
+
+
+/* En-tête */
+header {
+  background-color: #fff; /* Couleur de fond pour l'en-tête */
+  padding: 5px 10px; /* Ajustement de l'espacement intérieur */
+}
+
+nav {
+  display: flex;
+  align-items: center; /* Alignement vertical des éléments */
+  justify-content: space-between; /* Répartir les éléments sur toute la largeur */
+  flex-wrap: wrap; /* Permet de passer à la ligne sur les petits écrans */
+  font-size: 20px; /* Taille du texte */
+
+}
+
+nav .logo {
+  height: 120px; /* Ajustement de la hauteur du logo pour les petits écrans */
+  margin-left: 2%;
+}
+
+nav .menu-centre {
+  list-style: none; /* Supprimer les puces des listes */
+  display: flex; /* Afficher les éléments en ligne */
+  margin: 0; /* Supprimer les marges */
+  padding: 0; /* Supprimer les espacements */
+  flex: 1; /* Prendre toute la largeur disponible */
+  justify-content: center; /* Centrer les éléments horizontalement */
+  font-size: 30px; /* Taille du texte */
+  font-family: 'Roboto', sans-serif; /* Police pour H1 */
+
+
+}
+
+nav .menu-centre li {
+  margin: 0 15px; /* Espacement horizontal entre les éléments */
+}
+
+nav .menu-centre li a {
+  color: #000; /* Couleur du texte des liens */
+  text-decoration: none; /* Supprimer le soulignement des liens */
+  font-size: 20px; /* Taille du texte */
+}
+
+nav .menu-centre li a:hover {
+  text-decoration: underline; /* Souligner les liens au survol */
+  color: #99B951;
+}
+
+nav .icone-panier {
+  font-size: 20px; /* Taille de l'icône du panier */
+  color: #000; /* Couleur de l'icône */
+  margin-left: 15px; /* Espacement à gauche pour séparer de "Contact" */
+}
+
+nav .bouton-connexion {
+  background-color: #3F7E44; /* Couleur de fond pour le bouton de connexion */
+  padding: 6px 10px; /* Espacement intérieur du bouton */
+  color: #fff; /* Couleur du texte du bouton */
+  text-decoration: none; /* Supprimer le soulignement du bouton */
+  margin-right: 2%;
+
+}
+
+
+/* Media Queries pour les petits écrans */
+@media (max-width: 768px) {
+  nav {
+    flex-direction: column; /* Empile les éléments sur les petits écrans */
+    align-items: flex-start; /* Aligne les éléments à gauche */
+  }
+
+  nav .menu-centre {
+    flex-direction: column; /* Colonne pour les éléments du menu */
+    width: 100%; /* Prend toute la largeur */
+  }
+
+  nav .menu-centre li {
+    margin: 5px 0; /* Réduction de l'espacement entre les éléments */
+    width: 100%; /* Chaque élément prend toute la largeur */
+    text-align: center; /* Centre le texte des éléments */
+  }
+
+  nav .icone-panier, nav .bouton-connexion {
+    margin-left: 0; /* Supprime le margin à gauche pour le centrage */
+    width: 100%; /* Prend toute la largeur */
+    text-align: center; /* Centre le texte */
+    padding: 8px; /* Ajuste le padding pour les petits écrans */
+  }
+
+  nav .bouton-connexion {
+    margin-top: 10px; /* Ajoute un espacement au-dessus du bouton */
+  }
+}
+
+
+
+/* Section Hero           oooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo */
+#hero {
+  display: flex; /* Utilisation de Flexbox pour aligner les éléments */
+  align-items: center; /* Alignement vertical des éléments */
+  justify-content: space-between; /* Répartir les éléments sur toute la largeur */
+  padding: 10px 10px; /* Espacement intérieur */
+  margin-left: 3%;
+
+}
+
+#hero .text-content {
+  max-width: 70%; /* Limiter la largeur du texte pour permettre de l'espace pour l'image */
+}
+
+#hero h1 {
+  font-size: 2.5em; /* Taille du titre */
+  margin: 0 0 20px 0; /* Espacement sous le titre */
+  font-weight: bold; /* Gras pour le titre */
+}
+
+#hero p {
+  font-size: 1.2em; /* Taille du texte du paragraphe */
+  margin: 10px 0; /* Espacement vertical entre les paragraphes */
+}
+
+#hero button {
+  background-color: #3F7E44; /* Couleur de fond du bouton */
+  color: #fff; /* Couleur du texte du bouton */
+  border: none; /* Supprimer la bordure par défaut */
+  padding: 7px 10px; /* Espacement intérieur du bouton */
+  font-size: 1em; /* Taille du texte du bouton */
+  cursor: pointer; /* Changer le curseur au survol */
+  margin-top: 10px; /* Espacement au-dessus du bouton */
+  transition: background-color 0.3s ease; /* Transition douce pour le changement de couleur */
+}
+
+#hero button:hover {
+  background-color: #2E5B34; /* Couleur de fond au survol */
+}
+
+#hero img {
+  max-width: 50%; /* Limiter la largeur de l'image */
+  height: auto; /* Conserver les proportions de l'image */
+  object-fit: cover; /* Couvrir l'espace sans déformer l'image */
+  margin-left: 3%;
+
+}
+
+
+
+/* Section pourquoi-choisir */ 
+#pourquoi-choisir {
+  background-color: #3F7E44; /* Couleur de fond */
+  color: #fff; /* Couleur du texte */
+  padding: 30px 10px; /* Espacement intérieur */
+}
+
+#pourquoi-choisir h2 {
+  text-align: center; /* Centrer le titre principal */
+  margin-bottom: 30px; /* Espacement en dessous du titre */
+  font-size: 30px; /* Taille du texte */
+  font-family: 'Roboto', sans-serif; /* Police pour H1 */
+
+}
+
+.caracteristiques {
+  display: flex; /* Utilisation de Flexbox pour aligner les cartes */
+  justify-content: center; /* Centrer les cartes dans la section */
+  gap: 45px; /* Espacement horizontal entre les cartes */
+  flex-wrap: wrap; /* Permettre le retour à la ligne sur les petits écrans */
+  max-width: 1800px; /* Limiter la largeur totale de la section */
+  margin: 0 auto; /* Centrer le conteneur sur la page */
+}
+
+.caracteristiques div {
+  border: 1px solid #fff; /* Bordure de 3px blanche */
+  color: #fff; /* Couleur du texte des cartes */
+  border-radius: 5px; /* Coins arrondis pour un effet moderne */
+  padding: 15px; /* Espacement intérieur */
+  flex: 1; /* Chaque carte occupe une part égale de l'espace disponible */
+  max-width: 350px; /* Limiter la largeur maximale des cartes */
+  text-align: center;
+}
+
+.caracteristiques h3 {
+  font-size: 1.3em; /* Taille des titres des cartes */
+  margin-bottom: 15px; /* Espacement sous les titres */
+}
+
+.caracteristiques p {
+  font-size: 1em; /* Taille du texte */
+  margin: 0; /* Supprimer les marges par défaut */
+}
+
+/* Media Queries pour petits écrans */
+@media (max-width: 768px) {
+  .caracteristiques {
+    flex-direction: column; /* Empiler les cartes en colonne sur petits écrans */
+    align-items: center; /* Centrer les cartes */
+  }
+
+  .caracteristiques div {
+    max-width: 90%; /* Les cartes prennent 90% de la largeur sur petits écrans */
+  }
+}
+
+
+
+
+
+/* Section APROPOS */
+#a-propos {
+
+  /* background-image: url('assets/images/Apropos2.png');  */
+  background-size: cover; /* Ajustement de l'image */
+  background-repeat: no-repeat;
+  background-position: center;
+  padding: 80px 20px; /* Réduction de l'espacement interne */
+  position: relative; 
+}
+
+/* Titre principal */
+h4 {
+  font-size: 30px; /* Taille du texte */
+  font-family: 'Roboto', sans-serif; /* Police pour H1 */
+text-align: center;
+  color: #000; 
+  margin: 0; 
+}
+
+/* Contenu général */
+.content {
+  display: flex;
+  flex-direction: row; /* Assure l'alignement horizontal */
+  justify-content: space-between;
+  align-items: flex-start; 
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+  position: relative; 
+  z-index: 2; 
+}
+
+/* Section texte à gauche */
+.text-gauche {
+  width: 60%;
+  padding-right: 20px;
+}
+
+.text-gauche h3 {
+  font-size: 1.8em; 
+  color: #3F7E44; 
+  margin-bottom: 10px; 
+}
+
+.text-gauche p {
+  margin-bottom: 15px; 
+  font-size: 1em; 
+  line-height: 1.4; 
+  color: #333; 
+}
+
+/* Section image à droite */
+.image-droite {
+  width: 35%;
+  position: relative;
+  text-align: center;
+}
+
+.image-droite img {
+  width: 100%;
+  border-radius: 10px;
+  margin-bottom: 10px; 
+}
+
+.image-droite button {
+  background-color: #3F7E44; 
+  color: #fff;
+  padding: 8px 15px; 
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 0.9em; 
+  transition: background-color 0.3s ease;
+}
+
+.image-droite button:hover {
+  background-color: #2e5f33; 
+}
+
+/* Media Queries pour les petits écrans */
+@media (max-width: 1024px) {
+  .content {
+    flex-direction: column; /* Colonne sur écrans moyens */
+    align-items: center; /* Centre les éléments */
+  }
+
+  .text-gauche, .image-droite {
+    width: 100%; /* Prend toute la largeur */
+    padding: 0;
+  }
+
+  .text-gauche {
+    margin-bottom: 20px; /* Marge inférieure pour espacement */
+  }
+}
+
+@media (max-width: 768px) {
+  h4 {
+    font-size: 30px; /* Taille du texte */
+    font-family: 'Roboto', sans-serif; /* Police pour H1 */
+    }
+
+  .text-gauche h3 {
+    font-size: 1.5em; 
+  }
+
+  .text-gauche p {
+    font-size: 0.9em; /* Réduction de la taille du texte */
+  }
+
+  .image-droite button {
+    padding: 6px 12px; /* Réduction du padding */
+    font-size: 0.8em; /* Réduction de la taille du bouton */
+  }
+}
+
+/* CATEGORIESSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSS */
+#categories h2 {
+  margin-bottom: 2%;
+  text-align: center;
+  padding: 50px 20px;
+  font-size: 30px; /* Taille du texte */
+font-family: 'Roboto', sans-serif; /* Police pour H1 */
+}
+
+#categories {
+    text-align: center;
+    padding: 50px 20px;
+}
+
+.grille-categories {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+.carte {
+    background-color: #f9f9f9; /* Couleur de fond par défaut */
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    margin: 17px;
+    padding: 60px;
+    text-align: center;
+    transition: background-color 0.3s, transform 0.3s; /* Ajout d'une transition pour l'effet de hover */
+    cursor: pointer;
+    width: 200px; /* Largeur fixe pour les cartes */
+}
+
+.carte h3 {
+    margin-top: 10px;
+    color: #333;
+    
+}
+
+/* Image circulaire */
+.image-circulaire {
+    width: 100px; /* Largeur de l'image */
+    height: 100px; /* Hauteur de l'image */
+    border-radius: 50%; /* Pour rendre l'image circulaire */
+    object-fit: cover; /* Pour couvrir l'espace sans déformation */
+}
+
+/* Effet de survol */
+.carte:hover {
+    background-color: #3F7E44; /* Couleur verte au survol */
+    transform: scale(1.05); /* Légère augmentation de la taille au survol */
+    color: white; /* Change la couleur du texte au survol */
+}
+
+
+
+
+
+
+
+
+#categories {
+  text-align: center;
+  padding: 50px 20px;
+}
+
+.grille-categories {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+
+.carte {
+  background-color: #f9f9f9; /* Couleur de fond par défaut */
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  margin: 15px;
+  padding: 20px;
+  text-align: center;
+  transition: background-color 0.3s, transform 0.3s; /* Ajout d'une transition pour l'effet de hover */
+  cursor: pointer;
+  width: 200px; /* Largeur fixe pour les cartes */
+}
+
+.carte h3 {
+  margin-top: 10px;
+  color: #333;
+}
+
+/* Image circulaire */
+.image-circulaire {
+  width: 100px; /* Largeur de l'image */
+  height: 100px; /* Hauteur de l'image */
+  border-radius: 50%; /* Pour rendre l'image circulaire */
+  object-fit: cover; /* Pour couvrir l'espace sans déformation */
+}
+
+/* Effet de survol */
+.carte:hover {
+  background-color: #3F7E44; /* Couleur verte au survol */
+  transform: scale(1.05); /* Légère augmentation de la taille au survol */
+  color: white; /* Change la couleur du texte au survol */
+}
+
+
+
+
+/* Contact Section Styles */
+.contact-section {
+  opacity: 73%;
+  background-color: #f4f4f4; /* Couleur de fond légère en contraste */
+  
+  /* background-image: url('assets/images/imageba.png');  */
+   /* Assurez-vous que le chemin est correct */ 
+
+
+  background-size: cover; /* Ajuste la taille de l'image pour couvrir toute la section */
+  background-position: center; /* Centre l'image dans la section */
+  background-repeat: no-repeat; /* Empêche la répétition de l'image */
+  padding: 40px 20px;
+  text-align: center;
+  color: white; /* Assure que le texte est lisible sur l'image de fond */
+}
+
+
+/* Style des boutons Envoyer et Réinitialiser avec texte blanc */
+input[type="submit"],
+input[type="reset"] {
+  background-color: #D2B48C;
+  color: #fff; /* Texte en blanc */
+  font-weight: bold;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s, color 0.3s, transform 0.1s;
+}
+
+input[type="submit"]:hover,
+input[type="reset"]:hover {
+  background-color: #343F69;
+}
+
+
+
+/* Applique l'animation de clignotement à tout le conteneur lors du focus sur le formulaire */
+div:focus-within {
+  animation: blink 10s ease-in-out; /* Animation qui dure 5 secondes */
+  outline: none;
+}
+
+/* Définir l'animation de clignotement */
+@keyframes blink {
+  0%, 100% { 
+      transform: scale(1); 
+  }
+  20%, 40%, 60%, 80% { 
+      transform: scale(1.05); 
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+#produits h2 {
+text-align: center;
+font-size: 30px; /* Taille du texte */
+font-family: 'Roboto', sans-serif; /* Police pour H1 */
+}
+
+#produits {
+  margin-bottom: 1%;
+  text-align: center;
+  padding: 10px 5px;
+}
+
+.grille-produits {
+  display: flex;
+  flex-wrap: wrap; /* Permet aux cartes de passer à la ligne suivante */
+  justify-content: center; /* Centre les cartes dans la section */
+  gap: 90px; /* Espace entre les cartes */
+}
+
+.carte-produit {
+  /* background-color: rgba(63, 126, 68, 0.3); Vert transparent */
+  border: 2px solid #3F7E44; /* Bordure verte */
+  border-radius: 5px; /* Arrondi pour toutes les bordures */
+  display: flex; /* Flex pour aligner le contenu */
+  justify-content: space-between; /* Espace entre le texte et l'image */
+  width: 99%; /* Largeur fixe pour les cartes */
+  max-width: 530px; /* Largeur maximale */
+  padding: 10px;
+  margin-top: 2%;
+}
+
+.contenu-produit {
+  text-align: left; /* Alignement du texte à gauche */
+  flex: 1; /* Permet au contenu de prendre l'espace disponible */
+}
+
+.carte-produit h3 {
+  color:#000; /* Couleur blanche pour le titre */
+  margin-bottom: 10px;
+  
+  
+}
+
+.carte-produit p {
+  color: #000; /* Couleur blanche pour le paragraphe */
+  margin-bottom: 25px;
+}
+
+.carte-produit button {
+  background-color: #3F7E44; /* Couleur du bouton */
+  color: #fff; /* Couleur blanche pour le texte du bouton */
+  padding: 5px 10px;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s; /* Transition pour le bouton */
+ 
+}
+
+.carte-produit button:hover {
+  background-color: #2e5f33; /* Couleur de fond au survol */
+}
+
+.image-produit {
+  width: 170px; /* Largeur de l'image */
+  height: auto; /* Conserve les proportions */
+  /* border-radius: 50%; Image en forme de cercle */
+  margin-left: 10px; /* Espace entre le texte et l'image */
+}
+
+
+
+
+
+
+#partenaires h2{
+  text-align: center; /* Centre le texte */
+  font-size: 35px; /* Taille du texte */
+  font-family: 'Roboto', sans-serif; /* Police pour H1 */
+}
+
+#partenaires {
+  text-align: center; /* Centre le texte */
+  padding: 50px 20px;
+  
+}
+
+.grille-partenaires {
+  display: flex; /* Flex pour aligner les cartes */
+  justify-content: center; /* Centre les cartes */
+  gap: 60px; /* Espace entre les cartes */
+}
+
+.carte-partenaire {
+  background-color: #fff; /* Fond blanc pour les cartes */
+  border: 1px solid #656363; /* Bordure noire */
+  border-radius: 3px; /* Arrondi pour toutes les bordures */
+  padding: 5px;
+  width: 400px; /* Largeur fixe pour les cartes */
+}
+
+.carte-partenaire h4 {
+  color: #8f948f; /* Couleur verte pour le titre */
+  margin-bottom: 10px;
+}
+
+.carte-partenaire p {
+  margin-bottom: 10px;
+}
+
+.partenariat-duration {
+  color: #3F7E44; /* Couleur verte pour la durée du partenariat */
+}
+
+.carte-partenaire img {
+  width: 80%; /* Largeur de l'image */
+  height: auto; /* Conserve les proportions */
+  border-radius: 3px; /* Arrondi léger pour l'image */
+}
+@media (max-width: 1200px) {
+  .grille-partenaires {
+    gap: 40px; /* Réduction de l'espace entre les cartes sur des écrans plus petits */
+  }
+
+  .carte-partenaire {
+    width: 350px; /* Réduction de la largeur des cartes pour les écrans moyens */
+  }
+}
+
+@media (max-width: 768px) {
+  .grille-partenaires {
+    flex-direction: column; /* Les cartes s'empilent en colonne sur les petits écrans */
+    gap: 30px; /* Réduction de l'espace entre les cartes */
+  }
+
+  .carte-partenaire {
+    width: 90%; /* Les cartes prennent presque toute la largeur sur mobile */
+  }
+}
+
+@media (max-width: 480px) {
+  .carte-partenaire {
+    width: 100%; /* Les cartes prennent toute la largeur sur les très petits écrans */
+    padding: 10px; /* Réduction du padding pour un design compact */
+  }
+}
+
+
+
+
+
+/*      ICI FOOTERRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRR */
+
+
+
+
+
+
+#footer {
+  background-color: #fff;
+  color: #343F69;
+  padding: 10px 15px; /* Réduction du padding pour diminuer la taille du footer */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+/* Image en haut du footer */
+#footer img {
+  width: 80px;
+  margin-bottom: 10px; /* Réduction de l'espacement */
+}
+
+/* Section newsletter */
+.footer-newsletter {
+  background-color: #216718;
+  padding: 10px; /* Réduction du padding pour ajuster la taille */
+  border-radius: 5px;
+  width: 90%;
+  text-align: center;
+  margin-bottom: 10px; /* Réduction de la marge */
+}
+
+.footer-newsletter h3 {
+  margin-bottom: 5px; /* Réduction de l'espacement */
+  font-size: 16px;
+  color: white;
+}
+
+.footer-newsletter form {
+  display: flex;
+  justify-content: center;
+}
+
+.footer-newsletter input {
+  padding: 8px; /* Réduction du padding */
+  width: 180px;
+  font-size: 14px;
+}
+
+.footer-newsletter button {
+  padding: 8px 12px; /* Réduction de la taille du bouton */
+  background-color: #4CAF50;
+  color: #fff;
+  border: none;
+  border-radius: 0 5px 5px 0;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.footer-newsletter button:hover {
+  background-color: #45a049;
+}
+
+/* Liens de navigation et informations légales en ligne horizontale */
+.footer-links {
+  display: flex;
+  justify-content: space-around; /* Distribution égale des sections */
+  width: 100%;
+  margin-top: 10px; /* Réduction de la marge supérieure */
+}
+
+.footer-section {
+  text-align: left;
+  flex: 1; /* Chaque section prend la même largeur */
+  padding: 0 10px; /* Espacement interne entre les sections */
+}
+
+.footer-section ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex; /* Liens en horizontal */
+  justify-content: center;
+}
+
+.footer-section ul li {
+  margin: 0 10px; /* Espacement entre les liens */
+}
+
+.footer-section a {
+  color: #343F69;
+  text-decoration: none;
+}
+
+.footer-section a:hover {
+  color: #4CAF50;
+  text-decoration: underline;
+}
+
+/* Réseaux sociaux */
+.footer-icons {
+  display: flex;
+  justify-content: center;
+  margin: 5px 0; /* Réduction de la marge */
+}
+
+.footer-icons a {
+  margin: 0 8px; /* Réduction de l'espacement entre les icônes */
+}
+
+.footer-icons img {
+  width: 28px;
+  height: 28px;
+}
+
+hr {
+  border: 1px solid #343F69;
+  width: 100%;
+  margin: 15px 0; /* Réduction de la marge */
+}
+
+/* Logo centré */
+.footer-logo-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.footer-logo {
+  width: 120px; /* Réduction de la taille du logo */
+  opacity: 0.9;
+  transition: opacity 0.3s ease-in-out;
+}
+
+.footer-logo:hover {
+  opacity: 1;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .footer-links {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .footer-section ul {
+    flex-direction: column; /* Repasser en colonne sur mobile */
+  }
+
+  .footer-section {
+    width: 100%;
+    text-align: center;
+    margin-bottom: 10px;
+  }
+
+  .footer-logo-container {
+    margin-bottom: 10px;
+  }
+}
+
+
+
+
+
+/* Contact Section Styles */
+.contact-section {
+  opacity: 73%;
+  background-color: #f4f4f4; /* Couleur de fond légère en contraste */
+  
+  /* background-image: url('assets/images/imageba.png');  */
+   /* Assurez-vous que le chemin est correct */ 
+
+
+  background-size: cover; /* Ajuste la taille de l'image pour couvrir toute la section */
+  background-position: center; /* Centre l'image dans la section */
+  background-repeat: no-repeat; /* Empêche la répétition de l'image */
+  padding: 40px 20px;
+  text-align: center;
+  color: white; /* Assure que le texte est lisible sur l'image de fond */
+}
+
+
+/* Style des boutons Envoyer et Réinitialiser avec texte blanc */
+input[type="submit"],
+input[type="reset"] {
+  background-color: #3F7E44;
+  color: #fff; /* Texte en blanc */
+  font-weight: bold;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s, color 0.3s, transform 0.1s;
+}
+
+input[type="submit"]:hover,
+input[type="reset"]:hover {
+  background-color: #3F7E44;
+}
