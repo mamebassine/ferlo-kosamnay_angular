@@ -1,0 +1,96 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@600&display=swap');
+
+
+/* En-tête */
+header {
+  background-color: #fff; /* Couleur de fond pour l'en-tête */
+  padding: 5px 10px; /* Ajustement de l'espacement intérieur */
+}
+
+nav {
+  display: flex;
+  align-items: center; /* Alignement vertical des éléments */
+  justify-content: space-between; /* Répartir les éléments sur toute la largeur */
+  flex-wrap: wrap; /* Permet de passer à la ligne sur les petits écrans */
+  font-size: 20px; /* Taille du texte */
+
+}
+
+nav .logo {
+  height: 120px; /* Ajustement de la hauteur du logo pour les petits écrans */
+  margin-left: 2%;
+}
+
+nav .menu-centre {
+  list-style: none; /* Supprimer les puces des listes */
+  display: flex; /* Afficher les éléments en ligne */
+  margin: 0; /* Supprimer les marges */
+  padding: 0; /* Supprimer les espacements */
+  flex: 1; /* Prendre toute la largeur disponible */
+  justify-content: center; /* Centrer les éléments horizontalement */
+  font-size: 30px; /* Taille du texte */
+  font-family: 'Roboto', sans-serif; /* Police pour H1 */
+
+
+}
+
+nav .menu-centre li {
+  margin: 0 15px; /* Espacement horizontal entre les éléments */
+}
+
+nav .menu-centre li a {
+  color: #000; /* Couleur du texte des liens */
+  text-decoration: none; /* Supprimer le soulignement des liens */
+  font-size: 20px; /* Taille du texte */
+}
+
+nav .menu-centre li a:hover {
+  text-decoration: underline; /* Souligner les liens au survol */
+  color: #99B951;
+}
+
+nav .icone-panier {
+  font-size: 20px; /* Taille de l'icône du panier */
+  color: #000; /* Couleur de l'icône */
+  margin-left: 15px; /* Espacement à gauche pour séparer de "Contact" */
+}
+
+nav .bouton-connexion {
+  background-color: #3F7E44; /* Couleur de fond pour le bouton de connexion */
+  padding: 6px 10px; /* Espacement intérieur du bouton */
+  color: #fff; /* Couleur du texte du bouton */
+  text-decoration: none; /* Supprimer le soulignement du bouton */
+  margin-right: 2%;
+
+}
+
+
+/* Media Queries pour les petits écrans */
+@media (max-width: 768px) {
+  nav {
+    flex-direction: column; /* Empile les éléments sur les petits écrans */
+    align-items: flex-start; /* Aligne les éléments à gauche */
+  }
+
+  nav .menu-centre {
+    flex-direction: column; /* Colonne pour les éléments du menu */
+    width: 100%; /* Prend toute la largeur */
+  }
+
+  nav .menu-centre li {
+    margin: 5px 0; /* Réduction de l'espacement entre les éléments */
+    width: 100%; /* Chaque élément prend toute la largeur */
+    text-align: center; /* Centre le texte des éléments */
+  }
+
+  nav .icone-panier, nav .bouton-connexion {
+    margin-left: 0; /* Supprime le margin à gauche pour le centrage */
+    width: 100%; /* Prend toute la largeur */
+    text-align: center; /* Centre le texte */
+    padding: 8px; /* Ajuste le padding pour les petits écrans */
+  }
+
+  nav .bouton-connexion {
+    margin-top: 10px; /* Ajoute un espacement au-dessus du bouton */
+  }
+}
