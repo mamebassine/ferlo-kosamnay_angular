@@ -1,6 +1,6 @@
 // Importation des modules et services nécessaires depuis Angular et les services personnalisés
 import { Component, inject } from '@angular/core'; // Importation du décorateur Component et de la fonction inject
-import { UserService } from '../../services/auth.service'; // Importation du service d'authentification personnalisé
+import { AuthService } from '../../services/auth.service'; // Nouveau code
 import { UserModel } from '../../Models/user.model'; // Importation du modèle d'utilisateur
 import { FormsModule } from '@angular/forms'; // Importation du module de formulaires Angular
 import { CommonModule } from '@angular/common'; // Importation du module commun d'Angular
@@ -18,7 +18,7 @@ import { AlertShowMessage } from '../../services/alertMessage'; // Importation d
 export class RegisterComponent {
 
   // Injection du service d'authentification via la fonction inject d'Angular
-  authService = inject(UserService);
+  authService = inject(AuthService);
 
   // Déclaration des variables utilisées dans le composant
 
@@ -54,7 +54,7 @@ export class RegisterComponent {
         },
         (error: any) => {
           // Si la requête échoue, affiche l'erreur dans la console
-          console.error('Erreur lors de l\'inscription', error);
+          // console.error('Erreur lors de l\'inscription', error);
           // Met à jour le message d'alerte avec le message d'erreur reçu du serveur ou un message générique
           this.alertMessage = error.error.message || "Erreur lors de l'inscription";
           // Appel au service pour afficher l'alerte d'erreur

@@ -1,28 +1,21 @@
-<!DOCTYPE html>
-<html lang="fr">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Connexion</title>
-    <link rel="stylesheet" href="login.component.css">
-</head>
 <body>
-    <div class="login-container">
-        <!-- Formulaire de connexion -->
-        <div class="login-form">
-            <h2>Connexion</h2>
-            <form action="#" method="POST">
-                <input type="email" name="email" placeholder="Email" required>
-                <input type="password" name="password" placeholder="Mot de passe" required>
-                <button type="submit">Connecter</button>
-                <p>Pas de compte ? <a href="#">Créer un compte</a></p>
-            </form>
+    <body>
+      <div class="login-container">
+        <h1 class="mb-4">CONNEXION</h1>
+        <form (ngSubmit)="connexion()">
+  
+            <input type="email" id="email" class="form-control" placeholder="Entrez votre email" [(ngModel)]="userObjet.email" name="email" required>
+  
+            <input type="password" id="password" class="form-control" placeholder="Entrez votre mot de passe" [(ngModel)]="userObjet.password" name="password" required>
+  
+          <button type="submit" class="btn btn-primary">Se connecter</button>
+        </form>
+        <div class="form-footer">
+          <a href="/inscription_user">Pas encore de compte ? Inscrivez-vous</a>
         </div>
-
-        <!-- Image à droite -->
-        <div class="login-image">
-            <img src="../assets/images/frommage.jpeg" alt="Image de connexion">
-        </div>
-    </div>
-</body>
-</html>
+      </div>
+    </body>
+  
+  </body>
+  
+ 
