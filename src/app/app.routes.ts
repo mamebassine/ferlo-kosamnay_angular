@@ -5,6 +5,8 @@ import { ProduitComponent } from './portail/produit/produit.component'; //MOI Mi
 import { CategorieComponent } from './portail/categorie/categorie.component'; //MOI Mise à jour du chemin
 import { ContactComponent } from './portail/contact/contact.component'; //MOI Mise à jour du chemin
 
+import { LoginComponent } from './auth/login/login.component';
+import { RegisterComponent } from './auth/register/register.component';
 
 
 
@@ -15,6 +17,9 @@ export const routes: Routes = [
     { path: 'produit', component: ProduitComponent }, // MOI Route pour l'accueil
     { path: 'categorie', component: CategorieComponent }, // MOI Route pour l'accueil
     { path: 'contact', component: ContactComponent }, // MOI Route pour l'accueil
+
+    { path: 'login', component: LoginComponent },
+   { path: 'register', component: RegisterComponent}
 
 
 

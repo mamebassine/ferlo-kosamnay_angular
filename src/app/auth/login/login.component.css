@@ -1,0 +1,114 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #fff;
+    height: 100vh; /* S'assure que le corps occupe 100% de la hauteur de la fenêtre */
+    display: flex;
+    justify-content: center; /* Centre horizontalement le conteneur */
+    align-items: center; /* Centre verticalement le conteneur */
+}
+
+.login-container {
+    display: flex;
+    justify-content: center; /* Centre les éléments à l'intérieur du conteneur */
+    align-items: center;
+    width: 60%;
+    margin: auto;
+    height: auto; /* Permet au conteneur de s'adapter au contenu */
+}
+
+.login-form {
+    background-color: #FFF;
+    padding: 40px; /* Réduit le padding pour aligner les marges */
+    border-radius: 15px;
+    border: 1px solid #ddd;
+    width: 50%; /* Largeur légèrement réduite pour s'aligner avec l'image */
+    height: auto; /* S'ajuste automatiquement au contenu */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Optionnel : Ajoute une ombre pour un meilleur effet visuel */
+}
+
+h2 {
+    text-align: center; /* Centré */
+}
+
+.login-form input {
+    width: 94%; /* Champ d'entrée prend toute la largeur du formulaire */
+    padding: 12px;
+    margin: 10px 0; /* Marge verticale pour espacer les champs */
+    border: 1px solid #ddd; /* Ajout d'une bordure uniforme */
+}
+
+.login-form button {
+    width: 100%; /* Ajusté à 100% pour correspondre à la largeur du formulaire */
+    padding: 12px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    cursor: pointer;
+    margin-top: 10px; /* Espace au-dessus du bouton */
+    margin-bottom: 10px; /* Ajout d'une marge inférieure pour uniformité */
+}
+
+.login-form button:hover {
+    background-color: #45a049;
+}
+
+.login-form p {
+    text-align: center; /* Centré */
+    margin-top: 15px; /* Espace au-dessus du texte */
+}
+
+.login-form a {
+    color: #4CAF50;
+    text-decoration: none;
+}
+
+.login-form a:hover {
+    text-decoration: underline;
+}
+
+.login-image {
+    width: 45%; /* Largeur de l'image */
+    height: auto; /* Ajustement automatique à la hauteur */
+    padding: 3px;
+    border-radius: 15px;
+    display: flex;
+    justify-content: center; /* Centre l'image horizontalement */
+    align-items: center; /* Centre l'image verticalement */
+}
+
+.login-image img {
+    width: 85%; /* L'image utilise 100% de la largeur de son conteneur */
+    height: auto; /* Ajustement automatique à la hauteur */
+    object-fit: cover; /* Garde les proportions tout en remplissant le conteneur */
+    border-radius: 15px;
+}
+.login-form {
+    /* autres styles */
+    margin-bottom: 10px; /* Réduisez cette valeur selon vos besoins */
+}
+
+.login-image {
+    margin-top: 0; /* Assurez-vous qu'il n'y a pas de marge supérieure */
+}
+
+
+@media (max-width: 768px) {
+    .login-container {
+        flex-direction: column; /* Change la direction pour les petits écrans */
+        width: 90%; /* Ajuste la largeur pour les petits écrans */
+    }
+
+    .login-form, .login-image {
+        width: 100%; /* Les deux éléments prennent toute la largeur */
+        margin-bottom: 20px; /* Ajoute un espace entre le formulaire et l'image */
+    }
+
+    .login-form {
+        padding: 20px; /* Réduit le padding sur mobile */
+    }
+}
