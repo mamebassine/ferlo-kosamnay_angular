@@ -1,0 +1,193 @@
+#footer {
+    background-color: #fff;
+    color: #343F69;
+    padding: 10px 15px; /* Réduction du padding pour diminuer la taille du footer */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+  
+  /* Image en haut du footer */
+  #footer img {
+    width: 80px;
+    margin-bottom: 10px; /* Réduction de l'espacement */
+  }
+  
+  /* Section newsletter */
+  .footer-newsletter {
+    background-color: #216718;
+    padding: 10px; /* Réduction du padding pour ajuster la taille */
+    border-radius: 5px;
+    width: 90%;
+    text-align: center;
+    margin-bottom: 10px; /* Réduction de la marge */
+  }
+  
+  .footer-newsletter h3 {
+    margin-bottom: 5px; /* Réduction de l'espacement */
+    font-size: 16px;
+    color: white;
+  }
+  
+  .footer-newsletter form {
+    display: flex;
+    justify-content: center;
+  }
+  
+  .footer-newsletter input {
+    padding: 8px; /* Réduction du padding */
+    width: 180px;
+    font-size: 14px;
+  }
+  
+  .footer-newsletter button {
+    padding: 8px 12px; /* Réduction de la taille du bouton */
+    background-color: #4CAF50;
+    color: #fff;
+    border: none;
+    border-radius: 0 5px 5px 0;
+    cursor: pointer;
+    font-size: 14px;
+  }
+  
+  .footer-newsletter button:hover {
+    background-color: #45a049;
+  }
+  
+  /* Liens de navigation et informations légales en ligne horizontale */
+  .footer-links {
+    display: flex;
+    justify-content: space-around; /* Distribution égale des sections */
+    width: 100%;
+    margin-top: 10px; /* Réduction de la marge supérieure */
+  }
+  
+  .footer-section {
+    text-align: left;
+    flex: 1; /* Chaque section prend la même largeur */
+    padding: 0 10px; /* Espacement interne entre les sections */
+  }
+  
+  .footer-section ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex; /* Liens en horizontal */
+    justify-content: center;
+  }
+  
+  .footer-section ul li {
+    margin: 0 10px; /* Espacement entre les liens */
+  }
+  
+  .footer-section a {
+    color: #343F69;
+    text-decoration: none;
+  }
+  
+  .footer-section a:hover {
+    color: #4CAF50;
+    text-decoration: underline;
+  }
+  
+  /* Réseaux sociaux */
+  .footer-icons {
+    display: flex;
+    justify-content: center;
+    margin: 5px 0; /* Réduction de la marge */
+  }
+  
+  .footer-icons a {
+    margin: 0 8px; /* Réduction de l'espacement entre les icônes */
+  }
+  
+  .footer-icons img {
+    width: 28px;
+    height: 28px;
+  }
+  
+  hr {
+    border: 1px solid #343F69;
+    width: 100%;
+    margin: 15px 0; /* Réduction de la marge */
+  }
+  
+  /* Logo centré */
+  .footer-logo-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .footer-logo {
+    width: 120px; /* Réduction de la taille du logo */
+    opacity: 0.9;
+    transition: opacity 0.3s ease-in-out;
+  }
+  
+  .footer-logo:hover {
+    opacity: 1;
+  }
+  
+  /* Responsive design */
+  @media (max-width: 768px) {
+    .footer-links {
+      flex-direction: column;
+      align-items: center;
+    }
+  
+    .footer-section ul {
+      flex-direction: column; /* Repasser en colonne sur mobile */
+    }
+  
+    .footer-section {
+      width: 100%;
+      text-align: center;
+      margin-bottom: 10px;
+    }
+  
+    .footer-logo-container {
+      margin-bottom: 10px;
+    }
+  }
+  
+  
+  
+  
+  
+  /* Contact Section Styles */
+  .contact-section {
+    opacity: 73%;
+    background-color: #f4f4f4; /* Couleur de fond légère en contraste */
+    
+    /* background-image: url('assets/images/imageba.png');  */
+     /* Assurez-vous que le chemin est correct */ 
+  
+  
+    background-size: cover; /* Ajuste la taille de l'image pour couvrir toute la section */
+    background-position: center; /* Centre l'image dans la section */
+    background-repeat: no-repeat; /* Empêche la répétition de l'image */
+    padding: 40px 20px;
+    text-align: center;
+    color: white; /* Assure que le texte est lisible sur l'image de fond */
+  }
+  
+  
+  /* Style des boutons Envoyer et Réinitialiser avec texte blanc */
+  input[type="submit"],
+  input[type="reset"] {
+    background-color: #3F7E44;
+    color: #fff; /* Texte en blanc */
+    font-weight: bold;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s, transform 0.1s;
+  }
+  
+  input[type="submit"]:hover,
+  input[type="reset"]:hover {
+    background-color: #3F7E44;
+  }
+  
