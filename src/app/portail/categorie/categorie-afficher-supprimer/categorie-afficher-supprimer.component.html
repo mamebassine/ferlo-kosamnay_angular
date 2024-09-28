@@ -1,0 +1,39 @@
+<!-- src/app/components/categorie/categorie.component.html -->
+<div class="container">
+    <h2>Liste des Catégories</h2>
+  
+    <!-- Affichage d'un message d'erreur si nécessaire -->
+    <div *ngIf="errorMessage" class="alert alert-danger">
+      {{ errorMessage }}
+    </div>
+  
+    <!-- Bouton pour ajouter une nouvelle catégorie -->
+    <button class="btn btn-primary mb-3" (click)="navigateToCreate()">Ajouter une catégorie</button>
+  
+    <!-- Tableau des catégories -->
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Nom Complet</th>
+          <th>Description</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let categorie of categories">
+          <td>{{ categorie.id }}</td>
+          <td>{{ categorie.nom_complet }}</td>
+          <td>{{ categorie.description }}</td>
+          <td>
+            <!-- Bouton pour modifier la catégorie -->
+            <button class="btn btn-secondary btn-sm me-2" (click)="navigateToEdit(categorie.id)">Modifier</button>
+            
+            <!-- Bouton pour supprimer la catégorie -->
+            <button class="btn btn-danger btn-sm" (click)="deleteCategorie(categorie.id)">Supprimer</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  
