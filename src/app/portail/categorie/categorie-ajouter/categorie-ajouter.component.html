@@ -1,0 +1,23 @@
+<!-- src/app/portail/categorie/categorie-ajouter/categorie-ajouter.component.html -->
+<div class="container">
+    <h2>Ajouter une Nouvelle Catégorie</h2>
+  
+    <!-- Affichage d'un message d'erreur si nécessaire -->
+    <div *ngIf="errorMessage" class="alert alert-danger">
+      {{ errorMessage }}
+    </div>
+  
+    <form (ngSubmit)="ajouterCategorie()">
+      <div class="mb-3">
+        <label for="nom_complet" class="form-label">Nom Complet</label>
+        <input type="text" id="nom_complet" [(ngModel)]="nouvelleCategorie.nom_complet" name="nom_complet" class="form-control" required>
+      </div>
+      <div class="mb-3">
+        <label for="description" class="form-label">Description</label>
+        <textarea id="description" [(ngModel)]="nouvelleCategorie.description" name="description" class="form-control"></textarea>
+      </div>
+      <button type="submit" class="btn btn-primary">Ajouter</button>
+      <button type="button" class="btn btn-secondary ms-2" (click)="router.navigate(['/categorie'])">Annuler</button>
+    </form>
+  </div>
+  
