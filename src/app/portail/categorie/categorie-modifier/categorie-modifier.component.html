@@ -1,0 +1,23 @@
+<!-- src/app/portail/categorie/categorie-modifier/categorie-modifier.component.html -->
+<div class="container">
+    <h2>Modifier la Catégorie</h2>
+  
+    <!-- Affichage d'un message d'erreur si nécessaire -->
+    <div *ngIf="errorMessage" class="alert alert-danger">
+      {{ errorMessage }}
+    </div>
+  
+    <form (ngSubmit)="modifierCategorie()">
+      <div class="mb-3">
+        <label for="nom_complet" class="form-label">Nom Complet</label>
+        <input type="text" id="nom_complet" [(ngModel)]="categorie.nom_complet" name="nom_complet" class="form-control" required>
+      </div>
+      <div class="mb-3">
+        <label for="description" class="form-label">Description</label>
+        <textarea id="description" [(ngModel)]="categorie.description" name="description" class="form-control"></textarea>
+      </div>
+      <button type="submit" class="btn btn-primary">Modifier</button>
+      <button type="button" class="btn btn-secondary ms-2" (click)="router.navigate(['/categorie'])">Annuler</button>
+    </form>
+  </div>
+  
