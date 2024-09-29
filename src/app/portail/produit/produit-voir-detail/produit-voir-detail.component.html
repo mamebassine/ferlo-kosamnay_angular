@@ -1,1 +1,30 @@
-<p>produit-voir-detail works!</p>
+
+<!-- src/app/portail/produit/produit-voir-detail/produit-voir-detail.component.html -->
+<div class="container" *ngIf="produit; else loadingOrError">
+    <h2>Détails du Produit</h2>
+    <div class="card">
+      <div class="card-header">
+        {{ produit.nom }} ({{ produit.reference }})
+      </div>
+      <div class="card-body">
+        <img [src]="produit.image" alt="{{ produit.nom }}" class="img-fluid mb-3" style="max-width: 200px;">
+        <p><strong>Nom Complet:</strong> {{ produit.nom_complet }}</p>
+        <p><strong>Description:</strong> {{ produit.description }}</p>
+        <p><strong>Prix:</strong> {{ produit.prix | currency }}</p>
+        <p><strong>Quantité:</strong> {{ produit.quantite }}</p>
+        <p><strong>Catégorie:</strong> {{ produit.categorie?.nom_complet }}</p>
+        <!-- Ajouter d'autres détails si nécessaire -->
+      </div>
+    </div>
+    <button class="btn btn-secondary mt-3" (click)="goBack()">Retour</button>
+  </div>
+  
+  <ng-template #loadingOrError>
+    <div *ngIf="errorMessage" class="alert alert-danger">
+      {{ errorMessage }}
+    </div>
+    <div *ngIf="!errorMessage" class="alert alert-info">
+      Chargement des détails du produit...
+    </div>
+  </ng-template>
+  

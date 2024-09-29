@@ -1,1 +1,72 @@
-<p>produit-modifier works!</p>
+<!-- src/app/portail/produit/produit-modifier/produit-modifier.component.html -->
+<div class="container">
+    <h2>Modifier le Produit</h2>
+  
+    <!-- Affichage des messages d'erreur -->
+    <div *ngIf="errorMessages.length > 0" class="alert alert-danger">
+      <ul>
+        <li *ngFor="let error of errorMessages">{{ error }}</li>
+      </ul>
+    </div>
+  
+    <!-- Affichage du message de succès -->
+    <div *ngIf="successMessage" class="alert alert-success">
+      {{ successMessage }}
+    </div>
+  
+    <form (ngSubmit)="onSubmit()" #produitForm="ngForm">
+      <!-- Nom -->
+      <div class="form-group">
+        <label for="nom">Nom</label>
+        <input type="text" id="nom" name="nom" class="form-control" [(ngModel)]="produit.nom" required>
+      </div>
+  
+      <!-- Nom Complet -->
+      <div class="form-group">
+        <label for="nom_complet">Nom Complet</label>
+        <input type="text" id="nom_complet" name="nom_complet" class="form-control" [(ngModel)]="produit.nom_complet" required>
+      </div>
+  
+      <!-- Référence -->
+      <div class="form-group">
+        <label for="reference">Référence</label>
+        <input type="text" id="reference" name="reference" class="form-control" [(ngModel)]="produit.reference" required>
+      </div>
+  
+      <!-- Description -->
+      <div class="form-group">
+        <label for="description">Description</label>
+        <textarea id="description" name="description" class="form-control" [(ngModel)]="produit.description" required></textarea>
+      </div>
+  
+      <!-- Prix -->
+      <div class="form-group">
+        <label for="prix">Prix</label>
+        <input type="number" id="prix" name="prix" class="form-control" [(ngModel)]="produit.prix" required min="0">
+      </div>
+  
+      <!-- Quantité -->
+      <div class="form-group">
+        <label for="quantite">Quantité</label>
+        <input type="number" id="quantite" name="quantite" class="form-control" [(ngModel)]="produit.quantite" required min="0">
+      </div>
+  
+      <!-- Image -->
+      <div class="form-group">
+        <label for="image">Image URL</label>
+        <input type="text" id="image" name="image" class="form-control" [(ngModel)]="produit.image" required>
+      </div>
+  
+      <!-- Catégorie -->
+      <div class="form-group">
+        <label for="categorie_id">Catégorie</label>
+        <select id="categorie_id" name="categorie_id" class="form-control" [(ngModel)]="produit.categorie_id" required>
+          <option value="" disabled>-- Sélectionnez une catégorie --</option>
+          <option *ngFor="let categorie of categories" [value]="categorie.id">{{ categorie.nom_complet }}</option>
+        </select>
+      </div>
+  
+      <button type="submit" class="btn btn-primary" [disabled]="!produitForm.form.valid">Mettre à Jour</button>
+    </form>
+  </div>
+  

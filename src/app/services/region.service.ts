@@ -13,7 +13,7 @@ export interface Region {
   providedIn: 'root'
 })
 export class RegionService {
-  private apiURL = 'http://localhost:8000/api/regions'; // URL de votre API Laravel
+  private apiURL = 'http://localhost:8000/api/regions'; 
 
   constructor(private http: HttpClient) { }
 
