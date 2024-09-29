@@ -4,7 +4,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { ProduitService, Produit } from '../../../services/produit.service';
 import { CategorieService, Categorie } from '../../../services/categorie.service'; // Assurez-vous d'avoir ce service
 import { NgModule } from '@angular/core';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { FormsModule,} from '@angular/forms';
 import { CommonModule } from '@angular/common';
 
 @Component({
