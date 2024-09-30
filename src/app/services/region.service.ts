@@ -1,4 +1,3 @@
-// src/app/services/region.service.ts
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Observable, throwError } from 'rxjs';
@@ -13,51 +12,37 @@ export interface Region {
   providedIn: 'root'
 })
 export class RegionService {
-  private apiURL = 'http://localhost:8000/api/regions'; 
+  private apiUrl = 'http://localhost:8000/api/regions'; // Remplacez par votre URL API
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) {}
 
-  // Obtenir toutes les régions
-  getRegions(): Observable<Region[]> {
-    return this.http.get<Region[]>(this.apiURL)
+  getAllRegions(): Observable<Region[]> {
+    return this.http.get<Region[]>(this.apiUrl)
       .pipe(catchError(this.handleError));
   }
 
-  // Obtenir une région par ID
-  getRegion(id: number): Observable<Region> {
-    return this.http.get<Region>(`${this.apiURL}/${id}`)
+  createRegion(region: Region): Observable<Region> {
+    return this.http.post<Region>(this.apiUrl, region)
       .pipe(catchError(this.handleError));
   }
 
-  // Ajouter une nouvelle région
-  addRegion(region: Region): Observable<Region> {
-    return this.http.post<Region>(this.apiURL, region)
-      .pipe(catchError(this.handleError));
-  }
-
-  // Mettre à jour une région
   updateRegion(id: number, region: Region): Observable<Region> {
-    return this.http.put<Region>(`${this.apiURL}/${id}`, region)
+    return this.http.put<Region>(`${this.apiUrl}/${id}`, region)
       .pipe(catchError(this.handleError));
   }
 
-  // Supprimer une région
-  deleteRegion(id: number): Observable<any> {
-    return this.http.delete(`${this.apiURL}/${id}`)
+  getRegion(id: number): Observable<Region> {
+    return this.http.get<Region>(`${this.apiUrl}/${id}`) // Correction ici
       .pipe(catchError(this.handleError));
   }
 
-  // Gérer les erreurs
+  deleteRegion(id: number): Observable<void> {
+    return this.http.delete<void>(`${this.apiUrl}/${id}`)
+      .pipe(catchError(this.handleError));
+  }
+
   private handleError(error: HttpErrorResponse) {
-    if (error.error instanceof ErrorEvent) {
-      // Erreur côté client
-      console.error('Une erreur est survenue:', error.error.message);
-    } else {
-      // Erreur côté serveur
-      console.error(
-        `Code de retour ${error.status}, ` +
-        `corps: ${JSON.stringify(error.error)}`);
-    }
-    return throwError('Quelque chose a mal tourné; veuillez réessayer plus tard.');
+    console.error('Une erreur s\'est produite:', error.error || error.message);
+    return throwError(() => new Error('Quelque chose s\'est mal passé; veuillez réessayer plus tard.'));
   }
 }
