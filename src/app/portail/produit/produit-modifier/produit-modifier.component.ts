@@ -2,7 +2,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ProduitService, Produit } from '../../../services/produit.service';
-import { CategorieService, Categorie } from '../../../services/categorie.service'; // Assurez-vous d'avoir ce service
+import { CategorieService, Categorie } from '../../../services/categorie.service'; 
 import { NgModule } from '@angular/core';
 import { FormsModule,} from '@angular/forms';
 import { CommonModule } from '@angular/common';
@@ -14,7 +14,7 @@ selector: 'app-produit-modifier',
   styleUrls: ['./produit-modifier.component.css'],
   imports: [
     CommonModule,
-    FormsModule // Utilisé pour ngModel
+    FormsModule 
   ]
 
 })

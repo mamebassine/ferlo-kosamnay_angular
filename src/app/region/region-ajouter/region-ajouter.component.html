@@ -1,0 +1,14 @@
+<div class="container">
+    <h2>Ajouter une nouvelle région</h2>
+  
+    <form (ngSubmit)="onSubmit()" #f="ngForm">
+      <div class="form-group">
+        <label for="nom">Nom de la région :</label>
+        <input type="text" id="nom" name="nom" [(ngModel)]="region.nom" required>
+      </div>
+  
+      <button type="submit" [disabled]="!f.valid" class="btn btn-primary">Ajouter</button>
+      <button type="button" (click)="cancel()" class="btn btn-secondary">Annuler</button>
+    </form>
+  </div>
+  

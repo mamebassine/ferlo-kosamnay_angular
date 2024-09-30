@@ -19,6 +19,10 @@ import { ProduitAjouterComponent } from './portail/produit/produit-ajouter/produ
 import { ProduitModifierComponent } from './portail/produit/produit-modifier/produit-modifier.component';
 import { ProduitVoirDetailComponent } from './portail/produit/produit-voir-detail/produit-voir-detail.component';
 
+// Import des composants régions
+import { RegionAfficherSupprimerComponent } from './region/region-afficher-supprimer/region-afficher-supprimer.component';
+import { RegionAjouterComponent } from './region/region-ajouter/region-ajouter.component';
+import { RegionModifierComponent } from './region/region-modifier/region-modifier.component';
 
 
 
@@ -43,14 +47,10 @@ import { ProduitVoirDetailComponent } from './portail/produit/produit-voir-detai
 { path: 'produit/modifier/:id', component: ProduitModifierComponent },
 { path: 'produit/detail/:id', component: ProduitVoirDetailComponent },
 
-
-
-
-
-
-
-
-   
+// Routes pour les régions
+{ path: 'region', component: RegionAfficherSupprimerComponent },
+{ path: 'region/ajouter', component: RegionAjouterComponent },
+{ path: 'region/modifier/:id', component: RegionModifierComponent },
 
 ];
 

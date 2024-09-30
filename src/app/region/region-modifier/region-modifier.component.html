@@ -1,0 +1,26 @@
+<div class="container">
+    <h2>Modifier la Région</h2>
+  
+    <!-- Affichage des messages d'erreur -->
+    <div *ngIf="errorMessages.length > 0" class="alert alert-danger">
+      <ul>
+        <li *ngFor="let erreur of errorMessages">{{ erreur }}</li>
+      </ul>
+    </div>
+  
+    <!-- Affichage du message de succès -->
+    <div *ngIf="successMessage" class="alert alert-success">
+      {{ successMessage }}
+    </div>
+  
+    <form (ngSubmit)="onSubmit()" #formRegion="ngForm">
+      <!-- Nom -->
+      <div class="form-group">
+        <label for="nom">Nom de la Région</label>
+        <input type="text" id="nom" name="nom" class="form-control" [(ngModel)]="region.nom" required>
+      </div>
+  
+      <button type="submit" class="btn btn-primary" [disabled]="!formRegion.form.valid">Mettre à Jour</button>
+    </form>
+  </div>
+  
