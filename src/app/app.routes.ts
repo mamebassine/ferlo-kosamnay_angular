@@ -29,7 +29,7 @@ import { RegionModifierComponent } from './region/region-modifier/region-modifie
 
 import { BoutiqueAfficherSupprimerComponent } from './boutique/boutique-afficher-supprimer/boutique-afficher-supprimer.component';
 import { BoutiqueAjouterComponent } from './boutique/boutique-ajouter/boutique-ajouter.component';
-// import { BoutiqueModifierComponent } from './boutique/boutique-modifier/boutique-modifier.component';
+import { BoutiqueModifierComponent } from './boutique/boutique-modifier/boutique-modifier.component';
 import { BoutiqueVoirDetailComponent } from './boutique/boutique-voir-detail/boutique-voir-detail.component';
 
 
@@ -64,7 +64,7 @@ import { BoutiqueVoirDetailComponent } from './boutique/boutique-voir-detail/bou
 // Routes pour les BOUTIQUES
   { path: 'boutique', component: BoutiqueAfficherSupprimerComponent },
   { path: 'boutique/ajouter', component: BoutiqueAjouterComponent },
-  // { path: 'boutique/modifier/:id', component: BoutiqueModifierComponent },
+  { path: 'boutique/modifier/:id', component: BoutiqueModifierComponent },
   { path: 'boutique/detail/:id', component: BoutiqueVoirDetailComponent },
 ];
 
