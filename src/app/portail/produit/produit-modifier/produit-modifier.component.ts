@@ -27,7 +27,6 @@ export class ProduitModifierComponent implements OnInit {
     quantite: 0,
     reference: '',
     nom: '',
-    nom_complet: ''
   };
 
   categories: Categorie[] = [];

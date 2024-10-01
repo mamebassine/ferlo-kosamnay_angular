@@ -15,7 +15,8 @@ import { FormsModule } from '@angular/forms'; // Importer FormsModule
 export class CategorieModifierComponent implements OnInit {
   categorieId!: number; // ID de la catégorie à modifier
   categorie: Categorie = {
-    nom_complet: '',
+    image: '',
+   nom_complet: '',
     description: ''
   };
   errorMessage: string = '';

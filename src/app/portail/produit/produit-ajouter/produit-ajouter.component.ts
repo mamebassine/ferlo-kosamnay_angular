@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, } from '@angular/forms';
 import { Component, OnInit } from '@angular/core';
 import { ProduitService, Produit } from '../../../services/produit.service';
 import { CategorieService, Categorie } from '../../../services/categorie.service';
@@ -25,7 +25,7 @@ export class ProduitAjouterComponent implements OnInit {
     quantite: 0,
     reference: '',
     nom: '',
-    nom_complet:'',
+    // nom_complet:'',
   };
 
   categories: Categorie[] = [];
@@ -68,6 +68,8 @@ export class ProduitAjouterComponent implements OnInit {
           }
         } else {
           this.errorMessages.push('Une erreur est survenue lors de l\'ajout du produit.');
+          console.log(this.errorMessages.push('Une erreur est survenue lors de l\'ajout du produit.'));
+          
         }
       }
     );
@@ -83,7 +85,7 @@ export class ProduitAjouterComponent implements OnInit {
       quantite: 0,
       reference: '',
       nom: '',
-      nom_complet: '',
+      // nom_complet: '',
     };
   }
 }

@@ -15,6 +15,7 @@
       <thead>
         <tr>
           <th>ID</th>
+          <th>image</th>
           <th>Nom Complet</th>
           <th>Description</th>
           <th>Actions</th>
@@ -23,6 +24,11 @@
       <tbody>
         <tr *ngFor="let categorie of categories">
           <td>{{ categorie.id }}</td>
+          <td>
+                <!-- <img [src]="'assets/images/' + produit.image" alt="{{ produit.nom }}" style="width: 50px; height: auto;"> -->
+    
+                <img [src]="categorie.image" alt="{{ categorie.image }}" style="width: 50px; height: auto;" /> 
+        </td>
           <td>{{ categorie.nom_complet }}</td>
           <td>{{ categorie.description }}</td>
           <td>

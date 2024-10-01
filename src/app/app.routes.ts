@@ -26,6 +26,12 @@ import { RegionModifierComponent } from './region/region-modifier/region-modifie
 
 
 
+import { BoutiqueAfficherSupprimerComponent } from './boutique/boutique-afficher-supprimer/boutique-afficher-supprimer.component';
+import { BoutiqueAjouterComponent } from './boutique/boutique-ajouter/boutique-ajouter.component';
+import { BoutiqueModifierComponent } from './boutique/boutique-modifier/boutique-modifier.component';
+import { BoutiqueVoirDetailComponent } from './boutique/boutique-voir-detail/boutique-voir-detail.component';
+
+
                   export const routes: Routes = [
 
      // Routes pour l'authentification
@@ -52,6 +58,11 @@ import { RegionModifierComponent } from './region/region-modifier/region-modifie
 { path: 'region/ajouter', component: RegionAjouterComponent },
 { path: 'region/modifier/:id', component: RegionModifierComponent },
 
+// Routes pour les BOUTIQUES
+  { path: 'boutique', component: BoutiqueAfficherSupprimerComponent },
+  { path: 'boutique/ajouter', component: BoutiqueAjouterComponent },
+  { path: 'boutique/modifier/:id', component: BoutiqueModifierComponent },
+  { path: 'boutique/detail/:id', component: BoutiqueVoirDetailComponent },
 ];
 
 
