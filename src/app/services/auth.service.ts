@@ -1,5 +1,4 @@
-// Importation des modules et services nécessaires depuis Angular et RxJS
-import { Injectable } from '@angular/core'; // Importation du décorateur Injectable pour définir ce service comme injectable
+import { Injectable } from '@angular/core'; // Importation du décorateur Injectable
 import { HttpClient, HttpHeaders } from '@angular/common/http'; // Importation de HttpClient et HttpHeaders pour les requêtes HTTP
 import { Observable, BehaviorSubject, throwError } from 'rxjs'; // Importation de Observable, BehaviorSubject et throwError de RxJS
 import { tap, catchError } from 'rxjs/operators'; // Importation des opérateurs tap et catchError de RxJS
@@ -15,7 +14,7 @@ export interface User {
 }
 
 @Injectable({
-  providedIn: 'root' // Spécifie que ce service est fourni au niveau racine de l'application, le rendant disponible partout
+  providedIn: 'root' // Spécifie que ce service est fourni au niveau racine de l'application
 })
 export class AuthService {
   
@@ -95,6 +94,18 @@ export class AuthService {
           // Mettre à jour le BehaviorSubject pour indiquer que l'utilisateur est déconnecté
           this.currentUserSubject.next(null);
         }),
+        catchError(this.handleError)
+      );
+  }
+
+  /**
+   * Méthode pour récupérer la liste des utilisateurs.
+   * @returns Observable<User[]> - Observable qui émet la liste des utilisateurs
+   */
+  getUsers(): Observable<User[]> {
+    // Assurez-vous que votre backend expose une route GET /api/users
+    return this.http.get<User[]>(`${this.apiUrl}/representants`)
+      .pipe(
         catchError(this.handleError)
       );
   }

@@ -1,8 +1,9 @@
 import { Routes } from '@angular/router';
 
-// Import des composants login
+// Import des composants login, register, dashoad
 import { LoginComponent } from './auth/login/login.component';
 import { RegisterComponent } from './auth/register/register.component';
+import { DashboardComponent } from './dashboard/admin/admin.component'; // Assurez-vous que le chemin est correct
 
 // Import des composants accueil et contact
 import { AccueilComponent } from './portail/accueil/accueil.component'; //MOI Mise à jour du chemin
@@ -34,9 +35,11 @@ import { BoutiqueVoirDetailComponent } from './boutique/boutique-voir-detail/bou
 
                   export const routes: Routes = [
 
-     // Routes pour l'authentification
+     // Routes pour l'authentification et dashoard
 { path: 'login', component: LoginComponent },
 { path: 'register', component: RegisterComponent},
+{ path: 'dashboard', component: DashboardComponent }, // Utilisez DashboardComponent
+
  
     // Routes pour l'accueil et contact 
 { path: '', component: AccueilComponent }, // MOI Route pour l'accueil

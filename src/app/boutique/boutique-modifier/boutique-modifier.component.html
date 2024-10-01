@@ -1,1 +1,46 @@
-<p>boutique-modifier works!</p>
+<div>
+    <h2>Modification de la boutique</h2>
+    
+    <!-- Formulaires de modification -->
+    <form (ngSubmit)="submitForm()">
+      <div>
+        <label for="nom">Nom :</label>
+        <input id="nom" type="text" value="nom" [(ngModel)]="boutique.nom" name="nom" required>
+      </div>
+      
+      <div>
+        <label for="adresse">Adresse :</label>
+        <input id="adresse" type="text" [(ngModel)]="boutique.adresse" name="adresse" required>
+      </div>
+      
+      <div>
+        <label for="telephone">Téléphone :</label>
+        <input id="telephone" type="tel" [(ngModel)]="boutique.telephone" name="telephone" required>
+      </div>
+      
+      <div>
+        <label for="region">Région :</label>
+        <select id="region" [(ngModel)]="boutique.region_id" name="region" required>
+          <option value="">-- Sélectionnez une région --</option>
+          <!-- Ajoutez ici les options de régions -->
+        </select>
+      </div>
+      
+      <div>
+        <label for="user">Utilisateur :</label>
+        <select id="user" [(ngModel)]="boutique.user_id" name="user" required>
+          <option value="">-- Sélectionnez un utilisateur --</option>
+          <!-- Ajoutez ici les options d'utilisateurs -->
+        </select>
+      </div>
+      
+      <div>
+        <label for="representant">Représentant :</label>
+        <input id="representant" type="text" [(ngModel)]="boutique.representant" name="representant">
+      </div>
+      
+      <button type="submit">Modifier</button>
+      <button type="button" (click)="cancel()">Annuler</button>
+    </form>
+  </div>
+  
