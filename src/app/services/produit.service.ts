@@ -13,7 +13,7 @@ export interface Produit {
   quantite: number;
   reference: string;
   nom: string;
-  nom_complet: string; 
+  // nom_complet?: string; 
   categorie?: Categorie;
 }
 

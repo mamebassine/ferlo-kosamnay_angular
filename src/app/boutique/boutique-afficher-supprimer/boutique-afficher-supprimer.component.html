@@ -1,1 +1,50 @@
-<p>boutique-afficher-supprimer works!</p>
+
+<div>
+    <h2>Liste des Boutiques</h2>
+    
+    <!-- Affichage des messages d'erreur -->
+    <div *ngIf="errorMessage">
+      {{ errorMessage }}
+    </div>
+  
+    <!-- Table des boutiques -->
+    <table>
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Nom</th>
+          <th>Adresse</th>
+          <th>Téléphone</th>
+          <th>Région</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let boutique of boutiques">
+          <td>{{ boutique.id }}</td>
+          <td>{{ boutique.nom }}</td>
+          <td>{{ boutique.adresse }}</td>
+          <td>{{ boutique.telephone }}</td>
+          <td>{{ boutique.region?.nom }}</td>
+          <td>
+
+    <button>
+        <a (click)="['/boutique/detail', boutique.id]">Détails</a>
+
+    </button>  
+    <button>
+        <a (click)="['/boutique/modifier', boutique.id]">Modifier</a>
+
+    </button>            
+            <button (click)="deleteBoutique(boutique.id)">Supprimer</button>
+            </td>
+            </tr>
+            
+        </tbody>
+        </table>
+    <button> 
+        <a (click)="['/boutique/ajouter']">Ajouter une boutique</a>  
+    </button>  
+
+</div>
+  

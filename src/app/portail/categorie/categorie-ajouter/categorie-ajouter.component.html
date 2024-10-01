@@ -1,23 +1,65 @@
 <!-- src/app/portail/categorie/categorie-ajouter/categorie-ajouter.component.html -->
-<div class="container">
-    <h2>Ajouter une Nouvelle Catégorie</h2>
-  
-    <!-- Affichage d'un message d'erreur si nécessaire -->
-    <div *ngIf="errorMessage" class="alert alert-danger">
-      {{ errorMessage }}
-    </div>
-  
-    <form (ngSubmit)="ajouterCategorie()">
-      <div class="mb-3">
-        <label for="nom_complet" class="form-label">Nom Complet</label>
-        <input type="text" id="nom_complet" [(ngModel)]="nouvelleCategorie.nom_complet" name="nom_complet" class="form-control" required>
-      </div>
-      <div class="mb-3">
-        <label for="description" class="form-label">Description</label>
-        <textarea id="description" [(ngModel)]="nouvelleCategorie.description" name="description" class="form-control"></textarea>
-      </div>
-      <button type="submit" class="btn btn-primary">Ajouter</button>
-      <button type="button" class="btn btn-secondary ms-2" (click)="router.navigate(['/categorie'])">Annuler</button>
-    </form>
+<div>
+  <h2>Ajouter une Nouvelle Catégorie</h2>
+
+  <!-- Affichage d'un message d'erreur si nécessaire -->
+  <div *ngIf="errorMessage">
+    {{ errorMessage }}
   </div>
-  
+
+  <form (ngSubmit)="ajouterCategorie(categorieForm)" #categorieForm="ngForm">
+    <div>
+      <!-- Image -->
+      <div>
+        <label for="image">Image URL</label>
+        <input
+          type="text"
+          id="image"
+          name="image"
+          [(ngModel)]="nouvelleCategorie.image"
+          required
+          #image="ngModel"
+          [ngClass]="{ 'is-invalid': categorieForm.submitted && image.invalid }"
+        />
+        <!-- Message d'erreur pour l'image -->
+        <div *ngIf="categorieForm.submitted && image.invalid" class="error">
+          L'URL de l'image est requise.
+        </div>
+      </div>
+
+      <!-- Nom Complet -->
+      <div>
+        <label for="nom_complet">Nom Complet</label>
+        <input
+          type="text"
+          id="nom_complet"
+          name="nom_complet"
+          [(ngModel)]="nouvelleCategorie.nom_complet"
+          required
+          #nomComplet="ngModel"
+          [ngClass]="{ 'is-invalid': categorieForm.submitted && nomComplet.invalid }"
+        />
+        <!-- Message d'erreur pour le nom complet -->
+        <div *ngIf="categorieForm.submitted && nomComplet.invalid" class="error">
+          Le nom complet est requis.
+        </div>
+      </div>
+    </div>
+
+    <div>
+      <!-- Description -->
+      <div>
+        <label for="description">Description</label>
+        <textarea
+          id="description"
+          name="description"
+          [(ngModel)]="nouvelleCategorie.description"
+        ></textarea>
+      </div>
+    </div>
+
+    <!-- Boutons de soumission et d'annulation -->
+    <button type="submit">Ajouter</button>
+    <button type="button" (click)="annuler()">Annuler</button>
+  </form>
+</div>

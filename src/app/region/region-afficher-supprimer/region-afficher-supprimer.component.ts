@@ -8,8 +8,7 @@ import { CommonModule } from '@angular/common';
   selector: 'app-region-afficherSupprimer',
   standalone: true,
   imports: [CommonModule],
-
-  templateUrl: './region-afficher-supprimer.component.html',
+templateUrl: './region-afficher-supprimer.component.html',
   styleUrls: ['./region-afficher-supprimer.component.css']
 })
 export class RegionAfficherSupprimerComponent implements OnInit {

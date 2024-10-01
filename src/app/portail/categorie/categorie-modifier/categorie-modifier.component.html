@@ -9,6 +9,13 @@
   
     <form (ngSubmit)="modifierCategorie()">
       <div class="mb-3">
+        
+        <!-- Image -->
+      <div class="form-group">
+        <label for="image">Image URL</label>
+        <input type="text" id="image" name="image" class="form-control" [(ngModel)]="categorie.image" required>
+      </div>
+
         <label for="nom_complet" class="form-label">Nom Complet</label>
         <input type="text" id="nom_complet" [(ngModel)]="categorie.nom_complet" name="nom_complet" class="form-control" required>
       </div>

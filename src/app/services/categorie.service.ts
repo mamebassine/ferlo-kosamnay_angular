@@ -6,6 +6,7 @@ import { Observable } from 'rxjs';
 
 export interface Categorie {
   id?: number;
+  image: string;
   nom_complet: string;
   description?: string;
 }
