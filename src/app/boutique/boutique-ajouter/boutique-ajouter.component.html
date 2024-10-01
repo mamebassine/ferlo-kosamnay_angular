@@ -16,13 +16,64 @@
         <label for="telephone">Téléphone</label>
         <input type="text" id="telephone" class="form-control" [(ngModel)]="nouvelleBoutique.telephone" name="telephone" required>
       </div>
-  
+
+      <!-- <div class="form-group">
+        <label for="user_id">Representant</label>
+        <input type="number" id="user_id" class="form-control" [(ngModel)]="nouvelleBoutique.user_id" name="user_id" required>
+      </div>
       
+  
+      <div class="form-group">
+        <label for="nom">Region</label>
+        <input type="number" id="region_id" class="form-control" [(ngModel)]="nouvelleBoutique.region_id" name="region_id" required>
+     </div> -->
+      <!-- Representant -->
+      <!-- 0000<div class="form-group">
+        <label for="user_id">Representant</label>
+        <select id="user_id" name="user_id" class="form-control" [(ngModel)]="boutique.user_id" required
+                [ngClass]="{'is-invalid': boutiqueForm.submitted && boutiqueForm.controls['user_id'].invalid}">
+            <option value="" disabled>-- Sélectionnez un representant --</option>
+            <option *ngFor="let user of users" [value]="user.id">{{ user.nom_complet}}</option>
+        </select>
+    </div> -->
+    
+ <!-- Représentant -->
+ <div class="form-group">
+    <label for="user_id">Representant</label>
+    <select id="user_id" name="user_id" class="form-control" [(ngModel)]="nouvelleBoutique.user_id" required
+            [ngClass]="{'is-invalid': boutiqueForm.submitted && boutiqueForm.controls['user_id'].invalid}">
+        <option value="" disabled>-- Sélectionnez un representant --</option>
+        <option *ngFor="let user of users" [value]="user.id">{{ user.nom_complet }}</option>
+    </select>
+  </div>
+
+   <!-- Region -->
+
+  <div class="form-group">
+    <label for="region_id">Region</label>
+    <select id="region_id" name="region_id" class="form-control" [(ngModel)]="nouvelleBoutique.region_id" required
+            [ngClass]="{'is-invalid': boutiqueForm.submitted && boutiqueForm.controls['region_id'].invalid}">
+        <option value="" disabled>-- Sélectionnez une region --</option>
+        <option *ngFor="let region of regions" [value]="region.id">{{ region.nom }}</option>
+    </select>
+  </div>
+
+<!--000000 Region -->
+     <!-- <div class="form-group">
+        <label for="region_id">Region</label>
+        <select id="region_id" name="region_id" class="form-control" [(ngModel)]="region.region_id" required
+                [ngClass]="{'is-invalid': boutiqueForm.submitted && boutiqueForm.controls['region_id'].invalid}">
+            <option value="" disabled>-- Sélectionnez une region --</option>
+            <option *ngFor="let categorie of regions" [value]="categorie.id">{{ region.nom}}</option>
+        </select>
+    </div> -->
 
 
 
 
-      <button type="submit" class="btn btn-primary">Ajouter Boutique</button>
+
+
+    <button type="submit" class="btn btn-primary">Ajouter Boutique</button>
       
       <div *ngIf="errorMessage" class="alert alert-danger mt-2">{{ errorMessage }}</div>
       <div *ngIf="successMessage" class="alert alert-success mt-2">{{ successMessage }}</div>

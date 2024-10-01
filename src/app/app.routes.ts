@@ -1,8 +1,9 @@
 import { Routes } from '@angular/router';
 
-// Import des composants login
+// Import des composants login, register, dashoad
 import { LoginComponent } from './auth/login/login.component';
 import { RegisterComponent } from './auth/register/register.component';
+import { DashboardComponent } from './dashboard/admin/admin.component'; // Assurez-vous que le chemin est correct
 
 // Import des composants accueil et contact
 import { AccueilComponent } from './portail/accueil/accueil.component'; //MOI Mise à jour du chemin
@@ -28,15 +29,17 @@ import { RegionModifierComponent } from './region/region-modifier/region-modifie
 
 import { BoutiqueAfficherSupprimerComponent } from './boutique/boutique-afficher-supprimer/boutique-afficher-supprimer.component';
 import { BoutiqueAjouterComponent } from './boutique/boutique-ajouter/boutique-ajouter.component';
-import { BoutiqueModifierComponent } from './boutique/boutique-modifier/boutique-modifier.component';
+// import { BoutiqueModifierComponent } from './boutique/boutique-modifier/boutique-modifier.component';
 import { BoutiqueVoirDetailComponent } from './boutique/boutique-voir-detail/boutique-voir-detail.component';
 
 
                   export const routes: Routes = [
 
-     // Routes pour l'authentification
+     // Routes pour l'authentification et dashoard
 { path: 'login', component: LoginComponent },
 { path: 'register', component: RegisterComponent},
+{ path: 'dashboard', component: DashboardComponent }, // Utilisez DashboardComponent
+
  
     // Routes pour l'accueil et contact 
 { path: '', component: AccueilComponent }, // MOI Route pour l'accueil
@@ -61,7 +64,7 @@ import { BoutiqueVoirDetailComponent } from './boutique/boutique-voir-detail/bou
 // Routes pour les BOUTIQUES
   { path: 'boutique', component: BoutiqueAfficherSupprimerComponent },
   { path: 'boutique/ajouter', component: BoutiqueAjouterComponent },
-  { path: 'boutique/modifier/:id', component: BoutiqueModifierComponent },
+  // { path: 'boutique/modifier/:id', component: BoutiqueModifierComponent },
   { path: 'boutique/detail/:id', component: BoutiqueVoirDetailComponent },
 ];
 

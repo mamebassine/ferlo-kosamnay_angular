@@ -1,50 +1,111 @@
-import { Component } from '@angular/core';
-import { HttpClientModule, provideHttpClient } from '@angular/common/http';
+// Importations nécessaires
+import { Component, OnInit } from '@angular/core';
+import { HttpClientModule } from '@angular/common/http'; // Import de HttpClientModule
 import { Router } from '@angular/router';
 import { BoutiqueService, Boutique } from '../../services/boutique.service';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
+import { AuthService, User } from '../../services/auth.service';
+import { RegionService, Region } from '../../services/region.service';
+import { HttpErrorResponse } from '@angular/common/http'; // Import pour typer les erreurs
 
 @Component({
   standalone: true,
-  imports: [CommonModule, FormsModule, HttpClientModule,],
+  imports: [CommonModule, FormsModule, HttpClientModule],
   selector: 'app-boutique-ajouter',
   templateUrl: './boutique-ajouter.component.html',
   styleUrls: ['./boutique-ajouter.component.css']
 })
-export class BoutiqueAjouterComponent {
+export class BoutiqueAjouterComponent implements OnInit {
   // Modèle pour la nouvelle boutique
   nouvelleBoutique: Boutique = {
     nom: '',
     adresse: '',
     telephone: '',
-    region_id: 0
+    region_id: '',
+    user_id: '',
+    representant: '', // Initialisation avec une chaîne vide
   };
+
+  // Listes pour les dropdowns
+  users: User[] = []; // Tableau pour stocker les utilisateurs
+  regions: Region[] = []; // Tableau pour stocker les régions
 
   // Messages d'erreur
   errorMessage: string = '';
   successMessage: string = '';
 
-  constructor(private boutiqueService: BoutiqueService, private router: Router) { }
+  // Injecter les services nécessaires via le constructeur
+  constructor(
+    private boutiqueService: BoutiqueService,
+    private authService: AuthService, // Injection du UserService
+    private regionService: RegionService, // Injection du RegionService
+    private router: Router
+  ) { }
+
+  // Implémentation de l'interface OnInit
+  ngOnInit(): void {
+    this.fetchUsers(); // Récupérer les utilisateurs au démarrage
+    this.fetchRegions(); // Récupérer les régions au démarrage
+  }
+
+  // Méthode pour récupérer les utilisateurs
+  fetchUsers(): void {
+    this.authService.getUsers().subscribe(
+      (data: User[]) => {
+        this.users = data; // Assignation des données reçues au tableau users
+      },
+      (error) => {
+        this.errorMessage = 'Erreur lors de la récupération des utilisateurs fiii.'; // Message d'erreur en cas de problème
+        console.error(error); // Afficher l'erreur dans la console
+        console.log('Détails de la nouvelle utilisateur:', this.nouvelleBoutique);
+
+      }
+    );
+  }
+
+  fetchRegions(): void {
+    this.regionService.getAllRegions().subscribe(
+      (data: Region[]) => {
+        this.regions = data; // Assignation des données reçues au tableau regions
+      },
+      (error: HttpErrorResponse) => { // Typage explicite de 'error'
+        this.errorMessage = 'Erreur lors de la récupération des régions.'; // Message d'erreur en cas de problème
+        console.error(error); // Afficher l'erreur dans la console
+        console.log('Détails de la nouvelle boutique:', this.nouvelleBoutique);
+
+      }
+    );
+  }
+
 
   // Soumission du formulaire
   onSubmit(): void {
-    // Validation basique
-    if (this.nouvelleBoutique.nom && this.nouvelleBoutique.adresse && this.nouvelleBoutique.telephone && this.nouvelleBoutique.region_id) {
+    // Vérifier que tous les champs requis sont remplis
+    if (
+      this.nouvelleBoutique.nom &&
+      this.nouvelleBoutique.adresse &&
+      this.nouvelleBoutique.telephone &&
+      this.nouvelleBoutique.region_id !== '' &&
+      this.nouvelleBoutique.user_id
+    ) {
+      // Appeler le service pour ajouter la boutique
       this.boutiqueService.addBoutique(this.nouvelleBoutique).subscribe(
         response => {
-          this.successMessage = response.message;
-          // Redirection après ajout
+          this.successMessage = response.message; // Message de succès
+          // Redirection après ajout avec un délai de 2 secondes
           setTimeout(() => {
-            this.router.navigate(['/boutique']);
+            this.router.navigate(['/boutique']); // Naviguer vers la liste des boutiques
           }, 2000);
         },
         error => {
-          this.errorMessage = error;
+          this.errorMessage = error; // Message d'erreur en cas de problème lors de l'ajout
         }
       );
     } else {
-      this.errorMessage = 'Veuillez remplir tous les champs requis.';
+      this.errorMessage = 'Veuillez remplir tous les champs requis.'; // Message d'erreur si des champs sont manquants
+      // Ajout d'un log pour débogage
+      console.log('Détails de la nouvelle boutique:', this.nouvelleBoutique);
     }
   }
 }

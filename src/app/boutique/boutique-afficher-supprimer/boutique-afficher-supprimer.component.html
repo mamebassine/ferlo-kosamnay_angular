@@ -1,50 +1,46 @@
-
 <div>
-    <h2>Liste des Boutiques</h2>
-    
-    <!-- Affichage des messages d'erreur -->
-    <div *ngIf="errorMessage">
-      {{ errorMessage }}
-    </div>
+  <h2>Liste des Boutiques</h2>
   
-    <!-- Table des boutiques -->
-    <table>
-      <thead>
-        <tr>
-          <th>ID</th>
-          <th>Nom</th>
-          <th>Adresse</th>
-          <th>Téléphone</th>
-          <th>Région</th>
-          <th>Actions</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr *ngFor="let boutique of boutiques">
-          <td>{{ boutique.id }}</td>
-          <td>{{ boutique.nom }}</td>
-          <td>{{ boutique.adresse }}</td>
-          <td>{{ boutique.telephone }}</td>
-          <td>{{ boutique.region?.nom }}</td>
-          <td>
+  <!-- Affichage des messages d'erreur -->
+  <div *ngIf="errorMessage">
+    {{ errorMessage }}
+  </div>
 
-    <button>
-        <a (click)="['/boutique/detail', boutique.id]">Détails</a>
+  <!-- Table des boutiques -->
+  <table>
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Nom</th>
+        <th>Adresse</th>
+        <th>Téléphone</th>
+        <th>Région</th>
+        <th>User</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let boutique of boutiques">
+        <td>{{ boutique.id }}</td>
+        <td>{{ boutique.nom }}</td>
+        <td>{{ boutique.adresse }}</td>
+        <td>{{ boutique.telephone }}</td>
+        <td>{{ boutique.region?.nom }}</td>
+        <td>{{ boutique.user?.nom_complet }}</td>
+        <td>
+          <!-- Bouton Détails -->
+          <a [routerLink]="['/boutique/detail', boutique.id]" class="btn-details">Détails</a>
 
-    </button>  
-    <button>
-        <a (click)="['/boutique/modifier', boutique.id]">Modifier</a>
+          <!-- Bouton Modifier -->
+          <a [routerLink]="['/boutique/modifier', boutique.id]" class="btn-modifier">Modifier</a>
+          
+          <!-- Bouton Supprimer -->
+          <button (click)="deleteBoutique(boutique.id)">Supprimer</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
 
-    </button>            
-            <button (click)="deleteBoutique(boutique.id)">Supprimer</button>
-            </td>
-            </tr>
-            
-        </tbody>
-        </table>
-    <button> 
-        <a (click)="['/boutique/ajouter']">Ajouter une boutique</a>  
-    </button>  
-
+  <!-- Bouton Ajouter une nouvelle boutique -->
+  <a [routerLink]="['/boutique/ajouter']" class="btn-ajouter">Ajouter une boutique</a>  
 </div>
-  

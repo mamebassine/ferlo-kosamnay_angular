@@ -1,0 +1,175 @@
+body {
+    display: flex;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+.sidebar {
+    width: 180px; /* Largeur de la barre latérale */
+    background-color: #3F7E44;
+    color: white;
+    padding: 20px;
+    height: 100vh;
+    position: fixed;
+    border-radius: 8px; /* Bordure arrondie */
+    display: flex;
+    flex-direction: column; /* Aligne les éléments verticalement */
+}
+
+.sidebar h2 {
+    text-align: center;
+}
+
+.sidebar ul {
+    list-style: none;
+    padding: 0;
+}
+
+.sidebar ul li {
+    margin: 10px 0;
+}
+
+.sidebar ul li a {
+    color: white;
+    text-decoration: none;
+    display: flex;
+    align-items: center; /* Aligner verticalement les icônes et le texte */
+}
+
+.sidebar ul li a i {
+    margin-right: 10px; /* Espace entre l'icône et le texte */
+}
+
+.deconnexion {
+    text-align: center;
+    background-color: red;
+    color: white;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    width: 100%;
+    margin-top: 170%; /* Ajuster cette valeur selon tes besoins */
+    margin-bottom: 0; /* Assurer qu'il n'y a pas de marge en bas */
+}
+
+.main-content {
+    margin-left: 200px; /* Ajuster pour la largeur de la barre latérale */
+    padding: 20px;
+    flex-grow: 1;
+}
+
+h1 {
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    display: flex;
+}
+
+.sidebar {
+    width: 250px;
+    background-color: #343F69;
+    color: white;
+    padding: 20px;
+    height: 100vh;
+}
+
+.sidebar h2 {
+    margin-bottom: 20px;
+}
+
+.sidebar ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.sidebar ul li {
+    margin: 15px 0;
+}
+
+.sidebar ul li a {
+    color: white;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+}
+
+.sidebar ul li a i {
+    margin-right: 10px;
+}
+
+.deconnexion {
+    background-color: red;
+    color: white;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    width: 100%;
+}
+
+.dashboard {
+    flex: 1;
+    padding: 20px;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    width: 50px; /* Ajustez la taille du logo */
+}
+
+.header-icons i {
+    margin-left: 15px;
+    cursor: pointer;
+    font-size: 24px;
+    color: #343F69; /* Couleur des icônes */
+}
+
+.cards {
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 20px;
+}
+
+.card {
+    background-color: #B7D7B3; /* Couleur des cartes */
+    border-radius: 10px;
+    padding: 20px;
+    margin: 10px;
+    flex: 1 1 calc(25% - 20px); /* 4 cartes par ligne avec espace */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.card h3 {
+    margin: 0 0 10px;
+}
+
+.card p {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    .sidebar {
+        width: 100%;
+        height: auto;
+    }
+
+    .cards {
+        flex-direction: column;
+    }
+
+    .card {
+        flex: 1 1 100%; /* Une carte par ligne sur mobile */
+    }
+}

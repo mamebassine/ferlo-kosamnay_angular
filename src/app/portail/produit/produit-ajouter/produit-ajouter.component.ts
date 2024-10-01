@@ -25,7 +25,6 @@ export class ProduitAjouterComponent implements OnInit {
     quantite: 0,
     reference: '',
     nom: '',
-    // nom_complet:'',
   };
 
   categories: Categorie[] = [];
@@ -85,7 +84,6 @@ export class ProduitAjouterComponent implements OnInit {
       quantite: 0,
       reference: '',
       nom: '',
-      // nom_complet: '',
     };
   }
 }
