@@ -325,65 +325,6 @@ text-align: center;
 }
 
 /* CATEGORIESSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSS */
-#categories h2 {
-  margin-bottom: 2%;
-  text-align: center;
-  padding: 50px 20px;
-  font-size: 30px; /* Taille du texte */
-font-family: 'Roboto', sans-serif; /* Police pour H1 */
-}
-
-#categories {
-    text-align: center;
-    padding: 50px 20px;
-}
-
-.grille-categories {
-    display: flex;
-    justify-content: space-around;
-    flex-wrap: wrap;
-}
-
-.carte {
-    background-color: #f9f9f9; /* Couleur de fond par défaut */
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    margin: 17px;
-    padding: 60px;
-    text-align: center;
-    transition: background-color 0.3s, transform 0.3s; /* Ajout d'une transition pour l'effet de hover */
-    cursor: pointer;
-    width: 200px; /* Largeur fixe pour les cartes */
-}
-
-.carte h3 {
-    margin-top: 10px;
-    color: #333;
-    
-}
-
-/* Image circulaire */
-.image-circulaire {
-    width: 100px; /* Largeur de l'image */
-    height: 100px; /* Hauteur de l'image */
-    border-radius: 50%; /* Pour rendre l'image circulaire */
-    object-fit: cover; /* Pour couvrir l'espace sans déformation */
-}
-
-/* Effet de survol */
-.carte:hover {
-    background-color: #3F7E44; /* Couleur verte au survol */
-    transform: scale(1.05); /* Légère augmentation de la taille au survol */
-    color: white; /* Change la couleur du texte au survol */
-}
-
-
-
-
-
-
-
-
 #categories {
   text-align: center;
   padding: 50px 20px;
@@ -400,11 +341,11 @@ font-family: 'Roboto', sans-serif; /* Police pour H1 */
   border-radius: 10px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
   margin: 15px;
-  padding: 20px;
+  padding: 30px;
   text-align: center;
   transition: background-color 0.3s, transform 0.3s; /* Ajout d'une transition pour l'effet de hover */
   cursor: pointer;
-  width: 200px; /* Largeur fixe pour les cartes */
+  width: 300px; /* Largeur fixe pour les cartes */
 }
 
 .carte h3 {
@@ -414,8 +355,8 @@ font-family: 'Roboto', sans-serif; /* Police pour H1 */
 
 /* Image circulaire */
 .image-circulaire {
-  width: 100px; /* Largeur de l'image */
-  height: 100px; /* Hauteur de l'image */
+  width: 300px; /* Largeur de l'image */
+  height: 300px; /* Hauteur de l'image */
   border-radius: 50%; /* Pour rendre l'image circulaire */
   object-fit: cover; /* Pour couvrir l'espace sans déformation */
 }
@@ -427,6 +368,53 @@ font-family: 'Roboto', sans-serif; /* Police pour H1 */
   color: white; /* Change la couleur du texte au survol */
 }
 
+#categories {
+text-align: center;
+padding: 30px 10px;
+}
+
+.grille-categories {
+display: flex;
+justify-content: space-around;
+flex-wrap: wrap;
+}
+
+.carte {
+background-color: #f9f9f9; /* Couleur de fond par défaut */
+border-radius: 10px;
+box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+margin: 15px;
+padding: 20px;
+text-align: center;
+transition: background-color 0.3s, transform 0.3s; /* Ajout d'une transition pour l'effet de hover */
+cursor: pointer;
+width: 200px; /* Largeur fixe pour les cartes */
+}
+
+.carte h3 {
+margin-top: 10px;
+color: #333;
+}
+
+/* Image circulaire */
+.image-circulaire {
+width: 100px; /* Largeur de l'image */
+height: 100px; /* Hauteur de l'image */
+border-radius: 50%; /* Pour rendre l'image circulaire */
+object-fit: cover; /* Pour couvrir l'espace sans déformation */
+}
+
+/* Effet de survol */
+.carte:hover {
+background-color: #3F7E44; /* Couleur verte au survol */
+transform: scale(1.05); /* Légère augmentation de la taille au survol */
+color: white; /* Change la couleur du texte au survol */
+}
+
+
+
+
+/* FIN CATEGORIE */
 
 
 

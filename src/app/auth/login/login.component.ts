@@ -54,7 +54,7 @@ export class LoginComponent {
           if (response.token) {
             console.log('Token:', response.token);
             localStorage.setItem("token", response.token); // Stocke le token dans le localStorage
-            // Navigation vers la page "/portail" après une connexion réussie
+            // Navigation vers la page "/dashbord" après une connexion réussie
             this.router.navigateByUrl("/dashboard");
           } 
           // Sinon, vérifie si le token est dans une structure de données imbriquée

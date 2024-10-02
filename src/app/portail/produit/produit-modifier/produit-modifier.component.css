@@ -1,0 +1,73 @@
+.container {
+    max-width: 600px; /* Largeur maximale du conteneur */
+    margin: 2rem auto; /* Centrer le conteneur verticalement et horizontalement */
+    padding: 2rem; /* Rembourrage interne */
+    background-color: #f8f9fa; /* Couleur de fond claire */
+    border-radius: 8px; /* Coins arrondis */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Ombre légère */
+}
+
+h2 {
+    text-align: center; /* Centrer le titre */
+    margin-bottom: 1.5rem; /* Marge en bas du titre */
+    font-family: 'Arial', sans-serif; /* Police personnalisée */
+    color: #343a40; /* Couleur du texte */
+}
+
+.form-group {
+    margin-bottom: 1rem; /* Marge en bas des groupes de formulaire */
+}
+
+.form-control {
+    padding: 0.5rem; /* Rembourrage interne pour les champs */
+    border: 1px solid #ced4da; /* Bordure grise */
+    border-radius: 4px; /* Coins arrondis pour les champs */
+    width: 100%; /* Largeur complète pour les champs */
+    box-sizing: border-box; /* Inclut le rembourrage et la bordure dans la largeur totale */
+}
+
+.is-invalid {
+    border-color: #dc3545; /* Bordure rouge pour les erreurs */
+}
+
+.alert {
+    padding: 1rem; /* Rembourrage interne pour les alertes */
+    border-radius: 4px; /* Coins arrondis pour les alertes */
+    margin-bottom: 1rem; /* Marge en bas des alertes */
+}
+
+.alert-danger {
+    background-color: #f8d7da; /* Couleur de fond pour les alertes d'erreur */
+    color: #721c24; /* Couleur du texte pour les alertes d'erreur */
+}
+
+.alert-success {
+    background-color: #d4edda; /* Couleur de fond pour les alertes de succès */
+    color: #155724; /* Couleur du texte pour les alertes de succès */
+}
+
+.btn {
+    padding: 0.5rem 1rem; /* Rembourrage interne pour les boutons */
+    border-radius: 4px; /* Coins arrondis pour les boutons */
+    border: none; /* Pas de bordure par défaut */
+    cursor: pointer; /* Curseur en forme de main pour indiquer la cliquabilité */
+    margin-right: 0.5rem; /* Marge à droite pour espacer les boutons */
+}
+
+.btn-primary {
+    background-color: #3F7E44; /* Couleur de fond pour le bouton principal */
+    color: white; /* Couleur du texte pour le bouton principal */
+}
+
+.btn-primary:hover {
+    background-color: #3F7E44; /* Couleur de fond au survol pour le bouton principal */
+}
+
+.btn-secondary {
+    background-color: #6c757d; /* Couleur de fond pour le bouton secondaire */
+    color: white; /* Couleur du texte pour le bouton secondaire */
+}
+
+.btn-secondary:hover {
+    background-color: #5a6268; /* Couleur de fond au survol pour le bouton secondaire */
+}

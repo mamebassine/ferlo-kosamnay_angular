@@ -66,6 +66,7 @@ export class BoutiqueModifierComponent implements OnInit {
       }
     );
   }
+  
 
   submitForm(): void {
     if (this.form.valid) {
@@ -77,11 +78,12 @@ export class BoutiqueModifierComponent implements OnInit {
         },
         error => {
           console.error(error);
+          alert('Erreur lors de la mise à jour de la boutique');
         }
       );
+    } else {
+      alert('Veuillez corriger les erreurs dans le formulaire');
     }
   }
-  
-
 
 }

@@ -3,6 +3,9 @@ import { ProduitService, Produit } from '../../../services/produit.service';
 import { CommonModule } from '@angular/common';
 import { Router } from '@angular/router';
 import { CategorieService, Categorie } from '../../../services/categorie.service';
+// import { HeaderComponent } from "../../header/header/header.component";
+// import { FooterComponent } from "../../footer/footer/footer.component";
+
 
 @Component({
   selector: 'app-produit-afficher-supprimer',
