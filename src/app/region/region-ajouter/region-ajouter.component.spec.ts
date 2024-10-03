@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { RegionAjouterComponent } from './region-ajouter.component';
+import { regionAjouterComponent } from './region-ajouter.component';
 
-describe('RegionAjouterComponent', () => {
-  let component: RegionAjouterComponent;
-  let fixture: ComponentFixture<RegionAjouterComponent>;
+describe('regionAjouterComponent', () => {
+  let component: regionAjouterComponent;
+  let fixture: ComponentFixture<regionAjouterComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [RegionAjouterComponent]
+      imports: [regionAjouterComponent]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(RegionAjouterComponent);
+    fixture = TestBed.createComponent(regionAjouterComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

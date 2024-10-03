@@ -35,7 +35,7 @@ export class BoutiqueModifierComponent implements OnInit {
       nom: ['', Validators.required],
       adresse: ['', Validators.required],
       telephone: ['', Validators.required],
-      region_id: ['', Validators.required],
+      adresse_id: ['', Validators.required],
       user_id: ['', Validators.required],
       representant: ['', Validators.required]
     });
@@ -56,7 +56,7 @@ export class BoutiqueModifierComponent implements OnInit {
           nom: this.boutique.nom,
           adresse: this.boutique.adresse,
           telephone: this.boutique.telephone,
-          region_id: this.boutique.region_id,
+          adresse_id: this.boutique.adresse_id,
           user_id: this.boutique.user_id,
           representant: this.boutique.representant
         });

@@ -3,14 +3,14 @@ import { ProduitService, Produit } from '../../../services/produit.service';
 import { CommonModule } from '@angular/common';
 import { Router } from '@angular/router';
 import { CategorieService, Categorie } from '../../../services/categorie.service';
-// import { HeaderComponent } from "../../header/header/header.component";
-// import { FooterComponent } from "../../footer/footer/footer.component";
+import { HeaderComponent } from "../../../header/header/header.component";
+import { FooterComponent } from "../../../footer/footer/footer.component";
 
 
 @Component({
   selector: 'app-produit-afficher-supprimer',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, HeaderComponent, FooterComponent],
    providers: [ProduitService],
   templateUrl: './produit-afficher-supprimer.component.html',
   styleUrls: ['./produit-afficher-supprimer.component.css']
@@ -76,9 +76,12 @@ export class ProduitAfficherSupprimerComponent implements OnInit {
     this.router.navigate(['/produit/modifier', id]);
   }
 
+ 
   voirDetail(id: number): void {
-    this.router.navigate(['/produit/detail', id]);
+    // Naviguer vers la page de détail du produit en utilisant le Router
+    this.router.navigate(['produit/detail', id]);
   }
+
 
   ajouterProduit(): void {
     this.router.navigate(['/produit/ajouter']);

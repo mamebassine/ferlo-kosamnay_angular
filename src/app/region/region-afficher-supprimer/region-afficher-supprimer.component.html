@@ -1,7 +1,7 @@
 <div class="container">
     <h2>Liste des Régions</h2>
   
-    <a class="btn btn-primary mb-3" (click)="createNewRegion()">Ajouter Nouvelle Région</a>
+    <a class="btn btn-primary mb-3" (click)="createNewregion()">Ajouter Nouvelle Région</a>
   
     <table class="table table-bordered">
       <thead>
@@ -14,8 +14,8 @@
         <tr *ngFor="let region of regions">
           <td>{{ region.nom }}</td>
           <td>
-            <button class="btn btn-warning btn-sm mr-2" (click)="editRegion(region.id)">Modifier</button>
-            <button class="btn btn-danger btn-sm" (click)="deleteRegion(region.id)">Supprimer</button>
+            <button class="btn btn-warning btn-sm mr-2" (click)="editregion(region.id)">Modifier</button>
+            <button class="btn btn-danger btn-sm" (click)="deleteregion(region.id)">Supprimer</button>
           </td>
         </tr>
       </tbody>

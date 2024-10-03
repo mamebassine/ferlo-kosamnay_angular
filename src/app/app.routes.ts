@@ -21,9 +21,9 @@ import { ProduitModifierComponent } from './portail/produit/produit-modifier/pro
 import { ProduitVoirDetailComponent } from './portail/produit/produit-voir-detail/produit-voir-detail.component';
 
 // Import des composants régions
-import { RegionAfficherSupprimerComponent } from './region/region-afficher-supprimer/region-afficher-supprimer.component';
-import { RegionAjouterComponent } from './region/region-ajouter/region-ajouter.component';
-import { RegionModifierComponent } from './region/region-modifier/region-modifier.component';
+import { regionAfficherSupprimerComponent } from './region/region-afficher-supprimer/region-afficher-supprimer.component';
+import { regionAjouterComponent } from './region/region-ajouter/region-ajouter.component';
+import { regionModifierComponent } from './region/region-modifier/region-modifier.component';
 
 
 
@@ -32,15 +32,21 @@ import { BoutiqueAjouterComponent } from './boutique/boutique-ajouter/boutique-a
 import { BoutiqueModifierComponent } from './boutique/boutique-modifier/boutique-modifier.component';
 import { BoutiqueVoirDetailComponent } from './boutique/boutique-voir-detail/boutique-voir-detail.component';
 
+import { ProduitBoutiqueAfficherSupprimerComponent } from './produitBoutique/produit-boutique-afficher-supprimer/produit-boutique-afficher-supprimer.component';
+// import { ProduitBoutiqueVoirDetailComponent } from './produitBoutique/produit-boutique-voir-detail/produit-boutique-voir-detail.component';
+import { ProduitBoutiqueModifierComponent } from './produitBoutique/produit-boutique-modifier/produit-boutique-modifier.component';
+import { ProduitBoutiqueAjouterComponent } from './produitBoutique/produit-boutique-ajouter/produit-boutique-ajouter.component';
 
+// Import des composants lignecommande
+// import { LignecommandeAfficherSupprimerComponent } from './lignecommande/lignecommande-afficher-supprimer/lignecommande-afficher-supprimer.component';
+// import { LignecommandeAjouterComponent } from './lignecommande/lignecommande-ajouter/lignecommande-ajouter.component';
+// import { LignecommandeModifierComponent } from './lignecommande/lignecommande-modifier/lignecommande-modifier.component';
+// import { LignecommandeVoirDetailComponent } from './lignecommande/lignecommande-voir-detail/lignecommande-voir-detail.component';
 
-// import { Produit-boutiqueAfficherSupprimerComponent } from './produit-boutique/produit-boutique-afficher-supprimer/produit-boutique-afficher-supprimer.component';
-// import { Produit-boutiqueAjouterComponent } from './produit-boutique/produit-boutique-ajouter/produit-boutique-ajouter.component';
-// import { Produit-boutiqueModifierComponent } from './produit-boutique/produit-boutique-modifier/produit-boutique-modifier.component';
-// import { Produit-boutiqueVoirDetailComponent } from './produit-boutique/produit-boutique-voir-detail/produit-boutique-voir-detail.component';
+// import { PanierComponent } from './panier/panier.component';
+             
 
-
-                  export const routes: Routes = [
+           export const routes: Routes = [
 
      // Routes pour l'authentification et dashoard
 { path: 'login', component: LoginComponent },
@@ -64,9 +70,9 @@ import { BoutiqueVoirDetailComponent } from './boutique/boutique-voir-detail/bou
 { path: 'produit/detail/:id', component: ProduitVoirDetailComponent },
 
 // Routes pour les régions
-{ path: 'region', component: RegionAfficherSupprimerComponent },
-{ path: 'region/ajouter', component: RegionAjouterComponent },
-{ path: 'region/modifier/:id', component: RegionModifierComponent },
+{ path: 'region', component: regionAfficherSupprimerComponent },
+{ path: 'region/ajouter', component: regionAjouterComponent },
+{ path: 'region/modifier/:id', component: regionModifierComponent },
 
 // Routes pour les BOUTIQUES
   { path: 'boutique', component: BoutiqueAfficherSupprimerComponent },
@@ -76,11 +82,24 @@ import { BoutiqueVoirDetailComponent } from './boutique/boutique-voir-detail/bou
 
 
 
-  // // Routes pour les BOUTIQUES
-  // { path: 'produit-boutique', component: Produit-boutiqueAfficherSupprimerComponent },
-  // { path: 'produit-boutique/ajouter', component: Produit-boutiqueAjouterComponent },
-  // { path: 'produit-boutique/modifier/:id', component: Produit-boutiqueModifierComponent },
-  // { path: 'produit-boutique/detail/:id', component: Produit-boutiqueVoirDetailComponent },
+  //  // Routes pour les ProduitBOUTIQUES
+
+  
+{path: 'produitboutique', component: ProduitBoutiqueAfficherSupprimerComponent},
+// {path: 'produitboutique/detail/:id', component: ProduitBoutiqueDetailComponent},
+{path: 'produitboutique/modifier/:id',component: ProduitBoutiqueModifierComponent},
+{ path: 'produitboutique/ajouter',component: ProduitBoutiqueAjouterComponent},
+
+   // // Routes pour les LIGNECOMMANDES
+// { path: 'lignecommande', component: LignecommandeAfficherSupprimerComponent },
+// { path: 'lignecommande/ajouter', component: LignecommandeAjouterComponent },
+// { path: 'lignecommande/modifier/:id', component: LignecommandeModifierComponent },
+// { path: 'lignecommande/detail/:id', component: LignecommandeVoirDetailComponent },
+
+    // { path: 'panier', component: PanierComponent },
+
+
+
 ];
 
 

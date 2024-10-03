@@ -48,6 +48,9 @@
 </div>
 
  -->
+
+ <app-header></app-header>
+
  <div class="bacgr">
   <h1>Tous les Produits</h1>
 
@@ -66,7 +69,9 @@
           <p>Prix: {{ produit.prix | number:'1.0-2' }} CFA</p>
           <p>Disponible</p>
           <div class="buttons">
-              <button class="view-more">Voir plus</button>
-              <button class="disponible">Disponible</button>
-          </div>
+          <button class="view-more" (click)="voirDetail(produit.id!)">VoirDetail</button>
+          <button class="disponible">Disponible</button>
+    </div>
       </div>
+
+      <app-footer></app-footer>
