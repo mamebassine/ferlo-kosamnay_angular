@@ -1,37 +1,61 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
+export interface LigneCommande {
+  id?: number; // L'ID peut être optionnel pour les nouvelles commandes
+  produit_boutique_id: number;
+  user_id: number;
+  date: string; // Utilisez un type Date si nécessaire
+  statut: string;
+  quantite_totale: number;
+  prix_totale: number;
+}
 
 @Injectable({
   providedIn: 'root'
 })
 export class LigneCommandeService {
-  private apiUrl = 'http://localhost:8000/api/lignes_commandes';  // Remplacez par votre URL d'API
+  private apiUrl = 'http://localhost:8000/api/lignes_commandes'; // Remplacez par l'URL de votre API
 
   constructor(private http: HttpClient) {}
 
-  // Récupérer toutes les lignes de commande
-  getLignesCommandes(): Observable<any> {
-    return this.http.get<any>(this.apiUrl);
+  // Méthode pour récupérer toutes les lignes de commande
+  getLignesCommandes(): Observable<LigneCommande[]> {
+    const headers = new HttpHeaders({
+      // 'Authorization': 'Bearer ' + localStorage.getItem('token') // Ajoutez le token d'authentification si nécessaire
+    });
+    return this.http.get<LigneCommande[]>(this.apiUrl, { headers });
   }
 
-  // Récupérer une ligne de commande par ID (Détails)
-  getLigneCommandeById(id: number): Observable<any> {
-    return this.http.get<any>(`${this.apiUrl}/${id}`);
+  // Méthode pour récupérer une ligne de commande spécifique par ID
+  getLigneCommandeById(id: number): Observable<LigneCommande> {
+    const headers = new HttpHeaders({
+      'Authorization': 'Bearer ' + localStorage.getItem('token')
+    });
+    return this.http.get<LigneCommande>(`${this.apiUrl}/${id}`, { headers });
   }
 
-  // Ajouter une nouvelle ligne de commande
-  createLigneCommande(data: any): Observable<any> {
-    return this.http.post<any>(this.apiUrl, data);
+  // Méthode pour créer une nouvelle ligne de commande
+  createLigneCommande(ligneCommande: LigneCommande): Observable<LigneCommande> {
+    const headers = new HttpHeaders({
+      'Authorization': 'Bearer ' + localStorage.getItem('token')
+    });
+    return this.http.post<LigneCommande>(this.apiUrl, ligneCommande, { headers });
   }
 
-  // Modifier une ligne de commande par ID
-  updateLigneCommande(id: number, data: any): Observable<any> {
-    return this.http.put<any>(`${this.apiUrl}/${id}`, data);
+  // Méthode pour mettre à jour une ligne de commande existante
+  updateLigneCommande(id: number, ligneCommande: LigneCommande): Observable<LigneCommande> {
+    const headers = new HttpHeaders({
+      'Authorization': 'Bearer ' + localStorage.getItem('token')
+    });
+    return this.http.put<LigneCommande>(`${this.apiUrl}/${id}`, ligneCommande, { headers });
   }
 
-  // Supprimer une ligne de commande par ID
+  // Méthode pour supprimer une ligne de commande par ID
   deleteLigneCommande(id: number): Observable<any> {
-    return this.http.delete<any>(`${this.apiUrl}/${id}`);
+    const headers = new HttpHeaders({
+      'Authorization': 'Bearer ' + localStorage.getItem('token')
+    });
+    return this.http.delete(`${this.apiUrl}/${id}`, { headers });
   }
 }

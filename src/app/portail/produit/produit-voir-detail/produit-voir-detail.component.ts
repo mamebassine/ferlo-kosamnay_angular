@@ -7,6 +7,7 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { HeaderComponent } from '../../../header/header/header.component';
 import { FooterComponent } from '../../../footer/footer/footer.component';
+import { LigneCommandeAjouterComponent } from '../../../ligneCommande/ligne-commande-ajouter/ligne-commande-ajouter.component';
 
 
 @Component({
@@ -14,7 +15,7 @@ import { FooterComponent } from '../../../footer/footer/footer.component';
   selector: 'app-produit-voir-detail',
   templateUrl: './produit-voir-detail.component.html',
   styleUrls: ['./produit-voir-detail.component.css'],
-  imports: [CommonModule, FormsModule, HeaderComponent, FooterComponent]
+  imports: [CommonModule, FormsModule, HeaderComponent, FooterComponent, LigneCommandeAjouterComponent]
 })
 export class ProduitVoirDetailComponent implements OnInit {
   produitId!: number; // ID du produit
@@ -64,14 +65,17 @@ export class ProduitVoirDetailComponent implements OnInit {
     }
   }
 
+  
   // Méthode pour ajouter le produit au panier
-  addToCart(produit: Produit): void {
-    this.panierService.addProduit(produit); // Ajoute le produit au panier
-    console.log('Produit ajouté au panier:', produit); // Affiche le produit ajouté au panier
-  }
+addToCart(produit: Produit): void {
+  this.panierService.addProduit(produit); // Ajoute le produit au panier
+  localStorage.setItem('panier', JSON.stringify(this.produit));
+  console.log('Produit ajouté au panier:', produit); // Affiche le produit ajouté au panier
 
-  // Méthode pour revenir à la page produit
-  goBack(): void {
-    this.router.navigate(['/produit']); // Navigation vers la page des produits
-  }
+}
+
+// // Méthode pour revenir à la page produit
+//   goBack(): void {
+//     this.router.navigate(['/panier']); // Navigation vers la page des produits
+//   }
 }

@@ -1,13 +1,19 @@
 <h2>Liste des Lignes de Commande</h2>
 <a routerLink="/lignes-commandes/ajouter">Ajouter une Ligne de Commande</a>
+
+<!-- Affichage des messages d'erreur -->
+<div *ngIf="errorMessage" class="alert alert-danger">
+  {{ errorMessage }}
+</div>
+
 <ul>
   <li *ngFor="let ligne of lignesCommandes">
-    Produit: {{ ligne.produitBoutique.nom }} <br>
+    Produit: {{ ligne.produit_boutique_id }} <br>
     Quantité: {{ ligne.quantite_totale }} <br>
     Prix total: {{ ligne.prix_totale }} €
     <br>
     <a [routerLink]="['/lignes-commandes/details', ligne.id]">Voir Détails</a> |
     <a [routerLink]="['/lignes-commandes/modifier', ligne.id]">Modifier</a> |
-    <button (click)="supprimerLigneCommande(ligne.id)">Supprimer</button>
+    <button *ngIf="ligne.id" (click)="deleteLigneCommande(ligne.id)">Supprimer</button>
   </li>
 </ul>

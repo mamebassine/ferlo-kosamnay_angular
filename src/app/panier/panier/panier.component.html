@@ -1,12 +1,17 @@
-src/app/components/panier/panier.component.html
-<div>
-    <h2>Mon Panier</h2>
-    <ul>
-      <li *ngFor="let produit of produits">
-        {{ produit.nom }} - {{ produit.prix }} € x {{ produit.quantite }} = {{ produit.prix * produit.quantite }} €
-      </li>
-    </ul>
-    <h3>Total: {{ total }} €</h3>
-    <button (click)="panierService.clearPanier()">Vider le panier</button>
-  </div>
-  
+<!-- <div>
+  <h2>Mon Panier</h2>
+  <ul>
+    <li *ngFor="let produit of produits">
+      <img [src]="produit.image" alt="{{ produit.nom }}" style="width: 50px; height: 50px;">
+      <p><strong>Nom :</strong> {{ produit.nom }}</p>
+      <p><strong>Référence :</strong> {{ produit.reference }}</p>
+      <p><strong>Description :</strong> {{ produit.description }}</p>
+      <p><strong>Catégorie ID :</strong> {{ produit.categorie_id }}</p>
+      <p><strong>Prix :</strong> {{ produit.prix }} cfa</p>
+      <p><strong>Quantité :</strong> {{ produit.quantite }}</p>
+      <p><strong>Total :</strong> {{ produit.prix * produit.quantite }} cfa</p>
+    </li>
+  </ul>
+  <h3>Total: {{ total }} cfa</h3>
+  <button (click)="panierService.clearPanier()">Vider le panier</button>
+</div> -->

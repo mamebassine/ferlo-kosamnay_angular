@@ -36,14 +36,22 @@ import { ProduitBoutiqueAfficherSupprimerComponent } from './produitBoutique/pro
 // import { ProduitBoutiqueVoirDetailComponent } from './produitBoutique/produit-boutique-voir-detail/produit-boutique-voir-detail.component';
 import { ProduitBoutiqueModifierComponent } from './produitBoutique/produit-boutique-modifier/produit-boutique-modifier.component';
 import { ProduitBoutiqueAjouterComponent } from './produitBoutique/produit-boutique-ajouter/produit-boutique-ajouter.component';
+import { PanierComponent } from './panier/panier/panier.component';
 
 // Import des composants lignecommande
+
+import { LigneCommandeAfficherSupprimerComponent } from './ligneCommande/ligne-commande-afficher-supprimer/ligne-commande-afficher-supprimer.component';
+
+
 // import { LignecommandeAfficherSupprimerComponent } from './lignecommande/lignecommande-afficher-supprimer/lignecommande-afficher-supprimer.component';
 // import { LignecommandeAjouterComponent } from './lignecommande/lignecommande-ajouter/lignecommande-ajouter.component';
 // import { LignecommandeModifierComponent } from './lignecommande/lignecommande-modifier/lignecommande-modifier.component';
 // import { LignecommandeVoirDetailComponent } from './lignecommande/lignecommande-voir-detail/lignecommande-voir-detail.component';
 
 // import { PanierComponent } from './panier/panier.component';
+
+
+
              
 
            export const routes: Routes = [
@@ -91,12 +99,13 @@ import { ProduitBoutiqueAjouterComponent } from './produitBoutique/produit-bouti
 { path: 'produitboutique/ajouter',component: ProduitBoutiqueAjouterComponent},
 
    // // Routes pour les LIGNECOMMANDES
-// { path: 'lignecommande', component: LignecommandeAfficherSupprimerComponent },
+{ path: 'lignecommande', component: LigneCommandeAfficherSupprimerComponent },
 // { path: 'lignecommande/ajouter', component: LignecommandeAjouterComponent },
 // { path: 'lignecommande/modifier/:id', component: LignecommandeModifierComponent },
 // { path: 'lignecommande/detail/:id', component: LignecommandeVoirDetailComponent },
 
-    // { path: 'panier', component: PanierComponent },
+    { path: 'panier', component: PanierComponent },
+    
 
 
 
