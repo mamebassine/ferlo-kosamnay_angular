@@ -6,7 +6,7 @@ import { RouterLink } from '@angular/router';
 interface LigneCommande {
   id?: number;
   produit_boutique_id: number;
-  user_id: string;
+  user_id: number;
   date: string;
   statut: string;
   quantite_totale: number;
@@ -35,7 +35,7 @@ export class LigneCommandeAfficherSupprimerComponent implements OnInit {
   loadLignesCommandes(): void {
     console.log('loadLignesCommandes: Chargement des lignes de commande...');
     this.ligneCommandeService.getLignesCommandes().subscribe(
-      (data: LigneCommande[]) => {
+      (data) => {
         console.log('loadLignesCommandes: Lignes de commande chargées avec succès.', data);
         this.lignesCommandes = data;
       },

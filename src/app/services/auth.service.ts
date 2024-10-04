@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core'; // Importation du décorateur Inject
 import { HttpClient, HttpHeaders } from '@angular/common/http'; // Importation de HttpClient et HttpHeaders pour les requêtes HTTP
 import { Observable, BehaviorSubject, throwError } from 'rxjs'; // Importation de Observable, BehaviorSubject et throwError de RxJS
 import { tap, catchError } from 'rxjs/operators'; // Importation des opérateurs tap et catchError de RxJS
-
+import { apiUrl } from './apiUrl';
 // Définition de l'interface User pour le typage
 export interface User {
   id?: number;
@@ -19,7 +19,6 @@ export interface User {
 export class AuthService {
   
   // Déclaration de l'URL de base de l'API backend
-  private apiUrl = 'http://127.0.0.1:8000/api'; // Remplacez par l'URL de votre API si nécessaire
 
   // BehaviorSubject pour stocker l'état actuel de l'utilisateur
   private currentUserSubject: BehaviorSubject<User | null>;
@@ -38,7 +37,7 @@ export class AuthService {
    * @returns Observable<any> - Observable qui émet la réponse de l'API après la requête POST
    */
   signup(data: any): Observable<any> {
-    return this.http.post<any>(`${this.apiUrl}/register`, data)
+    return this.http.post<any>(`${apiUrl}/register`, data)
       .pipe(
         tap(response => {
           if (response.token && response.user) {
@@ -60,7 +59,7 @@ export class AuthService {
    * @returns Observable<any> - Observable qui émet la réponse de l'API après la requête POST
    */
   login(credentials: { email: string; password: string }): Observable<any> {
-    return this.http.post<any>(`${this.apiUrl}/login`, credentials)
+    return this.http.post<any>(`${apiUrl}/login`, credentials)
       .pipe(
         tap(response => {
           if (response.token && response.user) {
@@ -85,7 +84,7 @@ export class AuthService {
     const headers = new HttpHeaders({
       Authorization: `Bearer ${token}`
     });
-    return this.http.post<any>(`${this.apiUrl}/logout`, {}, { headers })
+    return this.http.post<any>(`${apiUrl}/logout`, {}, { headers })
       .pipe(
         tap(() => {
           // Supprimer le token et les informations utilisateur du localStorage
@@ -104,7 +103,7 @@ export class AuthService {
    */
   getUsers(): Observable<User[]> {
     // Assurez-vous que votre backend expose une route GET /api/users
-    return this.http.get<User[]>(`${this.apiUrl}/representants`)
+    return this.http.get<User[]>(`${apiUrl}/representants`)
       .pipe(
         catchError(this.handleError)
       );

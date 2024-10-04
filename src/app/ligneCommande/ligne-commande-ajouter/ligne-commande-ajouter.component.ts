@@ -22,7 +22,7 @@ export class LigneCommandeAjouterComponent implements OnInit {
   // Propriété pour stocker les informations de la nouvelle ligne de commande
   nouvelleLigneCommande: LigneCommande = {
     produit_boutique_id: 0,
-    user_id: '',
+    user_id: 0,
     date: '',
     statut: 'en attente',
     quantite_totale: 0,
@@ -49,16 +49,16 @@ export class LigneCommandeAjouterComponent implements OnInit {
     );
 
     // Charger les utilisateurs
-    this.ligneCommandeService.getUsers().subscribe(
-      (data: any[]) => {
-        this.users = data; // Assignez les utilisateurs à la propriété
-        console.log(this.users);
+    // this.ligneCommandeService.getUsers().subscribe(
+    //   (data: any[]) => {
+    //     this.users = data; // Assignez les utilisateurs à la propriété
+    //     console.log(this.users);
         
-      },
-      (error: any) => {
-        console.error('Erreur lors du chargement des utilisateurs:', error);
-      }
-    );
+    //   },
+    //   (error: any) => {
+    //     console.error('Erreur lors du chargement des utilisateurs:', error);
+    //   }
+    // );
 
   }
   

@@ -51,6 +51,13 @@ export class ProduitVoirDetailComponent implements OnInit {
       }
     );
   }
+    // Méthode pour passer la commande
+  commanderr(produit: Produit): void {
+    // this.panierService.ajouterProduitAuPanier(produit);
+    
+    console.log('Commande passée pour le produit:', produit);
+    this.router.navigate(['/panier']); // Redirection vers la page du panier après commande
+  }
 
   // Méthodes pour gérer la quantité
   incrementQuantity(): void {
@@ -65,14 +72,18 @@ export class ProduitVoirDetailComponent implements OnInit {
     }
   }
 
-  
-  // Méthode pour ajouter le produit au panier
-addToCart(produit: Produit): void {
-  this.panierService.addProduit(produit); // Ajoute le produit au panier
-  localStorage.setItem('panier', JSON.stringify(this.produit));
-  console.log('Produit ajouté au panier:', produit); // Affiche le produit ajouté au panier
 
-}
+
+
+
+  
+//   // Méthode pour ajouter le produit au panier
+// addToCart(produit: Produit): void {
+//   this.panierService.addProduit(produit); // Ajoute le produit au panier
+//   localStorage.setItem('panier', JSON.stringify(this.produit));
+//   console.log('Produit ajouté au panier:', produit); // Affiche le produit ajouté au panier
+
+// }
 
 // // Méthode pour revenir à la page produit
 //   goBack(): void {
