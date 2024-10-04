@@ -8,7 +8,6 @@ import { FormsModule } from '@angular/forms';
 import { AuthService, User } from '../../services/auth.service';
 import { regionService, region } from '../../services/region.service';
 import { HttpErrorResponse } from '@angular/common/http'; // Import pour typer les erreurs
-// import { regionService } from '../../services/region.service';
 
 @Component({
   standalone: true,
