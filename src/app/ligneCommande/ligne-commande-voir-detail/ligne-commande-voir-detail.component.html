@@ -1,1 +1,16 @@
-<p>ligne-commande-voir-detail works!</p>
+<h2>Détails de la Ligne de Commande</h2>
+
+<div *ngIf="messageErreur" class="alert alert-danger">
+  {{ messageErreur }}
+</div>
+
+<div *ngIf="ligneCommande">
+  <p><strong>ID:</strong> {{ ligneCommande.id }}</p>
+  <p><strong>Produit:</strong> {{ ligneCommande.produit_boutique_id }}</p>
+  <p><strong>Utilisateur ID:</strong> {{ ligneCommande.user_id }}</p>
+  <p><strong>Date:</strong> {{ ligneCommande.date }}</p>
+  <p><strong>Statut:</strong> {{ ligneCommande.statut }}</p>
+  <p><strong>Quantité Totale:</strong> {{ ligneCommande.quantite_totale }}</p>
+  <p><strong>Prix Total:</strong> {{ ligneCommande.prix_totale }} €</p>
+</div>
+<button>Retour</button>lignecommande

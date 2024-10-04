@@ -42,6 +42,13 @@ import { PanierComponent } from './panier/panier/panier.component';
 
 import { LigneCommandeAfficherSupprimerComponent } from './ligneCommande/ligne-commande-afficher-supprimer/ligne-commande-afficher-supprimer.component';
 
+import { LigneCommandeAjouterComponent } from './ligneCommande/ligne-commande-ajouter/ligne-commande-ajouter.component';
+import { LigneCommandeModifierComponent } from './ligneCommande/ligne-commande-modifier/ligne-commande-modifier.component';
+import { LigneCommandeVoirDetailComponent } from './ligneCommande/ligne-commande-voir-detail/ligne-commande-voir-detail.component';
+
+
+
+
 
 // import { LignecommandeAfficherSupprimerComponent } from './lignecommande/lignecommande-afficher-supprimer/lignecommande-afficher-supprimer.component';
 // import { LignecommandeAjouterComponent } from './lignecommande/lignecommande-ajouter/lignecommande-ajouter.component';
@@ -100,6 +107,14 @@ import { LigneCommandeAfficherSupprimerComponent } from './ligneCommande/ligne-c
 
    // // Routes pour les LIGNECOMMANDES
 { path: 'lignecommande', component: LigneCommandeAfficherSupprimerComponent },
+{ path: 'lignecommande/ajouter', component: LigneCommandeAjouterComponent },
+  { path: 'lignecommande/modifier/:id', component: LigneCommandeModifierComponent },
+  { path: 'lignecommande/detail/:id', component: LigneCommandeVoirDetailComponent },
+
+
+
+
+
 // { path: 'lignecommande/ajouter', component: LignecommandeAjouterComponent },
 // { path: 'lignecommande/modifier/:id', component: LignecommandeModifierComponent },
 // { path: 'lignecommande/detail/:id', component: LignecommandeVoirDetailComponent },
