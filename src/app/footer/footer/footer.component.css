@@ -156,38 +156,4 @@
   
   
   
-  /* Contact Section Styles */
-  .contact-section {
-    opacity: 73%;
-    background-color: #f4f4f4; /* Couleur de fond légère en contraste */
-    
-    /* background-image: url('assets/images/imageba.png');  */
-     /* Assurez-vous que le chemin est correct */ 
-  
-  
-    background-size: cover; /* Ajuste la taille de l'image pour couvrir toute la section */
-    background-position: center; /* Centre l'image dans la section */
-    background-repeat: no-repeat; /* Empêche la répétition de l'image */
-    padding: 40px 20px;
-    text-align: center;
-    color: white; /* Assure que le texte est lisible sur l'image de fond */
-  }
-  
-  
-  /* Style des boutons Envoyer et Réinitialiser avec texte blanc */
-  input[type="submit"],
-  input[type="reset"] {
-    background-color: #3F7E44;
-    color: #fff; /* Texte en blanc */
-    font-weight: bold;
-    padding: 10px 20px;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s, color 0.3s, transform 0.1s;
-  }
-  
-  input[type="submit"]:hover,
-  input[type="reset"]:hover {
-    background-color: #3F7E44;
-  }
   

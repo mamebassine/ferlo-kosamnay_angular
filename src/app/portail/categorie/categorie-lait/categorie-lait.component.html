@@ -1,0 +1,30 @@
+
+
+<app-header></app-header>
+
+<div class="bacgr">
+ <h1>Nos laits</h1>
+
+ <!-- Barre de recherche -->
+ <div class="search-container">
+     <input type="text" id="searchInput" placeholder="Rechercher un produit...">
+     <button>Rechercher</button>
+ </div>
+
+ <!-- Grille des produits -->
+ <section class="product-grid" id="productGrid">
+
+   <div class="product" *ngFor="let produit of produits">
+         <img [src]="produit.image" alt="{{ produit.nom }}" class="product-image"/> 
+         <h3>{{ produit.nom }}</h3>
+         <p>Prix: {{ produit.prix | number:'1.0-2' }} CFA</p>
+         <p>Quantité : {{ produit.quantite }} litre(s)</p>
+
+         <div class="buttons">
+         <button class="view-more" (click)="voirDetail(produit.id!)">VoirDetail</button>
+   </div>
+     </div>
+
+     <app-footer></app-footer>
+
+

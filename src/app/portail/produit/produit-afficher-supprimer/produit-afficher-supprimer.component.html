@@ -67,7 +67,8 @@
           <img [src]="produit.image" alt="{{ produit.nom }}" class="product-image"/> 
           <h3>{{ produit.nom }}</h3>
           <p>Prix: {{ produit.prix | number:'1.0-2' }} CFA</p>
-          <p>Disponible</p>
+          <p>Quantité : {{ produit.quantite }} litre(s)</p>
+
           <div class="buttons">
           <button class="view-more" (click)="voirDetail(produit.id!)">VoirDetail</button>
           <button class="disponible">Disponible</button>

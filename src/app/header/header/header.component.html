@@ -1,3 +1,8 @@
+
+
+
+
+
 <header>
     <nav>
       <img src="../assets/images/logoferlokosamnay.png" alt="Logo Ferlo Kosamnay" class="logo">
@@ -9,6 +14,13 @@
         <li><a href="panier" class="icone-panier"><i class="fas fa-shopping-cart"></i></a></li>
       </ul>
       <a href="/login" class="bouton-connexion">Connexion</a>
+    
+    <!-- Condition: Si l'utilisateur est connecté, afficher le bouton Déconnexion
+    <a *ngIf="isLoggedIn" href="/logout" class="bouton-deconnexion">Déconnexion</a>
+    
+    Sinon, afficher le bouton Connexion -->
+    <!-- <a *ngIf="!isLoggedIn" href="/login" class="bouton-connexion">Connexion</a> -->
+    
     </nav>
   </header>
  
@@ -16,16 +28,3 @@
 
 
 
-<!-- <header>
-  <nav>
-    <img src="assets/images/logoferlokosamnay.png" alt="Logo Ferlo Kosamnay" class="logo">
-    <ul class="menu-centre">
-      <li><a routerLink="/">Accueil</a></li>
-      <li><a routerLink="/produit">Produits</a></li>
-      <li><a routerLink="/categorie">Catégories</a></li>
-      <li><a routerLink="/contact">Contact</a></li>
-      <li><a href="#" class="icone-panier"><i class="fas fa-shopping-cart"></i></a></li>
-    </ul>
-    <a routerLink="/login" class="bouton-connexion">Connexion</a>
-  </nav>
-</header> -->

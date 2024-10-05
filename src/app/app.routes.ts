@@ -47,13 +47,17 @@ import { LigneCommandeModifierComponent } from './ligneCommande/ligne-commande-m
 import { LigneCommandeVoirDetailComponent } from './ligneCommande/ligne-commande-voir-detail/ligne-commande-voir-detail.component';
 
 
+import { CategorieFromageComponent } from './portail/categorie/categorie-fromage/categorie-fromage.component';
+import { CategorieLaitComponent } from './portail/categorie/categorie-lait/categorie-lait.component';
+// import { CategorieHuileVacheComponent } from './portail/categorie/categorie-huileVache/categorie-huileVache.component';
+// import { CategorieLaitCailleComponent } from './portail/categorie/categorie-Categorie-LaitCaille/categorie-CategorieLaitCailleComponent';
+import { CategorieHuileVacheComponent } from './portail/categorie/categorie-huile-vache/categorie-huile-vache.component';
+import { CategorieLaitCailleComponent } from './portail/categorie/categorie-lait-caille/categorie-lait-caille.component';
 
 
 
-// import { LignecommandeAfficherSupprimerComponent } from './lignecommande/lignecommande-afficher-supprimer/lignecommande-afficher-supprimer.component';
-// import { LignecommandeAjouterComponent } from './lignecommande/lignecommande-ajouter/lignecommande-ajouter.component';
-// import { LignecommandeModifierComponent } from './lignecommande/lignecommande-modifier/lignecommande-modifier.component';
-// import { LignecommandeVoirDetailComponent } from './lignecommande/lignecommande-voir-detail/lignecommande-voir-detail.component';
+
+
 
 // import { PanierComponent } from './panier/panier.component';
 
@@ -112,15 +116,12 @@ import { LigneCommandeVoirDetailComponent } from './ligneCommande/ligne-commande
   { path: 'lignecommande/detail/:id', component: LigneCommandeVoirDetailComponent },
 
 
-
-
-
-// { path: 'lignecommande/ajouter', component: LignecommandeAjouterComponent },
-// { path: 'lignecommande/modifier/:id', component: LignecommandeModifierComponent },
-// { path: 'lignecommande/detail/:id', component: LignecommandeVoirDetailComponent },
-
     { path: 'panier', component: PanierComponent },
     
+    { path: 'fromage', component: CategorieFromageComponent },// Afficher ou supprimer une catégorie
+    { path: 'lait', component: CategorieLaitComponent },// Afficher ou supprimer une catégorie
+    { path: 'lait-caille', component: CategorieLaitCailleComponent },
+    { path: 'huile-vache', component: CategorieHuileVacheComponent },
 
 
 
