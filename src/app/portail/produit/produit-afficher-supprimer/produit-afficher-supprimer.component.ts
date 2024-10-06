@@ -5,6 +5,7 @@ import { Router } from '@angular/router';
 import { CategorieService, Categorie } from '../../../services/categorie.service';
 import { HeaderComponent } from "../../../header/header/header.component";
 import { FooterComponent } from "../../../footer/footer/footer.component";
+import { PanierService } from '../../../services/panier.service';
 
 
 @Component({
@@ -23,13 +24,21 @@ export class ProduitAfficherSupprimerComponent implements OnInit {
   constructor(
     private produitService: ProduitService,
     private categorieService: CategorieService,
-    private router: Router
+    private router: Router,
+    private panierService: PanierService
   ) {}
   
   ngOnInit(): void {
     this.chargerProduits();
     this.chargerCategories();
   }
+
+  // src/app/portail/produit/produit-afficher-supprimer/produit-afficher-supprimer.component.ts
+ajouterAuPanier(produit: Produit): void {
+  console.log('Ajout du produit:', produit); // Log pour voir le produit
+  this.panierService.ajouterProduit(produit);
+}
+
 
   chargerProduits(): void {
     this.produitService.getProduits().subscribe(

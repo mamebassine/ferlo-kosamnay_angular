@@ -1,61 +1,46 @@
 // src/app/services/panier.service.ts
 import { Injectable } from '@angular/core';
-import { BehaviorSubject, Observable } from 'rxjs';
-import { Produit } from './produit.service'; // Assurez-vous que le chemin est correct
-// import { apiUrl } from './apiUrl';
-
+import { Produit } from './produit.service';
+import { Observable, of } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class PanierService {
   private produits: Produit[] = [];
-  private produitsSubject: BehaviorSubject<Produit[]> = new BehaviorSubject<Produit[]>([]);
 
   constructor() {
-    // Charger le panier depuis le localStorage si disponible
-    const savedPanier = localStorage.getItem('panier');
-    if (savedPanier) {
-      this.produits = JSON.parse(savedPanier);
-      this.produitsSubject.next(this.produits);
+    this.loadPanier(); // Charger les produits du Local Storage lors de l'initialisation
+  }
+
+  private loadPanier(): void {
+    const produitsStockes = localStorage.getItem('panier');
+    if (produitsStockes) {
+      const produitsParsed = JSON.parse(produitsStockes);
+      // Vérifiez que ce qui est chargé est un tableau
+      this.produits = Array.isArray(produitsParsed) ? produitsParsed : [];
     }
   }
 
-  // Méthode pour ajouter un produit au panier
-  addProduit(produit: Produit): void {
-    const index = this.produits.findIndex(p => p.id === produit.id);
-    if (index > -1) {
-      // Augmenter la quantité en s'assurant qu'elle est définie
-      this.produits[index].quantite = (this.produits[index].quantite || 0) + (produit.quantite || 1);
-    } else {
-      // Ajouter une copie du produit avec une quantité par défaut
-      this.produits.push({ ...produit, quantite: produit.quantite || 1 });
-    }
-    this.updatePanier();
-  }
-
-  // Méthode pour récupérer les produits du panier sous forme d'observable
   getProduits(): Observable<Produit[]> {
-    return this.produitsSubject.asObservable();
+    return of(this.produits); // Utilisation de 'of' pour retourner un Observable
   }
 
-  // Méthode pour calculer le total
+  ajouterProduit(produit: Produit): void {
+    this.produits.push(produit);
+    this.savePanier(); // Sauvegarder les produits dans le Local Storage
+  }
+
   getTotal(): number {
-    return this.produits.reduce((total, produit) => 
-      total + (produit.prix * (produit.quantite || 0)), 
-      0
-    );
+    return this.produits.reduce((acc, produit) => acc + produit.prix * produit.quantite, 0);
   }
 
-  // Méthode pour vider le panier
   clearPanier(): void {
     this.produits = [];
-    this.updatePanier();
+    this.savePanier(); // Vider le Local Storage
   }
 
-  // Méthode privée pour mettre à jour le panier et le sauvegarder
-  private updatePanier(): void {
-    this.produitsSubject.next([...this.produits]); // Émettre une copie du tableau
-    localStorage.setItem('panier', JSON.stringify(this.produits)); // Sauvegarder dans le localStorage
+  private savePanier(): void {
+    localStorage.setItem('panier', JSON.stringify(this.produits));
   }
 }
