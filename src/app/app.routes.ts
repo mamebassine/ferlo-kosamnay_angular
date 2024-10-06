@@ -3,7 +3,12 @@ import { Routes } from '@angular/router';
 // Import des composants login, register, dashoad
 import { LoginComponent } from './auth/login/login.component';
 import { RegisterComponent } from './auth/register/register.component';
-import { AdminComponent } from './dashboard/admin/admin.component'; // Assurez-vous que le chemin est correct
+import { AdminComponent } from './dashboard/admin/admin.component'; //ProduitsAdminComponent
+
+// import { ProduitsAdminComponent } from './dashboard/admin/produits-admin.component'; 
+import { ProduitsAdminComponent } from './dashboard/produits-admin/produits-admin.component';
+
+
 
 // Import des composants accueil et contact
 import { AccueilComponent } from './portail/accueil/accueil.component'; //MOI Mise à jour du chemin
@@ -70,7 +75,9 @@ import { CategorieLaitCailleComponent } from './portail/categorie/categorie-lait
      // Routes pour l'authentification et dashoard
 { path: 'login', component: LoginComponent },
 { path: 'register', component: RegisterComponent},
-{ path: 'dashboard', component: AdminComponent }, // Utilisez DashboardComponent
+{ path: 'dashboard', component: AdminComponent }, // Utilisez DashboardComponent 
+
+{ path: 'ProduitsAdmin', component: ProduitsAdminComponent },
 
  
     // Routes pour l'accueil et contact 

@@ -46,4 +46,7 @@ export class ProduitBoutiqueService {
     return this.http.delete<void>(`${this.apiUrl}/${id}`);
   }
   
+
+  
+
 }

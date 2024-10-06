@@ -3,6 +3,8 @@ import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Observable, throwError } from 'rxjs';
 import { catchError } from 'rxjs/operators';
 import { Categorie } from './categorie.service';
+import { Boutique } from './boutique.service';
+import { ProduitBoutique } from './produit-boutique.service';
 // import { apiUrl } from './apiUrl';
 
 
@@ -16,6 +18,7 @@ export interface Produit {
   reference: string;
   nom: string;
   categorie?: Categorie;
+  produit_boutique: ProduitBoutique[]; 
 }
 
 @Injectable({
