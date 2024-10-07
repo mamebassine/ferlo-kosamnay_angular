@@ -61,6 +61,7 @@ export class ProduitVoirDetailComponent implements OnInit {
       (data: Produit) => {
         this.produit = data; // Stocke les détails du produit dans la variable
         this.produitBoutique = data.produit_boutique; // Stocke la boutique du produit
+        // console.log(this.produitBoutique);
         
         // Si vous souhaitez afficher les boutiques, par exemple la première boutique
         if (this.produitBoutique && this.produitBoutique.length > 0) {
@@ -82,17 +83,10 @@ export class ProduitVoirDetailComponent implements OnInit {
   
 
     // Méthode pour passer la commande
-  // commanderr(produit: Produit): void {
-  //   // this.panierService.ajouterProduitAuPanier(produit);
-    
-  //   console.log('Commande passée pour le produit:', produit);
-  //   this.router.navigate(['/panier']); // Redirection vers la page du panier après commande
-  // }
-
-  commanderr(produit: Produit): void {
+ commanderr(produit: Produit): void {
     // Vérifie que produit.id est bien défini
     if (produit.id !== undefined && produit.id) {
-        const produit_boutique_id = produit.id;
+        const produit_boutique_id = this.produitBoutique[0].id;
 
         const currentUser = this.authService.getCurrentUser(); // Récupération de l'utilisateur actuel
         const userId = currentUser?.id; // Récupérer l'ID de l'utilisateur
@@ -116,15 +110,17 @@ export class ProduitVoirDetailComponent implements OnInit {
 
         this.ligneCommandeService.createLigneCommande(ligneCommande).subscribe({
             next: (response: any) => {
-                console.log('Commande créée avec succès:', response);
-                this.router.navigate(['/confirmation']);
+              alert('Commande passer avec succe')
+                // console.log('Commande créée avec succès:', response);
+
+                // this.router.navigate(['/panier']);
             },
             error: (error: any) => {
                 console.error('Erreur lors de la création de la commande:', error);
                 if (error.error && error.error.errors) {
                     alert('Erreur de validation: ' + JSON.stringify(error.error.errors));
                 } else {
-                    alert('Erreur inconnue lors de la création de la commande: ' + error.message);
+                    console.log('Erreur inconnue lors de la création de la commande: ' + error.message);
                 }
             }
         });

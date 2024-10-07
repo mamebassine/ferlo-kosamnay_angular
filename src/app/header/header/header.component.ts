@@ -11,6 +11,15 @@ import { RouterModule } from '@angular/router';  // Pour gérer la navigation
   styleUrls: ['./header.component.css']
 })
 export class HeaderComponent {
+
+  isMenuOpen: boolean = false;
+
+  toggleMenu() {
+    this.isMenuOpen = !this.isMenuOpen;
+  }
+
+
+
   // isLoggedIn: boolean = false;
 
   // constructor(private authService: AuthService) {
@@ -24,3 +33,4 @@ export class HeaderComponent {
   //   // this.router.navigate(['/']);  // Exemple de redirection
   // }
 }
+
