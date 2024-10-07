@@ -1,3 +1,9 @@
+
+
+<app-header></app-header>
+
+
+
 <div *ngIf="(produits$ | async) as produits; else noProduits">
   <ul>
     <li *ngFor="let produit of produits">
@@ -12,3 +18,7 @@
 <ng-template #noProduits>
   <h2>Votre panier est vide</h2>
 </ng-template>
+
+
+
+<app-footer></app-footer>
