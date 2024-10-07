@@ -21,12 +21,16 @@ selector: 'app-produit-modifier',
 export class ProduitModifierComponent implements OnInit {
   produit: Produit = {
     categorie_id: 0,
+    id: 0,
     image: '',
     description: '',
     prix: 0,
     quantite: 0,
     reference: '',
     nom: '',
+
+    produit_boutique: [] // Propriété ajoutée
+
   };
 
   categories: Categorie[] = [];

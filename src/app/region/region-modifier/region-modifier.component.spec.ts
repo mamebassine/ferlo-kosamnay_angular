@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { RegionModifierComponent } from './region-modifier.component';
+import { regionModifierComponent } from './region-modifier.component';
 
-describe('RegionModifierComponent', () => {
-  let component: RegionModifierComponent;
-  let fixture: ComponentFixture<RegionModifierComponent>;
+describe('regionModifierComponent', () => {
+  let component: regionModifierComponent;
+  let fixture: ComponentFixture<regionModifierComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [RegionModifierComponent]
+      imports: [regionModifierComponent]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(RegionModifierComponent);
+    fixture = TestBed.createComponent(regionModifierComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

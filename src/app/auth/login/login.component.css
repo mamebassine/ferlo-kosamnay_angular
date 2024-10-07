@@ -36,7 +36,7 @@ h2 {
 }
 
 .login-form input {
-    width: 94%; /* Champ d'entrée prend toute la largeur du formulaire */
+    width: 99%; /*problem Champ d'entrée prend toute la largeur du formulaire */
     padding: 12px;
     margin: 10px 0; /* Marge verticale pour espacer les champs */
     border: 1px solid #ddd; /* Ajout d'une bordure uniforme */
@@ -72,7 +72,7 @@ h2 {
 }
 
 .login-image {
-    width: 45%; /* Largeur de l'image */
+    width: 47%; /* Largeur de l'image */
     height: auto; /* Ajustement automatique à la hauteur */
     padding: 3px;
     border-radius: 15px;

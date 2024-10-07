@@ -2,25 +2,25 @@
     <h2>Modification de la boutique</h2>
     
     <!-- Formulaires de modification -->
-    <form (ngSubmit)="submitForm()">
+    <form [formGroup]="form" (ngSubmit)="submitForm()">
       <div>
         <label for="nom">Nom :</label>
-        <input id="nom" type="text" value="nom" [(ngModel)]="boutique.nom" name="nom" required>
+        <input id="nom" formControlName="nom" required>
       </div>
       
       <div>
-        <label for="adresse">Adresse :</label>
-        <input id="adresse" type="text" [(ngModel)]="boutique.adresse" name="adresse" required>
+        <label for="adresse">adresse :</label>
+        <input id="adresse" formControlName="adresse" required>
       </div>
       
       <div>
         <label for="telephone">Téléphone :</label>
-        <input id="telephone" type="tel" [(ngModel)]="boutique.telephone" name="telephone" required>
+        <input id="telephone" type="tel" formControlName="telephone" required>
       </div>
       
       <div>
-        <label for="region">Région :</label>
-        <select id="region" [(ngModel)]="boutique.region_id" name="region" required>
+        <label for="adresse">Région :</label>
+        <select id="adresse" formControlName="adresse_id" required>
           <option value="">-- Sélectionnez une région --</option>
           <!-- Ajoutez ici les options de régions -->
         </select>
@@ -28,7 +28,7 @@
       
       <div>
         <label for="user">Utilisateur :</label>
-        <select id="user" [(ngModel)]="boutique.user_id" name="user" required>
+        <select id="user" formControlName="user_id" required>
           <option value="">-- Sélectionnez un utilisateur --</option>
           <!-- Ajoutez ici les options d'utilisateurs -->
         </select>
@@ -36,7 +36,7 @@
       
       <div>
         <label for="representant">Représentant :</label>
-        <input id="representant" type="text" [(ngModel)]="boutique.representant" name="representant">
+        <input id="representant" formControlName="representant">
       </div>
       
       <button type="submit">Modifier</button>

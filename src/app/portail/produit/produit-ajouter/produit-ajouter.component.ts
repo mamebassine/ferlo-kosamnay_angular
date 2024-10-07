@@ -18,13 +18,23 @@ import { Router } from '@angular/router';
 })
 export class ProduitAjouterComponent implements OnInit {
   produit: Produit = {
-    categorie_id: 0,
-    image: '',
-    description: '',
-    prix: 0,
-    quantite: 0,
-    reference: '',
+    // categorie_id: 0,
+    // image: '',
+    // description: '',
+    // prix: 0,
+    // quantite: 0,
+    // reference: '',
+    // nom: '',
+
+    id: 0, // Valeur par défaut ou générée automatiquement
     nom: '',
+    reference: '',
+    quantite: 0,
+    prix: 0,
+    description: '',
+    image: '',
+    categorie_id: 0,
+    produit_boutique: [] // Propriété ajoutée
   };
 
   categories: Categorie[] = [];
@@ -77,13 +87,23 @@ export class ProduitAjouterComponent implements OnInit {
   // Méthode pour réinitialiser le formulaire
   resetForm(): void {
     this.produit = {
-      categorie_id: 0,
-      image: '',
-      description: '',
-      prix: 0,
-      quantite: 0,
-      reference: '',
+      // categorie_id: 0,
+      // image: '',
+      // description: '',
+      // prix: 0,
+      // quantite: 0,
+      // reference: '',
+      // nom: '',
+
+      id: 0, // Valeur par défaut ou générée automatiquement
       nom: '',
+      reference: '',
+      quantite: 0,
+      prix: 0,
+      description: '',
+      image: '',
+      categorie_id: 0,
+      produit_boutique: [] // Propriété ajoutée
     };
   }
 }

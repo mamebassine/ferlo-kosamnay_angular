@@ -4,8 +4,10 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Observable, throwError } from 'rxjs';
 import { catchError } from 'rxjs/operators';
+// import { apiUrl } from './apiUrl';
 
-export interface Region {
+
+export interface region {
   id: number;
   nom: string;
 }
@@ -13,27 +15,27 @@ export interface Region {
 @Injectable({
   providedIn: 'root'
 })
-export class RegionService {
+export class regionService {
   private apiUrl = 'http://localhost:8000/api/regions'; // Remplacez par votre URL API
 
   constructor(private http: HttpClient) {}
 
   /**
    * Méthode pour récupérer toutes les régions.
-   * @returns Observable<Region[]> - Observable qui émet la liste des régions
+   * @returns Observable<region[]> - Observable qui émet la liste des régions
    */
-  getAllRegions(): Observable<Region[]> {
-    return this.http.get<Region[]>(this.apiUrl)
+  getAllregions(): Observable<region[]> {
+    return this.http.get<region[]>(this.apiUrl)
       .pipe(catchError(this.handleError));
   }
 
   /**
    * Méthode pour créer une nouvelle région.
    * @param region - Objet contenant les informations de la région à créer
-   * @returns Observable<Region> - Observable qui émet la région créée
+   * @returns Observable<region> - Observable qui émet la région créée
    */
-  createRegion(region: Region): Observable<Region> {
-    return this.http.post<Region>(this.apiUrl, region)
+  createregion(region: region): Observable<region> {
+    return this.http.post<region>(this.apiUrl, region)
       .pipe(catchError(this.handleError));
   }
 
@@ -41,20 +43,20 @@ export class RegionService {
    * Méthode pour mettre à jour une région existante.
    * @param id - ID de la région à mettre à jour
    * @param region - Objet contenant les nouvelles informations de la région
-   * @returns Observable<Region> - Observable qui émet la région mise à jour
+   * @returns Observable<region> - Observable qui émet la région mise à jour
    */
-  updateRegion(id: number, region: Region): Observable<Region> {
-    return this.http.put<Region>(`${this.apiUrl}/${id}`, region)
+  updateregion(id: number, region: region): Observable<region> {
+    return this.http.put<region>(`${this.apiUrl}/${id}`, region)
       .pipe(catchError(this.handleError));
   }
 
   /**
    * Méthode pour récupérer une région spécifique par ID.
    * @param id - ID de la région à récupérer
-   * @returns Observable<Region> - Observable qui émet la région récupérée
+   * @returns Observable<region> - Observable qui émet la région récupérée
    */
-  getRegion(id: number): Observable<Region> {
-    return this.http.get<Region>(`${this.apiUrl}/${id}`) // Correction ici
+  getregion(id: number): Observable<region> {
+    return this.http.get<region>(`${this.apiUrl}/${id}`) // Correction ici
       .pipe(catchError(this.handleError));
   }
 
@@ -63,7 +65,7 @@ export class RegionService {
    * @param id - ID de la région à supprimer
    * @returns Observable<void> - Observable qui complète la suppression
    */
-  deleteRegion(id: number): Observable<void> {
+  deleteregion(id: number): Observable<void> {
     return this.http.delete<void>(`${this.apiUrl}/${id}`)
       .pipe(catchError(this.handleError));
   }

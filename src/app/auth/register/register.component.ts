@@ -112,6 +112,7 @@ export class RegisterComponent {
     nom_complet: '', 
     telephone: '', 
     email: '', 
+    adresse: '', 
     password: '', 
     password_confirmation: '' 
   };
@@ -122,7 +123,7 @@ export class RegisterComponent {
   // Méthode appelée lors de la soumission du formulaire d'inscription
   register() {
     // Vérifie si tous les champs requis sont remplis
-    if (!this.userObject.nom_complet || !this.userObject.telephone || !this.userObject.email || !this.userObject.password || !this.userObject.password_confirmation) {
+    if (!this.userObject.nom_complet || !this.userObject.telephone || !this.userObject.email|| !this.userObject.adresse || !this.userObject.password || !this.userObject.password_confirmation) {
       // Si un champ est vide, affiche un message d'alerte d'erreur
       this.alertMessage = "Veuillez remplir les champs";
       AlertShowMessage("alert-danger"); // Appel au service pour afficher l'alerte
@@ -134,7 +135,7 @@ export class RegisterComponent {
       this.authService.signup(this.userObject).subscribe(
         (response: any) => {
           // Si la requête est réussie, affiche la réponse dans la console
-          console.log(response);
+          console.log('Réponse du serveur :', response); // Vérifiez la réponse
 
           // Redirige l'utilisateur vers la page de connexion
           this.router.navigate(['/login']); // Redirection vers la route 'login'
@@ -142,6 +143,8 @@ export class RegisterComponent {
           // Affiche un message de succès (optionnel)
           this.alertMessage = "Inscription réussie !";
           AlertShowMessage("alert-success"); // Message d'alerte pour succès
+          console.log(this.userObject);          
+
         },
         (error: any) => {
           // Si la requête échoue, affiche l'erreur dans la console

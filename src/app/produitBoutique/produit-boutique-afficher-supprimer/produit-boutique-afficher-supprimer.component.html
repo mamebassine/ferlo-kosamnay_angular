@@ -1,1 +1,29 @@
-<p>produit-boutique-afficher-supprimer works!</p>
+<h2>Liste des associations Produit-Boutique</h2>
+
+<!-- Bouton pour ajouter une nouvelle association -->
+<button [routerLink]="['/produitboutique/ajouter']">Ajouter une Association</button>
+
+<table>
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Produit</th>
+      <th>Boutique</th>
+      <th>Quantité</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let produitBoutique of produitBoutiques">
+      <td>{{ produitBoutique.id }}</td>
+      <td>{{ produitBoutique.produit?.nom }}</td>
+      <td>{{ produitBoutique.boutique?.nom }}</td>
+      <td>{{ produitBoutique.quantite }}</td>
+      <td>
+        <a [routerLink]="['/produitboutique/detail', produitBoutique.id]">Voir Détails</a>
+        <a [routerLink]="['/produitboutique/modifier', produitBoutique.id]">Modifier</a>
+        <button (click)="delete(produitBoutique.id)">Supprimer</button>
+      </td>
+    </tr>
+  </tbody>
+</table>

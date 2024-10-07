@@ -7,6 +7,6 @@ import { Component } from '@angular/core';
   templateUrl: './region-voir-detail.component.html',
   styleUrl: './region-voir-detail.component.css'
 })
-export class RegionVoirDetailComponent {
+export class regionVoirDetailComponent {
 
 }

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { RegionService } from '../../services/region.service';
+import { regionService } from '../../services/region.service';
 import { Router } from '@angular/router';
 import { CommonModule } from '@angular/common';
 
@@ -11,20 +11,20 @@ import { CommonModule } from '@angular/common';
 templateUrl: './region-afficher-supprimer.component.html',
   styleUrls: ['./region-afficher-supprimer.component.css']
 })
-export class RegionAfficherSupprimerComponent implements OnInit {
+export class regionAfficherSupprimerComponent implements OnInit {
   regions: any[] = [];
 
   constructor(
-    private regionService: RegionService,
+    private regionService: regionService,
     private router: Router
   ) {}
 
   ngOnInit() {
-    this.getAllRegions();
+    this.getAllregions();
   }
 
-  getAllRegions() {
-    this.regionService.getAllRegions().subscribe(
+  getAllregions() {
+    this.regionService.getAllregions().subscribe(
       (data: any[]) => {
         this.regions = data;
         console.log('Régions récupérées:', data);
@@ -35,17 +35,17 @@ export class RegionAfficherSupprimerComponent implements OnInit {
     );
   }
 
-  createNewRegion() {
+  createNewregion() {
     this.router.navigate(['/region/ajouter']);
   }
 
-  editRegion(id: number) {
+  editregion(id: number) {
     this.router.navigate(['/region/modifier/', id]);
   }
 
-  deleteRegion(id: number) {
+  deleteregion(id: number) {
     if (confirm('Êtes-vous sûr de vouloir supprimer cette région ?')) {
-      this.regionService.deleteRegion(id).subscribe(
+      this.regionService.deleteregion(id).subscribe(
         () => {
           this.regions = this.regions.filter(r => r.id !== id);
           console.log(`Région avec ID ${id} supprimée.`);

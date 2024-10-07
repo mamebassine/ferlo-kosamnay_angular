@@ -1,26 +1,8 @@
-<!-- Conteneur principal de l'inscription -->
-<div class="signup-container">
-  
-    <!-- Formulaire d'inscription -->
+<!-- <div class="signup-container">
     <div class="signup-form">
       <h2>Inscription</h2>
-      
-      <!-- Groupe de formulaire pour le nom complet -->
       <div class="form-group">
-        <!-- 
-          Champ de saisie pour le nom complet de l'utilisateur.
-          - type="text" : Champ texte
-          - placeholder : Texte indicatif dans le champ
-          - required : Champ requis
-          - [(ngModel)] : Liaison bidirectionnelle avec la propriété 'nom_complet' de 'userObject' dans le composant TypeScript
-          - name : Nom du champ pour l'identification dans le formulaire
-        -->
-        <input 
-          type="text" 
-          placeholder="Bassine Niang" 
-          required 
-          [(ngModel)]="userObject.nom_complet" 
-          name="nom_complet">
+        <input type="text" placeholder="Bassine Niang" required [(ngModel)]="userObject.nom_complet" name="nom_complet">
       </div>
       
       <div class="form-group">
@@ -44,6 +26,10 @@
       </div>
       
       <div class="form-group">
+        <input type="text" id="adresse" placeholder="adresse" required [(ngModel)]="userObject.adresse" name="adresse">
+    
+
+      <div class="form-group">
         
         <input 
           type="password" 
@@ -62,12 +48,9 @@
           [(ngModel)]="userObject.password_confirmation" 
           name="password_confirmation">
       </div>
-      
-      <!-- Bouton de soumission du formulaire d'inscription -->
       <button (click)="register()">S'inscrire</button>
       
-      <!-- Lien pour rediriger les utilisateurs déjà inscrits vers la page de connexion -->
-      <p>Déjà inscrit ? <a href="#">Se connecter</a></p>
+      <p>Déjà inscrit ? <a href="login">Se connecter</a></p>
     </div>
     
     <div class="signup-image">
@@ -75,5 +58,55 @@
       <img src="../assets/images/frommage.jpeg" alt="Image d'inscription">
     </div>
     
-  </div>
-  
+  </div> 
+ -->
+
+
+ 
+
+
+  <body>
+    <div class="signup-container">
+        <div class="signup-form">
+            <h2>Inscription</h2>
+            <form (ngSubmit)="register()" #signupForm="ngForm">
+                <div class="form-group">
+                    <label for="nom_complet">Prénom :</label>
+                    <input type="text" id="nom_complet" placeholder="Prénom" required [(ngModel)]="userObject.nom_complet" name="nom_complet">
+                
+                  </div>
+
+                <div class="form-group">
+                    <label for="telephone">Téléphone :</label>
+                    <input type="text" id="telephone" placeholder="77 1065156" required [(ngModel)]="userObject.telephone" name="telephone">
+                </div>
+
+                <div class="form-group">
+                    <label for="email">Email :</label>
+                    <input type="email" id="email" placeholder="Email" required [(ngModel)]="userObject.email" name="email">
+                </div>
+
+                <div class="form-group">
+                    <label for="adresse">adresse :</label>
+                    <input type="text" id="adresse" placeholder="adresse" required [(ngModel)]="userObject.adresse" name="adresse">
+                </div>
+
+                <div class="form-group">
+                    <label for="password">Mot de passe :</label>
+                    <input type="password" id="password" placeholder="Mot de passe" required [(ngModel)]="userObject.password" name="password">
+                </div>
+
+                <div class="form-group">
+                    <label for="password_confirmation">Confirmer votre Mot de passe :</label>
+                    <input type="password" id="password_confirmation" placeholder="Confirmer votre Mot de passe" required [(ngModel)]="userObject.password_confirmation" name="password_confirmation">
+                </div>
+                
+                <button type="submit">S'inscrire</button>
+                <p>Déjà inscrit ? <a href="login">Se connecter</a></p>
+            </form>
+        </div>
+        <div class="signup-image">
+            <img src="../assets/images/frommage.jpeg" alt="Image d'inscription">
+        </div>
+    </div>
+</body>

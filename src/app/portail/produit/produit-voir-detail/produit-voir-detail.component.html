@@ -1,5 +1,4 @@
-
-<!-- src/app/portail/produit/produit-voir-detail/produit-voir-detail.component.html -->
+<!-- 
 <div class="container" *ngIf="produit; else loadingOrError">
     <h2>Détails du Produit</h2>
     <div class="card">
@@ -12,7 +11,7 @@
         <p><strong>Prix:</strong> {{ produit.prix | currency }}</p>
         <p><strong>Quantité:</strong> {{ produit.quantite }}</p>
         <p><strong>Catégorie:</strong> {{ produit.categorie?.nom_complet }}</p>
-        <!-- Ajouter d'autres détails si nécessaire -->
+        Ajouter d'autres détails si nécessaire 
       </div>
     </div>
     <button class="btn btn-secondary mt-3" (click)="goBack()">Retour</button>
@@ -26,4 +25,47 @@
       Chargement des détails du produit...
     </div>
   </ng-template>
-  
+   -->
+
+   
+   <app-header></app-header>
+
+   
+
+   <div class="phovoirdetail" *ngIf="produit; else loadingOrError">
+    <div class="product-detail">
+        <img [src]="produit.image" alt="{{ produit.nom }}" class="img-fluid mb-3" style="max-width: 200px;">
+
+        <div class="product-info">
+            <h1>{{ produit.nom }}</h1>
+            <p>{{ produit.description }}</p>
+
+            <div class="product-price">
+                <span>Prix : {{ produit.prix | currency:'CFA' }}</span>
+                <span>Quantité : {{ produit.quantite }} litre(s)</span>
+            </div>
+
+            <div class="quantity-control">
+                <button class="quantity-btn" (click)="incrementQuantity()">+</button>
+                <span class="quantity">{{ produit.quantite }}</span>
+                <button class="quantity-btn" (click)="decrementQuantity()" [disabled]="produit.quantite <= 0">-</button>
+            </div>
+
+            <button class="add-to-cart" (click)="commanderr(produit)">Commander <i class="fas fa-heart"></i></button>
+        </div>
+    </div>
+</div>
+
+<ng-template #loadingOrError>
+    <div *ngIf="errorMessage" class="alert alert-danger">
+        {{ errorMessage }}
+    </div>
+    <div *ngIf="!errorMessage" class="alert alert-info">
+        Chargement des détails du produit...
+    </div>
+</ng-template>
+
+<app-footer></app-footer>
+
+
+

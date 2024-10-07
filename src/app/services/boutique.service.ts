@@ -3,6 +3,7 @@ import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Observable, throwError } from 'rxjs';
 import { catchError } from 'rxjs/operators';
 
+
 // Interface pour une Boutique
 export interface Boutique {
   id?: number;
@@ -13,7 +14,7 @@ export interface Boutique {
   user_id?: string;
   representant?: string; // Ajoutez cette ligne si representant est une propriété de Boutique
 
-  region?: any; // Vous pouvez définir une interface Region si nécessaire
+  region?: any; // Vous pouvez définir une interface adresse si nécessaire
   produits?: any[]; // Vous pouvez définir une interface Produit si nécessaire
   user?: any;
 }

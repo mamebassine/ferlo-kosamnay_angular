@@ -1,1 +1,53 @@
-<p>ligne-commande-ajouter works!</p>
+<form (ngSubmit)="ajouterLigneCommande()">
+  <!-- Sélection du produit de la boutique -->
+  <div class="form-group">
+    <label for="produit_boutique_id">Produit boutique:</label>
+    <select id="produit_boutique_id" name="produit_boutique_id" class="form-control" [(ngModel)]="nouvelleLigneCommande.produit_boutique_id" required
+            [ngClass]="{'is-invalid': submitted && !nouvelleLigneCommande.produit_boutique_id}">
+        <option value="" disabled>-- Sélectionnez un produit boutique --</option>
+        <option *ngFor="let produit_boutique of ligne_commandes" [value]="produit_boutique.id">{{ produit_boutique.produit_boutique_id }}</option>
+    </select>
+  </div>
+
+  
+  <!-- Sélection de l'utilisateur -->
+  <div class="form-group">
+    <label for="user_id">Client:</label>
+    <select id="user_id" name="user_id" class="form-control" [(ngModel)]="nouvelleLigneCommande.user_id" required
+            [ngClass]="{'is-invalid': submitted && !nouvelleLigneCommande.user_id}">
+        <option value="" disabled>-- Sélectionnez un utilisateur --</option>
+        <option *ngFor="let user of users" [value]="user.id">{{ user.nom_complet }}</option>
+    </select>
+  </div>
+
+<!-- Date de la commande -->
+  <div>
+    <label for="date">Date:</label>
+    <input type="date" [(ngModel)]="nouvelleLigneCommande.date" name="date" required>
+  </div>
+
+  <!-- Statut de la commande -->
+  <div>
+    <label for="statut">Statut:</label>
+    <select [(ngModel)]="nouvelleLigneCommande.statut" name="statut" required>
+      <option value="en attente">En attente</option>
+      <option value="livré">Livré</option>
+      <option value="en cours de traitement">En cours de traitement</option>
+    </select>
+  </div>
+
+  <!-- Quantité totale -->
+  <div>
+    <label for="quantite_totale">Quantité:</label>
+    <input type="number" [(ngModel)]="nouvelleLigneCommande.quantite_totale" name="quantite_totale" required>
+  </div>
+
+  <!-- Prix total -->
+  <div>
+    <label for="prix_totale">Prix Total (cfa):</label>
+    <input type="number" [(ngModel)]="nouvelleLigneCommande.prix_totale" name="prix_totale" required>
+  </div>
+
+  <!-- Bouton pour soumettre le formulaire -->
+  <button type="submit">Soumettre</button>
+</form>
