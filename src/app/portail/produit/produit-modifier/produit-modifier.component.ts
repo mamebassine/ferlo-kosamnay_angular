@@ -1,4 +1,3 @@
-// src/app/portail/produit/produit-modifier/produit-modifier.component.ts
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ProduitService, Produit } from '../../../services/produit.service';

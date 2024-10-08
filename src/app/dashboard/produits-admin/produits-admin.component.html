@@ -20,17 +20,16 @@
     <tbody>
       <tr *ngFor="let produit of produits">
         <td>{{ produit.id }}</td>
+        <td>
+          <img [src]="produit.image" alt="{{ produit.nom }}" style="width: 100px; height: auto;" /> 
+     </td>
         <td>{{ produit.nom }}</td>
         <td>{{ getNomCategorie(produit.categorie_id) }}</td>
         <td>{{ produit.categorie_id }}</td> 
         <td>{{ produit.description }}</td> 
-
-        <td>
-
-        <img [src]="produit.image" alt="{{ produit.nom }}" style="width: 50px; height: auto;" /> 
-        </td>
         <td>{{ produit.reference }}</td>
-        <td>{{ produit.prix | currency:'USD':true }}</td>
+
+        <td>{{ produit.prix | number:'1.0-2' }} CFA</td>
         <td>{{ produit.quantite }}</td>
         <td>
           <button class="btn btn-sm btn-danger" (click)="supprimer(produit.id!)">Supprimer</button>

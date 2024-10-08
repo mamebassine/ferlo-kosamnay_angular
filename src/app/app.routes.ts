@@ -60,17 +60,7 @@ import { CategorieHuileVacheComponent } from './portail/categorie/categorie-huil
 import { CategorieLaitCailleComponent } from './portail/categorie/categorie-lait-caille/categorie-lait-caille.component';
 
 
-
-
-
-
-// import { PanierComponent } from './panier/panier.component';
-
-
-
-             
-
-           export const routes: Routes = [
+                                export const routes: Routes = [
 
      // Routes pour l'authentification et dashoard
 { path: 'login', component: LoginComponent },
@@ -89,6 +79,14 @@ import { CategorieLaitCailleComponent } from './portail/categorie/categorie-lait
  { path: 'categories/create', component: CategorieAjouterComponent }, // Ajouter une nouvelle catégorie
  { path: 'categories/edit/:id', component: CategorieModifierComponent }, // Modifier une catégorie avec ID
 
+ // les # catégories
+
+ { path: 'fromage', component: CategorieFromageComponent },
+ { path: 'lait', component: CategorieLaitComponent },
+ { path: 'lait-caille', component: CategorieLaitCailleComponent },
+ { path: 'huile-vache', component: CategorieHuileVacheComponent },
+
+
  // Routes pour les produits
  { path: 'produit', component: ProduitAfficherSupprimerComponent },
 { path: 'produit/ajouter', component: ProduitAjouterComponent },
@@ -106,17 +104,14 @@ import { CategorieLaitCailleComponent } from './portail/categorie/categorie-lait
   { path: 'boutique/modifier/:id', component: BoutiqueModifierComponent },
   { path: 'boutique/detail/:id', component: BoutiqueVoirDetailComponent },
 
+  // Routes pour les ProduitBOUTIQUES
 
-
-  //  // Routes pour les ProduitBOUTIQUES
-
-  
-{path: 'produitboutique', component: ProduitBoutiqueAfficherSupprimerComponent},
+  {path: 'produitboutique', component: ProduitBoutiqueAfficherSupprimerComponent},
 // {path: 'produitboutique/detail/:id', component: ProduitBoutiqueDetailComponent},
 {path: 'produitboutique/modifier/:id',component: ProduitBoutiqueModifierComponent},
 { path: 'produitboutique/ajouter',component: ProduitBoutiqueAjouterComponent},
 
-   // // Routes pour les LIGNECOMMANDES
+   // Routes pour les LIGNECOMMANDES
 { path: 'lignecommande', component: LigneCommandeAfficherSupprimerComponent },
 { path: 'lignecommande/ajouter', component: LigneCommandeAjouterComponent },
   { path: 'lignecommande/modifier/:id', component: LigneCommandeModifierComponent },
@@ -124,11 +119,6 @@ import { CategorieLaitCailleComponent } from './portail/categorie/categorie-lait
 
 
     { path: 'panier', component: PanierComponent },
-    
-    { path: 'fromage', component: CategorieFromageComponent },// Afficher ou supprimer une catégorie
-    { path: 'lait', component: CategorieLaitComponent },// Afficher ou supprimer une catégorie
-    { path: 'lait-caille', component: CategorieLaitCailleComponent },
-    { path: 'huile-vache', component: CategorieHuileVacheComponent },
 
 
 
