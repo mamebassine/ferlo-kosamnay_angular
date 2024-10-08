@@ -1,0 +1,49 @@
+.container {
+    margin: auto;
+    width: 70%;
+    text-align: center;
+  }
+  
+  thead {
+    background-color: #28a745;
+    color: white;
+    padding: 20px;
+    text-align: center;
+    border-radius: 2px;
+  }
+  
+  .table-centered {
+    margin: auto;
+    width: 96%;
+  }
+  
+  .product-image {
+    width: 100px;
+    height: auto;
+  }
+  
+  .table th, .table td {
+    vertical-align: middle;
+    text-align: center;
+  }
+  
+  .table td button {
+    margin-right: 18px;
+  }
+  
+  .fas.fa-trash {
+    color: white;
+  }
+  
+  .fas.fa-edit {
+    color: white;
+  }
+  
+  .btn-danger {
+    background-color: #dc3545;
+  }
+  
+  .btn-warning {
+    background-color: #ffc107;
+  }
+  
