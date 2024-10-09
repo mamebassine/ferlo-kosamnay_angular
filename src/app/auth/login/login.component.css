@@ -45,7 +45,7 @@ h2 {
 .login-form button {
     width: 100%; /* Ajusté à 100% pour correspondre à la largeur du formulaire */
     padding: 12px;
-    background-color: #4CAF50;
+    background-color: #3F7E44;
     color: white;
     border: none;
     cursor: pointer;
@@ -54,7 +54,7 @@ h2 {
 }
 
 .login-form button:hover {
-    background-color: #45a049;
+    background-color: #3F7E44;
 }
 
 .login-form p {

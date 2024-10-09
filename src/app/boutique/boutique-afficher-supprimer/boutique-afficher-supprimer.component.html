@@ -1,12 +1,11 @@
 <div>
   <h2>Liste des Boutiques</h2>
-  
-  <!-- Affichage des messages d'erreur -->
+  <a [routerLink]="['/boutique/ajouter']" class="btn-ajouter">Ajouter une boutique</a>  
+
   <div *ngIf="errorMessage">
     {{ errorMessage }}
   </div>
 
-  <!-- Table des boutiques -->
   <table>
     <thead>
       <tr>
@@ -28,19 +27,14 @@
         <td>{{ boutique.region?.nom }}</td>
         <td>{{ boutique.user?.nom_complet }}</td>
         <td>
-          <!-- Bouton Détails -->
           <a [routerLink]="['/boutique/detail', boutique.id]" class="btn-details">Détails</a>
 
-          <!-- Bouton Modifier -->
           <a [routerLink]="['/boutique/modifier', boutique.id]" class="btn-modifier">Modifier</a>
           
-          <!-- Bouton Supprimer -->
           <button (click)="deleteBoutique(boutique.id)">Supprimer</button>
         </td>
       </tr>
     </tbody>
   </table>
 
-  <!-- Bouton Ajouter une nouvelle boutique -->
-  <a [routerLink]="['/boutique/ajouter']" class="btn-ajouter">Ajouter une boutique</a>  
 </div>

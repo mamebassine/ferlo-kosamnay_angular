@@ -1,0 +1,81 @@
+/* Style du conteneur principal */
+div {
+    margin: 20px;
+    font-family: Arial, sans-serif;
+}
+
+h2 {
+    color: #000; 
+    text-align: center;
+}
+
+.btn-ajouter {
+    display: inline-block;
+    background-color: #99B951; 
+    color: #fff; 
+    padding: 10px 20px;
+    margin: 10px 0;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+.btn-ajouter:hover {
+    background-color: #99B951; 
+}
+
+
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+
+th {
+    background-color: #3F7E44; /* Navy blue */
+    color: white;
+    padding: 15px;
+    text-align: left;
+
+}
+
+td {
+    padding: 10px;
+    border-bottom: 0px solid #ddd;
+}
+
+.btn-details,
+.btn-modifier, a {
+    background-color: #99B951; /* Couleur de fond */
+    color: #fff; 
+    padding: 5px 10px;
+    text-decoration: none;
+    border-radius: 3px;
+    margin-right: 5px;
+    transition: background-color 0.3s;
+    margin-left: 10px; /* Ajout d'un espacement supplémentaire à droite */
+
+}
+
+.btn-details:hover,
+.btn-modifier:hover {
+    background-color: #99B951; /* Couleur au survol */
+    
+}
+
+/* Style du bouton "Supprimer" */
+button {
+    background-color: #99B951; /* Couleur rouge */
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 3px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: #99B951; /* Couleur rouge foncé au survol */
+}

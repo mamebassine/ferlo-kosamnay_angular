@@ -1,11 +1,12 @@
 import { Routes } from '@angular/router';
 
-// Import des composants login, register, dashoad
+// Import des composants login, register, dashoady
 import { LoginComponent } from './auth/login/login.component';
 import { RegisterComponent } from './auth/register/register.component';
-import { AdminComponent } from './dashboard/admin/admin.component'; //ProduitsAdminComponent
+import { AdminComponent } from './dashboard/admin/admin.component'; 
 
-// import { ProduitsAdminComponent } from './dashboard/admin/produits-admin.component'; 
+import {   CategorieAdminComponent } from './dashboard/categorie-admin/categorie-admin.component'; 
+
 import { ProduitsAdminComponent } from './dashboard/produits-admin/produits-admin.component';
 
 
@@ -59,6 +60,9 @@ import { CategorieLaitComponent } from './portail/categorie/categorie-lait/categ
 import { CategorieHuileVacheComponent } from './portail/categorie/categorie-huile-vache/categorie-huile-vache.component';
 import { CategorieLaitCailleComponent } from './portail/categorie/categorie-lait-caille/categorie-lait-caille.component';
 
+import { adminGuard } from './admin.guard'; // Chemin vers votre guard
+
+
 
                                 export const routes: Routes = [
 
@@ -68,6 +72,8 @@ import { CategorieLaitCailleComponent } from './portail/categorie/categorie-lait
 { path: 'dashboard', component: AdminComponent }, // Utilisez DashboardComponent 
 
 { path: 'ProduitsAdmin', component: ProduitsAdminComponent },
+{ path: 'CategorieAdmin', component: CategorieAdminComponent},
+
 
  
     // Routes pour l'accueil et contact 
@@ -114,13 +120,15 @@ import { CategorieLaitCailleComponent } from './portail/categorie/categorie-lait
    // Routes pour les LIGNECOMMANDES
 { path: 'lignecommande', component: LigneCommandeAfficherSupprimerComponent },
 { path: 'lignecommande/ajouter', component: LigneCommandeAjouterComponent },
-  { path: 'lignecommande/modifier/:id', component: LigneCommandeModifierComponent },
-  { path: 'lignecommande/detail/:id', component: LigneCommandeVoirDetailComponent },
+{ path: 'lignecommande/modifier/:id', component: LigneCommandeModifierComponent },
+{ path: 'lignecommande/detail/:id', component: LigneCommandeVoirDetailComponent },
 
+{ path: 'panier', component: PanierComponent },
 
-    { path: 'panier', component: PanierComponent },
-
-
+// const routes: Routes = [
+//   { path: 'admin', component: AdminComponent, canActivate: [adminGuard] },
+//   // Ajoutez d'autres routes ici
+// ];
 
 ];
 

@@ -1,15 +1,3 @@
-// import { Component } from '@angular/core';
-
-// @Component({
-//   selector: 'app-produits-admin',
-//   standalone: true,
-//   imports: [],
-//   templateUrl: './produits-admin.component.html',
-//   styleUrl: './produits-admin.component.css'
-// })
-// export class ProduitsAdminComponent {
-
-// }
 
 
 import { Component, OnInit } from '@angular/core';

@@ -1,4 +1,3 @@
-// src/app/portail/categorie/categorie-afficher-supprimer/categorie-afficher-supprimer.component.ts
 import { Component, OnInit } from '@angular/core';
 import { CategorieService, Categorie } from '../../../services/categorie.service';
 import { CommonModule } from '@angular/common';

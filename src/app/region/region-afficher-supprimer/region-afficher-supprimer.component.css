@@ -1,0 +1,88 @@
+.container {
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 20px;
+    
+  }
+  
+  h2 {
+    text-align: center;
+    color: #4F772D;
+    margin-bottom: 30px;
+   
+  }
+  
+  .btn {
+    font-size: 14px;
+    padding: 10px 20px;
+    border-radius: 5px;
+    text-transform: uppercase;
+  }
+  
+  .btn-primary {
+    background-color: #4F772D;
+    color: #fff;
+    border: none;
+    margin-bottom: 20px;
+  }
+  
+  .btn-primary:hover {
+    background-color: #3b5e24;
+  }
+  
+  .table {
+    width: 80%;
+    border-spacing: 0 5px; /* Espacement entre les lignes */
+  }
+  
+  .table thead th {
+    /* background-color: #F4F4F4; Fond léger pour l'en-tête */
+    color: #36494E;
+    text-transform: uppercase;
+    padding: 12px 15px;
+    font-weight: bold;
+    text-align: right;
+  }
+  
+  .table tbody tr {
+    background-color: #f9f9f9; /* Couleur de fond pour les lignes */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Ombre pour chaque ligne */
+    border-radius: 3px;
+  }
+  
+  .table tbody td {
+    padding: 15px;
+    vertical-align: middle;
+    /* background-color: white; */
+  }
+  
+  .table tbody tr:hover {
+    background-color: #f0f0f0; /* Couleur de fond au survol */
+  }
+  
+  .table tbody td:first-child {
+    border-radius: 8px 0 0 8px; /* Arrondir côté gauche */
+  }
+  
+  .table tbody td:last-child {
+    border-radius: 0 8px 8px 0; /* Arrondir côté droit */
+  }
+  
+  .btn-warning, .btn-danger {
+    padding: 5px 10px;
+    font-size: 12px;
+    border-radius: 4px;
+  }
+  
+  .btn-warning {
+    background-color: #0fcc61;
+    color: white;
+  }
+  
+  .btn-danger {
+    background-color: #dc3545;
+    color: white;
+  }
+  
+ 
+  

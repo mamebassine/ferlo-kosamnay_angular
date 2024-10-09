@@ -75,4 +75,20 @@ export class LoginComponent {
       );
     }
   }
+
+
+
+  // logout() {
+  //   this.authService.logout().subscribe(
+  //     (response: any) => {
+  //       console.log(response);
+  //       localStorage.removeItem('access_token');
+  //       localStorage.removeItem('user');
+  //       this.router.navigateByUrl('/login');
+  //     },
+  //     (error: any) => {
+  //       console.error(error);
+  //     }
+  //   );
+  // }
 }

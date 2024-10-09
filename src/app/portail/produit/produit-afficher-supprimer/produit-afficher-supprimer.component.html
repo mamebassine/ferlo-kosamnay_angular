@@ -54,13 +54,21 @@
  <div class="bacgr">
   <h1>Tous les Produits</h1>
 
-  <!-- Barre de recherche -->
+  <!-- Barre de recherche
   <div class="search-container">
       <input type="text" id="searchInput" placeholder="Rechercher un produit...">
       <button>Rechercher</button>
+  </div> -->
+
+
+  <!-- Barre de recherche -->
+  <div class="search-container">
+    <!-- <input type="text" [(ngModel)]="searchTerm" placeholder="Rechercher un produit..."> <button (click)="search()">Rechercher</button> -->
+    <input type="text" id="searchInput" [(ngModel)]="searchTerm" placeholder="Rechercher un produit..."><button (click)="search()">Rechercher</button>
+
+  
   </div>
 
-  <!-- Grille des produits -->
   <section class="product-grid" id="productGrid">
 
     <div class="product" *ngFor="let produit of produits">
