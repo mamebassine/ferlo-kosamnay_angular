@@ -81,57 +81,7 @@ export class ProduitVoirDetailComponent implements OnInit {
     );
   }
   
-
-    // Méthode pour passer la commande
-//  commanderr(produit: Produit): void {
-//     // Vérifie que produit.id est bien défini
-//     if (produit.id !== undefined && produit.id) {
-      
-//         const produit_boutique_id = this.produitBoutique[0].id;
-
-//         const currentUser = this.authService.getCurrentUser(); // Récupération de l'utilisateur actuel
-//         const userId = currentUser?.id; // Récupérer l'ID de l'utilisateur
-
-//         if (userId === undefined) {
-//             console.error('Utilisateur non connecté, commande non créée.');
-//             alert('Utilisateur non connecté, commande non créée.');
-//             return; // Sortir de la fonction si l'utilisateur n'est pas connecté
-//         }
-
-//         const ligneCommande: LigneCommande = {
-//             produit_boutique_id: produit_boutique_id,
-//             quantite_totale: 1,
-//             prix_totale: produit.prix,
-//             user_id: userId, // userId est garanti d'être défini ici
-//             date: new Date().toISOString().split('T')[0],
-//             statut: 'en attente'
-//         };
-
-//         console.log('produit_boutique_id:', produit_boutique_id),
-
-//         this.ligneCommandeService.createLigneCommande(ligneCommande).subscribe({
-//             next: (response: any) => {
-//               alert('Commande passer avec succe')
-//                 // console.log('Commande créée avec succès:', response);
-
-//                 // this.router.navigate(['/panier']);
-//             },
-//             error: (error: any) => {
-//                 console.error('Erreur lors de la création de la commande:', error);
-//                 if (error.error && error.error.errors) {
-//                     alert('Erreur de validation: ' + JSON.stringify(error.error.errors));
-//                 } else {
-//                     console.log('Erreur inconnue lors de la création de la commande: ' + error.message);
-//                 }
-//             }
-//         });
-//     } else {
-//         console.error('produit.id ou produit.boutique.id est undefined, commande non créée.');
-//         alert('Produit ou boutique invalide, commande non créée.');
-//     }
-// }
-
-commanderr(produit: Produit): void {
+  commanderr(produit: Produit): void {
   if (this.produit && this.produit.id && this.produitBoutique && this.produitBoutique.length > 0) {
     const produit_boutique_id = this.produitBoutique[0].id;
     const currentUser = this.authService.getCurrentUser();
@@ -203,3 +153,5 @@ commanderr(produit: Produit): void {
 //   goBack(): void {
 //     this.router.navigate(['/panier']); // Navigation vers la page des produits
   }
+
+

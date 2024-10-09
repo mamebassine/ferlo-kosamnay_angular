@@ -35,6 +35,10 @@ export class ProduitService {
       .pipe(catchError(this.handleError));
   }
 
+    // Méthode pour récupérer un produit par ID
+    getProduitById(id: any) {
+      return this.http.get(`${this.apiUrl}/${id}`);
+    }
   getProduit(id: number): Observable<Produit> {
     return this.http.get<Produit>(`${this.apiUrl}/${id}`)
       .pipe(catchError(this.handleError));

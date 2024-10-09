@@ -6,12 +6,12 @@ import { CategorieService, Categorie } from '../../../services/categorie.service
 import { HeaderComponent } from "../../../header/header/header.component";
 import { FooterComponent } from "../../../footer/footer/footer.component";
 import { PanierService } from '../../../services/panier.service';
-import { FormsModule } from '@angular/forms';
+
 
 @Component({
   selector: 'app-produit-afficher-supprimer',
   standalone: true,
-  imports: [CommonModule, HeaderComponent, FooterComponent,FormsModule ],
+  imports: [CommonModule, HeaderComponent, FooterComponent],
    providers: [ProduitService],
   templateUrl: './produit-afficher-supprimer.component.html',
   styleUrls: ['./produit-afficher-supprimer.component.css']
@@ -20,8 +20,6 @@ export class ProduitAfficherSupprimerComponent implements OnInit {
 
   produits: Produit[] = [];
   categories: Categorie[] = [];
-  searchTerm: string = ''; // Propriété pour stocker le terme de recherche
-
 
   constructor(
     private produitService: ProduitService,
@@ -35,9 +33,8 @@ export class ProduitAfficherSupprimerComponent implements OnInit {
     this.chargerCategories();
   }
 
-  // src/app/portail/produit/produit-afficher-supprimer/produit-afficher-supprimer.component.ts
 ajouterAuPanier(produit: Produit): void {
-  console.log('Ajout du produit:', produit); // Log pour voir le produit
+  console.log('Ajout du produit:', produit); 
   this.panierService.ajouterProduit(produit);
 }
 
@@ -96,16 +93,5 @@ ajouterAuPanier(produit: Produit): void {
 
   ajouterProduit(): void {
     this.router.navigate(['/produit/ajouter']);
-  }
-  // Méthode pour filtrer les produits en fonction du terme de recherche
-  get produitsFiltres(): Produit[] { //methode get et produitfitre est une propriete calculee
-    return this.produits.filter(produit =>
-      produit.nom.toLowerCase().includes(this.searchTerm.toLowerCase())  // critere de filtrage
-    );
-  }
-  search() {
-    console.log('Ajout du produit:'); 
-
-    // Vous pouvez aussi appeler `produitsFiltres` ici si besoin
   }
 }

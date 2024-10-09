@@ -8,6 +8,7 @@ import { Observable, of } from 'rxjs';
 })
 export class PanierService {
   private produits: Produit[] = [];
+  quantiteSouhaitee!: number;
 
   constructor() {
     this.loadPanier(); // Charger les produits du Local Storage lors de l'initialisation
@@ -32,7 +33,7 @@ export class PanierService {
   }
 
   getTotal(): number {
-    return this.produits.reduce((acc, produit) => acc + produit.prix * produit.quantite, 0);
+    return this.produits.reduce((acc, produit) => acc + produit.prix * this.quantiteSouhaitee, 0);
   }
 
   clearPanier(): void {
@@ -44,3 +45,5 @@ export class PanierService {
     localStorage.setItem('panier', JSON.stringify(this.produits));
   }
 }
+
+
