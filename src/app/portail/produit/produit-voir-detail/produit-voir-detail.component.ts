@@ -1,3 +1,4 @@
+// src/app/components/produit-voir-detail/produit-voir-detail.component.ts
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ProduitService, Produit } from '../../../services/produit.service';
@@ -35,7 +36,7 @@ export class ProduitVoirDetailComponent implements OnInit {
   produit!: Produit; // Détails du produit récupérés
   errorMessage: string = ''; // Message d'erreur à afficher
   produitBoutique: any[] = []; // Initialisation ici
-
+  quantiteSouhaitee: number = 1;
   
   constructor(
     private authService: AuthService,
@@ -82,65 +83,106 @@ export class ProduitVoirDetailComponent implements OnInit {
   
 
     // Méthode pour passer la commande
- commanderr(produit: Produit): void {
-    // Vérifie que produit.id est bien défini
-    if (produit.id !== undefined && produit.id) {
-        const produit_boutique_id = this.produitBoutique[0].id;
+//  commanderr(produit: Produit): void {
+//     // Vérifie que produit.id est bien défini
+//     if (produit.id !== undefined && produit.id) {
+      
+//         const produit_boutique_id = this.produitBoutique[0].id;
 
-        const currentUser = this.authService.getCurrentUser(); // Récupération de l'utilisateur actuel
-        const userId = currentUser?.id; // Récupérer l'ID de l'utilisateur
+//         const currentUser = this.authService.getCurrentUser(); // Récupération de l'utilisateur actuel
+//         const userId = currentUser?.id; // Récupérer l'ID de l'utilisateur
 
-        if (userId === undefined) {
-            console.error('Utilisateur non connecté, commande non créée.');
-            alert('Utilisateur non connecté, commande non créée.');
-            return; // Sortir de la fonction si l'utilisateur n'est pas connecté
-        }
+//         if (userId === undefined) {
+//             console.error('Utilisateur non connecté, commande non créée.');
+//             alert('Utilisateur non connecté, commande non créée.');
+//             return; // Sortir de la fonction si l'utilisateur n'est pas connecté
+//         }
 
-        const ligneCommande: LigneCommande = {
-            produit_boutique_id: produit_boutique_id,
-            quantite_totale: 1,
-            prix_totale: produit.prix,
-            user_id: userId, // userId est garanti d'être défini ici
-            date: new Date().toISOString().split('T')[0],
-            statut: 'en attente'
-        };
+//         const ligneCommande: LigneCommande = {
+//             produit_boutique_id: produit_boutique_id,
+//             quantite_totale: 1,
+//             prix_totale: produit.prix,
+//             user_id: userId, // userId est garanti d'être défini ici
+//             date: new Date().toISOString().split('T')[0],
+//             statut: 'en attente'
+//         };
 
-        console.log('produit_boutique_id:', produit_boutique_id),
+//         console.log('produit_boutique_id:', produit_boutique_id),
 
-        this.ligneCommandeService.createLigneCommande(ligneCommande).subscribe({
-            next: (response: any) => {
-              alert('Commande passer avec succe')
-                // console.log('Commande créée avec succès:', response);
+//         this.ligneCommandeService.createLigneCommande(ligneCommande).subscribe({
+//             next: (response: any) => {
+//               alert('Commande passer avec succe')
+//                 // console.log('Commande créée avec succès:', response);
 
-                // this.router.navigate(['/panier']);
-            },
-            error: (error: any) => {
-                console.error('Erreur lors de la création de la commande:', error);
-                if (error.error && error.error.errors) {
-                    alert('Erreur de validation: ' + JSON.stringify(error.error.errors));
-                } else {
-                    console.log('Erreur inconnue lors de la création de la commande: ' + error.message);
-                }
-            }
-        });
-    } else {
-        console.error('produit.id ou produit.boutique.id est undefined, commande non créée.');
-        alert('Produit ou boutique invalide, commande non créée.');
+//                 // this.router.navigate(['/panier']);
+//             },
+//             error: (error: any) => {
+//                 console.error('Erreur lors de la création de la commande:', error);
+//                 if (error.error && error.error.errors) {
+//                     alert('Erreur de validation: ' + JSON.stringify(error.error.errors));
+//                 } else {
+//                     console.log('Erreur inconnue lors de la création de la commande: ' + error.message);
+//                 }
+//             }
+//         });
+//     } else {
+//         console.error('produit.id ou produit.boutique.id est undefined, commande non créée.');
+//         alert('Produit ou boutique invalide, commande non créée.');
+//     }
+// }
+
+commanderr(produit: Produit): void {
+  if (this.produit && this.produit.id && this.produitBoutique && this.produitBoutique.length > 0) {
+    const produit_boutique_id = this.produitBoutique[0].id;
+    const currentUser = this.authService.getCurrentUser();
+    const userId = currentUser?.id;
+
+    if (userId === undefined) {
+      console.error('Utilisateur non connecté, commande non créée.');
+      alert('Utilisateur non connecté, commande non créée.');
+      return;
     }
-}
 
+    const ligneCommande: LigneCommande = {
+      produit_boutique_id: produit_boutique_id,
+      quantite_totale: this.quantiteSouhaitee, // Utilise la quantité souhaitée
+      prix_totale: this.produit.prix * this.quantiteSouhaitee, // Calcule le prix total en fonction de la quantité souhaitée
+      user_id: userId,
+      date: new Date().toISOString().split('T')[0],
+      statut: 'en attente'
+    };
+
+    console.log('produit_boutique_id:', produit_boutique_id);
+
+    this.ligneCommandeService.createLigneCommande(ligneCommande).subscribe({
+      next: (response: any) => {
+        alert('Commande passée avec succès');
+        // this.router.navigate(['/panier']);
+      },
+      error: (error: any) => {
+        console.error('Erreur lors de la création de la commande:', error);
+        if (error.error && error.error.errors) {
+          alert('Erreur de validation: ' + JSON.stringify(error.error.errors));
+        } else {
+          console.log('Erreur inconnue lors de la création de la commande: ' + error.message);
+        }
+      }
+    });
+  } else {
+    console.error('Produit ou boutique invalide, commande non créée.');
+    alert('Produit ou boutique invalide, commande non créée.');
+  }
+}
 
 
   // Méthodes pour gérer la quantité
   incrementQuantity(): void {
-    if (this.produit) {
-      this.produit.quantite! += 1; // Incrémente la quantité
-    }
+    this.quantiteSouhaitee += 1; // Incrémente la quantité souhaitée
   }
-
+  
   decrementQuantity(): void {
-    if (this.produit && this.produit.quantite! > 1) {
-      this.produit.quantite! -= 1; // Décrémente la quantité, ne permettant pas d'aller en-dessous de 1
+    if (this.quantiteSouhaitee > 1) {
+      this.quantiteSouhaitee -= 1; 
     }
   }
 
@@ -160,5 +202,4 @@ export class ProduitVoirDetailComponent implements OnInit {
 // // Méthode pour revenir à la page produit
 //   goBack(): void {
 //     this.router.navigate(['/panier']); // Navigation vers la page des produits
-//   }
-}
+  }
