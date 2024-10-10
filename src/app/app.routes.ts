@@ -99,7 +99,7 @@ import { AjoutRepresentantComponent } from './dashboard/admin/ajout-representant
  { path: 'categories/create', component: CategorieAjouterComponent, canActivate: [AdminGuard] }, 
  { path: 'categories/edit/:id', component: CategorieModifierComponent, canActivate: [AdminGuard] }, 
 // Routes pour les produits
-{ path: 'produit/ajouter', component: ProduitAjouterComponent, canActivate: [AdminGuard] },
+{ path: 'produit/ajouter', component: ProduitAjouterComponent },
 { path: 'produit/modifier/:id', component: ProduitModifierComponent, canActivate: [AdminGuard] },
 { path: 'produit/detail/:id', component: ProduitVoirDetailComponent, canActivate: [AdminGuard] },
 
