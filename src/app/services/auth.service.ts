@@ -58,6 +58,8 @@ export class AuthService {
    * @param credentials - Objet contenant les informations d'identification (email et mot de passe)
    * @returns Observable<any> - Observable qui émet la réponse de l'API après la requête POST
    */
+ 
+  
   login(credentials: { email: string; password: string }): Observable<any> {
     return this.http.post<any>(`${apiUrl}/login`, credentials)
       .pipe(
@@ -74,7 +76,6 @@ export class AuthService {
         catchError(this.handleError)
       );
   }
-
   /**
    * Méthode pour déconnecter l'utilisateur.
    * @returns Observable<any> - Observable qui émet la réponse de l'API après la requête POST

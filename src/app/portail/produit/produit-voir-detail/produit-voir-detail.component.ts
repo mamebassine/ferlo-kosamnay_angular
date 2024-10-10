@@ -46,7 +46,7 @@ export class ProduitVoirDetailComponent implements OnInit {
     private route: ActivatedRoute, // Service pour obtenir des informations sur la route active
     private produitService: ProduitService, // Service pour gérer les produits
     private panierService: PanierService, // Service pour gérer le panier
-    private router: Router // Service pour la navigation entre les routes
+    private router: Router 
   ) {}
 
      // Déclaration de authService

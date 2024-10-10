@@ -4,10 +4,6 @@ import { HttpErrorResponse } from '@angular/common/http';
 import { Router } from '@angular/router';
 import { AuthService } from '../../services/auth.service';
 
-// Import AdminService when you're ready to use it
-// import { AdminService } from '../../services/admin.service';
-
-// Interface for Card structure
 interface Card {
   title: string;
   value: string | number;
@@ -48,19 +44,6 @@ export class AdminComponent implements OnInit {
     localStorage.removeItem('user');
     this.router.navigate(['/login']);
   }
-    // this.authService.logout().subscribe(
-    //   () => {
-    //     localStorage.removeItem('token');
-    //     this.router.navigate(['/login']);
-    //   },
-    //   (error: HttpErrorResponse) => {
-    //     console.error('Erreur de déconnexion', error);
-    //     alert('Erreur lors de la déconnexion. Veuillez réessayer.'); // Notification d'erreur à l'utilisateur
-    //   }
-    // );
+   
   }
-  
-  
-  
-  
-}
+  }

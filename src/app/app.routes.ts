@@ -1,7 +1,5 @@
 import { Routes } from '@angular/router';
-
-import { adminGuard } from './admin.guard'; // Assurez-vous d'importer votre garde
-
+import { AdminGuard } from './admin.guard';
 
 // Import des composants login, register, dashoady
 import { LoginComponent } from './auth/login/login.component';
@@ -89,34 +87,34 @@ import { CategorieLaitCailleComponent } from './portail/categorie/categorie-lait
 
 //route admins
 
-{ path: 'dashboard', component: AdminComponent, canActivate: [adminGuard] },  
-{ path: 'ProduitsAdmin', component: ProduitsAdminComponent, canActivate: [adminGuard] },
-{ path: 'CategorieAdmin', component: CategorieAdminComponent, canActivate: [adminGuard]},
+{ path: 'dashboard', component: AdminComponent, canActivate: [AdminGuard] },  
+{ path: 'ProduitsAdmin', component: ProduitsAdminComponent, canActivate: [AdminGuard] },
+{ path: 'CategorieAdmin', component: CategorieAdminComponent, canActivate: [AdminGuard]},
 
 // Routes pour les catégories
- { path: 'categories/create', component: CategorieAjouterComponent, canActivate: [adminGuard] }, 
- { path: 'categories/edit/:id', component: CategorieModifierComponent, canActivate: [adminGuard] }, 
+ { path: 'categories/create', component: CategorieAjouterComponent, canActivate: [AdminGuard] }, 
+ { path: 'categories/edit/:id', component: CategorieModifierComponent, canActivate: [AdminGuard] }, 
 // Routes pour les produits
-{ path: 'produit/ajouter', component: ProduitAjouterComponent, canActivate: [adminGuard] },
-{ path: 'produit/modifier/:id', component: ProduitModifierComponent, canActivate: [adminGuard] },
-{ path: 'produit/detail/:id', component: ProduitVoirDetailComponent, canActivate: [adminGuard] },
+{ path: 'produit/ajouter', component: ProduitAjouterComponent, canActivate: [AdminGuard] },
+{ path: 'produit/modifier/:id', component: ProduitModifierComponent, canActivate: [AdminGuard] },
+{ path: 'produit/detail/:id', component: ProduitVoirDetailComponent, canActivate: [AdminGuard] },
 
 // Routes pour les régions
-{ path: 'region', component: regionAfficherSupprimerComponent, canActivate: [adminGuard] },
-{ path: 'region/ajouter', component: regionAjouterComponent, canActivate: [adminGuard] },
-{ path: 'region/modifier/:id', component: regionModifierComponent, canActivate: [adminGuard] },
+{ path: 'region', component: regionAfficherSupprimerComponent, canActivate: [AdminGuard] },
+{ path: 'region/ajouter', component: regionAjouterComponent, canActivate: [AdminGuard] },
+{ path: 'region/modifier/:id', component: regionModifierComponent, canActivate: [AdminGuard] },
 
 // Routes pour les BOUTIQUES
-  { path: 'boutique', component: BoutiqueAfficherSupprimerComponent, canActivate: [adminGuard] },
-  { path: 'boutique/ajouter', component: BoutiqueAjouterComponent, canActivate: [adminGuard] },
-  { path: 'boutique/modifier/:id', component: BoutiqueModifierComponent, canActivate: [adminGuard] },
-  { path: 'boutique/detail/:id', component: BoutiqueVoirDetailComponent, canActivate: [adminGuard] },
+  { path: 'boutique', component: BoutiqueAfficherSupprimerComponent, canActivate: [AdminGuard] },
+  { path: 'boutique/ajouter', component: BoutiqueAjouterComponent, canActivate: [AdminGuard] },
+  { path: 'boutique/modifier/:id', component: BoutiqueModifierComponent, canActivate: [AdminGuard] },
+  { path: 'boutique/detail/:id', component: BoutiqueVoirDetailComponent, canActivate: [AdminGuard] },
 
   // Routes pour les ProduitBOUTIQUES
-{path: 'produitboutique', component: ProduitBoutiqueAfficherSupprimerComponent, canActivate: [adminGuard]},
+{path: 'produitboutique', component: ProduitBoutiqueAfficherSupprimerComponent, canActivate: [AdminGuard]},
 // {path: 'produitboutique/detail/:id', component: ProduitBoutiqueDetailComponent},
-{path: 'produitboutique/modifier/:id',component: ProduitBoutiqueModifierComponent, canActivate: [adminGuard]},
- { path: 'produitboutique/ajouter',component: ProduitBoutiqueAjouterComponent, canActivate: [adminGuard] },
+{path: 'produitboutique/modifier/:id',component: ProduitBoutiqueModifierComponent, canActivate: [AdminGuard]},
+ { path: 'produitboutique/ajouter',component: ProduitBoutiqueAjouterComponent, canActivate: [AdminGuard] },
 
    //routes admins
 
