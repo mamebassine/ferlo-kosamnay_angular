@@ -1,7 +1,51 @@
+
+
+  import { Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs';
+import { apiUrl } from './apiUrl';  
+
+@Injectable({
+  providedIn: 'root'
+})
+export class RepresentantService {
+
+  constructor(private http: HttpClient) {}
+
+  ajouterRepresentant(data: any): Observable<any> {
+    // Utilisation de l'URL importée
+    return this.http.post<any>(`${apiUrl}/representant`, data);
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 // import { Component, OnInit } from '@angular/core';
 // import { CommonModule } from '@angular/common';
 // import { RepresentantService } from '../../services/representant.service';
-import { apiUrl } from './apiUrl';
+//import { apiUrl } from './apiUrl';
 
 
 // @Component({

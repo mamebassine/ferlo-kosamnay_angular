@@ -64,6 +64,10 @@ import { CategorieHuileVacheComponent } from './portail/categorie/categorie-huil
 import { CategorieLaitCailleComponent } from './portail/categorie/categorie-lait-caille/categorie-lait-caille.component';
 
 
+//pour representant
+
+import { AjoutRepresentantComponent } from './dashboard/admin/ajout-representant/ajout-representant.component'; // Import du composant
+
 
 
                                 export const routes: Routes = [
@@ -115,6 +119,10 @@ import { CategorieLaitCailleComponent } from './portail/categorie/categorie-lait
 // {path: 'produitboutique/detail/:id', component: ProduitBoutiqueDetailComponent},
 {path: 'produitboutique/modifier/:id',component: ProduitBoutiqueModifierComponent, canActivate: [AdminGuard]},
  { path: 'produitboutique/ajouter',component: ProduitBoutiqueAjouterComponent, canActivate: [AdminGuard] },
+
+ { path: 'representants', component: AjoutRepresentantComponent, canActivate: [AdminGuard] },
+
+ 
 
    //routes admins
 
