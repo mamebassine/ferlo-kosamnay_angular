@@ -26,7 +26,9 @@ export interface Produit {
 })
 export class ProduitService {
 
-  private apiUrl = 'http://localhost:8000/api/produits';
+  // private apiUrl = 'http://localhost:8000/api/produits';
+  private apiUrl = "https://ferlo-kosamnay.mamebassine06.simplonfabriques.com/api/produits";
+
 
   constructor(private http: HttpClient) {}
 
