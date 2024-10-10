@@ -1,0 +1,41 @@
+
+
+<app-header></app-header>
+
+<!-- <div *ngIf="(produits$ | async) as produits; else noProduits">
+  <ul>
+      <li *ngFor="let produit of produits">
+      <span>{{ produit.nom }} - {{ produit.quantite }} x {{ produit.prix }} FCFA</span>
+    </li>
+  </ul>
+      <h2>Total: {{ prix_totale }} FCFA</h2>
+     <button (click)="viderPanier()">Vider le panier</button>
+</div>
+    <ng-template #noProduits>
+     <h2>Votre panier est vide</h2>
+</ng-template> -->
+
+
+<h2>Liste des Lignes de Commande</h2>
+
+
+<div *ngIf="errorMessage" class="alert alert-danger">
+  {{ errorMessage }}
+</div>
+
+<ul>
+  <li *ngFor="let ligne of lignesCommandes">
+    ProduitBoutique: {{ ligne.produit_boutique_id }} <br>
+    User: {{ ligne.user_id }} <br>
+    Date: {{ ligne.date }} <br>
+    Quantité: {{ ligne.quantite_totale }} <br>
+    Prix total: {{ ligne.prix_totale }} cfa<br>
+
+    <a [routerLink]="['/lignecommande/detail', ligne.id]">Voir Détails</a> 
+    <a [routerLink]="['/lignecommande/modifier', ligne.id]">Modifier</a> 
+    
+    <!-- <button *ngIf="ligne.id" (click)="deleteLigneCommande(ligne.id)">Supprimer</button> -->
+  </li>
+</ul>
+
+<app-footer></app-footer>

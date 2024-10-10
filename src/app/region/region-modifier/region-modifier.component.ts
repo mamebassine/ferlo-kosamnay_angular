@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { RegionService, Region } from '../../services/region.service';
+import { regionService, region } from '../../services/region.service';
 
 
 @Component({
@@ -17,8 +17,8 @@ import { RegionService, Region } from '../../services/region.service';
   templateUrl: './region-modifier.component.html',
   styleUrls: ['./region-modifier.component.css']
 })
-export class RegionModifierComponent implements OnInit {
-  region: Region = {
+export class regionModifierComponent implements OnInit {
+  region: region = {
     id: 0,
     nom: ''
   };
@@ -31,7 +31,7 @@ export class RegionModifierComponent implements OnInit {
   constructor(
     private router: Router,
     private route: ActivatedRoute,
-    private regionService: RegionService
+    private regionService: regionService
   ) {}
 
   
@@ -40,8 +40,8 @@ export class RegionModifierComponent implements OnInit {
     const id = idParam ? +idParam : null;
 
     if (id !== null) {
-      this.regionService.getRegion(id).subscribe(
-        (data: Region) => {
+      this.regionService.getregion(id).subscribe(
+        (data: region) => {
           this.region = data;
           this.isLoading = false;
         },
@@ -60,8 +60,8 @@ export class RegionModifierComponent implements OnInit {
     this.errorMessages = [];
     this.successMessage = '';
 
-    this.regionService.updateRegion(this.region.id, this.region).subscribe(
-      (updatedRegion: Region) => {
+    this.regionService.updateregion(this.region.id, this.region).subscribe(
+      (updatedregion: region) => {
         this.successMessage = 'Région mise à jour avec succès !';
         setTimeout(() => {
           this.router.navigate(['/region']);

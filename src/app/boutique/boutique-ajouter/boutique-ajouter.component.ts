@@ -6,7 +6,7 @@ import { BoutiqueService, Boutique } from '../../services/boutique.service';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { AuthService, User } from '../../services/auth.service';
-import { RegionService, Region } from '../../services/region.service';
+import { regionService, region } from '../../services/region.service';
 import { HttpErrorResponse } from '@angular/common/http'; // Import pour typer les erreurs
 
 @Component({
@@ -29,7 +29,7 @@ export class BoutiqueAjouterComponent implements OnInit {
 
   // Listes pour les dropdowns
   users: User[] = []; // Tableau pour stocker les utilisateurs
-  regions: Region[] = []; // Tableau pour stocker les régions
+  region: region[] = []; // Tableau pour stocker les régions
 
   // Messages d'erreur
   errorMessage: string = '';
@@ -39,14 +39,14 @@ export class BoutiqueAjouterComponent implements OnInit {
   constructor(
     private boutiqueService: BoutiqueService,
     private authService: AuthService, // Injection du UserService
-    private regionService: RegionService, // Injection du RegionService
+    private regionService: regionService, // Injection du adresseService
     private router: Router
   ) { }
 
   // Implémentation de l'interface OnInit
   ngOnInit(): void {
     this.fetchUsers(); // Récupérer les utilisateurs au démarrage
-    this.fetchRegions(); // Récupérer les régions au démarrage
+    this.fetchregions(); // Récupérer les régions au démarrage
   }
 
   // Méthode pour récupérer les utilisateurs
@@ -64,10 +64,10 @@ export class BoutiqueAjouterComponent implements OnInit {
     );
   }
 
-  fetchRegions(): void {
-    this.regionService.getAllRegions().subscribe(
-      (data: Region[]) => {
-        this.regions = data; // Assignation des données reçues au tableau regions
+  fetchregions(): void {
+    this.regionService.getAllregions().subscribe(
+      (data: region[]) => {
+        this.region = data; // Assignation des données reçues au tableau adresses
       },
       (error: HttpErrorResponse) => { // Typage explicite de 'error'
         this.errorMessage = 'Erreur lors de la récupération des régions.'; // Message d'erreur en cas de problème

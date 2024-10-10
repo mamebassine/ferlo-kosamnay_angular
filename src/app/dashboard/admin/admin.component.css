@@ -1,24 +1,21 @@
-body {
-    display: flex;
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-}
 
+
+/* Style de la sidebar */
 .sidebar {
-    width: 180px; /* Largeur de la barre latérale */
-    background-color: #3F7E44;
-    color: white;
-    padding: 20px;
-    height: 100vh;
     position: fixed;
-    border-radius: 8px; /* Bordure arrondie */
-    display: flex;
-    flex-direction: column; /* Aligne les éléments verticalement */
+    top: 0;
+    left: 0;
+    width: 250px;
+    height: 100%;
+    background-color: #3F7E44;
+    color: #ecf0f1;
+    padding: 20px;
+    box-sizing: border-box;
 }
 
 .sidebar h2 {
     text-align: center;
+    margin-bottom: 35px;  /* Descendre un peu */
 }
 
 .sidebar ul {
@@ -27,73 +24,13 @@ body {
 }
 
 .sidebar ul li {
-    margin: 10px 0;
+    margin: 20px 0;
 }
 
 .sidebar ul li a {
-    color: white;
+    color: #ecf0f1;
     text-decoration: none;
-    display: flex;
-    align-items: center; /* Aligner verticalement les icônes et le texte */
-}
-
-.sidebar ul li a i {
-    margin-right: 10px; /* Espace entre l'icône et le texte */
-}
-
-.deconnexion {
-    text-align: center;
-    background-color: red;
-    color: white;
-    border: none;
-    padding: 10px;
-    cursor: pointer;
-    width: 100%;
-    margin-top: 170%; /* Ajuster cette valeur selon tes besoins */
-    margin-bottom: 0; /* Assurer qu'il n'y a pas de marge en bas */
-}
-
-.main-content {
-    margin-left: 200px; /* Ajuster pour la largeur de la barre latérale */
-    padding: 20px;
-    flex-grow: 1;
-}
-
-h1 {
-    margin-bottom: 20px;
-    text-align: center;
-}
-
-body {
-    margin: 0;
-    font-family: Arial, sans-serif;
-    display: flex;
-}
-
-.sidebar {
-    width: 250px;
-    background-color: #343F69;
-    color: white;
-    padding: 20px;
-    height: 100vh;
-}
-
-.sidebar h2 {
-    margin-bottom: 20px;
-}
-
-.sidebar ul {
-    list-style-type: none;
-    padding: 0;
-}
-
-.sidebar ul li {
-    margin: 15px 0;
-}
-
-.sidebar ul li a {
-    color: white;
-    text-decoration: none;
+    font-size: 18px;
     display: flex;
     align-items: center;
 }
@@ -103,73 +40,144 @@ body {
 }
 
 .deconnexion {
-    background-color: red;
-    color: white;
-    border: none;
+    width: 80%;
     padding: 10px;
+    background-color: #e74c3c;
+    border: none;
+    color: #ecf0f1;
+    font-size: 16px;
     cursor: pointer;
-    width: 100%;
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
 }
 
+/* Style du dashboard principal */
 .dashboard {
-    flex: 1;
+    margin-left: 250px; /* Espace pour la sidebar */
     padding: 20px;
+    box-sizing: border-box;
 }
+
+
+
 
 .header {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    margin-bottom: 30px;
 }
 
 .logo {
-    width: 50px; /* Ajustez la taille du logo */
+    height: 80px; /* Assurez-vous que le logo est visible */
+    object-fit: contain;
+}
+
+.header-icons {
+    margin-right: 10px; /* Ajoute cet attribut pour pousser les icônes à droite */
 }
 
 .header-icons i {
-    margin-left: 15px;
+    font-size: 4px;
+    margin-left: 110%; /* Ajustez l'espace entre les icônes si nécessaire */
     cursor: pointer;
-    font-size: 24px;
-    color: #343F69; /* Couleur des icônes */
+    color: #2c3e50;
 }
 
+/* Style des cartes */
 .cards {
     display: flex;
     flex-wrap: wrap;
-    margin-top: 20px;
+    justify-content: center; /* Centre les cartes horizontalement */
+    gap: 20px; /* Espace entre les cartes */
 }
 
 .card {
-    background-color: #B7D7B3; /* Couleur des cartes */
-    border-radius: 10px;
-    padding: 20px;
-    margin: 10px;
-    flex: 1 1 calc(25% - 20px); /* 4 cartes par ligne avec espace */
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    background-color: #99B951;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    width: 250px;
+    padding: 40px;
     text-align: center;
+    transition: transform 0.2s, background-color 0.3s;
+    position: relative;
+    animation: float 3s ease-in-out infinite;
+}
+
+.card-up {
+    margin-top: -20px;
+}
+
+.card-down {
+    margin-bottom: -20px;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    background-color: #88a030;
 }
 
 .card h3 {
-    margin: 0 0 10px;
+    margin-bottom: 10px;
+    color: #2c3e50;
 }
 
 .card p {
     font-size: 24px;
-    font-weight: bold;
+    color: #fff;
+    transition: color 0.3s;
 }
 
-/* Responsive Styles */
+/* Animation pour les cartes */
+@keyframes float {
+    0% {
+        transform: translateY(0px);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+    100% {
+        transform: translateY(0px);
+    }
+}
+
+/* Media Queries pour Responsivité */
+
+@media (max-width: 1024px) {
+    .dashboard {
+        margin-left: 200px;
+    }
+
+    .sidebar {
+        width: 200px;
+    }
+}
+
 @media (max-width: 768px) {
     .sidebar {
         width: 100%;
         height: auto;
+        position: relative;
+    }
+
+    .dashboard {
+        margin-left: 0;
     }
 
     .cards {
         flex-direction: column;
+        align-items: center;
     }
 
     .card {
-        flex: 1 1 100%; /* Une carte par ligne sur mobile */
+        width: 80%;
+        padding: 20px;
+    }
+}
+
+@media (max-width: 480px) {
+    .card {
+        width: 100%;
     }
 }

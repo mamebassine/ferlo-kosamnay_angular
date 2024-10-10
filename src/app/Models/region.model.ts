@@ -1,4 +1,4 @@
-export interface Region {
+export interface adresse {
     id?: number;
     nom: string;
   }

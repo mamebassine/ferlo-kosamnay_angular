@@ -69,27 +69,40 @@
   
   
 
+
   <section id="categories">
     <h2>Nos Catégories</h2>
     <div class="grille-categories">
         <div class="carte">
-            <img src="../assets/images/lait-caille.jpeg" alt="Lait caillé" class="image-circulaire">
+            <img src="/assets/images/lait-caille.jpeg" alt="Lait caillé" class="image-circulaire">
             <h3>Lait caillé</h3>
         </div>
         <div class="carte">
-            <img src="../assets/images/huile-vache.jpeg" alt="Huile de vache" class="image-circulaire">
+            <img src="/assets/images/huile-vache.jpeg" alt="Huile de vache" class="image-circulaire">
             <h3>Huile de vache</h3>
         </div>
         <div class="carte">
-            <img src="../assets/images/frommage.jpeg" alt="Fromage" class="image-circulaire">
+            <img src="/assets/images/frommage.jpeg" alt="Fromage" class="image-circulaire">
             <h3>Fromage</h3>
         </div>
         <div class="carte">
-            <img src="../assets/images/lait.jpeg" alt="Lait" class="image-circulaire">
+            <img src="/assets/images/lait.jpeg" alt="Lait" class="image-circulaire">
             <h3>Lait</h3>
         </div>
+        
     </div>
+    
 </section>
+<!-- 
+  <section id="categories">
+    <h2>Nos Catégories</h2>
+    <div class="grille-categories" >
+        <div class="carte" *ngFor="let categorie of categories">
+          <img [src]="categorie.image" alt="{{ categorie.nom_complet }}" class="image-circulaire"> 
+          <h3>{{ categorie.nom_complet }}</h3>
+        </div>
+    </div>
+</section> -->
 
   
 
@@ -130,6 +143,10 @@
             </div>
             <img src="../assets/images/laitcaillep.jpeg" alt="Lait caillé" class="image-produit">
         </div>
+      </div>
+
+      <div class="voirplus">
+    <button>Voir plus</button>
     </div>
 </section>
 

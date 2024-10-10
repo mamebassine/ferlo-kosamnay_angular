@@ -1,11 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { RegionService } from '../../services/region.service';
+import { regionService } from '../../services/region.service';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
 
-interface Region {
+interface region {
   id: number;
   nom: string;
 }
@@ -21,23 +21,23 @@ interface Region {
   templateUrl: './region-ajouter.component.html',
   styleUrls: ['./region-ajouter.component.css']
 })
-export class RegionAjouterComponent implements OnInit {
-  region: Region = {
+export class regionAjouterComponent implements OnInit {
+  region: region = {
     id: 0,
     nom: ''
   };
 
   constructor(
     private router: Router,
-    private regionService: RegionService
+    private regionService: regionService
   ) {}
 
   ngOnInit() {}
 
   onSubmit() {
-    this.regionService.createRegion(this.region).subscribe(
-      (newRegion: Region) => {
-        console.log('Nouvelle région créée:', newRegion);
+    this.regionService.createregion(this.region).subscribe(
+      (newregion: region) => {
+        console.log('Nouvelle région créée:', newregion);
         this.router.navigate(['/region']);
       },
       (error: any) => {

@@ -1,15 +1,12 @@
-<!-- src/app/portail/categorie/categorie-ajouter/categorie-ajouter.component.html -->
 <div>
   <h2>Ajouter une Nouvelle Catégorie</h2>
 
-  <!-- Affichage d'un message d'erreur si nécessaire -->
   <div *ngIf="errorMessage">
     {{ errorMessage }}
   </div>
 
   <form (ngSubmit)="ajouterCategorie(categorieForm)" #categorieForm="ngForm">
     <div>
-      <!-- Image -->
       <div>
         <label for="image">Image URL</label>
         <input
@@ -21,13 +18,11 @@
           #image="ngModel"
           [ngClass]="{ 'is-invalid': categorieForm.submitted && image.invalid }"
         />
-        <!-- Message d'erreur pour l'image -->
         <div *ngIf="categorieForm.submitted && image.invalid" class="error">
           L'URL de l'image est requise.
         </div>
       </div>
 
-      <!-- Nom Complet -->
       <div>
         <label for="nom_complet">Nom Complet</label>
         <input
@@ -39,7 +34,6 @@
           #nomComplet="ngModel"
           [ngClass]="{ 'is-invalid': categorieForm.submitted && nomComplet.invalid }"
         />
-        <!-- Message d'erreur pour le nom complet -->
         <div *ngIf="categorieForm.submitted && nomComplet.invalid" class="error">
           Le nom complet est requis.
         </div>
@@ -47,7 +41,6 @@
     </div>
 
     <div>
-      <!-- Description -->
       <div>
         <label for="description">Description</label>
         <textarea
@@ -58,7 +51,6 @@
       </div>
     </div>
 
-    <!-- Boutons de soumission et d'annulation -->
     <button type="submit">Ajouter</button>
     <button type="button" (click)="annuler()">Annuler</button>
   </form>

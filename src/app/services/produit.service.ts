@@ -3,6 +3,10 @@ import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Observable, throwError } from 'rxjs';
 import { catchError } from 'rxjs/operators';
 import { Categorie } from './categorie.service';
+import { Boutique } from './boutique.service';
+import { ProduitBoutique } from './produit-boutique.service';
+// import { apiUrl } from './apiUrl';
+
 
 export interface Produit {
   id?: number;
@@ -13,8 +17,8 @@ export interface Produit {
   quantite: number;
   reference: string;
   nom: string;
-  // nom_complet?: string; 
   categorie?: Categorie;
+  produit_boutique: ProduitBoutique[]; 
 }
 
 @Injectable({
@@ -22,7 +26,9 @@ export interface Produit {
 })
 export class ProduitService {
 
-  private apiUrl = 'http://localhost:8000/api/produits';
+  // private apiUrl = 'http://localhost:8000/api/produits';
+  private apiUrl = "https://ferlo-kosamnay.mamebassine06.simplonfabriques.com/api/produits";
+
 
   constructor(private http: HttpClient) {}
 
@@ -31,6 +37,10 @@ export class ProduitService {
       .pipe(catchError(this.handleError));
   }
 
+    // Méthode pour récupérer un produit par ID
+    getProduitById(id: any) {
+      return this.http.get(`${this.apiUrl}/${id}`);
+    }
   getProduit(id: number): Observable<Produit> {
     return this.http.get<Produit>(`${this.apiUrl}/${id}`)
       .pipe(catchError(this.handleError));

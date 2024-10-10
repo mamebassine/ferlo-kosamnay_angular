@@ -1,4 +1,3 @@
-// src/app/portail/produit/produit-modifier/produit-modifier.component.ts
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ProduitService, Produit } from '../../../services/produit.service';
@@ -21,12 +20,16 @@ selector: 'app-produit-modifier',
 export class ProduitModifierComponent implements OnInit {
   produit: Produit = {
     categorie_id: 0,
+    id: 0,
     image: '',
     description: '',
     prix: 0,
     quantite: 0,
     reference: '',
     nom: '',
+
+    produit_boutique: [] // Propriété ajoutée
+
   };
 
   categories: Categorie[] = [];

@@ -13,14 +13,14 @@
       {{ successMessage }}
     </div>
   
-    <form (ngSubmit)="onSubmit()" #formRegion="ngForm">
+    <form (ngSubmit)="onSubmit()" #formregion="ngForm">
       <!-- Nom -->
       <div class="form-group">
         <label for="nom">Nom de la Région</label>
         <input type="text" id="nom" name="nom" class="form-control" [(ngModel)]="region.nom" required>
       </div>
   
-      <button type="submit" class="btn btn-primary" [disabled]="!formRegion.form.valid">Mettre à Jour</button>
+      <button type="submit" class="btn btn-primary" [disabled]="!formregion.form.valid">Mettre à Jour</button>
     </form>
   </div>
   

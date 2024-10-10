@@ -8,7 +8,7 @@
       </div>
   
       <div class="form-group">
-        <label for="adresse">Adresse</label>
+        <label for="adresse">adresse</label>
         <input type="text" id="adresse" class="form-control" [(ngModel)]="nouvelleBoutique.adresse" name="adresse" required>
       </div>
   
@@ -25,14 +25,14 @@
         <option *ngFor="let user of users" [value]="user.id">{{ user.nom_complet }}</option>
     </select>
   </div>
-<!-- Region -->
+<!-- region -->
 
 <div class="form-group">
-    <label for="region_id">Region</label>
+    <label for="region_id">region</label>
     <select id="region_id" name="region_id" class="form-control" [(ngModel)]="nouvelleBoutique.region_id" required
             [ngClass]="{'is-invalid': boutiqueForm.submitted && boutiqueForm.controls['region_id'].invalid}">
         <option value="" disabled>-- Sélectionnez une region --</option>
-        <option *ngFor="let region of regions" [value]="region.id">{{ region.nom }}</option>
+        <option *ngFor="let region of region" [value]="region.id">{{ region.nom }}</option>
     </select>
   </div>
 

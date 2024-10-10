@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { RegionAfficherSupprimerComponent } from './region-afficher-supprimer.component';
+import { regionAfficherSupprimerComponent } from './region-afficher-supprimer.component';
 
-describe('RegionAfficherSupprimerComponent', () => {
-  let component: RegionAfficherSupprimerComponent;
-  let fixture: ComponentFixture<RegionAfficherSupprimerComponent>;
+describe('regionAfficherSupprimerComponent', () => {
+  let component: regionAfficherSupprimerComponent;
+  let fixture: ComponentFixture<regionAfficherSupprimerComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [RegionAfficherSupprimerComponent]
+      imports: [regionAfficherSupprimerComponent]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(RegionAfficherSupprimerComponent);
+    fixture = TestBed.createComponent(regionAfficherSupprimerComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

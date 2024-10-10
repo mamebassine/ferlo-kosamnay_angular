@@ -1,28 +1,31 @@
-<!DOCTYPE html>
-<html lang="fr">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Portail Ferlo Kosamnay</title>
-  <link rel="stylesheet" href="header.component.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-
-</head>
-<body>
 
 
-  <header>
+
+
+
+<header>
     <nav>
       <img src="../assets/images/logoferlokosamnay.png" alt="Logo Ferlo Kosamnay" class="logo">
+  
       <ul class="menu-centre">
         <li><a href="/">Accueil</a></li>
         <li><a href="/produit">Produits</a></li>
         <li><a href="categorie">Catégories</a></li>
         <li><a href="contact">Contact</a></li>
-        <li><a href="#" class="icone-panier"><i class="fas fa-shopping-cart"></i></a></li>
+        <li><a href="panier" class="icone-panier"><i class="fas fa-shopping-cart"></i></a></li>
       </ul>
       <a href="/login" class="bouton-connexion">Connexion</a>
+    
+    <!-- Condition: Si l'utilisateur est connecté, afficher le bouton Déconnexion
+    <a *ngIf="isLoggedIn" href="/logout" class="bouton-deconnexion">Déconnexion</a>
+    
+    Sinon, afficher le bouton Connexion -->
+    <!-- <a *ngIf="!isLoggedIn" href="/login" class="bouton-connexion">Connexion</a> -->
+    
     </nav>
   </header>
-</body>
-</html>
+ 
+
+
+
+

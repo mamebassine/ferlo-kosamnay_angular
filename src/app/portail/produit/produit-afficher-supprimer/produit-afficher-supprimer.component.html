@@ -1,3 +1,4 @@
+<!-- 
 <div class="container">
   <h2>Liste des Produits</h2>
   
@@ -25,7 +26,6 @@
         <td>{{ produit.description }}</td> 
 
         <td>
-        <!-- <img [src]="'assets/images/' + produit.image" alt="{{ produit.nom }}" style="width: 50px; height: auto;"> -->
 
         <img [src]="produit.image" alt="{{ produit.nom }}" style="width: 50px; height: auto;" /> 
         </td>
@@ -37,8 +37,7 @@
           <button class="btn btn-sm btn-warning" (click)="modifier(produit.id!)">Modifier</button>
           <button class="btn btn-sm btn-warning" (click)="voirDetail(produit.id!)">VoirDetail</button>
 
-          <!-- <a class="btn btn-sm btn-info" routerLink="/produit/détails/{{produit.id}}">Détails</a> -->
-        </td>
+       </td>
       </tr>
     </tbody>
   </table>
@@ -47,3 +46,36 @@
     <button class="btn btn-primary" (click)="ajouterProduit()">Ajouter Nouveau Produit</button>
   </div>
 </div>
+
+ -->
+
+
+ <app-header></app-header>
+
+ <div class="bacgr">
+  <h1>Tous les Produits</h1>
+
+  <!-- Barre de recherche -->
+  <div class="search-container">
+      <input type="text" id="searchInput" placeholder="Rechercher un produit...">
+      <button>Rechercher</button>
+  </div>
+
+  <!-- Grille des produits -->
+  <section class="product-grid" id="productGrid">
+
+    <div class="product" *ngFor="let produit of produits">
+          <img [src]="produit.image" alt="{{ produit.nom }}" class="product-image"/> 
+          <h3>{{ produit.nom }}</h3>
+          <p>Prix: {{ produit.prix | number:'1.0-2' }} CFA</p>
+          <p>Quantité : {{ produit.quantite }} litre(s)</p>
+
+          <div class="buttons">
+          <button class="view-more" (click)="voirDetail(produit.id!)">VoirDetail</button>
+          <button (click)="ajouterAuPanier(produit)">Ajouter au panier</button>    
+        </div>
+      </div>
+
+      </section>
+
+      <!-- <app-footer></app-footer> -->

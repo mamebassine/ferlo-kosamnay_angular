@@ -1,0 +1,55 @@
+<h1>Ajouter un representant</h1>
+<div class="form-container">
+    <form [formGroup]="representantForm" (ngSubmit)="onSubmit()">
+        <div>
+          <label for="nom_complet">Nom Complet</label>
+          <input id="nom_complet" formControlName="nom_complet">
+          <div *ngIf="submitted && f['nom_complet'].errors" class="error">
+            <div *ngIf="f['nom_complet'].errors['required']">Nom complet est requis</div>
+          </div>
+        </div>
+      
+        <div>
+          <label for="telephone">Téléphone</label>
+          <input id="telephone" formControlName="telephone">
+          <div *ngIf="submitted && f['telephone'].errors" class="error">
+            <div *ngIf="f['telephone'].errors['pattern']">Téléphone doit être un nombre</div>
+          </div>
+        </div>
+      
+        <div>
+          <label for="email">Email</label>
+          <input id="email" formControlName="email">
+          <div *ngIf="submitted && f['email'].errors" class="error">
+            <div *ngIf="f['email'].errors['required']">Email est requis</div>
+            <div *ngIf="f['email'].errors['email']">Email n'est pas valide</div>
+          </div>
+        </div>
+        
+        <div>
+            <label for="adresse">Adresse</label>
+            <input id="adresse" formControlName="adresse">
+            <div *ngIf="submitted && f['adresse'].errors" class="error">
+              <div *ngIf="f['adresse'].errors['required']">Adresse est requise</div>
+            </div>
+          </div>
+    
+        <div>
+          <label for="password">Mot de passe</label>
+          <input id="password" type="password" formControlName="password">
+          <div *ngIf="submitted && f['password'].errors" class="error">
+            <div *ngIf="f['password'].errors['required']">Mot de passe est requis</div>
+            <div *ngIf="f['password'].errors['minlength']">Mot de passe doit avoir au moins 8 caractères</div>
+          </div>
+        </div>
+          
+      <button type="submit">Ajouter Représentant</button>
+    </form>
+  
+    
+    <div class="image-container">
+      <img src="../assets/images/frommage.jpeg" alt="Image de connexion">
+
+    </div>
+  </div>
+  

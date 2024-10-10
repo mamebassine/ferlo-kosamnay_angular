@@ -1,21 +1,93 @@
-<body>
+<!-- 
+  
+     <body>
+      <div class="login-container">
+          <div class="login-form">
+              <h2>Connexion</h2>
+              <form (ngSubmit)="connexion()">
+
+                <div class="form-group">
+                <label for="email">Email :</label>
+                 <input type="email" name="email" placeholder="Email"  [(ngModel)]="userObjet.email" required>
+                  </div>
+
+                 <div class="form-group">
+                  <label for="password">Mot de passe :</label>
+                  <input type="password" name="password" placeholder="Mot de passe" [(ngModel)]="userObjet.password" required>
+                </div>
+
+                  <button type="submit">Connecter</button>
+                  <p>Pas de compte ? <a href="/register">Créer un compte</a></p>
+              </form>
+          </div>
+          <div class="login-image">
+               <img src="../assets/images/frommage.jpeg" alt="Image de connexion">
+          </div>
+      </div>
+  </body>
+  
+
+    -->
+
     <body>
       <div class="login-container">
-        <h1 class="mb-4">CONNEXION</h1>
-        <form (ngSubmit)="connexion()">
-  
-            <input type="email" id="email" class="form-control" placeholder="Entrez votre email" [(ngModel)]="userObjet.email" name="email" required>
-  
-            <input type="password" id="password" class="form-control" placeholder="Entrez votre mot de passe" [(ngModel)]="userObjet.password" name="password" required>
-  
-          <button type="submit" class="btn btn-primary">Se connecter</button>
-        </form>
-        <div class="form-footer">
-          <a href="/inscription_user">Pas encore de compte ? Inscrivez-vous</a>
+        <div class="login-form">
+          <h2>Connexion</h2>
+          
+          <!-- Formulaire de connexion avec des validations -->
+          <form (ngSubmit)="connexion()" #loginForm="ngForm" novalidate>
+            
+            <!-- Champ Email -->
+            <div class="form-group">
+              <label for="email">Email :</label>
+              <input 
+                type="email" 
+                name="email" 
+                placeholder="Email" 
+                [(ngModel)]="userObjet.email" 
+                required 
+                email
+                #emailField="ngModel">
+                
+              <!-- Message d'erreur pour l'email -->
+              <div *ngIf="emailField.invalid && emailField.touched" class="error-message">
+                <small *ngIf="emailField.errors?.['required']">L'email est requis.</small>
+                <small *ngIf="emailField.errors?.['email']">Veuillez entrer un email valide.</small>
+              </div>
+            </div>
+    
+            <!-- Champ Mot de passe -->
+            <div class="form-group">
+              <label for="password">Mot de passe :</label>
+              <input 
+                type="password" 
+                name="password" 
+                placeholder="Mot de passe" 
+                [(ngModel)]="userObjet.password" 
+                required 
+                minlength="8" 
+                #passwordField="ngModel">
+              
+              <!-- Message d'erreur pour le mot de passe -->
+              <div *ngIf="passwordField.invalid && passwordField.touched" class="error-message">
+                <small *ngIf="passwordField.errors?.['required']">Le mot de passe est requis.</small>
+                <small *ngIf="passwordField.errors?.['minlength']">Le mot de passe doit contenir au moins 8 caractères.</small>
+              </div>
+            </div>
+    
+            <!-- Bouton de soumission -->
+            <button type="submit" [disabled]="loginForm.invalid">Connecter</button>
+    
+            <!-- Lien de création de compte -->
+            <p>Pas de compte ? <a href="/register">Créer un compte</a></p>
+          </form>
+        </div>
+    
+        <!-- Image de connexion -->
+        <div class="login-image">
+          <img src="../assets/images/frommage.jpeg" alt="Image de connexion">
         </div>
       </div>
     </body>
-  
-  </body>
-  
- 
+    
+    

@@ -1,11 +1,9 @@
-// src/app/boutique/boutique-afficher-supprimer/boutique-afficher-supprimer.component.ts
-
 import { Component, OnInit } from '@angular/core';
 import { BoutiqueService, Boutique } from '../../services/boutique.service';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import { Router } from '@angular/router'; // Importer Router
-import { RouterModule } from '@angular/router'; // Importez RouterModule
+import { Router } from '@angular/router'; 
+import { RouterModule } from '@angular/router'; 
 
 @Component({
   selector: 'app-boutique-afficher-supprimer',

@@ -1,16 +1,15 @@
-<!-- src/app/components/categorie/categorie.component.html -->
-<div class="container">
+<!-- <div class="container">
     <h2>Liste des Catégories</h2>
   
-    <!-- Affichage d'un message d'erreur si nécessaire -->
+    Affichage d'un message d'erreur si nécessaire 
     <div *ngIf="errorMessage" class="alert alert-danger">
       {{ errorMessage }}
     </div>
   
-    <!-- Bouton pour ajouter une nouvelle catégorie -->
+     Bouton pour ajouter une nouvelle catégorie 
     <button class="btn btn-primary mb-3" (click)="navigateToCreate()">Ajouter une catégorie</button>
   
-    <!-- Tableau des catégories -->
+     Tableau des catégories 
     <table class="table table-striped">
       <thead>
         <tr>
@@ -25,21 +24,48 @@
         <tr *ngFor="let categorie of categories">
           <td>{{ categorie.id }}</td>
           <td>
-                <!-- <img [src]="'assets/images/' + produit.image" alt="{{ produit.nom }}" style="width: 50px; height: auto;"> -->
+                <img [src]="'assets/images/' + produit.image" alt="{{ produit.nom }}" style="width: 50px; height: auto;"> 
     
                 <img [src]="categorie.image" alt="{{ categorie.image }}" style="width: 50px; height: auto;" /> 
         </td>
           <td>{{ categorie.nom_complet }}</td>
           <td>{{ categorie.description }}</td>
           <td>
-            <!-- Bouton pour modifier la catégorie -->
+           Bouton pour modifier la catégorie 
             <button class="btn btn-secondary btn-sm me-2" (click)="navigateToEdit(categorie.id)">Modifier</button>
             
-            <!-- Bouton pour supprimer la catégorie -->
+            Bouton pour supprimer la catégorie 
             <button class="btn btn-danger btn-sm" (click)="deleteCategorie(categorie.id)">Supprimer</button>
           </td>
         </tr>
       </tbody>
     </table>
   </div>
-  
+   -->
+   <app-header></app-header>
+
+<div class="search-container">
+  <input type="text" id="searchInput" placeholder="Rechercher un produit...">
+  <button>Rechercher</button>
+</div>
+
+<div class="bacgraimage">
+  <div class="overlay">
+    <h1>Nos différents catégories laitiers</h1>
+  </div>
+  <img src="../assets/images/frommage.jpeg" alt="Bassine" class="header-image">
+</div>
+
+<div class="card-container">
+  <div class="card" *ngFor="let categorie of categories">
+    <div class="card-content">
+      <h2>{{ categorie.nom_complet }}</h2>
+      <p>{{ categorie.description }}</p>
+      <button class="view-more">Voir plus</button>
+    </div>
+    <img [src]="categorie.image" alt="{{ categorie.nom_complet }}" class="card-image"> 
+  </div>
+</div>
+
+<app-footer></app-footer>
+

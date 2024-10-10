@@ -1,13 +1,15 @@
-// src/app/portail/categorie/categorie-afficher-supprimer/categorie-afficher-supprimer.component.ts
 import { Component, OnInit } from '@angular/core';
 import { CategorieService, Categorie } from '../../../services/categorie.service';
 import { CommonModule } from '@angular/common';
 import { Router } from '@angular/router';
 
+import { HeaderComponent } from "../../../header/header/header.component";
+import { FooterComponent } from "../../../footer/footer/footer.component";
+
 @Component({
   selector: 'app-categorie-afficher-supprimer',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, HeaderComponent, FooterComponent],
   templateUrl: './categorie-afficher-supprimer.component.html',
   styleUrls: ['./categorie-afficher-supprimer.component.css']
 })

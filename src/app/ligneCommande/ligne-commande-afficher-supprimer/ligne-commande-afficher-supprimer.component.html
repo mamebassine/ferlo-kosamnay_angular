@@ -1,1 +1,22 @@
-<p>ligne-commande-afficher-supprimer works!</p>
+<h2>Liste des Lignes de Commande</h2>
+
+<a routerLink="/lignecommande/ajouter" class="btn btn-success">Ajouter une Ligne de Commande</a>
+
+<div *ngIf="errorMessage" class="alert alert-danger">
+  {{ errorMessage }}
+</div>
+
+<ul>
+  <li *ngFor="let ligne of lignesCommandes">
+    ProduitBoutique: {{ ligne.produit_boutique_id }} <br>
+    User: {{ ligne.user_id }} <br>
+    Date: {{ ligne.date }} <br>
+    Quantité: {{ ligne.quantite_totale }} <br>
+    Prix total: {{ ligne.prix_totale }} cfa<br>
+
+    <a [routerLink]="['/lignecommande/detail', ligne.id]">Voir Détails</a> |
+    <a [routerLink]="['/lignecommande/modifier', ligne.id]">Modifier</a> |
+    
+    <button *ngIf="ligne.id" (click)="deleteLigneCommande(ligne.id)">Supprimer</button>
+  </li>
+</ul>
