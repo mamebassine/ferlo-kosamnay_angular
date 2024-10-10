@@ -3,6 +3,12 @@
     padding: 0;
 }
 
+.error-message {
+    color: red;
+    font-size: 0.9em; /* Ajuste la taille des messages si besoin */
+    margin-top: 5px;
+  }
+
 body {
     font-family: Arial, sans-serif;
     background-color: #fff;

@@ -78,25 +78,42 @@ export class AuthService {
   /**
    * Méthode pour déconnecter l'utilisateur.
    * @returns Observable<any> - Observable qui émet la réponse de l'API après la requête POST
-   */
-  logout(): Observable<any> {
-    const token = localStorage.getItem('token');
-    const headers = new HttpHeaders({
-      Authorization: `Bearer ${token}`
-    });
-    return this.http.post<any>(`${apiUrl}/logout`, {}, { headers })
-      .pipe(
-        tap(() => {
-          // Supprimer le token et les informations utilisateur du localStorage
-          localStorage.removeItem('token');
-          localStorage.removeItem('user');
-          // Mettre à jour le BehaviorSubject pour indiquer que l'utilisateur est déconnecté
-          this.currentUserSubject.next(null);
-        }),
-        catchError(this.handleError)
-      );
-  }
+  //  */
+  // logout(): Observable<any> {
+  //   const token = localStorage.getItem('token');
+  //   const headers = new HttpHeaders({
+  //     Authorization: `Bearer ${token}`
+  //   });
+  //   return this.http.post<any>(`${apiUrl}/logout`, {}, { headers })
+  //     .pipe(
+  //       tap(() => {
+  //         // Supprimer le token et les informations utilisateur du localStorage
+  //         localStorage.removeItem('token');
+  //         localStorage.removeItem('user');
+  //         // Mettre à jour le BehaviorSubject pour indiquer que l'utilisateur est déconnecté
+  //         this.currentUserSubject.next(null);
+  //       }),
+  //       catchError(this.handleError)
+  //     );
+  // }
 
+  logout() {
+    const token = localStorage.getItem('token');
+    
+    // Vérifier si le token existe
+    if (!token) {
+      console.error('Aucun token trouvé, utilisateur non authentifié.');
+      return; // Arrêter ici si aucun token n'est présent
+    }
+  
+    const headers = {
+      'Authorization': `Bearer ${token}`
+    };
+  
+    // Utiliser la méthode POST pour la déconnexion
+    return this.http.post(`${apiUrl}/logout`, { headers });
+  }
+  
   /**
    * Méthode pour récupérer la liste des utilisateurs.
    * @returns Observable<User[]> - Observable qui émet la liste des utilisateurs
@@ -141,4 +158,8 @@ export class AuthService {
   isLoggedIn(): boolean {
     return !!localStorage.getItem('token');
   }
+
+  
+
+ 
 }

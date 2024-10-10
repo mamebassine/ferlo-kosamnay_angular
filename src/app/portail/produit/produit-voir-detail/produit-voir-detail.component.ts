@@ -11,6 +11,8 @@ import { LigneCommandeAjouterComponent } from '../../../ligneCommande/ligne-comm
 import { LigneCommandeService } from '../../../services/ligne-commande.service';
 import { AuthService, User } from '../../../services/auth.service';
 import { ProduitBoutiqueService } from '../../../services/produit-boutique.service';
+import Swal from 'sweetalert2';
+
 
 // import { LigneCommandeService } from 'chemin/vers/LigneCommandeService'; // Assure-toi d'importer le service
  // Définition de l'interface LigneCommande ici
@@ -82,47 +84,75 @@ export class ProduitVoirDetailComponent implements OnInit {
   }
   
   commanderr(produit: Produit): void {
-  if (this.produit && this.produit.id && this.produitBoutique && this.produitBoutique.length > 0) {
-    const produit_boutique_id = this.produitBoutique[0].id;
-    const currentUser = this.authService.getCurrentUser();
-    const userId = currentUser?.id;
-
-    if (userId === undefined) {
-      console.error('Utilisateur non connecté, commande non créée.');
-      alert('Utilisateur non connecté, commande non créée.');
-      return;
-    }
-
-    const ligneCommande: LigneCommande = {
-      produit_boutique_id: produit_boutique_id,
-      quantite_totale: this.quantiteSouhaitee, // Utilise la quantité souhaitée
-      prix_totale: this.produit.prix * this.quantiteSouhaitee, // Calcule le prix total en fonction de la quantité souhaitée
-      user_id: userId,
-      date: new Date().toISOString().split('T')[0],
-      statut: 'en attente'
-    };
-
-    console.log('produit_boutique_id:', produit_boutique_id);
-
-    this.ligneCommandeService.createLigneCommande(ligneCommande).subscribe({
-      next: (response: any) => {
-        alert('Commande passée avec succès');
-        // this.router.navigate(['/panier']);
-      },
-      error: (error: any) => {
-        console.error('Erreur lors de la création de la commande:', error);
-        if (error.error && error.error.errors) {
-          alert('Erreur de validation: ' + JSON.stringify(error.error.errors));
-        } else {
-          console.log('Erreur inconnue lors de la création de la commande: ' + error.message);
-        }
+    if (this.produit && this.produit.id && this.produitBoutique && this.produitBoutique.length > 0) {
+      const produit_boutique_id = this.produitBoutique[0].id;
+      const currentUser = this.authService.getCurrentUser();
+      const userId = currentUser?.id;
+  
+      if (userId === undefined) {
+        console.error('Utilisateur non connecté, commande non créée.');
+        Swal.fire({
+          icon: 'error',
+          title: 'Erreur',
+          text: 'Utilisateur non connecté, commande non créée.',
+        });
+        return;
       }
-    });
-  } else {
-    console.error('Produit ou boutique invalide, commande non créée.');
-    alert('Produit ou boutique invalide, commande non créée.');
+  
+      const ligneCommande: LigneCommande = {
+        produit_boutique_id: produit_boutique_id,
+        quantite_totale: this.quantiteSouhaitee, // Utilise la quantité souhaitée
+        prix_totale: this.produit.prix * this.quantiteSouhaitee, // Calcule le prix total en fonction de la quantité souhaitée
+        user_id: userId,
+        date: new Date().toISOString().split('T')[0],
+        statut: 'en attente'
+      };
+  
+      console.log('produit_boutique_id:', produit_boutique_id);
+  
+      this.ligneCommandeService.createLigneCommande(ligneCommande).subscribe({
+        next: (response: any) => {
+          Swal.fire({
+            icon: 'success',
+            title: 'Commande réussie',
+            text: 'Votre commande a été passée avec succès!',
+            confirmButtonText: 'OK'
+          }).then((result) => {
+            if (result.isConfirmed) {
+              // Redirection après confirmation
+              window.location.href = 'https://checkout.naboopay.com/checkout/bf9fa099';
+            }
+          });
+        },
+        error: (error: any) => {
+          console.error('Erreur lors de la création de la commande:', error);
+          if (error.error && error.error.errors) {
+            Swal.fire({
+              icon: 'error',
+              title: 'Erreur de validation',
+              text: JSON.stringify(error.error.errors),
+            });
+          } else {
+            Swal.fire({
+              icon: 'error',
+              title: 'Erreur inconnue',
+              text: error.message,
+            });
+          }
+        }
+      });
+    } else {
+      console.error('Produit ou boutique invalide, commande non créée.');
+      Swal.fire({
+        icon: 'error',
+        title: 'Erreur',
+        text: 'Produit ou boutique invalide, commande non créée.',
+      });
+    }
   }
-}
+  
+
+
 
 
   // Méthodes pour gérer la quantité

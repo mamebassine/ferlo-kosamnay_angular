@@ -1,9 +1,14 @@
 import { Routes } from '@angular/router';
 
+import { adminGuard } from './admin.guard'; // Assurez-vous d'importer votre garde
+
+
 // Import des composants login, register, dashoady
 import { LoginComponent } from './auth/login/login.component';
 import { RegisterComponent } from './auth/register/register.component';
 import { AdminComponent } from './dashboard/admin/admin.component'; 
+// import { ClientComponent } from './dashboard/client/client.component'; 
+
 
 import {   CategorieAdminComponent } from './dashboard/categorie-admin/categorie-admin.component'; 
 
@@ -12,8 +17,8 @@ import { ProduitsAdminComponent } from './dashboard/produits-admin/produits-admi
 
 
 // Import des composants accueil et contact
-import { AccueilComponent } from './portail/accueil/accueil.component'; //MOI Mise à jour du chemin
-import { ContactComponent } from './portail/contact/contact.component'; //MOI Mise à jour du chemin
+import { AccueilComponent } from './portail/accueil/accueil.component'; 
+import { ContactComponent } from './portail/contact/contact.component'; 
 
 // Import des composants categories
 import { CategorieAfficherSupprimerComponent } from './portail/categorie/categorie-afficher-supprimer/categorie-afficher-supprimer.component';
@@ -60,7 +65,6 @@ import { CategorieLaitComponent } from './portail/categorie/categorie-lait/categ
 import { CategorieHuileVacheComponent } from './portail/categorie/categorie-huile-vache/categorie-huile-vache.component';
 import { CategorieLaitCailleComponent } from './portail/categorie/categorie-lait-caille/categorie-lait-caille.component';
 
-import { adminGuard } from './admin.guard'; // Chemin vers votre guard
 
 
 
@@ -69,55 +73,60 @@ import { adminGuard } from './admin.guard'; // Chemin vers votre guard
      // Routes pour l'authentification et dashoard
 { path: 'login', component: LoginComponent },
 { path: 'register', component: RegisterComponent},
-{ path: 'dashboard', component: AdminComponent }, // Utilisez DashboardComponent 
 
-{ path: 'ProduitsAdmin', component: ProduitsAdminComponent },
-{ path: 'CategorieAdmin', component: CategorieAdminComponent},
-
-
- 
-    // Routes pour l'accueil et contact 
+// Routes pour l'accueil et contact 
 { path: '', component: AccueilComponent }, // MOI Route pour l'accueil
 { path: 'contact', component: ContactComponent }, // MOI Route pour l'accueil
-
- // Routes pour les catégories
- { path: 'categorie', component: CategorieAfficherSupprimerComponent }, // Afficher ou supprimer une catégorie
- { path: 'categories/create', component: CategorieAjouterComponent }, // Ajouter une nouvelle catégorie
- { path: 'categories/edit/:id', component: CategorieModifierComponent }, // Modifier une catégorie avec ID
-
+{ path: 'produit', component: ProduitAfficherSupprimerComponent },
+{ path: 'categorie', component: CategorieAfficherSupprimerComponent, }, // Afficher ou supprimer une catégorie
  // les # catégories
-
  { path: 'fromage', component: CategorieFromageComponent },
  { path: 'lait', component: CategorieLaitComponent },
  { path: 'lait-caille', component: CategorieLaitCailleComponent },
  { path: 'huile-vache', component: CategorieHuileVacheComponent },
 
 
- // Routes pour les produits
- { path: 'produit', component: ProduitAfficherSupprimerComponent },
-{ path: 'produit/ajouter', component: ProduitAjouterComponent },
-{ path: 'produit/modifier/:id', component: ProduitModifierComponent },
-{ path: 'produit/detail/:id', component: ProduitVoirDetailComponent },
+
+//route admins
+
+{ path: 'dashboard', component: AdminComponent, canActivate: [adminGuard] },  
+{ path: 'ProduitsAdmin', component: ProduitsAdminComponent, canActivate: [adminGuard] },
+{ path: 'CategorieAdmin', component: CategorieAdminComponent, canActivate: [adminGuard]},
+
+// Routes pour les catégories
+ { path: 'categories/create', component: CategorieAjouterComponent, canActivate: [adminGuard] }, 
+ { path: 'categories/edit/:id', component: CategorieModifierComponent, canActivate: [adminGuard] }, 
+// Routes pour les produits
+{ path: 'produit/ajouter', component: ProduitAjouterComponent, canActivate: [adminGuard] },
+{ path: 'produit/modifier/:id', component: ProduitModifierComponent, canActivate: [adminGuard] },
+{ path: 'produit/detail/:id', component: ProduitVoirDetailComponent, canActivate: [adminGuard] },
 
 // Routes pour les régions
-{ path: 'region', component: regionAfficherSupprimerComponent },
-{ path: 'region/ajouter', component: regionAjouterComponent },
-{ path: 'region/modifier/:id', component: regionModifierComponent },
+{ path: 'region', component: regionAfficherSupprimerComponent, canActivate: [adminGuard] },
+{ path: 'region/ajouter', component: regionAjouterComponent, canActivate: [adminGuard] },
+{ path: 'region/modifier/:id', component: regionModifierComponent, canActivate: [adminGuard] },
 
 // Routes pour les BOUTIQUES
-  { path: 'boutique', component: BoutiqueAfficherSupprimerComponent },
-  { path: 'boutique/ajouter', component: BoutiqueAjouterComponent },
-  { path: 'boutique/modifier/:id', component: BoutiqueModifierComponent },
-  { path: 'boutique/detail/:id', component: BoutiqueVoirDetailComponent },
+  { path: 'boutique', component: BoutiqueAfficherSupprimerComponent, canActivate: [adminGuard] },
+  { path: 'boutique/ajouter', component: BoutiqueAjouterComponent, canActivate: [adminGuard] },
+  { path: 'boutique/modifier/:id', component: BoutiqueModifierComponent, canActivate: [adminGuard] },
+  { path: 'boutique/detail/:id', component: BoutiqueVoirDetailComponent, canActivate: [adminGuard] },
 
   // Routes pour les ProduitBOUTIQUES
-
-  {path: 'produitboutique', component: ProduitBoutiqueAfficherSupprimerComponent},
+{path: 'produitboutique', component: ProduitBoutiqueAfficherSupprimerComponent, canActivate: [adminGuard]},
 // {path: 'produitboutique/detail/:id', component: ProduitBoutiqueDetailComponent},
-{path: 'produitboutique/modifier/:id',component: ProduitBoutiqueModifierComponent},
-{ path: 'produitboutique/ajouter',component: ProduitBoutiqueAjouterComponent},
+{path: 'produitboutique/modifier/:id',component: ProduitBoutiqueModifierComponent, canActivate: [adminGuard]},
+ { path: 'produitboutique/ajouter',component: ProduitBoutiqueAjouterComponent, canActivate: [adminGuard] },
 
-   // Routes pour les LIGNECOMMANDES
+   //routes admins
+
+//pour les representants
+// { path: 'representant', component: representantComponent },  
+
+
+
+
+// Routes pour les LIGNECOMMANDES
 { path: 'lignecommande', component: LigneCommandeAfficherSupprimerComponent },
 { path: 'lignecommande/ajouter', component: LigneCommandeAjouterComponent },
 { path: 'lignecommande/modifier/:id', component: LigneCommandeModifierComponent },
@@ -129,6 +138,10 @@ import { adminGuard } from './admin.guard'; // Chemin vers votre guard
 //   { path: 'admin', component: AdminComponent, canActivate: [adminGuard] },
 //   // Ajoutez d'autres routes ici
 // ];
+
+
+
+// { path: 'admindec', component:AdmindeclarationComponent, canActivate: [AuthGuard]},
 
 ];
 
