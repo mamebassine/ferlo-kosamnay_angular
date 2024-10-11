@@ -92,7 +92,7 @@ import { AjoutRepresentantComponent } from './dashboard/admin/ajout-representant
 //route admins
 
 { path: 'dashboard', component: AdminComponent, canActivate: [AdminGuard] },  
-{ path: 'ProduitsAdmin', component: ProduitsAdminComponent, canActivate: [AdminGuard] },
+{ path: 'produitsadmin', component: ProduitsAdminComponent, canActivate: [AdminGuard] },
 { path: 'CategorieAdmin', component: CategorieAdminComponent, canActivate: [AdminGuard]},
 
 // Routes pour les catégories
