@@ -355,13 +355,13 @@ padding: 20px;
 background-color: #3F7E44; /* Couleur verte */
 border-radius: 70px 0 80px 0; /* Bordure arrondie */
 display: flex;
-width: 500px; /* Largeur de la carte */
+width: 530px; /* Largeur de la carteICI */
 margin: 10px;
 overflow: hidden; /* Pour s'assurer que les bordures arrondies sont visibles */
 }
 
 .card-content {
-padding: 40px;
+padding: 60px;
 flex: 1; /* Prend tout l'espace disponible */
 }
 
@@ -372,14 +372,14 @@ height: auto; /* Hauteur automatique pour garder les proportions */
 
 h2 {
 font-size: 1.5em;
-margin-bottom: 10px;
+margin-bottom: 20px;
 color: #fff; /* Couleur du texte */
 }
 
 p {
 margin-bottom: 15px;
 color: #fff; /* Couleur du texte */
-font-size: 12px;
+font-size: 18px;
 }
 
 .view-more {
@@ -395,6 +395,22 @@ cursor: pointer;
 background-color: #aad9a1; /* Couleur du bouton au survol */
 }
 
+.view-more-btn {
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: #99B951; /* Couleur bleu primaire comme le bouton */
+  color: white;
+  text-align: center;
+  text-decoration: none;
+  border-radius: 5px;
+  font-size: 16px;
+  border: none;
+  cursor: pointer;
+}
+
+.view-more-btn:hover {
+  background-color: #0056b3; /* Couleur au survol */
+}
 
 
 

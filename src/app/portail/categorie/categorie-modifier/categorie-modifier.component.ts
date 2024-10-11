@@ -22,7 +22,7 @@ export class CategorieModifierComponent implements OnInit {
   errorMessage: string = '';
 
   constructor(
-    public router: Router, // Changer ici pour rendre le router public
+    public router: Router, 
     private route: ActivatedRoute,
     private categorieService: CategorieService
   ) {}

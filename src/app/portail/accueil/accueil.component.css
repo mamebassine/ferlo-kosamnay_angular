@@ -860,3 +860,30 @@ input[type="submit"]:hover,
 input[type="reset"]:hover {
   background-color: #3F7E44;
 }
+
+
+
+.voirplus {
+  text-align: center; /* Centrer le bouton */
+  margin-top: 20px; /* Ajouter de l'espace au-dessus */
+}
+
+.voirplus a {
+  display: inline-block; /* Le bouton reste inline mais se comporte comme un block */
+  padding: 10px 20px; /* Ajuster la taille intérieure du bouton */
+  background-color: #3F7E44; /* Couleur de fond (vert) */
+  color: white; /* Couleur du texte */
+  text-decoration: none; /* Supprimer le soulignement */
+  border-radius: 1px; /* Bord arrondi pour un effet de bouton */
+  font-size: 16px; /* Taille du texte */
+  transition: background-color 0.3s ease, transform 0.3s ease; /* Transition pour l'effet de hover */
+}
+
+.voirplus a:hover {
+  background-color: #45a049; /* Couleur légèrement plus foncée au survol */
+  transform: scale(1.05); /* Légère augmentation de la taille au survol */
+}
+
+.voirplus a:active {
+  background-color: #388e3c; /* Couleur encore plus foncée lorsque le bouton est cliqué */
+}

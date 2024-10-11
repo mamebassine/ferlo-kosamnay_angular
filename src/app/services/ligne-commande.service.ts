@@ -16,14 +16,14 @@ export interface LigneCommande {
   providedIn: 'root'
 })
 export class LigneCommandeService {
-  // private apiUrl = 'http://localhost:8000/api/lignes_commandes'; // Remplacez par l'URL de votre API
-private apiUrl = "https://ferlo-kosamnay.mamebassine06.simplonfabriques.com/api/lignes_commandes";
+  private apiUrl = 'http://localhost:8000/api/lignes_commandes'; 
+//private apiUrl = "https://ferlo-kosamnay.mamebassine06.simplonfabriques.com/api/lignes_commandes";
   constructor(private http: HttpClient) {}
 
   // Méthode pour récupérer toutes les lignes de commande
   getLignesCommandes(): Observable<LigneCommande[]> {
     const headers = new HttpHeaders({
-      'Authorization': 'Bearer ' + localStorage.getItem('token') // Ajoutez le token d'authentification si nécessaire
+      'Authorization': 'Bearer ' + localStorage.getItem('token') 
     });
     return this.http.get<LigneCommande[]>(this.apiUrl, { headers });
   }

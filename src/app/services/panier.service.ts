@@ -1,4 +1,3 @@
-// src/app/services/panier.service.ts
 import { Injectable } from '@angular/core';
 import { Produit } from './produit.service';
 import { Observable, of } from 'rxjs';

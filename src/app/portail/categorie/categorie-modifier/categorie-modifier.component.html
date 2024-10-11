@@ -1,17 +1,13 @@
-<!-- src/app/portail/categorie/categorie-modifier/categorie-modifier.component.html -->
 <div class="container">
     <h2>Modifier la Catégorie</h2>
   
-    <!-- Affichage d'un message d'erreur si nécessaire -->
     <div *ngIf="errorMessage" class="alert alert-danger">
       {{ errorMessage }}
     </div>
   
     <form (ngSubmit)="modifierCategorie()">
       <div class="mb-3">
-        
-        <!-- Image -->
-      <div class="form-group">
+        <div class="form-group">
         <label for="image">Image URL</label>
         <input type="text" id="image" name="image" class="form-control" [(ngModel)]="categorie.image" required>
       </div>

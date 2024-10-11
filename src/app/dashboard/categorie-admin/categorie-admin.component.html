@@ -6,10 +6,8 @@
       {{ errorMessage }}
     </div>
   
-     Bouton pour ajouter une nouvelle catégorie 
     <button class="btn btn-primary mb-3" (click)="navigateToCreate()">Ajouter une catégorie</button>
   
-     Tableau des catégories 
     <table class="table table-striped">
       <thead>
         <tr>
@@ -31,10 +29,8 @@
           <td>{{ categorie.nom_complet }}</td>
           <td>{{ categorie.description }}</td>
           <td>
-           Bouton pour modifier la catégorie 
             <button class="btn btn-secondary btn-sm me-2" (click)="navigateToEdit(categorie.id)">Modifier</button>
             
-            Bouton pour supprimer la catégorie 
             <button class="btn btn-danger btn-sm" (click)="deleteCategorie(categorie.id)">Supprimer</button>
           </td>
         </tr>

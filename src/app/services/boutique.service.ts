@@ -23,8 +23,8 @@ export interface Boutique {
   providedIn: 'root'
 })
 export class BoutiqueService {
-  // private apiUrl = 'http://localhost:8000/api/boutiques'; 
-private apiUrl = "https://ferlo-kosamnay.mamebassine06.simplonfabriques.com/api/boutiques"
+   private apiUrl = 'http://localhost:8000/api/boutiques'; 
+//private apiUrl = "https://ferlo-kosamnay.mamebassine06.simplonfabriques.com/api/boutiques"
 
   constructor(private http: HttpClient) { }
 

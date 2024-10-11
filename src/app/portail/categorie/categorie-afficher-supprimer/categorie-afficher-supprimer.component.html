@@ -61,7 +61,9 @@
     <div class="card-content">
       <h2>{{ categorie.nom_complet }}</h2>
       <p>{{ categorie.description }}</p>
-      <button class="view-more">Voir plus</button>
+      <a href="/ProduitsAdmin" class="view-more-btn">Voir plus</a>
+
+      <!-- <button class="view-more">Voir plus</button> -->
     </div>
     <img [src]="categorie.image" alt="{{ categorie.nom_complet }}" class="card-image"> 
   </div>
