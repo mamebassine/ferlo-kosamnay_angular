@@ -16,8 +16,8 @@ export interface LigneCommande {
   providedIn: 'root'
 })
 export class LigneCommandeService {
-  private apiUrl = 'http://localhost:8000/api/lignes_commandes'; 
-//private apiUrl = "https://ferlo-kosamnay.mamebassine06.simplonfabriques.com/api/lignes_commandes";
+  //private apiUrl = 'http://localhost:8000/api/lignes_commandes'; 
+private apiUrl = "https://ferlo-kosamnay.mamebassine06.simplonfabriques.com/api/lignes_commandes";
   constructor(private http: HttpClient) {}
 
   // Méthode pour récupérer toutes les lignes de commande

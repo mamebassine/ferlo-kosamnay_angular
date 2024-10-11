@@ -16,8 +16,8 @@ export interface Categorie {
 })
 export class CategorieService {
 
-  private apiUrl = 'http://localhost:8000/api/categories'; 
-//private apiUrl = "https://ferlo-kosamnay.mamebassine06.simplonfabriques.com/api/categories";  
+  //private apiUrl = 'http://localhost:8000/api/categories'; 
+private apiUrl = "https://ferlo-kosamnay.mamebassine06.simplonfabriques.com/api/categories";  
   constructor(private http: HttpClient) { }
 
   // Récupérer toutes les catégories
