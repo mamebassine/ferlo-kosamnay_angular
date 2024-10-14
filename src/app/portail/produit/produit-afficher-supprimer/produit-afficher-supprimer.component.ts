@@ -6,12 +6,13 @@ import { CategorieService, Categorie } from '../../../services/categorie.service
 import { HeaderComponent } from "../../../header/header/header.component";
 import { FooterComponent } from "../../../footer/footer/footer.component";
 import { PanierService } from '../../../services/panier.service';
+import { FormsModule } from '@angular/forms';  // Import FormsModule
 
 
 @Component({
   selector: 'app-produit-afficher-supprimer',
   standalone: true,
-  imports: [CommonModule, HeaderComponent, FooterComponent],
+  imports: [CommonModule, HeaderComponent, FooterComponent, FormsModule],
    providers: [ProduitService],
   templateUrl: './produit-afficher-supprimer.component.html',
   styleUrls: ['./produit-afficher-supprimer.component.css']
@@ -20,6 +21,7 @@ export class ProduitAfficherSupprimerComponent implements OnInit {
 
   produits: Produit[] = [];
   categories: Categorie[] = [];
+  searchTerm: string = ''; 
 
   constructor(
     private produitService: ProduitService,
@@ -32,6 +34,11 @@ export class ProduitAfficherSupprimerComponent implements OnInit {
     this.chargerProduits();
     this.chargerCategories();
   }
+// recherche() conçue pour exécuter une action
+  rechercher(): void { //Nom de la methodes void ne renvoi rien
+    console.log('Recherche effectuée avec le terme:', this.searchTerm);
+  }
+  
 
 ajouterAuPanier(produit: Produit): void {
   console.log('Ajout du produit:', produit); 
@@ -94,4 +101,16 @@ ajouterAuPanier(produit: Produit): void {
   ajouterProduit(): void {
     this.router.navigate(['/produit/ajouter']);
   }
+
+
+   // Filtre les produits en fonction du terme de recherche
+   get produitsFiltres(): Produit[] {
+    if (!this.searchTerm) {
+      return this.produits; // Retourne tous les produits si aucun terme de recherche n'est saisi
+    }
+    return this.produits.filter(produit =>
+      produit.nom.toLowerCase().includes(this.searchTerm.toLowerCase()) // Filtre les produits
+    );
+  }
+  
 }

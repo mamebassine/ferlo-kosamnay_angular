@@ -355,7 +355,7 @@ padding: 20px;
 background-color: #3F7E44; /* Couleur verte */
 border-radius: 70px 0 80px 0; /* Bordure arrondie */
 display: flex;
-width: 530px; /* Largeur de la carteICI */
+width: 5_0px; /* Largeur de la carteICI */
 margin: 10px;
 overflow: hidden; /* Pour s'assurer que les bordures arrondies sont visibles */
 }

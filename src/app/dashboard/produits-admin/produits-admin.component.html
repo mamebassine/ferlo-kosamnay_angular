@@ -23,7 +23,9 @@
       <tr *ngFor="let produit of produits">
         <td>{{ produit.id }}</td>
         <td>
-          <img [src]="produit.image" alt="{{ produit.nom }}" style="width: 100px; height: auto;" /> 
+          <img *ngIf="produit.image" [src]="'http://localhost:8000/storage/' + produit.image" alt="{{ produit.nom }}" />
+
+          <!-- <img [src]="produit.image" alt="{{ produit.nom }}" style="width: 100px; height: auto;" />  -->
      </td>
         <td>{{ produit.nom }}</td>
         <td>{{ getNomCategorie(produit.categorie_id) }}</td>

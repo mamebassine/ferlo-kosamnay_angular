@@ -1,98 +1,157 @@
+/* src/app/components/header/header.component.css */
+
+/* Styles globaux */
 body {
   font-family: 'Roboto', sans-serif;
 }
 
-
 /* En-tête */
 header {
-  background-color: #fff; /* Couleur de fond pour l'en-tête */
-  padding: 5px 10px; /* Ajustement de l'espacement intérieur */
+  background-color: #fff;
+  padding: 10px 20px;
 }
 
+/* Barre de navigation */
 nav {
   display: flex;
-  align-items: center; /* Alignement vertical des éléments */
-  justify-content: space-between; /* Répartir les éléments sur toute la largeur */
-  flex-wrap: wrap; /* Permet de passer à la ligne sur les petits écrans */
-  font-size: 20px; /* Taille du texte */
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  font-size: 20px;
+}
 
+/* Section Gauche : Logo */
+nav .logo-container {
+  flex: 1;
 }
 
 nav .logo {
-  height: 120px; /* Ajustement de la hauteur du logo pour les petits écrans */
-  margin-left: 2%;
+
+  height: 170px; /* Ajustement de la hauteur du logo pour les petits écrans */
+  margin-left: 2%
 }
 
+/* Section Centre : Menu de Navigation */
 nav .menu-centre {
-  list-style: none; /* Supprimer les puces des listes */
-  display: flex; /* Afficher les éléments en ligne */
-  margin: 0; /* Supprimer les marges */
-  padding: 0; /* Supprimer les espacements */
-  flex: 1; /* Prendre toute la largeur disponible */
-  justify-content: center; /* Centrer les éléments horizontalement */
-  font-size: 30px; /* Taille du texte */
-  font-family: 'Roboto', sans-serif; /* Police pour H1 */
+  list-style: none;
+  display: flex;
+  margin: 0;
+  padding: 0;
+  flex: 2;
+  justify-content: center;
+  transition: max-height 0.3s ease-out;
+}
 
-
+nav .menu-centre.active {
+  display: flex; /* Afficher le menu lorsqu'il est actif */
 }
 
 nav .menu-centre li {
-  margin: 0 15px; /* Espacement horizontal entre les éléments */
+  margin: 0 15px;
 }
 
 nav .menu-centre li a {
-  color: #000; /* Couleur du texte des liens */
-  text-decoration: none; /* Supprimer le soulignement des liens */
-  font-size: 20px; /* Taille du texte */
+  color: #000;
+  text-decoration: none;
+  transition: color 0.3s, text-decoration 0.3s;
 }
 
 nav .menu-centre li a:hover {
-  text-decoration: underline; /* Souligner les liens au survol */
+  text-decoration: underline;
   color: #99B951;
 }
 
-nav .icone-panier {
-  font-size: 20px; /* Taille de l'icône du panier */
-  color: #000; /* Couleur de l'icône */
-  margin-left: 15px; /* Espacement à gauche pour séparer de "Contact" */
+/* Section Droite : Panier et Connexion/Déconnexion */
+nav .actions-droite {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  flex: 1;
 }
 
-nav .bouton-connexion {
-  background-color: #3F7E44; /* Couleur de fond pour le bouton de connexion */
-  padding: 6px 10px; /* Espacement intérieur du bouton */
-  color: #fff; /* Couleur du texte du bouton */
-  text-decoration: none; /* Supprimer le soulignement du bouton */
-  margin-right: 2%;
-
+nav .actions-droite .icone-panier {
+  font-size: 24px;
+  margin-right: 20px;
+  color: #000;
+  cursor: pointer;
+  transition: color 0.3s;
 }
 
+nav .actions-droite .icone-panier:hover {
+  color: #99B951;
+}
 
-/* Media Queries pour les petits écrans */
+nav .actions-droite .bouton-connexion,
+nav .actions-droite .bouton-deconnexion {
+  background-color: #3F7E44;
+  padding: 8px 15px;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 1px;
+  transition: background-color 0.3s;
+  cursor: pointer;
+}
+
+nav .actions-droite .bouton-connexion:hover,
+nav .actions-droite .bouton-deconnexion:hover {
+  background-color: #99B951;
+}
+
+/* Bouton hamburger */
+nav .hamburger {
+  display: none;
+  flex-direction: column;
+  cursor: pointer;
+}
+
+nav .hamburger span {
+  height: 4px;
+  width: 25px;
+  background-color: #000;
+  margin: 3px 0;
+}
+
+/* Media Queries pour petits écrans */
 @media (max-width: 768px) {
   nav {
-    flex-direction: column; /* Empile les éléments sur les petits écrans */
-    align-items: flex-start; /* Aligne les éléments à gauche */
+    flex-direction: column;
+    align-items: flex-start;
   }
 
+  /* Cacher le menu par défaut sur mobile */
   nav .menu-centre {
-    flex-direction: column; /* Colonne pour les éléments du menu */
-    width: 100%; /* Prend toute la largeur */
+    display: none;
+    flex-direction: column;
+    width: 100%;
+    text-align: center;
+  }
+
+  nav .menu-centre.active {
+    display: flex;
   }
 
   nav .menu-centre li {
-    margin: 5px 0; /* Réduction de l'espacement entre les éléments */
-    width: 100%; /* Chaque élément prend toute la largeur */
-    text-align: center; /* Centre le texte des éléments */
+    margin: 10px 0;
+    width: 100%;
   }
 
-  nav .icone-panier, nav .bouton-connexion {
-    margin-left: 0; /* Supprime le margin à gauche pour le centrage */
-    width: 100%; /* Prend toute la largeur */
-    text-align: center; /* Centre le texte */
-    padding: 8px; /* Ajuste le padding pour les petits écrans */
+  /* Afficher le bouton hamburger */
+  nav .hamburger {
+    display: flex;
+    margin-left: 90%;
+    bottom: 19%;
   }
 
-  nav .bouton-connexion {
-    margin-top: 10px; /* Ajoute un espacement au-dessus du bouton */
+  /* Section Droite : Panier et Connexion/Déconnexion */
+  nav .actions-droite {
+    width: 100%;
+    justify-content: center;
+    margin-top: 10px;
+  }
+
+  nav .actions-droite .icone-panier,
+  nav .actions-droite .bouton-connexion,
+  nav .actions-droite .bouton-deconnexion {
+    margin: 5px 10px 0 10px;
   }
 }

@@ -377,11 +377,11 @@ font-family: 'Roboto', sans-serif; /* Police pour H1 */
 
 /* Image circulaire */
 .image-circulaire {
-  width: 350px; /* Largeur de l'image */
+  width: 750%; /* Largeur de l'image */
   height: 300px; /* Hauteur de l'image */
   border-radius: 50%; /* Pour rendre l'image circulaire */
   object-fit: cover; /* Pour couvrir l'espace sans déformation */
-  margin-left: 18%;
+  margin-left: 25%;
 }
 
 /* Effet de survol */
@@ -406,12 +406,12 @@ flex-wrap: wrap;
 background-color: #f9f9f9; /* Couleur de fond par défaut */
 border-radius: 10px;
 box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-margin: 15px;
+margin: 10px;
 padding: 20px;
 text-align: center;
 transition: background-color 0.3s, transform 0.3s; /* Ajout d'une transition pour l'effet de hover */
 cursor: pointer;
-width: 200px; /* Largeur fixe pour les cartes */
+width: 300px; /* Largeur fixe pour les cartes */
 }
 
 .carte h3 {
@@ -421,7 +421,7 @@ color: #333;
 
 /* Image circulaire */
 .image-circulaire {
-width: 100px; /* Largeur de l'image */
+width: 130px; /* Largeur de l'image */
 height: 100px; /* Hauteur de l'image */
 border-radius: 50%; /* Pour rendre l'image circulaire */
 object-fit: cover; /* Pour couvrir l'espace sans déformation */
@@ -527,7 +527,7 @@ font-family: 'Roboto', sans-serif; /* Police pour H1 */
   display: flex;
   flex-wrap: wrap; /* Permet aux cartes de passer à la ligne suivante */
   justify-content: center; /* Centre les cartes dans la section */
-  gap: 90px; /* Espace entre les cartes */
+  gap: 120px; /* Espace entre les cartes */
 }
 
 .carte-produit {
@@ -537,7 +537,7 @@ font-family: 'Roboto', sans-serif; /* Police pour H1 */
   display: flex; /* Flex pour aligner le contenu */
   justify-content: space-between; /* Espace entre le texte et l'image */
   width: 99%; /* Largeur fixe pour les cartes */
-  max-width: 530px; /* Largeur maximale */
+  max-width: 590px; /* Largeur maximale */
   padding: 10px;
   margin-top: 2%;
 }
@@ -574,10 +574,10 @@ font-family: 'Roboto', sans-serif; /* Police pour H1 */
 }
 
 .image-produit {
-  width: 170px; /* Largeur de l'image */
+  width: 190px; /* Largeur de l'image */
   height: auto; /* Conserve les proportions */
   /* border-radius: 50%; Image en forme de cercle */
-  margin-left: 10px; /* Espace entre le texte et l'image */
+  margin-left: 5px; /* Espace entre le texte et l'image */
 }
 
 

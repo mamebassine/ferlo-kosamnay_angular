@@ -63,7 +63,7 @@ export class ProduitVoirDetailComponent implements OnInit {
       (data: Produit) => {
         this.produit = data; // Stocke les détails du produit dans la variable
         this.produitBoutique = data.produit_boutique; // Stocke la boutique du produit
-        // console.log(this.produitBoutique);
+        console.log(this.produitBoutique);
         
         // Si vous souhaitez afficher les boutiques, par exemple la première boutique
         if (this.produitBoutique && this.produitBoutique.length > 0) {

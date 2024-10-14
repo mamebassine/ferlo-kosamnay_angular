@@ -16,8 +16,9 @@ export interface region {
   providedIn: 'root'
 })
 export class regionService {
-   //private apiUrl = 'http://localhost:8000/api/regions'; // Remplacez par votre URL API
-  private apiUrl = "https://ferlo-kosamnay.mamebassine06.simplonfabriques.com/api/regions";
+   private apiUrl = 'http://localhost:8000/api/regions'; // Remplacez par votre URL API
+   
+  //private apiUrl = "https://ferlo-kosamnay.mamebassine06.simplonfabriques.com/api/regions";
 
 
   constructor(private http: HttpClient) {}

@@ -34,7 +34,9 @@
 
    <div class="phovoirdetail" *ngIf="produit; else loadingOrError">
     <div class="product-detail">
-        <img [src]="produit.image" alt="{{ produit.nom }}" class="img-fluid mb-3" style="max-width: 200px;">
+        <!-- <img [src]="produit.image" alt="{{ produit.nom }}" class="img-fluid mb-3" style="max-width: 200px;"> -->
+        <img *ngIf="produit.image" [src]="'http://localhost:8000/storage/' + produit.image" alt="{{ produit.nom }}" />
+
 
         <div class="product-info">
             <h1>{{ produit.nom }}</h1>
@@ -46,9 +48,12 @@
             </div>
 
             <div class="quantity-control">
-              <button class="quantity-btn" (click)="incrementQuantity()">+</button>
-              <span class="quantity">{{ quantiteSouhaitee }}</span>
               <button class="quantity-btn" (click)="decrementQuantity()" [disabled]="quantiteSouhaitee <= 1">-</button>
+
+             
+              <span class="quantity">{{ quantiteSouhaitee }}</span>
+              <button class="quantity-btn" (click)="incrementQuantity()">+</button>
+
           </div>
           
 
