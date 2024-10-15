@@ -9,6 +9,7 @@ import { ClientComponent } from './dashboard/admin/client/client.component';
 
 
 
+
 import {   CategorieAdminComponent } from './dashboard/categorie-admin/categorie-admin.component'; 
 
 import { ProduitsAdminComponent } from './dashboard/produits-admin/produits-admin.component';
