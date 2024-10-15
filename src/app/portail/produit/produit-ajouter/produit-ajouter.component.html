@@ -50,11 +50,17 @@
       </div>
 
       <!-- Image -->
-      <div class="form-group">
+      <!-- <div class="form-group">
           <label for="image">Image URL</label>
           <input type="text" id="image" name="image" class="form-control" [(ngModel)]="produit.image" required
                  [ngClass]="{'is-invalid': produitForm.submitted && produitForm.controls['image'].invalid}">
-      </div>
+      </div> -->
+
+      <div class="form-group">
+        <label for="image">Image</label>
+        <input type="file" id="image" (change)="onFileChange($event)" class="form-control" required>
+        
+    </div>
 
       <!-- Catégorie -->
       <div class="form-group">

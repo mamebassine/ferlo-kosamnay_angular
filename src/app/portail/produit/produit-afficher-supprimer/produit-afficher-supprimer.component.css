@@ -11,6 +11,8 @@
 }
 
 .bacgr {
+    opacity: 100%;
+    background-color: #000;
     font-family: Arial, sans-serif;
     background-image: url('/assets/images/bacgrproduit.png');
     background-size: cover;
@@ -42,7 +44,7 @@ h1 {
 }
 
 .search-container button {
-    padding: 10px 20px;
+    padding: 3px 20px;
     background-color: #4CAF50;
     color: white;
     border: none;
@@ -53,11 +55,21 @@ h1 {
 .search-container button:hover {
     background-color: #45a049;
 }
-.product-grid {
+/* .product-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 20px;
+    gap: 40px;
+    
+    
+    
+} */
+
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* Limiter à 4 produits par ligne */
+    gap: 40px; /* Espace entre les cartes */
 }
+
 
 .product {
     background-color: rgba(255, 255, 255, 0.8);
@@ -91,9 +103,9 @@ p {
     justify-content: flex-start;
     gap: 10px;
 }
-
-.buttons button {
-    padding: 10px 15px;
+/* ici */
+.buttons button {  
+    padding: 13px 11px;
     border: 2px solid black;
     border-radius: 5px;
     cursor: pointer;
@@ -129,4 +141,34 @@ p {
     display: calc();
     grid-template-columns: repeat(4, fr); /* Limiter à 4 produits par ligne */
     gap: 60px; /* Espace entre les cartes */
+}
+
+
+
+/* Media Queries pour la responsivité */
+@media (max-width: 1200px) {
+    .product-grid {
+        grid-template-columns: repeat(3, 1fr); /* 3 produits par ligne */
+    }
+}
+
+@media (max-width: 900px) {
+    .product-grid {
+        grid-template-columns: repeat(2, 1fr); /* 2 produits par ligne */
+    }
+}
+
+@media (max-width: 600px) {
+    .product-grid {
+        grid-template-columns: 1fr; /* 1 produit par ligne */
+    }
+
+    h1 {
+        font-size: 1.8em; /* Réduire la taille du titre sur mobile */
+    }
+
+    /* .search-container input {
+        width: 100%; 
+        margin-right: 0; 
+    } */
 }

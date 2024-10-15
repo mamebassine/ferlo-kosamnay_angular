@@ -1,31 +1,32 @@
-
-
-
-
-
 <header>
-    <nav>
-      <img src="../assets/images/logoferlokosamnay.png" alt="Logo Ferlo Kosamnay" class="logo">
-  
-      <ul class="menu-centre">
-        <li><a href="/">Accueil</a></li>
-        <li><a href="/produit">Produits</a></li>
-        <li><a href="categorie">Catégories</a></li>
-        <li><a href="contact">Contact</a></li>
-        <li><a href="panier" class="icone-panier"><i class="fas fa-shopping-cart"></i></a></li>
-      </ul>
-      <a href="/login" class="bouton-connexion">Connexion</a>
-    
-    <!-- Condition: Si l'utilisateur est connecté, afficher le bouton Déconnexion
-    <a *ngIf="isLoggedIn" href="/logout" class="bouton-deconnexion">Déconnexion</a>
-    
-    Sinon, afficher le bouton Connexion -->
-    <!-- <a *ngIf="!isLoggedIn" href="/login" class="bouton-connexion">Connexion</a> -->
-    
-    </nav>
-  </header>
- 
+  <nav>
+    <!-- Section Gauche : Logo -->
+    <div class="logo-container">
+      <img src="assets/images/logoferlokosamnay.png" alt="Logo Ferlo Kosamnay" class="logo">
+    </div>
 
+    <!-- Bouton hamburger visible uniquement sur petits écrans -->
+    <div class="hamburger" (click)="toggleMenu()">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
 
+    <!-- Section Centre : Menu de Navigation -->
+    <ul class="menu-centre" [ngClass]="{'active': isMenuOpen}">
+      <li><a routerLink="/">Accueil</a></li>
+      <li><a routerLink="/produit">Produits</a></li>
+      <li><a routerLink="/categorie">Catégories</a></li>
+      <li><a routerLink="/contact">Contact</a></li>
+    </ul>
 
+    <div class="actions-droite">
+      <a routerLink="/panier" class="icone-panier">
+        <i class="fas fa-shopping-cart"></i>
+      </a>
 
+      <a *ngIf="!isLoggedIn" routerLink="/login" class="bouton-connexion">Connexion</a>
+      <a *ngIf="isLoggedIn" (click)="logout()" class="bouton-deconnexion">Déconnexion</a>
+    </div>
+  </nav>
+</header>

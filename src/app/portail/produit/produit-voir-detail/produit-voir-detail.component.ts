@@ -1,4 +1,3 @@
-// src/app/components/produit-voir-detail/produit-voir-detail.component.ts
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ProduitService, Produit } from '../../../services/produit.service';
@@ -16,13 +15,14 @@ import Swal from 'sweetalert2';
 
 // import { LigneCommandeService } from 'chemin/vers/LigneCommandeService'; // Assure-toi d'importer le service
  // Définition de l'interface LigneCommande ici
+ //l'interface
  interface LigneCommande {
-  produit_boutique_id: number;  // ID du produit boutique (obligatoire)
-  quantite_totale: number;       // Quantité totale (obligatoire)
-  prix_totale: number;           // Prix total (obligatoire)
-  user_id: number;              // ID de l'utilisateur (facultatif, géré par le backend)
-  date: string;                 // Date (facultatif, géré par le backend, en format ISO)
-  statut: string;                // Statut (facultatif, géré par le backend)
+  produit_boutique_id: number;
+  quantite_totale: number;       
+  prix_totale: number;           
+  user_id: number;             
+  date: string;                 
+  statut: string;                
 }
 
 @Component({
@@ -34,18 +34,18 @@ import Swal from 'sweetalert2';
 })
 
 export class ProduitVoirDetailComponent implements OnInit {
-  produitId!: number; // ID du produit
-  produit!: Produit; // Détails du produit récupérés
-  errorMessage: string = ''; // Message d'erreur à afficher
+  produitId!: number; 
+  produit!: Produit; 
+  errorMessage: string = ''; 
   produitBoutique: any[] = []; // Initialisation ici
   quantiteSouhaitee: number = 1;
   
   constructor(
     private authService: AuthService,
     private ligneCommandeService: LigneCommandeService,
-    private route: ActivatedRoute, // Service pour obtenir des informations sur la route active
-    private produitService: ProduitService, // Service pour gérer les produits
-    private panierService: PanierService, // Service pour gérer le panier
+    private route: ActivatedRoute, 
+    private produitService: ProduitService, 
+    private panierService: PanierService, 
     private router: Router 
   ) {}
 
@@ -63,7 +63,7 @@ export class ProduitVoirDetailComponent implements OnInit {
       (data: Produit) => {
         this.produit = data; // Stocke les détails du produit dans la variable
         this.produitBoutique = data.produit_boutique; // Stocke la boutique du produit
-        // console.log(this.produitBoutique);
+        console.log(this.produitBoutique);
         
         // Si vous souhaitez afficher les boutiques, par exemple la première boutique
         if (this.produitBoutique && this.produitBoutique.length > 0) {
@@ -119,7 +119,7 @@ export class ProduitVoirDetailComponent implements OnInit {
             confirmButtonText: 'OK'
           }).then((result) => {
             if (result.isConfirmed) {
-              // Redirection après confirmation
+              // Redirection après confirmation naboopay pour le payement
               window.location.href = 'https://checkout.naboopay.com/checkout/bf9fa099';
             }
           });

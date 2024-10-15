@@ -23,13 +23,22 @@ export class AuthService {
   // BehaviorSubject pour stocker l'état actuel de l'utilisateur
   private currentUserSubject: BehaviorSubject<User | null>;
   public currentUser: Observable<User | null>;
+  private loggedIn: boolean = false;
+
 
   constructor(private http: HttpClient) { 
     // Récupérer les informations utilisateur stockées dans le localStorage, si disponibles
     const userJson = localStorage.getItem('user');
     this.currentUserSubject = new BehaviorSubject<User | null>(userJson ? JSON.parse(userJson) : null);
     this.currentUser = this.currentUserSubject.asObservable();
+  
+  
   }
+  isAuthenticated(): boolean {
+    // Implémentez votre logique d'authentification ici
+    return this.loggedIn;
+  }
+
 
   /**
    * Méthode pour inscrire un nouvel utilisateur.

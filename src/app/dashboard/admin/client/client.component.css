@@ -1,0 +1,137 @@
+* {
+    box-sizing: border-box;
+  }
+  
+  body {
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+    background-color: #f0f0f5;
+  }
+  
+  .dashboard {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+  }
+  
+  .navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px;
+    background-color: #4F772D;
+    color: white;
+    border-radius: 10px;
+  }
+  
+  .navbar-brand {
+    display: flex;
+    align-items: center;
+  }
+  
+  .logo {
+    width: 50px;
+    height: auto;
+    margin-right: 10px;
+  }
+  
+  .dashboard-container {
+    display: flex;
+    flex: 1;
+  }
+  
+  .sidebar {
+    width: 250px;
+    background-color: #4F772D;
+    padding: 20px;
+    border-radius: 10px;
+  }
+  
+  .sidebar ul {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .sidebar li {
+    margin: 15px 0;
+  }
+  
+  .sidebar a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s;
+  }
+  
+  .sidebar a:hover {
+    color: #B7D7B3; /* Couleur de survol des liens */
+  }
+  
+  .content {
+    flex: 1;
+    padding: 20px;
+    margin-left: 20px; /* espace entre la sidebar et le contenu */
+  }
+  
+  .header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+  }
+  
+  .profile {
+    display: flex;
+    align-items: center;
+  }
+  
+  .profile-img {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    margin-right: 15px;
+    border: 2px solid #B7D7B3; /* Bordure autour de la photo */
+  }
+  
+  .profile-name {
+    font-size: 20px;
+    font-weight: bold;
+    color: #4F772D;
+  }
+  
+  .table-container {
+    overflow-x: auto; /* Permet le défilement horizontal sur mobile */
+  }
+  
+  .client-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .client-table th,
+  .client-table td {
+    padding: 12px 15px;
+    border: 1px solid #ddd;
+    text-align: left;
+  }
+  
+  .client-table th {
+    background-color: #4F772D;
+    color: white;
+  }
+  
+  .client-table tbody tr {
+    transition: background-color 0.3s;
+  }
+  
+  .client-table tbody tr:nth-child(even) {
+    background-color: #f9f9f9;
+  }
+  
+  .client-table tbody tr:hover {
+    background-color: #e0f7fa; /* Couleur de survol des lignes */
+  }
+  

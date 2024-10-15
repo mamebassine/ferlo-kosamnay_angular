@@ -1,0 +1,107 @@
+/* Container Styling */
+.container {
+    max-width: 80%;
+    margin: 30px auto;
+    background-color: #f8f9fa;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+  }
+  
+  /* Heading Styling */
+  .container h2 {
+    text-align: center;
+    color: #3F7E44;
+    font-weight: bold;
+    margin-bottom: 2px;
+  }
+  
+  /* Alert Styling */
+  .alert {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  /* Button Styling */
+  .btn {
+    padding: 10px 20px;
+    border-radius: 1px;
+    transition: background-color 0.3s ease;
+  }
+  
+  .btn-primary {
+    background-color: #3F7E44;
+    border-color: #3F7E44;
+    color: #fff;
+    margin-bottom: 20px;
+  }
+  
+  .btn-primary:hover {
+    background-color: #3a5f22;
+  }
+  
+  /* Table Styling */
+  .table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+  }
+  
+  .table th,
+  .table td {
+    padding: 12px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+  }
+  
+  .table th {
+    background-color: #4F772D;
+    color: white;
+    font-weight: bold;
+    text-align: center;
+  }
+  
+  .table td {
+    text-align: center;
+  }
+  
+  .table tbody tr:hover {
+    background-color: #f1f1f1;
+  }
+  
+  /* Actions Column Styling */
+  .table td:last-child {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+  }
+  
+  /* Button Styling for Actions */
+  .btn-secondary {
+    background-color: #6c757d;
+    border-color: #6c757d;
+    color: #fff;
+  }
+  
+  .btn-secondary:hover {
+    background-color: #5a6268;
+  }
+  
+  .btn-danger {
+    background-color: #dc3545;
+    border-color: #dc3545;
+    color: #fff;
+  }
+  
+  .btn-danger:hover {
+    background-color: #c82333;
+  }
+  
+  /* Image Styling */
+  .table img {
+    width: 50px;
+    height: auto;
+    border-radius: 4px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  

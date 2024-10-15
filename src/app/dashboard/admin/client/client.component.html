@@ -1,0 +1,51 @@
+<div class="dashboard">
+    <nav class="navbar">
+      <div class="navbar-brand">
+        <img src="assets/logo.png" alt="Logo" class="logo" />
+        <h2>Tableau de Bord</h2>
+      </div>
+    </nav>
+  
+    <div class="dashboard-container">
+      <aside class="sidebar">
+        <ul>
+          <li><a href="/profil">Profil</a></li>
+          <li><a href="/notifications">Notifications</a></li>
+          <li><a href="/clients">Clients</a></li>
+          <li><a href="/rapports">Rapports</a></li>
+          <li><a href="/deconnexion">Déconnexion</a></li>
+        </ul>
+      </aside>
+  
+      <main class="content">
+        <div class="header">
+          <div class="profile">
+            <img src="assets/profile.jpg" alt="Photo de Profil" class="profile-img" />
+            <h3 class="profile-name">Nom de l'Utilisateur</h3>
+          </div>
+        </div>
+  
+        <div class="table-container">
+          <table class="client-table">
+            <thead>
+              <tr>
+                <th>ID</th>
+                <th>Nom</th>
+                <th>Email</th>
+                <th>Date d'Inscription</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let client of clients">
+                <td>{{ client.id }}</td>
+                <td>{{ client.nom }}</td>
+                <td>{{ client.email }}</td>
+                <td>{{ client.dateInscription | date:'dd/MM/yyyy' }}</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </main>
+    </div>
+  </div>
+  
