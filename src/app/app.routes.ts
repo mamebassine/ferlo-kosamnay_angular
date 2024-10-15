@@ -5,7 +5,8 @@ import { AdminGuard } from './admin.guard';
 import { LoginComponent } from './auth/login/login.component';
 import { RegisterComponent } from './auth/register/register.component';
 import { AdminComponent } from './dashboard/admin/admin.component'; 
-// import { ClientComponent } from './dashboard/client/client.component'; 
+import { ClientComponent } from './dashboard/admin/client/client.component'; 
+
 
 
 import {   CategorieAdminComponent } from './dashboard/categorie-admin/categorie-admin.component'; 
@@ -101,6 +102,7 @@ import { AjoutRepresentantComponent } from './dashboard/admin/ajout-representant
 // Routes pour les produits
 { path: 'produit/ajouter', component: ProduitAjouterComponent, canActivate: [AdminGuard] },
 { path: 'produit/modifier/:id', component: ProduitModifierComponent, canActivate: [AdminGuard] },
+
 { path: 'produit/detail/:id', component: ProduitVoirDetailComponent, },
 
 // Routes pour les régions
@@ -122,6 +124,7 @@ import { AjoutRepresentantComponent } from './dashboard/admin/ajout-representant
 
  { path: 'representants', component: AjoutRepresentantComponent, canActivate: [AdminGuard] },
 
+{ path: 'clients', component: ClientComponent },
  
 
    //routes admins
@@ -148,6 +151,9 @@ import { AjoutRepresentantComponent } from './dashboard/admin/ajout-representant
 
 
 // { path: 'admindec', component:AdmindeclarationComponent, canActivate: [AuthGuard]},
+
+
+
 
 ];
 

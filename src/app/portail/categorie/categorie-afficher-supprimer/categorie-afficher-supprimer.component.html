@@ -42,12 +42,23 @@
     </table>
   </div>
    -->
+
+
+
+   
    <app-header></app-header>
 
-<div class="search-container">
+<!-- <div class="search-container">
   <input type="text" id="searchInput" placeholder="Rechercher un produit...">
   <button>Rechercher</button>
+</div> -->
+
+
+<div class="search-container">
+  <input type="text" [(ngModel)]="searchTerm" placeholder="Rechercher une categorie..." />
+  <button (click)="rechercher()">Rechercher</button>
 </div>
+
 
 <div class="bacgraimage">
   <div class="overlay">

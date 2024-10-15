@@ -1,14 +1,17 @@
-/* src/app/components/header/header.component.css */
 
-/* Styles globaux */
-body {
-  font-family: 'Roboto', sans-serif;
-}
 
-/* En-tête */
+
+
 header {
   background-color: #fff;
   padding: 10px 20px;
+
+
+
+  font-family: 'Roboto', sans-serif;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden; /* Empêche le débordement horizontal global */
 }
 
 /* Barre de navigation */
@@ -17,7 +20,7 @@ nav {
   align-items: center;
   justify-content: space-between;
   flex-wrap: wrap;
-  font-size: 20px;
+  font-size: 30px;
 }
 
 /* Section Gauche : Logo */
@@ -27,7 +30,7 @@ nav .logo-container {
 
 nav .logo {
 
-  height: 170px; /* Ajustement de la hauteur du logo pour les petits écrans */
+  height: 200px; /* Ajustement de la hauteur du logo pour les petits écrans */
   margin-left: 2%
 }
 
@@ -90,6 +93,9 @@ nav .actions-droite .bouton-deconnexion {
   border-radius: 1px;
   transition: background-color 0.3s;
   cursor: pointer;
+  margin-right: 3%;
+margin-left: 2%;
+
 }
 
 nav .actions-droite .bouton-connexion:hover,
@@ -140,13 +146,17 @@ nav .hamburger span {
     display: flex;
     margin-left: 90%;
     bottom: 19%;
+
+/* ICI MONTE LE HAMBURGUER */
+
+    margin-top: -120px;   
   }
 
   /* Section Droite : Panier et Connexion/Déconnexion */
   nav .actions-droite {
     width: 100%;
     justify-content: center;
-    margin-top: 10px;
+    margin-top: 70px;
   }
 
   nav .actions-droite .icone-panier,

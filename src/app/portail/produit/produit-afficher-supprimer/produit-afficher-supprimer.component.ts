@@ -6,7 +6,7 @@ import { CategorieService, Categorie } from '../../../services/categorie.service
 import { HeaderComponent } from "../../../header/header/header.component";
 import { FooterComponent } from "../../../footer/footer/footer.component";
 import { PanierService } from '../../../services/panier.service';
-import { FormsModule } from '@angular/forms';  // Import FormsModule
+import { FormsModule } from '@angular/forms';  
 
 
 @Component({

@@ -1,4 +1,3 @@
-<!-- src/app/components/header/header.component.html -->
 <header>
   <nav>
     <!-- Section Gauche : Logo -->
@@ -21,13 +20,11 @@
       <li><a routerLink="/contact">Contact</a></li>
     </ul>
 
-    <!-- Section Droite : Panier et Connexion/Déconnexion -->
     <div class="actions-droite">
       <a routerLink="/panier" class="icone-panier">
         <i class="fas fa-shopping-cart"></i>
       </a>
 
-      <!-- Bouton Connexion/Déconnexion -->
       <a *ngIf="!isLoggedIn" routerLink="/login" class="bouton-connexion">Connexion</a>
       <a *ngIf="isLoggedIn" (click)="logout()" class="bouton-deconnexion">Déconnexion</a>
     </div>

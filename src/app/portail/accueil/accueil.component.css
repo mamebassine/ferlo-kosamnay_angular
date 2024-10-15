@@ -1,3 +1,9 @@
+.body {
+  font-family: 'Roboto', sans-serif;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden; /* Empêche le débordement horizontal global */
+}
 
 
 /* En-tête */
@@ -117,18 +123,18 @@ nav .bouton-connexion {
 }
 
 #hero p {
-  font-size: 1.2em; /* Taille du texte du paragraphe */
-  margin: 10px 0; /* Espacement vertical entre les paragraphes */
+  font-size: 2em; /* Taille du texte du paragraphe */
+  margin: 20px 0; /* Espacement vertical entre les paragraphes */
 }
 
 #hero button {
-  background-color: #3F7E44; /* Couleur de fond du bouton */
-  color: #fff; /* Couleur du texte du bouton */
-  border: none; /* Supprimer la bordure par défaut */
-  padding: 7px 10px; /* Espacement intérieur du bouton */
-  font-size: 1em; /* Taille du texte du bouton */
-  cursor: pointer; /* Changer le curseur au survol */
-  margin-top: 10px; /* Espacement au-dessus du bouton */
+  background-color: #3F7E44; 
+  color: #fff;
+  border: none; 
+  padding: 8px 20px; /* Espacement intérieur du bouton */
+  font-size: 1.2em; 
+  cursor: pointer; 
+  margin-top: 10px; 
   transition: background-color 0.3s ease; /* Transition douce pour le changement de couleur */
 }
 
@@ -208,8 +214,8 @@ nav .bouton-connexion {
 
 /* Section APROPOS */
 #a-propos {
-
-  background-image: url('/assets/images/Apropos2.png'); 
+margin-top: 2%;
+  background-image: url('/assets/images/aproposNous.png'); 
   background-size: cover; /* Ajustement de l'image */
   background-repeat: no-repeat;
   background-position: center;
@@ -219,7 +225,7 @@ nav .bouton-connexion {
 
 /* Titre principal */
 h4 {
-  font-size: 30px; /* Taille du texte */
+  font-size: 35px; /* Taille du texte */
   font-family: 'Roboto', sans-serif; /* Police pour H1 */
 text-align: center;
   color: #000; 
@@ -252,15 +258,17 @@ text-align: center;
 }
 
 .text-gauche p {
-  margin-bottom: 15px; 
-  font-size: 1em; 
+  
+  margin-bottom: 22px; 
+  font-size: 1.5em; 
   line-height: 1.4; 
   color: #333; 
 }
 
 /* Section image à droite */
 .image-droite {
-  width: 35%;
+  left: 11%;
+  width: 55%;
   position: relative;
   text-align: center;
 }
@@ -498,19 +506,6 @@ div:focus-within {
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
 #produits h2 {
 text-align: center;
 font-size: 30px; /* Taille du texte */
@@ -562,7 +557,7 @@ font-family: 'Roboto', sans-serif; /* Police pour H1 */
 .carte-produit button {
   background-color: #3F7E44; /* Couleur du bouton */
   color: #fff; /* Couleur blanche pour le texte du bouton */
-  padding: 5px 10px;
+  padding: 15px 15px;
   border: none;
   cursor: pointer;
   transition: background-color 0.3s; /* Transition pour le bouton */
@@ -587,13 +582,14 @@ font-family: 'Roboto', sans-serif; /* Police pour H1 */
 
 #partenaires h2{
   text-align: center; /* Centre le texte */
-  font-size: 35px; /* Taille du texte */
+  margin-bottom: 1%;
+  font-size: 50px; /* Taille du texte */
   font-family: 'Roboto', sans-serif; /* Police pour H1 */
 }
 
 #partenaires {
   text-align: center; /* Centre le texte */
-  padding: 50px 20px;
+  padding: 20px 10px;
   
 }
 
@@ -617,7 +613,7 @@ font-family: 'Roboto', sans-serif; /* Police pour H1 */
 }
 
 .carte-partenaire p {
-  margin-bottom: 10px;
+  margin-bottom: 13px;
 }
 
 .partenariat-duration {
@@ -870,7 +866,7 @@ input[type="reset"]:hover {
 
 .voirplus a {
   display: inline-block; /* Le bouton reste inline mais se comporte comme un block */
-  padding: 10px 20px; /* Ajuster la taille intérieure du bouton */
+  padding: 15px 20px; /* Ajuster la taille intérieure du bouton */
   background-color: #3F7E44; /* Couleur de fond (vert) */
   color: white; /* Couleur du texte */
   text-decoration: none; /* Supprimer le soulignement */

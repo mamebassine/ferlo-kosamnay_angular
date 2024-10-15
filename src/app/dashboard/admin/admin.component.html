@@ -1,44 +1,73 @@
-
 <div class="container">
-    <aside class="sidebar">
-      <h2>Tableau de Bord Admin</h2>
-      <nav>
-        <ul>
-          <li><a href="/">Accueil</a></li>
+  <aside class="sidebar">
+    <h2>Tableau de Bord Admin</h2>
+    <nav>
+      <ul>
+        <li><a href="/">Accueil</a></li>
+        <li><a routerLink="/produitsadmin"><i class="fas fa-box"></i> Produits</a></li>
+        <li><a routerLink="/CategorieAdmin"><i class="fas fa-tags"></i> Catégories</a></li>
+        <li><a routerLink="/representants"><i class="fas fa-box"></i> Représentants</a></li>
+        <li><a routerLink="/region"><i class="fas fa-tags"></i> Régions</a></li>
+        <li><a routerLink="/boutique"><i class="fas fa-box"></i> Boutiques</a></li>
+        <li><a routerLink="/produitboutique"><i class="fas fa-tags"></i> Produit boutique</a></li>
+        <li><a routerLink="/commandes"><i class="fas fa-shopping-cart"></i> Commandes</a></li>
+      </ul>
+    </nav>
+    <button class="deconnexion" (click)="logout()"><i class="fas fa-sign-out-alt"></i> Déconnexion</button>
+  </aside>
 
+  <main class="dashboard">
+    <header class="dashboard-header">
+      <img src="/assets/images/logoferlokosamnay.png" alt="Logo" class="logo">
+      <div class="header-icons">
+        <i class="fas fa-bell"></i>
+        <i class="fas fa-user-circle"></i>
+      </div>
+    </header>
+    
+    <section class="cards">
+      <div 
+          class="card" 
+          *ngFor="let card of cards; let i = index" 
+          [ngClass]="card.position" 
+          [ngStyle]="{'animation-delay': (i * 0.5) + 's'}">
+        <h3>{{ card.title }}</h3>
+        <p [ngStyle]="{'color': card.color}">{{ card.value }}</p>
+      </div>
+    </section>
 
-                <li><a href="/"><i class="fas fa-home"></i> Accueil</a></li>
-                <li><a href="produitsadmin"><i class="fas fa-box"></i> Produits</a></li>
-                <li><a href="CategorieAdmin"><i class="fas fa-tags"></i> Catégories</a></li>
-                <li><a href="representants"><i class="fas fa-box"></i> Representanst</a></li>
-                <li><a href="region"><i class="fas fa-tags"></i>Regions</a></li>
-                <li><a href="boutique"><i class="fas fa-box"></i> Boutiques</a></li>
-                <li><a href="produitboutique"><i class="fas fa-tags"></i>Produit boutique</a></li>
-                <li><a href="commandes"><i class="fas fa-shopping-cart"></i> Commandes</a></li>
-       </ul>
-      </nav>
-      <button class="deconnexion" (click)="logout()"><i class="fas fa-sign-out-alt"></i> Déconnexion</button>
-    </aside>
-  
-    <main class="dashboard">
-      <header class="dashboard-header">
-        <img src="/assets/images/logoferlokosamnay.png" alt="Logo" class="logo">
-        <div class="header-icons">
-          <i class="fas fa-bell"></i>
-          <i class="fas fa-user-circle"></i>
-        </div>
-      </header>
-      
-      <section class="cards">
-        <div 
-            class="card" 
-            *ngFor="let card of cards; let i = index" 
-            [ngClass]="card.position" 
-            [ngStyle]="{'animation-delay': (i * 0.5) + 's'}">
-          <h3>{{ card.title }}</h3>
-          <p [ngStyle]="{'color': card.color}">{{ card.value }}</p>
-        </div>
-      </section>
-    </main>
-  </div>
-  
+    <h2>Liste des Lignes de Commande</h2>
+    <!-- <a routerLink="/lignecommande/ajouter" class="btn btn-success">Ajouter une Ligne de Commande</a> -->
+
+    <div *ngIf="errorMessage" class="alert alert-danger">
+      {{ errorMessage }}
+    </div>
+
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Produit Boutique</th>
+          <th>User</th>
+          <th>Date</th>
+          <th>Quantité</th>
+          <th>Prix Total (CFA)</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let ligne of lignesCommandes">
+          <td>{{ ligne.produit_boutique_id }}</td>
+          <td>{{ ligne.user_id }}</td>
+          <td>{{ ligne.date }}</td>
+          <td>{{ ligne.quantite_totale }}</td>
+          <td>{{ ligne.prix_totale }} CFA</td>
+          <td>
+            <a [routerLink]="['/lignecommande/detail', ligne.id]">Voir Détails</a> |
+            <a [routerLink]="['/lignecommande/modifier', ligne.id]">Modifier</a> |
+            <button *ngIf="ligne.id" (click)="deleteLigneCommande(ligne.id)">Supprimer</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </main>
+</div>

@@ -2,6 +2,8 @@ import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { RepresentantService } from '../../../services/representant.service';
 import { CommonModule } from '@angular/common';
+import Swal from 'sweetalert2';
+
 
 @Component({
   selector: 'app-ajout-representant',
@@ -28,22 +30,69 @@ export class AjoutRepresentantComponent {
   onSubmit() {
     this.submitted = true;
 
-    if (this.representantForm.invalid) {
-      window.alert('Formulaire invalide. Veuillez vérifier vos informations.');
-      return;
+        // Vérifie si le formulaire est invalide
+        if (this.representantForm.invalid) {
+          Swal.fire({
+            icon: 'error',
+            title: 'Erreur',
+            text: 'Formulaire invalide. Veuillez vérifier vos informations.'
+          });
+          return;
+
+
+
+// if (this.representantForm.invalid) {
+//       window.alert('Formulaire invalide. Veuillez vérifier vos informations.');
+//       return;
     }
 
-    this.representantService.ajouterRepresentant(this.representantForm.value).subscribe(
-      (response) => {
-        window.alert('Représentant ajouté avec succès !');
-        console.log('Représentant ajouté avec succès', response);
-      },
-      (error) => {
-        window.alert('Erreur lors de l\'ajout du représentant. Veuillez réessayer.');
-        console.error('Erreur lors de l\'ajout du représentant', error);
-      }
-    );
+ // Appel au service pour ajouter le représentant
+ this.representantService.ajouterRepresentant(this.representantForm.value).subscribe(
+  (response) => {
+    // Affiche une alerte de succès
+    Swal.fire({
+      icon: 'success',
+      title: 'Succès',
+      text: 'Représentant ajouté avec succès !'
+    });
+    console.log('Représentant ajouté avec succès', response);
+  },
+  (error) => {
+    // Affiche une alerte d'erreur
+    Swal.fire({
+      icon: 'error',
+      title: 'Erreur',
+      text: 'Erreur lors de l\'ajout du représentant. Veuillez réessayer.'
+    });
+    console.error('Erreur lors de l\'ajout du représentant', error);
   }
-
-  get f() { return this.representantForm.controls; }
+);
 }
+
+get f() { return this.representantForm.controls; }
+}
+
+
+
+
+
+
+
+
+
+
+
+//     this.representantService.ajouterRepresentant(this.representantForm.value).subscribe(
+//       (response) => {
+//         window.alert('Représentant ajouté avec succès !');
+//         console.log('Représentant ajouté avec succès', response);
+//       },
+//       (error) => {
+//         window.alert('Erreur lors de l\'ajout du représentant. Veuillez réessayer.');
+//         console.error('Erreur lors de l\'ajout du représentant', error);
+//       }
+//     );
+//   }
+
+//   get f() { return this.representantForm.controls; }
+// }

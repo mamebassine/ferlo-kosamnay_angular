@@ -5,11 +5,14 @@ import { Router } from '@angular/router';
 
 import { HeaderComponent } from "../../../header/header/header.component";
 import { FooterComponent } from "../../../footer/footer/footer.component";
+import { FormsModule } from '@angular/forms';  
+
+
 
 @Component({
   selector: 'app-categorie-afficher-supprimer',
   standalone: true,
-  imports: [CommonModule, HeaderComponent, FooterComponent],
+  imports: [CommonModule, HeaderComponent, FooterComponent, FormsModule],
   templateUrl: './categorie-afficher-supprimer.component.html',
   styleUrls: ['./categorie-afficher-supprimer.component.css']
 })
@@ -17,6 +20,8 @@ export class CategorieAfficherSupprimerComponent implements OnInit {
 
   categories: Categorie[] = [];
   errorMessage: string = '';
+  searchTerm: string = ''; 
+
 
   constructor(private categorieService: CategorieService, private router: Router) { }
 
@@ -35,6 +40,11 @@ export class CategorieAfficherSupprimerComponent implements OnInit {
       }
     );
   }
+
+// recherche() conçue pour exécuter une action
+rechercher(): void { //Nom de la methodes void ne renvoi rien
+  console.log('Recherche effectuée avec le terme:', this.searchTerm);
+}
 
   deleteCategorie(id: number | undefined): void {
     if (id === undefined) return;
@@ -62,4 +72,15 @@ export class CategorieAfficherSupprimerComponent implements OnInit {
   }
   
 
+
+
+  // Filtre les produits en fonction du terme de recherche
+  get categoriesFiltres(): Categorie[] {
+    if (!this.searchTerm) {
+      return this.categories; // Retourne tous les produits si aucun terme de recherche n'est saisi
+    }
+    return this.categories.filter(produit =>
+      produit.nom_complet.toLowerCase().includes(this.searchTerm.toLowerCase()) // Filtre les produits
+    );
+  }
 }
