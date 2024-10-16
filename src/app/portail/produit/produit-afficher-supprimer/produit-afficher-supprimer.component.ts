@@ -5,8 +5,10 @@ import { Router } from '@angular/router';
 import { CategorieService, Categorie } from '../../../services/categorie.service';
 import { HeaderComponent } from "../../../header/header/header.component";
 import { FooterComponent } from "../../../footer/footer/footer.component";
-import { PanierService } from '../../../services/panier.service';
-import { FormsModule } from '@angular/forms';  
+import { FormsModule } from '@angular/forms'; 
+import { CartService, CartItem } from '../../../services/cart.service';
+import Swal from 'sweetalert2';
+
 
 
 @Component({
@@ -22,12 +24,12 @@ export class ProduitAfficherSupprimerComponent implements OnInit {
   produits: Produit[] = [];
   categories: Categorie[] = [];
   searchTerm: string = ''; 
-
+ 
   constructor(
     private produitService: ProduitService,
     private categorieService: CategorieService,
     private router: Router,
-    private panierService: PanierService
+    private cartService: CartService
   ) {}
   
   ngOnInit(): void {
@@ -40,10 +42,37 @@ export class ProduitAfficherSupprimerComponent implements OnInit {
   }
   
 
-ajouterAuPanier(produit: Produit): void {
-  console.log('Ajout du produit:', produit); 
-  this.panierService.ajouterProduit(produit);
-}
+  ajouterAuPanier(produit: Produit): void {
+    // Créer un objet CartItem à partir du Produit
+    const cartItem: CartItem = {
+      productId: produit.id!, // Assurez-vous que 'id' est défini
+      nom: produit.nom,
+      prix: produit.prix,
+      quantite: 1, // Vous pouvez modifier cela pour permettre à l'utilisateur de choisir la quantité
+      // Ajoutez d'autres propriétés si nécessaire
+    };
+
+    // Utiliser le CartService pour ajouter l'article au panier
+    this.cartService.addToCart(cartItem);
+
+    // Afficher une notification avec SweetAlert2
+    Swal.fire({
+      position: 'top-end',
+      icon: 'success',
+      title: `${produit.nom} a été ajouté au panier.`,
+      showConfirmButton: false,
+      timer: 1000, // Durée en millisecondes (2 secondes)
+      toast: true, // Affiche comme un toast
+      iconColor: '#ffffff',
+      background: '#28a745',
+      color: '#fff',
+      timerProgressBar: true,
+      didOpen: (toast) => {
+        toast.addEventListener('mouseenter', Swal.stopTimer)
+        toast.addEventListener('mouseleave', Swal.resumeTimer)
+      }
+    });
+  }
 
 
   chargerProduits(): void {

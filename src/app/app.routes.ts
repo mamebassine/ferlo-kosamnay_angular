@@ -47,7 +47,7 @@ import { ProduitBoutiqueAfficherSupprimerComponent } from './produitBoutique/pro
 // import { ProduitBoutiqueVoirDetailComponent } from './produitBoutique/produit-boutique-voir-detail/produit-boutique-voir-detail.component';
 import { ProduitBoutiqueModifierComponent } from './produitBoutique/produit-boutique-modifier/produit-boutique-modifier.component';
 import { ProduitBoutiqueAjouterComponent } from './produitBoutique/produit-boutique-ajouter/produit-boutique-ajouter.component';
-import { PanierComponent } from './panier/panier/panier.component';
+
 
 // Import des composants lignecommande
 
@@ -142,7 +142,7 @@ import { AjoutRepresentantComponent } from './dashboard/admin/ajout-representant
 { path: 'lignecommande/modifier/:id', component: LigneCommandeModifierComponent },
 { path: 'lignecommande/detail/:id', component: LigneCommandeVoirDetailComponent },
 
-{ path: 'panier', component: PanierComponent },
+
 
 // const routes: Routes = [
 //   { path: 'admin', component: AdminComponent, canActivate: [adminGuard] },

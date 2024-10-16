@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ProduitService, Produit } from '../../../services/produit.service';
-import { PanierService } from '../../../services/panier.service';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { HeaderComponent } from '../../../header/header/header.component';
@@ -44,8 +43,7 @@ export class ProduitVoirDetailComponent implements OnInit {
     private authService: AuthService,
     private ligneCommandeService: LigneCommandeService,
     private route: ActivatedRoute, 
-    private produitService: ProduitService, 
-    private panierService: PanierService, 
+    private produitService: ProduitService,
     private router: Router 
   ) {}
 

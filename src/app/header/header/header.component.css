@@ -116,6 +116,16 @@ nav .hamburger span {
   background-color: #000;
   margin: 3px 0;
 }
+span {
+  position: relative;
+  top: -20px;
+  right: 2px;
+  background-color: red;
+  color: white;
+  border-radius: 50%;
+  padding: 2px 6px;
+  font-size: 12px;
+}
 
 /* Media Queries pour petits écrans */
 @media (max-width: 768px) {
