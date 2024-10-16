@@ -3,12 +3,13 @@ import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angula
 import { RepresentantService } from '../../../services/representant.service';
 import { CommonModule } from '@angular/common';
 import Swal from 'sweetalert2';
+import { NavbarAdminComponent } from "../../../navbar-admin/navbar-admin.component";
 
 
 @Component({
   selector: 'app-ajout-representant',
   standalone: true,
-  imports: [ReactiveFormsModule, CommonModule],
+  imports: [ReactiveFormsModule, CommonModule, NavbarAdminComponent],
   templateUrl: './ajout-representant.component.html',
   styleUrls: ['./ajout-representant.component.css']
 })

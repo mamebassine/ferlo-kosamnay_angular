@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { ProduitBoutiqueService } from '../../services/produit-boutique.service';
+import { NavbarAdminComponent } from "../../navbar-admin/navbar-admin.component";
 
 // Définition de l'interface directement dans le composant
 export interface ProduitBoutique {
@@ -16,7 +17,7 @@ export interface ProduitBoutique {
 @Component({
   selector: 'app-produit-boutique-afficher-supprimer',
   standalone: true,
-  imports: [CommonModule, RouterModule],
+  imports: [CommonModule, RouterModule, NavbarAdminComponent],
   templateUrl: './produit-boutique-afficher-supprimer.component.html',
   styleUrls: ['./produit-boutique-afficher-supprimer.component.css']
 })

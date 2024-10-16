@@ -2,12 +2,13 @@ import { Component, OnInit } from '@angular/core';
 import { regionService } from '../../services/region.service';
 import { Router } from '@angular/router';
 import { CommonModule } from '@angular/common';
+import { NavbarAdminComponent } from "../../navbar-admin/navbar-admin.component";
 
 
 @Component({
   selector: 'app-region-afficherSupprimer',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, NavbarAdminComponent],
 templateUrl: './region-afficher-supprimer.component.html',
   styleUrls: ['./region-afficher-supprimer.component.css']
 })

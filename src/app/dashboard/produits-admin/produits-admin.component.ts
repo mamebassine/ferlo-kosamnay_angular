@@ -5,11 +5,12 @@ import { ProduitService, Produit } from '../../services/produit.service';
 import { CommonModule } from '@angular/common';
 import { Router } from '@angular/router';
 import { CategorieService, Categorie } from '../../services/categorie.service';
+import { NavbarAdminComponent } from "../../navbar-admin/navbar-admin.component";
 
 @Component({
   selector: 'app-produits-admin',
   standalone: true,
-  imports: [CommonModule,],
+  imports: [CommonModule, NavbarAdminComponent],
    providers: [ProduitService],
   templateUrl:  './produits-admin.component.html',
   styleUrls: [ './produits-admin.component.css']

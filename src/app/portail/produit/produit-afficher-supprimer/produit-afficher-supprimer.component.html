@@ -6,15 +6,11 @@
  <div class="bacgr">
   <h1>Tous les Produits</h1>
 
-
-
-
-  <div class="search-container">
+<div class="search-container">
     <input type="text" [(ngModel)]="searchTerm" placeholder="Rechercher un produit..." />
     <button (click)="rechercher()">Rechercher</button>
   </div>
 
-  <!-- Grille des produits -->
   <section class="product-grid" id="productGrid">
 
     <div class="product" *ngFor="let produit of produitsFiltres">

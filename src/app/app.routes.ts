@@ -126,6 +126,7 @@ import { CartComponent } from './cart/cart.component';
  { path: 'representants', component: AjoutRepresentantComponent, canActivate: [AdminGuard] },
 
 { path: 'clients', component: ClientComponent },
+
  
 
    //routes admins

@@ -3,10 +3,10 @@ import { BehaviorSubject, Observable } from 'rxjs';
 
 // Interface représentant un article dans le panier
 export interface CartItem {
-  productId: number; // Identifiant unique du produit
-  nom: string;      // Nom du produit
-  prix: number;     // Prix du produit
-  quantite: number;  // Quantité du produit dans le panier
+  productId: number; 
+  nom: string;      
+  prix: number;    
+  quantite: number;  
 }
 
 @Injectable({
@@ -66,13 +66,16 @@ export class CartService {
     this.saveCart();
   }
 
-  // Vide complètement le panier
-  clearCart(): void {
-    // Réinitialise le BehaviorSubject avec un tableau vide
-    this.cartItemsSubject.next([]);
-    // Sauvegarde l'état vide dans le localStorage
-    this.saveCart();
-  }
+    // Vide complètement le panier
+    clearCart(): void {
+      // Réinitialise le BehaviorSubject avec un tableau vide
+      this.cartItemsSubject.next([]); 
+      // Sauvegarde l'état vide dans le localStorage
+      this.saveCart();
+    }
+  
+
+  
 
   // Méthode privée pour sauvegarder le panier dans le localStorage
   private saveCart(): void {

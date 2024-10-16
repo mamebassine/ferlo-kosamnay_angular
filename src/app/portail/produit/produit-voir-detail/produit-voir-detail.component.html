@@ -29,43 +29,20 @@
 
    
    <app-header></app-header>
-
-   
-
-   <div class="phovoirdetail" *ngIf="produit; else loadingOrError">
+     <div class="phovoirdetail" *ngIf="produit; else loadingOrError">
     <div class="product-detail">
-        <!-- <img [src]="produit.image" alt="{{ produit.nom }}" class="img-fluid mb-3" style="max-width: 200px;"> -->
         <img *ngIf="produit.image" [src]="'http://localhost:8000/storage/' + produit.image" alt="{{ produit.nom }}" />
-
-
         <div class="product-info">
             <h1>{{ produit.nom }}</h1>
             <p>{{ produit.description }}</p>
 
             <div class="product-price">
               <span>Prix : {{ produit.prix }} CFA</span>
-
-
-
-                <!-- <span>Prix : {{ produit.prix | currency:'CFA' }}</span> -->
-                <span>Quantité : {{ produit.quantite }} litre(s)</span>
+              <span>Quantité : {{ produit.quantite }} litre(s)</span>
             </div>
+<button class="add-to-cart" (click)="ajouterAuPanier(produit)">Ajouter au panier</button>
 
-            <div class="quantity-control">
-              <button class="quantity-btn" (click)="decrementQuantity()" [disabled]="quantiteSouhaitee <= 1">-</button>
-
-             
-              <span class="quantity">{{ quantiteSouhaitee }}</span>
-              <button class="quantity-btn" (click)="incrementQuantity()">+</button>
-
-          </div>
-          
-          
-
-            <!-- <button class="add-to-cart" (click)="commanderr(produit)">Commander <i class="fas fa-heart"></i></button> -->
-            <button class="add-to-cart" (click)="commanderr(produit)">Commander</button>
-
-        </div>
+           </div>
     </div>
 </div>
 

@@ -9,8 +9,6 @@ import { FormsModule } from '@angular/forms';
 import { CartService, CartItem } from '../../../services/cart.service';
 import Swal from 'sweetalert2';
 
-
-
 @Component({
   selector: 'app-produit-afficher-supprimer',
   standalone: true,
@@ -24,6 +22,9 @@ export class ProduitAfficherSupprimerComponent implements OnInit {
   produits: Produit[] = [];
   categories: Categorie[] = [];
   searchTerm: string = ''; 
+  produit: any; // Remplacez par votre modèle de produit
+  quantiteSouhaitee: number = 1;
+  errorMessage: string = '';
  
   constructor(
     private produitService: ProduitService,
@@ -36,6 +37,9 @@ export class ProduitAfficherSupprimerComponent implements OnInit {
     this.chargerProduits();
     this.chargerCategories();
   }
+
+
+
 // recherche() conçue pour exécuter une action
   rechercher(): void { //Nom de la methodes void ne renvoi rien
     console.log('Recherche effectuée avec le terme:', this.searchTerm);
@@ -49,7 +53,6 @@ export class ProduitAfficherSupprimerComponent implements OnInit {
       nom: produit.nom,
       prix: produit.prix,
       quantite: 1, // Vous pouvez modifier cela pour permettre à l'utilisateur de choisir la quantité
-      // Ajoutez d'autres propriétés si nécessaire
     };
 
     // Utiliser le CartService pour ajouter l'article au panier
@@ -141,5 +144,11 @@ export class ProduitAfficherSupprimerComponent implements OnInit {
       produit.nom.toLowerCase().includes(this.searchTerm.toLowerCase()) // Filtre les produits
     );
   }
+ 
+  
+
+
+
+
   
 }

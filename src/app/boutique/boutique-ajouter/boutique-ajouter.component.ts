@@ -7,11 +7,12 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { AuthService, User } from '../../services/auth.service';
 import { regionService, region } from '../../services/region.service';
-import { HttpErrorResponse } from '@angular/common/http'; // Import pour typer les erreurs
+import { HttpErrorResponse } from '@angular/common/http';
+import { NavbarAdminComponent } from "../../navbar-admin/navbar-admin.component"; // Import pour typer les erreurs
 
 @Component({
   standalone: true,
-  imports: [CommonModule, FormsModule, HttpClientModule],
+  imports: [CommonModule, FormsModule, HttpClientModule, NavbarAdminComponent],
   selector: 'app-boutique-ajouter',
   templateUrl: './boutique-ajouter.component.html',
   styleUrls: ['./boutique-ajouter.component.css']

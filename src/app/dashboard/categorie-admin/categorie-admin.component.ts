@@ -2,11 +2,12 @@ import { Component } from '@angular/core';
 import { CategorieService, Categorie } from '../../services/categorie.service';
 import { CommonModule } from '@angular/common';
 import { Router } from '@angular/router';
+import { NavbarAdminComponent } from "../../navbar-admin/navbar-admin.component";
 
 @Component({
   selector: 'app-categorie-admin',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, NavbarAdminComponent],
   templateUrl: './categorie-admin.component.html',
   styleUrl: './categorie-admin.component.css'
 })

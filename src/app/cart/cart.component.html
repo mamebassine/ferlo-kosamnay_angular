@@ -1,30 +1,45 @@
-<div class="cart">
-    <h2>Votre Panier</h2>
-    <table>
-      <thead>
-        <tr>
-          <th>Produit</th>
-          <th>Quantité</th>
-          <th>Prix Unitaire</th>
-          <th>Total</th>
-          <th>Actions</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr *ngFor="let item of cartItems">
-          <td>{{ item.nom }}</td>
-          <td>{{ item.quantite }}</td>
-          <td>{{ item.prix | currency }}</td>
-          <td>{{ item.prix * item.quantite | currency }}</td>
-          <td>
-            <button (click)="removeItem(item.productId)">Supprimer</button>
-          </td>
-        </tr>
-      </tbody>
-    </table>
-    <div class="total">
-      <h3>Total: {{ getTotal() | currency }}</h3>
+<div class="toutCart">
+    <div class="cart">
+               <!-- Bouton de retour avec une flèche -->
+                <button (click)="goBack()" class="back-button">
+                &#8592; Retour
+                </button>
+
+    <h2>Aperçu de la commande</h2>
+  <!-- Afficher les cartes des articles seulement si le panier n'est pas vide -->
+    <div *ngIf="cartItems.length > 0; else emptyCart">
+      <div class="cart-items">
+        <div class="cart-item" *ngFor="let item of cartItems">
+          <div class="item-details">
+            <h3>{{ item.nom }}</h3>
+            <p>Quantité: 
+              <button (click)="decreaseQuantity(item)" class="quantity-button">-</button>
+              {{ item.quantite }} unités
+              <button (click)="increaseQuantity(item)" class="quantity-button">+</button>
+            </p>
+            <p>Prix Unitaire: {{ formatCurrency(item.prix) }} CFA</p>
+            <strong><p>Total: {{ formatCurrency(item.prix * item.quantite) }} CFA</p></strong>
+          </div>
+          <button (click)="removeItem(item.productId)" class="remove-button">Supprimer</button>
+        </div>
+      </div>
+  
+      <div class="total">
+        <h3>Totales: {{ formatCurrency(getTotal()) }} CFA</h3>
+        <button (click)="commanderr()" class="passeCommande">Passer à la caisse</button>
+      </div>
     </div>
-    <button (click)="checkout()">Passer à la caisse</button>
+
+    <!-- <h3>Totales: {{ formatCurrency(getTotal()) }} CFA</h3> -->
+
+<!-- Template alternatif affiché si le panier est vide -->
+    <ng-template #emptyCart>
+      <div class="empty-cart">
+        <p>Votre panier est vide.</p>
+      </div>
+    </ng-template>
+  
+    <button (click)="clearCart()" class="videPanier">Vider le Panier</button>
   </div>
   
+  </div>

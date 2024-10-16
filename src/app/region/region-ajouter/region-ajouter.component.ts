@@ -4,6 +4,7 @@ import { regionService } from '../../services/region.service';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
+import { NavbarAdminComponent } from "../../navbar-admin/navbar-admin.component";
 
 interface region {
   id: number;
@@ -16,8 +17,9 @@ interface region {
   imports: [
     CommonModule,
     FormsModule,
-    ReactiveFormsModule
-  ],
+    ReactiveFormsModule,
+    NavbarAdminComponent
+],
   templateUrl: './region-ajouter.component.html',
   styleUrls: ['./region-ajouter.component.css']
 })

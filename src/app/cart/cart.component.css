@@ -1,0 +1,202 @@
+/* Style de base de la carte */
+.toutCart{
+    background-image: url('/assets/images/ooiun.jpg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    flex-wrap: wrap;
+}
+
+.back-button{
+    color: #99B951;
+}
+
+
+
+.cart {
+    
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 20px;
+    border-radius: 10px;
+    background-color: #fff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    position: relative;
+  }
+  
+  /* Style du titre */
+  .cart h2 {
+    text-align: center;
+    color: #3F7E44;
+    font-size: 2em;
+  }
+  
+  /* Style des articles du panier */
+  .cart-items {
+    margin-top: 20px;
+  }
+  
+  .cart-item {
+    border-bottom: 1px solid #ccc;
+    padding: 15px 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: background-color 0.3s ease;
+  }
+  
+  .cart-item:hover {
+    background-color: #eaeaea;
+  }
+  
+  /* Style des détails de l'article */
+  .item-details h3 {
+    color: #36494E;
+    font-size: 1.2em;
+  }
+  
+  .item-details p {
+    margin: 5px 0;
+    color: #666;
+  }
+  
+  /* Style des boutons de quantité */
+  .quantity-button {
+    background-color: #99B951;
+    color: #fff;
+    border: none;
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    margin: 0 5px;
+    cursor: pointer;
+    font-size: 1.2em;
+    transition: background-color 0.3s ease;
+  }
+  
+  .quantity-button:hover {
+    background-color: #3a5a1e;
+  }
+  
+  /* Style du bouton Supprimer */
+  .remove-button {
+    color: red;
+    border: none;
+    padding: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .remove-button:hover {
+    background-color: #99B951;
+  }
+  
+  /* Style de la section total */
+  .total {
+    margin-top: 30px;
+    padding: 20px;
+    /* background-color: #3F7E44; */
+    color: #fff;
+    border-radius: 1px;
+    text-align: right;
+  }
+  
+  /* Style du bouton Passer à la caisse */
+  .passeCommande {
+    background-color: #3F7E44;
+    color: #fff;
+    border: none;
+    padding: 15px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1em;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    margin-top: 10px;
+  }
+  
+  .passeCommande:hover {
+    background-color: #3F7E44;
+    transform: scale(1.05);
+  }
+  
+  /* Style du bouton Vider le Panier */
+  .videPanier {
+    color: red;
+    border: none;
+    padding: 15px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1em;
+    transition: background-color 0.3s ease;
+    margin-top: 20px;
+  }
+  
+  .videPanier:hover {
+    background-color: #99B951;
+  }
+  
+  /* Style pour le panier vide */
+  .empty-cart {
+    text-align: center;
+    color: #999;
+    font-size: 1.2em;
+    margin-top: 20px;
+  }
+  
+  /* Animation de clignotement pour les boutons */
+  @keyframes blink {
+    0%, 100% { background-color: #f0a500; }
+    50% { background-color: #cc8500; }
+  }
+  
+  .passeCommande:hover {
+    animation: blink 1s infinite;
+  }
+  
+  
+  
+  
+  
+  
+  /* Style de la section total */
+.total {
+    margin-top: 30px;
+    padding: 20px;
+    /* background-color: #3F7E44; Couleur de fond vert foncé */
+    color: #000;
+    border-radius: 10px; /* Augmentez le rayon pour un effet plus arrondi */
+    text-align: center; /* Centrer le texte */
+    font-size: 1.5em; /* Augmentez la taille de la police */
+  }
+  
+  /* Style du texte du total pour le rendre encore plus grand */
+  .total h3 {
+    font-size: 2em; /* Taille de police plus grande pour plus de visibilité */
+    font-weight: bold; /* Rendre le texte en gras */
+    margin: 0; /* Éliminer la marge */
+  }
+  
+  
+  
+  
+  
+  
+  
+  
+  /* Animation d'apparition */
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(-20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  .cart, .cart-item, .total, .empty-cart {
+    animation: fadeIn 0.5s ease-in-out;
+  }
+  
