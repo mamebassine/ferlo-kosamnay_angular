@@ -48,7 +48,6 @@ import { ProduitBoutiqueAfficherSupprimerComponent } from './produitBoutique/pro
 import { ProduitBoutiqueModifierComponent } from './produitBoutique/produit-boutique-modifier/produit-boutique-modifier.component';
 import { ProduitBoutiqueAjouterComponent } from './produitBoutique/produit-boutique-ajouter/produit-boutique-ajouter.component';
 
-
 // Import des composants lignecommande
 
 import { LigneCommandeAfficherSupprimerComponent } from './ligneCommande/ligne-commande-afficher-supprimer/ligne-commande-afficher-supprimer.component';
@@ -69,6 +68,7 @@ import { CategorieLaitCailleComponent } from './portail/categorie/categorie-lait
 //pour representant
 
 import { AjoutRepresentantComponent } from './dashboard/admin/ajout-representant/ajout-representant.component'; // Import du composant
+import { CartComponent } from './cart/cart.component';
 
 
 
@@ -141,8 +141,7 @@ import { AjoutRepresentantComponent } from './dashboard/admin/ajout-representant
 { path: 'lignecommande/ajouter', component: LigneCommandeAjouterComponent },
 { path: 'lignecommande/modifier/:id', component: LigneCommandeModifierComponent },
 { path: 'lignecommande/detail/:id', component: LigneCommandeVoirDetailComponent },
-
-
+{ path: 'panier', component: CartComponent },
 
 // const routes: Routes = [
 //   { path: 'admin', component: AdminComponent, canActivate: [adminGuard] },

@@ -1,0 +1,30 @@
+<div class="cart">
+    <h2>Votre Panier</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>Produit</th>
+          <th>Quantité</th>
+          <th>Prix Unitaire</th>
+          <th>Total</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let item of cartItems">
+          <td>{{ item.nom }}</td>
+          <td>{{ item.quantite }}</td>
+          <td>{{ item.prix | currency }}</td>
+          <td>{{ item.prix * item.quantite | currency }}</td>
+          <td>
+            <button (click)="removeItem(item.productId)">Supprimer</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <div class="total">
+      <h3>Total: {{ getTotal() | currency }}</h3>
+    </div>
+    <button (click)="checkout()">Passer à la caisse</button>
+  </div>
+  
