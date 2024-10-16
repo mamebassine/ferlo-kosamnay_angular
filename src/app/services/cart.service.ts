@@ -13,6 +13,7 @@ export interface CartItem {
   providedIn: 'root'  // Fournisseur de service disponible au niveau racine de l'application
 })
 export class CartService {
+  
   // BehaviorSubject pour stocker les articles du panier avec un état initial vide
   private cartItemsSubject: BehaviorSubject<CartItem[]> = new BehaviorSubject<CartItem[]>([]);
   
