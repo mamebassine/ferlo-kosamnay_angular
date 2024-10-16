@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ProduitService, Produit } from '../../../services/produit.service';
-import { PanierService } from '../../../services/panier.service';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { HeaderComponent } from '../../../header/header/header.component';
@@ -11,6 +10,8 @@ import { LigneCommandeService } from '../../../services/ligne-commande.service';
 import { AuthService, User } from '../../../services/auth.service';
 import { ProduitBoutiqueService } from '../../../services/produit-boutique.service';
 import Swal from 'sweetalert2';
+import { CartService, CartItem } from '../../../services/cart.service';
+
 
 
 // import { LigneCommandeService } from 'chemin/vers/LigneCommandeService'; // Assure-toi d'importer le service
@@ -44,9 +45,10 @@ export class ProduitVoirDetailComponent implements OnInit {
     private authService: AuthService,
     private ligneCommandeService: LigneCommandeService,
     private route: ActivatedRoute, 
-    private produitService: ProduitService, 
-    private panierService: PanierService, 
-    private router: Router 
+    private produitService: ProduitService,
+    private router: Router, 
+    private cartService: CartService // Inject CartService here
+
   ) {}
 
      // Déclaration de authService
@@ -82,106 +84,41 @@ export class ProduitVoirDetailComponent implements OnInit {
       }
     );
   }
-  
-  commanderr(produit: Produit): void {
-    if (this.produit && this.produit.id && this.produitBoutique && this.produitBoutique.length > 0) {
-      const produit_boutique_id = this.produitBoutique[0].id;
-      const currentUser = this.authService.getCurrentUser();
-      const userId = currentUser?.id;
-  
-      if (userId === undefined) {
-        console.error('Utilisateur non connecté, commande non créée.');
-        Swal.fire({
-          icon: 'error',
-          title: 'Erreur',
-          text: 'Utilisateur non connecté, commande non créée.',
-        });
-        return;
+
+
+
+
+//ici
+
+  ajouterAuPanier(produit: Produit): void {
+    // Créer un objet CartItem à partir du Produit
+    const cartItem: CartItem = {
+      productId: produit.id!, // Assurez-vous que 'id' est défini
+      nom: produit.nom,
+      prix: produit.prix,
+      quantite: 1, // Vous pouvez modifier cela pour permettre à l'utilisateur de choisir la quantité
+    };
+
+    // Utiliser le CartService pour ajouter l'article au panier
+    this.cartService.addToCart(cartItem);
+
+    // Afficher une notification avec SweetAlert2
+    Swal.fire({
+      position: 'top-end',
+      icon: 'success',
+      title: `${produit.nom} a été ajouté au panier.`,
+      showConfirmButton: false,
+      timer: 1000, // Durée en millisecondes (2 secondes)
+      toast: true, // Affiche comme un toast
+      iconColor: '#ffffff',
+      background: '#28a745',
+      color: '#fff',
+      timerProgressBar: true,
+      didOpen: (toast) => {
+        toast.addEventListener('mouseenter', Swal.stopTimer)
+        toast.addEventListener('mouseleave', Swal.resumeTimer)
       }
-  
-      const ligneCommande: LigneCommande = {
-        produit_boutique_id: produit_boutique_id,
-        quantite_totale: this.quantiteSouhaitee, // Utilise la quantité souhaitée
-        prix_totale: this.produit.prix * this.quantiteSouhaitee, // Calcule le prix total en fonction de la quantité souhaitée
-        user_id: userId,
-        date: new Date().toISOString().split('T')[0],
-        statut: 'en attente'
-      };
-  
-      console.log('produit_boutique_id:', produit_boutique_id);
-  
-      this.ligneCommandeService.createLigneCommande(ligneCommande).subscribe({
-        next: (response: any) => {
-          Swal.fire({
-            icon: 'success',
-            title: 'Commande réussie',
-            text: 'Votre commande a été passée avec succès!',
-            confirmButtonText: 'OK'
-          }).then((result) => {
-            if (result.isConfirmed) {
-              // Redirection après confirmation naboopay pour le payement
-              window.location.href = 'https://checkout.naboopay.com/checkout/bf9fa099';
-            }
-          });
-        },
-        error: (error: any) => {
-          console.error('Erreur lors de la création de la commande:', error);
-          if (error.error && error.error.errors) {
-            Swal.fire({
-              icon: 'error',
-              title: 'Erreur de validation',
-              text: JSON.stringify(error.error.errors),
-            });
-          } else {
-            Swal.fire({
-              icon: 'error',
-              title: 'Erreur inconnue',
-              text: error.message,
-            });
-          }
-        }
-      });
-    } else {
-      console.error('Produit ou boutique invalide, commande non créée.');
-      Swal.fire({
-        icon: 'error',
-        title: 'Erreur',
-        text: 'Produit ou boutique invalide, commande non créée.',
-      });
-    }
-  }
-  
-
-
-
-
-  // Méthodes pour gérer la quantité
-  incrementQuantity(): void {
-    this.quantiteSouhaitee += 1; // Incrémente la quantité souhaitée
-  }
-  
-  decrementQuantity(): void {
-    if (this.quantiteSouhaitee > 1) {
-      this.quantiteSouhaitee -= 1; 
-    }
+    });
   }
 
-
-
-
-
-  
-//   // Méthode pour ajouter le produit au panier
-// addToCart(produit: Produit): void {
-//   this.panierService.addProduit(produit); // Ajoute le produit au panier
-//   localStorage.setItem('panier', JSON.stringify(this.produit));
-//   console.log('Produit ajouté au panier:', produit); // Affiche le produit ajouté au panier
-
-// }
-
-// // Méthode pour revenir à la page produit
-//   goBack(): void {
-//     this.router.navigate(['/panier']); // Navigation vers la page des produits
-  }
-
-
+}

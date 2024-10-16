@@ -5,9 +5,9 @@ import { Router } from '@angular/router';
 import { CategorieService, Categorie } from '../../../services/categorie.service';
 import { HeaderComponent } from "../../../header/header/header.component";
 import { FooterComponent } from "../../../footer/footer/footer.component";
-import { PanierService } from '../../../services/panier.service';
-import { FormsModule } from '@angular/forms';  
-
+import { FormsModule } from '@angular/forms'; 
+import { CartService, CartItem } from '../../../services/cart.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-produit-afficher-supprimer',
@@ -22,28 +22,60 @@ export class ProduitAfficherSupprimerComponent implements OnInit {
   produits: Produit[] = [];
   categories: Categorie[] = [];
   searchTerm: string = ''; 
-
+  produit: any; // Remplacez par votre modèle de produit
+  quantiteSouhaitee: number = 1;
+  errorMessage: string = '';
+ 
   constructor(
     private produitService: ProduitService,
     private categorieService: CategorieService,
     private router: Router,
-    private panierService: PanierService
+    private cartService: CartService
   ) {}
   
   ngOnInit(): void {
     this.chargerProduits();
     this.chargerCategories();
   }
+
+
+
 // recherche() conçue pour exécuter une action
   rechercher(): void { //Nom de la methodes void ne renvoi rien
     console.log('Recherche effectuée avec le terme:', this.searchTerm);
   }
   
 
-ajouterAuPanier(produit: Produit): void {
-  console.log('Ajout du produit:', produit); 
-  this.panierService.ajouterProduit(produit);
-}
+  ajouterAuPanier(produit: Produit): void {
+    // Créer un objet CartItem à partir du Produit
+    const cartItem: CartItem = {
+      productId: produit.id!, // Assurez-vous que 'id' est défini
+      nom: produit.nom,
+      prix: produit.prix,
+      quantite: 1, // Vous pouvez modifier cela pour permettre à l'utilisateur de choisir la quantité
+    };
+
+    // Utiliser le CartService pour ajouter l'article au panier
+    this.cartService.addToCart(cartItem);
+
+    // Afficher une notification avec SweetAlert2
+    Swal.fire({
+      position: 'top-end',
+      icon: 'success',
+      title: `${produit.nom} a été ajouté au panier.`,
+      showConfirmButton: false,
+      timer: 1000, // Durée en millisecondes (2 secondes)
+      toast: true, // Affiche comme un toast
+      iconColor: '#ffffff',
+      background: '#28a745',
+      color: '#fff',
+      timerProgressBar: true,
+      didOpen: (toast) => {
+        toast.addEventListener('mouseenter', Swal.stopTimer)
+        toast.addEventListener('mouseleave', Swal.resumeTimer)
+      }
+    });
+  }
 
 
   chargerProduits(): void {
@@ -112,5 +144,11 @@ ajouterAuPanier(produit: Produit): void {
       produit.nom.toLowerCase().includes(this.searchTerm.toLowerCase()) // Filtre les produits
     );
   }
+ 
+  
+
+
+
+
   
 }

@@ -3,6 +3,7 @@ import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule, Router } from '@angular/router';  
 import { AuthService } from '../../services/auth.service';  // Chemin à adapter selon votre projet
+import { CartService } from '../../services/cart.service';
 
 @Component({
   selector: 'app-header',
@@ -14,12 +15,17 @@ import { AuthService } from '../../services/auth.service';  // Chemin à adapter
 export class HeaderComponent {
   isMenuOpen: boolean = false;
   isLoggedIn: boolean = false;
-
-  constructor(private authService: AuthService, private router: Router) {
+  cartItemCount = 0;
+  
+  constructor(private authService: AuthService, private router: Router, private cartService: CartService) {
     // Vérifie si l'utilisateur est connecté au chargement du composant
     this.isLoggedIn = this.authService.isAuthenticated();
   }
-
+  ngOnInit(): void {
+    this.cartService.cartItems$.subscribe(items => {
+      this.cartItemCount = items.length;
+    });
+  }
   toggleMenu(): void {
     this.isMenuOpen = !this.isMenuOpen;
   }

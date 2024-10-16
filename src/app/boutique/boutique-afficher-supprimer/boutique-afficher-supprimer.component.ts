@@ -3,11 +3,12 @@ import { BoutiqueService, Boutique } from '../../services/boutique.service';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { Router } from '@angular/router'; 
-import { RouterModule } from '@angular/router'; 
+import { RouterModule } from '@angular/router';
+import { NavbarAdminComponent } from "../../navbar-admin/navbar-admin.component"; 
 
 @Component({
   selector: 'app-boutique-afficher-supprimer',
-  imports: [CommonModule, FormsModule, RouterModule],
+  imports: [CommonModule, FormsModule, RouterModule, NavbarAdminComponent],
   standalone: true,
   templateUrl: './boutique-afficher-supprimer.component.html',
   styleUrls: ['./boutique-afficher-supprimer.component.css']

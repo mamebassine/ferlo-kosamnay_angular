@@ -2,7 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { ProduitBoutiqueService } from '../../services/produit-boutique.service';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { ReactiveFormsModule } from '@angular/forms'; // Importer ReactiveFormsModule
+import { ReactiveFormsModule } from '@angular/forms';
+import { NavbarAdminComponent } from "../../navbar-admin/navbar-admin.component"; // Importer ReactiveFormsModule
 
 export interface ProduitBoutique {
   id: number;
@@ -15,7 +16,7 @@ export interface ProduitBoutique {
 
 @Component({
   standalone: true,
-  imports: [ReactiveFormsModule,],
+  imports: [ReactiveFormsModule, NavbarAdminComponent],
   selector: 'app-produit-boutique-ajouter',
   templateUrl: './produit-boutique-ajouter.component.html',
   styleUrls: ['./produit-boutique-ajouter.component.css']

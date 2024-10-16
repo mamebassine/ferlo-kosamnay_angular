@@ -23,6 +23,7 @@
     <div class="actions-droite">
       <a routerLink="/panier" class="icone-panier">
         <i class="fas fa-shopping-cart"></i>
+        <span>{{ cartItemCount }}</span>
       </a>
 
       <a *ngIf="!isLoggedIn" routerLink="/login" class="bouton-connexion">Connexion</a>

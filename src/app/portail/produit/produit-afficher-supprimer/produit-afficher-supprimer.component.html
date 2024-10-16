@@ -1,53 +1,4 @@
-<!-- 
-<div class="container">
-  <h2>Liste des Produits</h2>
-  
-  <table class="table table-striped">
-    <thead>
-      <tr>
-        <th>ID</th>
-        <th>Nom</th>
-        <th>Catégorie</th>
-        <th>Description</th>
-        <th>Catégorie ID</th> 
-        <th>Image</th> 
-        <th>Référence</th>
-        <th>Prix</th>
-        <th>Quantité</th>
-        <th>Actions</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr *ngFor="let produit of produits">
-        <td>{{ produit.id }}</td>
-        <td>{{ produit.nom }}</td>
-        <td>{{ getNomCategorie(produit.categorie_id) }}</td>
-        <td>{{ produit.categorie_id }}</td> 
-        <td>{{ produit.description }}</td> 
 
-        <td>
-
-        <img [src]="produit.image" alt="{{ produit.nom }}" style="width: 50px; height: auto;" /> 
-        </td>
-        <td>{{ produit.reference }}</td>
-        <td>{{ produit.prix | currency:'USD':true }}</td>
-        <td>{{ produit.quantite }}</td>
-        <td>
-          <button class="btn btn-sm btn-danger" (click)="supprimer(produit.id!)">Supprimer</button>
-          <button class="btn btn-sm btn-warning" (click)="modifier(produit.id!)">Modifier</button>
-          <button class="btn btn-sm btn-warning" (click)="voirDetail(produit.id!)">VoirDetail</button>
-
-       </td>
-      </tr>
-    </tbody>
-  </table>
-
-  <div class="mt-3">
-    <button class="btn btn-primary" (click)="ajouterProduit()">Ajouter Nouveau Produit</button>
-  </div>
-</div>
-
- -->
 
 
  <app-header></app-header>
@@ -55,25 +6,17 @@
  <div class="bacgr">
   <h1>Tous les Produits</h1>
 
-  <!-- Barre de recherche -->
-  <!-- <div class="search-container">
-      <input type="text" id="searchInput" placeholder="Rechercher un produit...">
-      <button>Rechercher</button>
-  </div> -->
-
-
-  <div class="search-container">
+<div class="search-container">
     <input type="text" [(ngModel)]="searchTerm" placeholder="Rechercher un produit..." />
     <button (click)="rechercher()">Rechercher</button>
   </div>
 
-  <!-- Grille des produits -->
   <section class="product-grid" id="productGrid">
 
     <div class="product" *ngFor="let produit of produitsFiltres">
       <img *ngIf="produit.image" [src]="'http://localhost:8000/storage/' + produit.image" alt="{{ produit.nom }}" />
 
-<!-- <img [src]="produit.image" alt="{{ produit.nom }}" class="product-image"/>  -->
+
           <h3>{{ produit.nom }}</h3>
           <p>Prix: {{ produit.prix | number:'1.0-2' }} CFA</p>
           <p>Quantité : {{ produit.quantite }} litre(s)</p>
@@ -86,4 +29,4 @@
 
       </section>
 
-      <!-- <app-footer></app-footer> -->
+     

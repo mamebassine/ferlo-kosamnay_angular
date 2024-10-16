@@ -4,6 +4,7 @@ import { HttpErrorResponse } from '@angular/common/http';
 import { Router, RouterModule } from '@angular/router'; // Import RouterModule
 import { AuthService } from '../../services/auth.service';
 import { LigneCommandeService } from '../../services/ligne-commande.service';
+import { NavbarAdminComponent } from "../../navbar-admin/navbar-admin.component";
 
 interface Card {
   title: string;
@@ -25,7 +26,7 @@ interface LigneCommande {
 @Component({
   selector: 'app-admin',
   standalone: true,
-  imports: [CommonModule, RouterModule], // Include RouterModule here
+  imports: [CommonModule, RouterModule, NavbarAdminComponent], // Include RouterModule here
   templateUrl: './admin.component.html',
   styleUrls: ['./admin.component.css']
 })
