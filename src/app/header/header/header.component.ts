@@ -1,4 +1,3 @@
-// src/app/components/header/header.component.ts
 import { Component } from '@angular/core'; 
 import { CommonModule } from '@angular/common';
 import { RouterModule, Router } from '@angular/router';  
@@ -17,15 +16,16 @@ export class HeaderComponent {
   isLoggedIn: boolean = false;
   cartItemCount = 0;
   
-  constructor(private authService: AuthService, private router: Router, private cartService: CartService) {
-    // Vérifie si l'utilisateur est connecté au chargement du composant
+constructor(private authService: AuthService, private router: Router, private cartService: CartService) {
     this.isLoggedIn = this.authService.isAuthenticated();
   }
+
   ngOnInit(): void {
     this.cartService.cartItems$.subscribe(items => {
       this.cartItemCount = items.length;
     });
   }
+
   toggleMenu(): void {
     this.isMenuOpen = !this.isMenuOpen;
   }
@@ -33,6 +33,11 @@ export class HeaderComponent {
   logout(): void {
     this.authService.logout();
     this.isLoggedIn = false;
-    this.router.navigate(['/']); // Redirection après la déconnexion
+    this.router.navigate(['/login']);
+  }
+
+  // Méthode pour vérifier si le lien est actif
+  isActive(route: string): boolean {
+    return this.router.url === route;
   }
 }

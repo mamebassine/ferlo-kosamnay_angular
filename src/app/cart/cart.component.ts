@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { CartService, CartItem } from '../services/cart.service'; 
+import { AuthService } from '../services/auth.service'; // Assurez-vous d'importer AuthService
+
 import { FormsModule } from '@angular/forms'; 
 import { CommonModule } from '@angular/common'; 
 @Component({
@@ -13,7 +15,9 @@ export class CartComponent implements OnInit {
   cartItems: CartItem[] = []; // Tableau pour contenir les articles du panier
 
   // Constructeur pour injecter CartService
-  constructor(private cartService: CartService) { }
+  // constructor(private cartService: CartService) { }
+  constructor(private cartService: CartService, private authService: AuthService) { }
+
 
   // Méthode du cycle de vie qui s'exécute après l'initialisation du composant
   ngOnInit(): void {
@@ -63,9 +67,27 @@ clearCart(): void {
   this.cartService.clearCart(); // Appeler la méthode du service pour vider le panier
 }
 
-  // Méthode pour gérer le processus de passage à la caisse
+  //INIATIALE  Méthode pour gérer le processus de passage à la caisse
+  // commanderr(): void {
+  //   // Rediriger vers la page de paiement
+  //   window.location.href = 'https://checkout.naboopay.com/checkout/bf9fa099'; 
+  // }
+
+
+
+  // 1 ERE TEXTE Méthode pour gérer le processus de passage à la caisse
   commanderr(): void {
-    // Rediriger vers la page de paiement
-    window.location.href = 'https://checkout.naboopay.com/checkout/bf9fa099'; 
-  }
+    if (this.authService.isAuthenticated()) {
+      // Si l'utilisateur est connecté, redirigez vers le paiement
+      window.location.href = 'https://checkout.naboopay.com/checkout/bf9fa099'; 
+    } else {
+      // Si l'utilisateur n'est pas connecté, redirigez vers la page de connexion
+      window.location.href = '/login'; // Remplacez '/login' par l'URL de votre page de connexion
+    }
+}
+
+
+
+
+
 }

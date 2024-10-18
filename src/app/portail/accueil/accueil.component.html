@@ -41,7 +41,7 @@
   
 
   <section id="a-propos">
-    <h4>Un peu de nous</h4>
+    <h4>A propos de ferlo Kosamnay</h4>
     <div class="content">
         
       <div class="text-gauche">
@@ -147,6 +147,34 @@
 
   
 
+<!-- Section "Comment ça marche ?" -->
+<section class="how-it-works-section">
+  <h2 class="section-title">Comment ça marche ?</h2>
+  
+  <div class="steps-container">
+    <div class="step">
+      <h3 class="step-title">Ajouter au panier</h3>
+      <img src="/assets/images/panier.jpg" alt="Faites-vous livrer" class="step-image">
+    </div>
+
+
+    <div class="step">
+      <h3 class="step-title">Passez vos commandes</h3>
+      <img src="/assets/images/commander.png" alt="Passez vos commandes" class="step-image">
+    </div>
+   
+    <div class="step">
+      <h3 class="step-title">Passer a la caisse</h3>
+      <img src="/assets/images/caisse.jpg" alt="Payez à la livraison" class="step-image">
+    </div>
+  </div>
+</section>          
+
+
+
+
+
+
 
 
 <section id="produits">
@@ -172,7 +200,7 @@
                   Frais et savoureux, idéal pour toutes vos recettes et besoins quotidiens de la vie.</p>
                 <button>Voir détail</button>
             </div>
-            <img src="../assets/images/frommagep.jpeg" alt="Fromage" class="image-produit">
+            <img src="../assets/image/télécharger (12).png" alt="Fromage" class="image-produit">
         </div>
         <div class="carte-produit">
             <div class="contenu-produit">
@@ -183,7 +211,7 @@
                   Frais et savoureux, idéal pour toutes vos recettes et besoins quotidiens de la vie.</p>
                 <button>Voir détail</button>
             </div>
-            <img src="../assets/images/huileVache1.jpeg" alt="Huile de vache" class="image-produit">
+            <img src="../assets/image/télécharger (20).png" alt="Huile de vache" class="image-produit">
         </div>
         <div class="carte-produit">
             <div class="contenu-produit">
@@ -195,7 +223,7 @@
                 </p>
                 <button>Voir détail</button>
             </div>
-            <img src="../assets/images/laitcaillep.jpeg" alt="Lait caillé" class="image-produit">
+            <img src="../assets/image/télécharger (4).png" alt="Lait caillé" class="image-produit">
         </div>
       </div>
       <!-- <a href="/ProduitsAdmin" class="view-more-btn">Voir plus</a> -->
@@ -213,7 +241,7 @@
 
 
 
-<section id="partenaires">
+<!-- <section id="partenaires">
     <h2>Nos différents partenaires</h2>
     <p>
         <strong>Chez Ferlo Kosamnay, nous sommes fiers de collaborer avec plusieurs partenaires de <br>
@@ -240,7 +268,39 @@
             <img src="../assets/images/SENEGAL SIMPLON.png" alt="Partenaire 3">
         </div>
     </div>
+</section> -->
+
+
+
+
+
+
+<h2 class="section-title">Témoignages</h2>
+
+<section class="temoignages-section">
+  <div class="temoignages-container">
+    <div *ngFor="let temoignage of temoignages; let i = index" 
+         [ngClass]="{'active': i === activeTemoignageIndex}">
+      <blockquote>
+        <p>{{ temoignage.content }}</p>
+        <footer class="author">{{ temoignage.author }}</footer>
+      </blockquote>
+    </div>
+    <!-- Flèche "précédent" -->
+    <span class="prev" (click)="changeTestimonial(activeTemoignageIndex - 1)">&#10094;</span>
+    <!-- Flèche "suivant" -->
+    <span class="next" (click)="changeTestimonial(activeTemoignageIndex + 1)">&#10095;</span>
+  </div>
+
+  <div class="pages">
+    <span *ngFor="let temoignage of temoignages; let i = index"
+          (click)="changeTestimonial(i)" 
+          [ngClass]="{'active': i === activeTemoignageIndex}">
+      ●
+    </span>
+  </div>
 </section>
+
 
 
 

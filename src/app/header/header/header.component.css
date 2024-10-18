@@ -1,6 +1,17 @@
 
 
 
+  /* Styles de base */
+  /* button, .btn-savoir-plus, .voirplus {
+      background-color: #343F69; 
+      color: white; 
+      border: none; 
+      border-radius: 5px; 
+      padding: 10px 20px; 
+      font-size: 16px; 
+      cursor: pointer; 
+      transition: background-color 0.3s ease; 
+  } */
 
 header {
   background-color: #fff;
@@ -87,15 +98,21 @@ nav .actions-droite .icone-panier:hover {
 nav .actions-droite .bouton-connexion,
 nav .actions-droite .bouton-deconnexion {
   background-color: #3F7E44;
-  padding: 8px 15px;
-  color: #fff;
   text-decoration: none;
-  border-radius: 1px;
   transition: background-color 0.3s;
   cursor: pointer;
   margin-right: 3%;
 margin-left: 2%;
 
+
+  color: white; /* Couleur du texte */
+
+  padding: 8px 20px; /* Espacement intérieur du bouton */
+  margin-top: 10px; 
+  transition: background-color 0.3s ease; /* Transition douce pour le changement de couleur */color: white; 
+  border: none; 
+  border-radius: 3px; 
+  font-size: 16px; 
 }
 
 nav .actions-droite .bouton-connexion:hover,
@@ -126,6 +143,16 @@ span {
   padding: 2px 6px;
   font-size: 12px;
 }
+.menu-centre .active a {
+  color: #4CAF50; /* Couleur pour le lien actif */
+  font-weight: bold; /* Optionnel : pour un texte plus gras */
+  text-decoration: underline; /* Optionnel : pour souligner le lien */}
+
+
+
+
+
+
 
 /* Media Queries pour petits écrans */
 @media (max-width: 768px) {

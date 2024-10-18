@@ -1,23 +1,20 @@
 <header>
   <nav>
-    <!-- Section Gauche : Logo -->
     <div class="logo-container">
       <img src="assets/images/logoferlokosamnay.png" alt="Logo Ferlo Kosamnay" class="logo">
     </div>
 
-    <!-- Bouton hamburger visible uniquement sur petits écrans -->
     <div class="hamburger" (click)="toggleMenu()">
       <span></span>
       <span></span>
       <span></span>
     </div>
 
-    <!-- Section Centre : Menu de Navigation -->
     <ul class="menu-centre" [ngClass]="{'active': isMenuOpen}">
-      <li><a routerLink="/">Accueil</a></li>
-      <li><a routerLink="/produit">Produits</a></li>
-      <li><a routerLink="/categorie">Catégories</a></li>
-      <li><a routerLink="/contact">Contact</a></li>
+      <li [ngClass]="{'active': isActive('/')}"><a routerLink="/">Accueil</a></li>
+      <li [ngClass]="{'active': isActive('/produit')}"><a routerLink="/produit">Produits</a></li>
+      <li [ngClass]="{'active': isActive('/categorie')}"><a routerLink="/categorie">Catégories</a></li>
+      <li [ngClass]="{'active': isActive('/contact')}"><a routerLink="/contact">Contact</a></li>
     </ul>
 
     <div class="actions-droite">
