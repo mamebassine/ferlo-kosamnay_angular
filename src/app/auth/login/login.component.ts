@@ -136,7 +136,7 @@ export class LoginComponent {
             console.log('Token:', response.token);
             localStorage.setItem("token", response.token);
             if(response.role =='client'){
-              this.router.navigateByUrl("/paiement");
+              this.router.navigateByUrl("/produit");
             }
             else if(response.role = 'admin'){
                this.router.navigateByUrl("/dashboard");

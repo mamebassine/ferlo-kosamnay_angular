@@ -36,7 +36,10 @@ export class AuthService {
   }
   isAuthenticated(): boolean {
     // Implémentez votre logique d'authentification ici
-    return this.loggedIn;
+    if (localStorage.getItem('token')) {
+      return this.loggedIn=true;
+    }
+    return this.loggedIn=false;
   }
 
 

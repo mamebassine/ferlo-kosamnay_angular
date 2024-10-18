@@ -32,6 +32,7 @@ constructor(private authService: AuthService, private router: Router, private ca
 
   logout(): void {
     this.authService.logout();
+    localStorage.removeItem('token');
     this.isLoggedIn = false;
     this.router.navigate(['/login']);
   }
