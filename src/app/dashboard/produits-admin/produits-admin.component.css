@@ -10,7 +10,7 @@
 
 /* Table Styling */
 .table {
-  width: 100%;
+  width: 60%;
   border-collapse: collapse;
   margin-top: 20px;
 }
@@ -90,4 +90,123 @@
   height: auto;
   border-radius: 4px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+
+
+
+
+/* Container Styling */
+.container {
+  max-width: 85%; /* Réduction de la largeur du conteneur */
+  margin: 20px auto;
+  background-color: #f8f9fa;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Table Styling */
+.table-responsive {
+  max-width: 100%; /* Conteneur pour défilement si nécessaire */
+  overflow-x: auto;
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+  font-size: 14px; /* Réduction de la taille du texte */
+}
+
+.table th,
+.table td {
+  padding: 10px; /* Réduction du padding */
+  border-bottom: 1px solid #ddd;
+}
+
+.table th {
+  background-color: #3F7E44;
+  color: white;
+  font-weight: bold;
+}
+
+.table tbody tr:hover {
+  background-color: #f1f1f1;
+}
+
+/* Actions Column Styling */
+.table td:last-child {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px; /* Réduction de l'espace entre les boutons */
+}
+
+/* Button Styling */
+.btn-primary,
+.btn-danger,
+.btn-warning {
+  border-radius: 4px;
+  padding: 6px 12px; /* Réduction de la taille des boutons */
+  color: #fff;
+  transition: background-color 0.3s ease;
+}
+
+/* Specific Button Colors */
+.btn-primary {
+  background-color: #3F7E44;
+  border-color: #3F7E44;
+}
+
+.btn-primary:hover {
+  background-color: #cae3ba;
+}
+
+.btn-danger {
+  background-color: #dc3545;
+  border-color: #dc3545;
+}
+
+.btn-danger:hover {
+  background-color: #c82333;
+}
+
+.btn-warning {
+  background-color: #ffc107;
+  border-color: #ffc107;
+  color: #212529;
+}
+
+.btn-warning:hover {
+  background-color: #e0a800;
+}
+
+/* Small Button Adjustments */
+.btn-sm {
+  padding: 5px 8px;
+  margin: 0 3px;
+}
+
+/* Image Styling */
+.table img {
+  width: 60px; /* Réduction de la taille des images */
+  height: auto;
+  border-radius: 4px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .table {
+    font-size: 12px; /* Réduction supplémentaire de la taille du texte sur petits écrans */
+  }
+
+  .btn-sm {
+    padding: 4px 6px;
+  }
+
+  .table img {
+    width: 50px; /* Réduction des images sur petits écrans */
+  }
 }
