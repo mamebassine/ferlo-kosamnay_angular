@@ -1,9 +1,4 @@
-
-
-
-/* KKKKKKKKKKKKKKKKOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOO */
-
-
+/* Ton CSS actuel */
 * {
     margin: 0;
     padding: 0;
@@ -11,15 +6,15 @@
 }
 
 .bacgr {
-    opacity: 100%;
     background-color: #000;
     font-family: Arial, sans-serif;
     background-image: url('/assets/images/bacgrproduit.png');
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
-    color: #333;
+    color: #000;
     padding: 100px;
+    opacity: 100%;
 }
 
 h1 {
@@ -39,30 +34,22 @@ h1 {
     padding: 10px;
     width: 300px;
     border: 2px solid #343F69;
-    border-radius: 5px;
+    border-radius: 3px;
     margin-right: 10px;
 }
 
 .search-container button {
-    padding: 3px 20px;
-    background-color: #4CAF50;
+    padding: 3px 9px;
+    background-color: #3F7E44;
     color: white;
     border: none;
-    border-radius: 5px;
+    border-radius: 3px;
     cursor: pointer;
 }
 
 .search-container button:hover {
-    background-color: #45a049;
+    background-color: #99B951;
 }
-/* .product-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 40px;
-    
-    
-    
-} */
 
 .product-grid {
     display: grid;
@@ -70,20 +57,20 @@ h1 {
     gap: 40px; /* Espace entre les cartes */
 }
 
-
 .product {
     background-color: rgba(255, 255, 255, 0.8);
     padding: 20px;
-    border-radius: 10px;
+    border-radius: 3px;
     text-align: center;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
-.product-image {
-    width: 100%;
+.product img {
+    display: block; /* Pour que l'image se comporte comme un bloc */
+    width: 750%; /* Ajustez la taille selon vos besoins */
     height: auto;
-    border-radius: 10px;
-    margin-bottom: 15px;
+    border-radius: 4px;
+    margin: 0 auto 15px auto; /* Centre l'image horizontalement avec des marges automatiques */
 }
 
 h3 {
@@ -103,22 +90,27 @@ p {
     justify-content: flex-start;
     gap: 10px;
 }
+
 /* ici */
 .buttons button {  
-    padding: 13px 11px;
+    padding: 6x 10px;
+    width: 100%; /* Assurez que tous les boutons occupent la même largeur */
+    padding: 10px;
     border: 2px solid black;
-    border-radius: 5px;
+    border-radius: 3px;
     cursor: pointer;
+    font-size: 1em; /* Uniformiser la taille du texte */
+    box-sizing: border-box; /* Pour inclure les bordures dans la largeur totale */
 }
 
 .buttons .view-more {
-    background-color: #4CAF50;
+    background-color: #3F7E44;
     color: white;
     border: none;
 }
 
 .buttons .view-more:hover {
-    background-color: #45a049;
+    background-color: #99B951;
 }
 
 .buttons .disponible {
@@ -131,44 +123,80 @@ p {
     background-color: #f1f1f1;
 }
 
-@media (max-width: 768px) {
-    h1 {
-        font-size: 2em;
-    }
-}
-
-.product-grid {
-    display: calc();
-    grid-template-columns: repeat(4, fr); /* Limiter à 4 produits par ligne */
-    gap: 60px; /* Espace entre les cartes */
-}
-
-
-
 /* Media Queries pour la responsivité */
-@media (max-width: 1200px) {
-    .product-grid {
-        grid-template-columns: repeat(3, 1fr); /* 3 produits par ligne */
-    }
-}
 
+
+/* Pour les petits écrans (moins de 900px) */
 @media (max-width: 900px) {
     .product-grid {
         grid-template-columns: repeat(2, 1fr); /* 2 produits par ligne */
     }
+
+    .search-container input {
+        width: 100%;
+    }
+
+    .search-container {
+        flex-direction: column;
+    }
+
+    .search-container button {
+        width: 100%;
+        margin-top: 10px;
+    }
+
+    .product {
+        padding: 40px; /* Réduire le padding pour diminuer la taille des cartes */
+    }
+
+    .product img {
+        width: 90%; /* Réduire légèrement la taille des images */
+    }
+
+    .buttons {
+        flex-direction: row;
+        gap: 5px; /* Réduire l'espace entre les boutons */
+    }
+
+    .buttons button {
+        font-size: 0.8em; /* Diminuer la taille du texte des boutons */
+        padding: 10px; /* Réduire le padding des boutons */
+    }
+
+    .product h3, .product p {
+        font-size: 0.9em; /* Diminuer légèrement la taille du texte */
+    }
 }
 
+/* Pour les mobiles (moins de 600px) */
 @media (max-width: 600px) {
     .product-grid {
         grid-template-columns: 1fr; /* 1 produit par ligne */
     }
 
     h1 {
-        font-size: 1.8em; /* Réduire la taille du titre sur mobile */
+        font-size: 1.5em; /* Diminuer la taille du titre */
     }
 
-    /* .search-container input {
-        width: 100%; 
-        margin-right: 0; 
-    } */
+    .product {
+        padding: 30px; /* Réduire encore le padding pour diminuer la taille des cartes */
+    }
+
+    .product img {
+        width: 100%; /* L'image prend toute la largeur mais reste dans une taille réduite */
+    }
+
+    .product h3, .product p {
+        font-size: 0.8em; /* Réduire la taille du texte pour les petits écrans */
+    }
+
+    .buttons {
+        flex-direction: column;
+        gap: 5px;
+    }
+
+    .buttons button {
+        font-size: 0.7em; /* Diminuer la taille du texte des boutons */
+        padding: 8px; /* Réduire la taille des boutons */
+    }
 }

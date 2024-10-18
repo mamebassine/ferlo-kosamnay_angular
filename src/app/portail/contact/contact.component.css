@@ -1,264 +1,4 @@
 
-/* En-tête */
-header {
-    background-color: #fff; /* Couleur de fond pour l'en-tête */
-    padding: 5px 10px; /* Ajustement de l'espacement intérieur */
-  }
-  
-  nav {
-    display: flex;
-    align-items: center; /* Alignement vertical des éléments */
-    justify-content: space-between; /* Répartir les éléments sur toute la largeur */
-    flex-wrap: wrap; /* Permet de passer à la ligne sur les petits écrans */
-  }
-  
-  nav .logo {
-    height: 80px; /* Ajustement de la hauteur du logo pour les petits écrans */
-  }
-  
-  nav .menu-centre {
-    list-style: none; /* Supprimer les puces des listes */
-    display: flex; /* Afficher les éléments en ligne */
-    margin: 0; /* Supprimer les marges */
-    padding: 0; /* Supprimer les espacements */
-    flex: 1; /* Prendre toute la largeur disponible */
-    justify-content: center; /* Centrer les éléments horizontalement */
-  }
-  
-  nav .menu-centre li {
-    margin: 0 15px; /* Espacement horizontal entre les éléments */
-  }
-  
-  nav .menu-centre li a {
-    color: #000; /* Couleur du texte des liens */
-    text-decoration: none; /* Supprimer le soulignement des liens */
-    font-size: 20px; /* Taille du texte */
-  }
-  
-  nav .menu-centre li a:hover {
-    text-decoration: underline; /* Souligner les liens au survol */
-    color: #99B951;
-  }
-  
-  nav .icone-panier {
-    font-size: 20px; /* Taille de l'icône du panier */
-    color: #000; /* Couleur de l'icône */
-    margin-left: 15px; /* Espacement à gauche pour séparer de "Contact" */
-  }
-  
-  nav .bouton-connexion {
-    background-color: #3F7E44; /* Couleur de fond pour le bouton de connexion */
-    padding: 6px 10px; /* Espacement intérieur du bouton */
-    color: #fff; /* Couleur du texte du bouton */
-    text-decoration: none; /* Supprimer le soulignement du bouton */
-  }
-  
-  /* Media Queries pour les petits écrans */
-  @media (max-width: 768px) {
-    nav {
-      flex-direction: column; /* Empile les éléments sur les petits écrans */
-      align-items: flex-start; /* Aligne les éléments à gauche */
-    }
-  
-    nav .menu-centre {
-      flex-direction: column; /* Colonne pour les éléments du menu */
-      width: 100%; /* Prend toute la largeur */
-    }
-  
-    nav .menu-centre li {
-      margin: 5px 0; /* Réduction de l'espacement entre les éléments */
-      width: 100%; /* Chaque élément prend toute la largeur */
-      text-align: center; /* Centre le texte des éléments */
-    }
-  
-    nav .icone-panier, nav .bouton-connexion {
-      margin-left: 0; /* Supprime le margin à gauche pour le centrage */
-      width: 100%; /* Prend toute la largeur */
-      text-align: center; /* Centre le texte */
-      padding: 8px; /* Ajuste le padding pour les petits écrans */
-    }
-  
-    nav .bouton-connexion {
-      margin-top: 10px; /* Ajoute un espacement au-dessus du bouton */
-    }
-  }
-
-/*      ICI FOOTERRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRR */
-#footer {
-    background-color: #fff;
-    color: #343F69;
-    padding: 10px 15px; /* Réduction du padding pour diminuer la taille du footer */
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-  }
-  
-  /* Image en haut du footer */
-  #footer img {
-    width: 80px;
-    margin-bottom: 10px; /* Réduction de l'espacement */
-  }
-  
-  /* Section newsletter */
-  .footer-newsletter {
-    background-color: #216718;
-    padding: 10px; /* Réduction du padding pour ajuster la taille */
-    border-radius: 5px;
-    width: 90%;
-    text-align: center;
-    margin-bottom: 15px; /* Réduction de la marge */
-  }
-  
-  .footer-newsletter h3 {
-    margin-bottom: 5px; /* Réduction de l'espacement */
-    font-size: 16px;
-    color: white;
-  }
-  
-  .footer-newsletter form {
-    display: flex;
-    justify-content: center;
-  }
-  
-  .footer-newsletter input {
-    padding: 8px; /* Réduction du padding */
-    width: 180px;
-    font-size: 14px;
-  }
-  
-  .footer-newsletter button {
-    padding: 8px 12px; /* Réduction de la taille du bouton */
-    background-color: #4CAF50;
-    color: #fff;
-    border: none;
-    border-radius: 0 5px 5px 0;
-    cursor: pointer;
-    font-size: 14px;
-  }
-  
-  .footer-newsletter button:hover {
-    background-color: #45a049;
-  }
-  
-  /* Liens de navigation et informations légales en ligne horizontale */
-  .footer-links {
-    display: flex;
-    justify-content: space-around; /* Distribution égale des sections */
-    width: 100%;
-    margin-top: 10px; /* Réduction de la marge supérieure */
-  }
-  
-  .footer-section {
-    text-align: left;
-    flex: 1; /* Chaque section prend la même largeur */
-    padding: 0 10px; /* Espacement interne entre les sections */
-  }
-  
-  .footer-section ul {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-    display: flex; /* Liens en horizontal */
-    justify-content: center;
-  }
-  
-  .footer-section ul li {
-    margin: 0 10px; /* Espacement entre les liens */
-  }
-  
-  .footer-section a {
-    color: #343F69;
-    text-decoration: none;
-  }
-  
-  .footer-section a:hover {
-    color: #4CAF50;
-    text-decoration: underline;
-  }
-  
-  /* Réseaux sociaux */
-  .footer-icons {
-    display: flex;
-    justify-content: center;
-    margin: 5px 0; /* Réduction de la marge */
-  }
-  
-  .footer-icons a {
-    margin: 0 8px; /* Réduction de l'espacement entre les icônes */
-  }
-  
-  .footer-icons img {
-    width: 28px;
-    height: 28px;
-  }
-  
-  hr {
-    border: 1px solid #343F69;
-    width: 100%;
-    margin: 15px 0; /* Réduction de la marge */
-  }
-  
-  /* Logo centré */
-  .footer-logo-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-  
-  .footer-logo {
-    width: 120px; /* Réduction de la taille du logo */
-    opacity: 0.9;
-    transition: opacity 0.3s ease-in-out;
-  }
-  
-  .footer-logo:hover {
-    opacity: 1;
-  }
-  
-  /* Responsive design */
-  @media (max-width: 768px) {
-    .footer-links {
-      flex-direction: column;
-      align-items: center;
-    }
-  
-    .footer-section ul {
-      flex-direction: column; /* Repasser en colonne sur mobile */
-    }
-  
-    .footer-section {
-      width: 100%;
-      text-align: center;
-      margin-bottom: 10px;
-    }
-  
-    .footer-logo-container {
-      margin-bottom: 10px;
-    }
-  }
-  
-
-  .footer-icons i, .icone-panier i {
-    font-size: 24px;
-    margin: 0 10px;
-    color: #000; /* Changer la couleur en blanc */
-    transition: color 0.3s ease;
-}
-
-.footer-icons i:hover, .icone-panier i:hover {
-    color: #4CAF50; /* Changement de couleur au survol */
-}
-
-.icone-panier {
-    font-size: 24px;
-    color: #000;
-}
-
-.icone-panier i {
-    margin-right: 10px;
-}
-
 
 
 /* HHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHKKKKKKKKKKKKKKKKKKKKKKK */
@@ -304,17 +44,10 @@ body {
     height: 250px; /* Réduction de la taille de l'image en haut */
     object-fit: cover;
 }
-
-
-
-
-
-
-
 .contact-section {
     font-family: Arial, sans-serif;
-    
-    background-image: url('/assets/images/ooiun.jpg');
+    background-color: rgb(187, 212, 193);
+    /* background-image: url('/assets/images/ooiun.jpg'); */
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
@@ -342,8 +75,9 @@ body {
 }
 
 h1 {
+  text-align: center;
     font-size: 3em;
-    color: #343F69;
+    color: #000;
     margin-bottom: 20px;
 }
 
@@ -362,11 +96,11 @@ p {
 
 .social-icons a {
     font-size: 1.5em; /* Taille des icônes */
-    color: #343F69;
+    color: #3F7E44;
 }
 
 .social-icons a:hover {
-    color: #4CAF50;
+    color: #99b959;
 }
 
 .form-group {
@@ -393,7 +127,7 @@ p {
 }
 
 .form-group button {
-    background-color: #4CAF50;
+    background-color: #3F7E44;
     color: white;
     padding: 10px 20px;
     border: none;
@@ -404,14 +138,8 @@ p {
 }
 
 .form-group button:hover {
-    background-color: #45a049;
+    background-color: #99b959;
 }
-
-
-
-
-
-
 
 .info-section {
     margin-top: 18px; /* Marge pour séparer des autres éléments */
@@ -438,14 +166,6 @@ p {
     font-size: 1.5em; /* Taille des icônes d'information */
     margin-right: 10px;
 }
-
-
-
-
-
-
-
-
 .bottom-image {
     margin-top: 20px;
 }
@@ -453,4 +173,58 @@ p {
 .bottom-image img {
     width: 100%;
     border-radius: 10px;
+}
+
+
+
+/* Responsivité */
+
+/* Tablettes */
+@media (max-width: 900px) {
+  .contact-section {
+      padding: 50px;
+      flex-direction: column; /* Les colonnes deviennent verticales */
+  }
+  .left-column, .right-column {
+      max-width: 100%; /* Prend toute la largeur disponible */
+      padding: 10px;
+  }
+  .info-section {
+      margin-left: 0; /* Centrer l'info-section sur les petits écrans */
+      margin-top: 30px; /* Ajustement du margin-top */
+  }
+  .form-group button {
+      width: 100%; /* Le bouton prend toute la largeur */
+  }
+}
+
+/* Mobiles */
+@media (max-width: 600px) {
+  .contact-section {
+      padding: 20px;
+      flex-direction: column; /* Les colonnes deviennent verticales */
+  }
+  .left-column, .right-column {
+      max-width: 100%; /* Prend toute la largeur disponible */
+      padding: 10px;
+  }
+  .form-group button {
+      width: 100%; /* Le bouton prend toute la largeur */
+  }
+  h1 {
+      font-size: 2em; /* Réduction de la taille du titre */
+  }
+  p {
+      font-size: 1em; /* Réduction de la taille du texte */
+  }
+  .info-section {
+      margin-left: 0; /* Centrer l'info-section */
+      margin-top: 30px; /* Ajustement du margin-top */
+  }
+  .info-section .info-item i {
+      font-size: 1.2em; /* Diminution des icônes */
+  }
+  .social-icons a {
+      font-size: 1.2em; /* Réduction de la taille des icônes */
+  }
 }

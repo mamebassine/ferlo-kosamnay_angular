@@ -1,3 +1,5 @@
+/* Section Hero*/
+
 .body {
   font-family: 'Roboto', sans-serif;
   margin: 0;
@@ -5,104 +7,6 @@
   overflow-x: hidden; /* Empêche le débordement horizontal global */
 }
 
-
-/* En-tête */
-header {
-  background-color: #fff; /* Couleur de fond pour l'en-tête */
-  padding: 5px 10px; /* Ajustement de l'espacement intérieur */
-}
-
-nav {
-  display: flex;
-  align-items: center; /* Alignement vertical des éléments */
-  justify-content: space-between; /* Répartir les éléments sur toute la largeur */
-  flex-wrap: wrap; /* Permet de passer à la ligne sur les petits écrans */
-  font-size: 20px; /* Taille du texte */
-
-}
-
-nav .logo {
-  height: 120px; /* Ajustement de la hauteur du logo pour les petits écrans */
-  margin-left: 2%;
-}
-
-nav .menu-centre {
-  list-style: none; /* Supprimer les puces des listes */
-  display: flex; /* Afficher les éléments en ligne */
-  margin: 0; /* Supprimer les marges */
-  padding: 0; /* Supprimer les espacements */
-  flex: 1; /* Prendre toute la largeur disponible */
-  justify-content: center; /* Centrer les éléments horizontalement */
-  font-size: 30px; /* Taille du texte */
-  font-family: 'Roboto', sans-serif; /* Police pour H1 */
-
-
-}
-
-nav .menu-centre li {
-  margin: 0 15px; /* Espacement horizontal entre les éléments */
-}
-
-nav .menu-centre li a {
-  color: #000; /* Couleur du texte des liens */
-  text-decoration: none; /* Supprimer le soulignement des liens */
-  font-size: 20px; /* Taille du texte */
-}
-
-nav .menu-centre li a:hover {
-  text-decoration: underline; /* Souligner les liens au survol */
-  color: #99B951;
-}
-
-nav .icone-panier {
-  font-size: 20px; /* Taille de l'icône du panier */
-  color: #000; /* Couleur de l'icône */
-  margin-left: 15px; /* Espacement à gauche pour séparer de "Contact" */
-}
-
-nav .bouton-connexion {
-  background-color: #3F7E44; /* Couleur de fond pour le bouton de connexion */
-  padding: 6px 10px; /* Espacement intérieur du bouton */
-  color: #fff; /* Couleur du texte du bouton */
-  text-decoration: none; /* Supprimer le soulignement du bouton */
-  margin-right: 2%;
-
-}
-
-
-/* Media Queries pour les petits écrans */
-@media (max-width: 768px) {
-  nav {
-    flex-direction: column; /* Empile les éléments sur les petits écrans */
-    align-items: flex-start; /* Aligne les éléments à gauche */
-  }
-
-  nav .menu-centre {
-    flex-direction: column; /* Colonne pour les éléments du menu */
-    width: 100%; /* Prend toute la largeur */
-  }
-
-  nav .menu-centre li {
-    margin: 5px 0; /* Réduction de l'espacement entre les éléments */
-    width: 100%; /* Chaque élément prend toute la largeur */
-    text-align: center; /* Centre le texte des éléments */
-  }
-
-  nav .icone-panier, nav .bouton-connexion {
-    margin-left: 0; /* Supprime le margin à gauche pour le centrage */
-    width: 100%; /* Prend toute la largeur */
-    text-align: center; /* Centre le texte */
-    padding: 8px; /* Ajuste le padding pour les petits écrans */
-  }
-
-  nav .bouton-connexion {
-    margin-top: 10px; /* Ajoute un espacement au-dessus du bouton */
-  }
-}
-
-
-
-/* Section Hero           oooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo */
 #hero {
   display: flex; /* Utilisation de Flexbox pour aligner les éléments */
   align-items: center; /* Alignement vertical des éléments */
@@ -129,17 +33,21 @@ nav .bouton-connexion {
 
 #hero button {
   background-color: #3F7E44; 
-  color: #fff;
-  border: none; 
-  padding: 8px 20px; /* Espacement intérieur du bouton */
+  padding: 7px 16px; /* Espacement intérieur du bouton */
   font-size: 1.2em; 
   cursor: pointer; 
   margin-top: 10px; 
-  transition: background-color 0.3s ease; /* Transition douce pour le changement de couleur */
+  transition: background-color 0.3s ease; /* Transition douce pour le changement de couleur */color: white; 
+  border: none; 
+  border-radius: 3px; 
+  padding: 10px 15px; 
+  font-size: 16px; 
+  cursor: pointer; 
+  
 }
 
 #hero button:hover {
-  background-color: #2E5B34; /* Couleur de fond au survol */
+  background-color: #99B951; /* Couleur de fond au survol */
 }
 
 #hero img {
@@ -162,8 +70,12 @@ nav .bouton-connexion {
 #pourquoi-choisir h2 {
   text-align: center; /* Centrer le titre principal */
   margin-bottom: 30px; /* Espacement en dessous du titre */
-  font-size: 30px; /* Taille du texte */
   font-family: 'Roboto', sans-serif; /* Police pour H1 */
+
+
+  font-size: 1.6em;
+  margin-bottom: 20px;
+  text-transform: uppercase;
 
 }
 
@@ -197,16 +109,75 @@ nav .bouton-connexion {
 }
 
 /* Media Queries pour petits écrans */
+/* Section Hero */
 @media (max-width: 768px) {
+  #hero {
+    flex-direction: column; /* Empiler le texte et l'image en colonne */
+    align-items: center; /* Centrer les éléments en colonne */
+    text-align: center; /* Centrer le texte */
+    padding: 20px 10px; /* Ajouter de l'espace autour */
+    margin-left: 0; /* Réinitialiser la marge gauche */
+  }
+
+  #hero .text-content {
+    max-width: 100%; /* Prendre toute la largeur disponible */
+    margin-bottom: 20px; /* Ajouter de l'espacement sous le texte */
+  }
+
+  #hero h1 {
+    font-size: 2em; /* Réduire la taille du titre */
+  }
+
+  #hero p {
+    font-size: 1.2em; /* Réduire la taille du paragraphe */
+  }
+
+  #hero button {
+    font-size: 1em; /* Réduire la taille du bouton */
+  }
+
+  #hero img {
+    max-width: 80%; /* Réduire la largeur maximale de l'image */
+    margin: 0 auto; /* Centrer l'image */
+  }
+}
+
+/* Section Pourquoi-Choisir */
+@media (max-width: 768px) {
+  #pourquoi-choisir {
+    padding: 20px 10px; /* Réduire le padding sur petits écrans */
+  }
+
   .caracteristiques {
-    flex-direction: column; /* Empiler les cartes en colonne sur petits écrans */
+    flex-direction: column; /* Empiler les cartes en colonne */
     align-items: center; /* Centrer les cartes */
   }
 
   .caracteristiques div {
-    max-width: 90%; /* Les cartes prennent 90% de la largeur sur petits écrans */
+    max-width: 100%; /* Les cartes prennent toute la largeur disponible */
+    margin-bottom: 20px; /* Ajouter de l'espace entre les cartes */
   }
 }
+
+/* Media Queries pour très petits écrans (moins de 480px) */
+@media (max-width: 480px) {
+  #hero h1 {
+    font-size: 1.8em; /* Réduire encore la taille du titre */
+  }
+
+  #hero p {
+    font-size: 1em; /* Réduire la taille du paragraphe */
+  }
+
+  #hero button {
+    font-size: 0.9em; /* Réduire la taille du bouton */
+  }
+
+  .caracteristiques div {
+    padding: 10px; /* Réduire le padding des cartes */
+  }
+}
+
 
 
 
@@ -225,11 +196,15 @@ margin-top: 2%;
 
 /* Titre principal */
 h4 {
-  font-size: 35px; /* Taille du texte */
   font-family: 'Roboto', sans-serif; /* Police pour H1 */
 text-align: center;
   color: #000; 
   margin: 0; 
+
+
+  font-size: 1.6em;
+  margin-bottom: 20px;
+  text-transform: uppercase;
 }
 
 /* Contenu général */
@@ -280,77 +255,131 @@ text-align: center;
 }
 
 .image-droite button {
-  background-color: #3F7E44; 
   color: #fff;
-  padding: 8px 15px; 
-  border: none;
-  border-radius: 1px;
-  cursor: pointer;
-  font-size: 0.9em; 
-  transition: background-color 0.3s ease;
+
+
+  background-color: #3F7E44; 
+  padding: 8px 20px; /* Espacement intérieur du bouton */
+  font-size: 1.2em; 
+  cursor: pointer; 
+  margin-top: 10px; 
+  transition: background-color 0.3s ease; /* Transition douce pour le changement de couleur */color: white; 
+  border: none; 
+  border-radius: 3px; 
+  padding: 10px 15px; 
+  font-size: 16px; 
+  cursor: pointer; 
+  
 }
 
 .image-droite button:hover {
-  background-color: #2e5f33; 
+  background-color: #99B951; 
 }
 
-/* Media Queries pour les petits écrans */
+/* Section À PROPOS */
 @media (max-width: 1024px) {
   .content {
-    flex-direction: column; /* Colonne sur écrans moyens */
-    align-items: center; /* Centre les éléments */
+    flex-direction: column; /* Passe les éléments en colonne */
+    align-items: center; /* Centre les éléments dans la colonne */
+    text-align: center; /* Centre le texte */
   }
 
   .text-gauche, .image-droite {
-    width: 100%; /* Prend toute la largeur */
-    padding: 0;
+    width: 100%; /* Les sections prennent toute la largeur */
+    padding: 0; /* Supprimer le padding */
   }
 
   .text-gauche {
-    margin-bottom: 20px; /* Marge inférieure pour espacement */
+    margin-bottom: 20px; /* Espacement sous la section texte */
   }
 }
 
 @media (max-width: 768px) {
+  #a-propos {
+    padding: 60px 15px; /* Réduction du padding */
+  }
+
   h4 {
-    font-size: 30px; /* Taille du texte */
-    font-family: 'Roboto', sans-serif; /* Police pour H1 */
-    }
+    font-size: 1.4em; /* Taille du titre principale réduite */
+  }
 
   .text-gauche h3 {
-    font-size: 1.5em; 
+    font-size: 1.3em; /* Réduction de la taille du sous-titre */
+  }
+
+  .text-gauche p {
+    font-size: 1em; /* Réduction de la taille du texte */
+  }
+
+  .image-droite {
+    margin-top: 20px; /* Ajouter de l'espacement au-dessus de l'image */
+  }
+
+  .image-droite button {
+    padding: 8px 16px; /* Ajustement du padding du bouton */
+    font-size: 1em; /* Taille du texte du bouton */
+  }
+}
+
+@media (max-width: 480px) {
+  #a-propos {
+    padding: 40px 10px; /* Réduction supplémentaire du padding */
+  }
+
+  .text-gauche h3 {
+    font-size: 1.2em; /* Réduction de la taille du sous-titre */
   }
 
   .text-gauche p {
     font-size: 0.9em; /* Réduction de la taille du texte */
+    line-height: 1.3; /* Ajustement du line-height pour la lisibilité */
+  }
+
+  .image-droite img {
+    width: 80%; /* Réduction de la largeur de l'image pour les petits écrans */
   }
 
   .image-droite button {
-    padding: 6px 12px; /* Réduction du padding */
+    padding: 6px 12px; /* Réduction du padding du bouton */
     font-size: 0.8em; /* Réduction de la taille du bouton */
   }
 }
+
+
+
+
+
 
 /* CATEGORIESSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSS */
 h2{
   text-align: center;
   margin-bottom: 5%;
   text-align: center;
-font-size: 30px; /* Taille du texte */
 font-family: 'Roboto', sans-serif; /* Police pour H1 */
 
+
+
+font-size: 1.6em;
+margin-bottom: 20px;
+text-transform: uppercase;
 }
 
 .voirplus button {
-  background-color: #3F7E44; 
   color: #fff;
-  padding: 8px 15px; 
-  border: none;
-  border-radius: 1px;
-  cursor: pointer;
-  font-size: 0.9em; 
-  transition: background-color 0.3s ease;
-  margin-top: 5%;
+
+
+  background-color: #3F7E44; 
+  padding: 8px 20px; /* Espacement intérieur du bouton */
+  font-size: 1.2em; 
+  cursor: pointer; 
+  margin-top: 10px; 
+  transition: background-color 0.3s ease; /* Transition douce pour le changement de couleur */color: white; 
+  border: none; 
+  border-radius: 3px; 
+  padding: 10px 15px; 
+  font-size: 16px; 
+  cursor: pointer; 
+  
 }
 
 
@@ -415,7 +444,7 @@ background-color: #f9f9f9; /* Couleur de fond par défaut */
 border-radius: 10px;
 box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 margin: 10px;
-padding: 20px;
+padding: 50px;
 text-align: center;
 transition: background-color 0.3s, transform 0.3s; /* Ajout d'une transition pour l'effet de hover */
 cursor: pointer;
@@ -423,16 +452,19 @@ width: 300px; /* Largeur fixe pour les cartes */
 }
 
 .carte h3 {
+font-size: 1.5em;
+
 margin-top: 10px;
 color: #333;
 }
 
 /* Image circulaire */
 .image-circulaire {
-width: 130px; /* Largeur de l'image */
-height: 100px; /* Hauteur de l'image */
+width: 200px; /* Largeur de l'image */
+height: 200px; /* Hauteur de l'image */
 border-radius: 50%; /* Pour rendre l'image circulaire */
 object-fit: cover; /* Pour couvrir l'espace sans déformation */
+margin-left: -2px;
 }
 
 /* Effet de survol */
@@ -502,14 +534,16 @@ div:focus-within {
   }
 }
 
-
+/* ici produits */
 
 
 
 #produits h2 {
 text-align: center;
-font-size: 30px; /* Taille du texte */
 font-family: 'Roboto', sans-serif; /* Police pour H1 */
+
+
+
 }
 
 #produits {
@@ -557,15 +591,23 @@ font-family: 'Roboto', sans-serif; /* Police pour H1 */
 .carte-produit button {
   background-color: #3F7E44; /* Couleur du bouton */
   color: #fff; /* Couleur blanche pour le texte du bouton */
-  padding: 15px 15px;
-  border: none;
-  cursor: pointer;
-  transition: background-color 0.3s; /* Transition pour le bouton */
+
+
+  padding: 9px 12px; /* Espacement intérieur du bouton */
+  font-size: 1.2em; 
+  cursor: pointer; 
+  margin-top: 10px; 
+  transition: background-color 0.3s ease; /* Transition douce pour le changement de couleur */color: white; 
+  border: none; 
+  border-radius: 3px; 
+  font-size: 16px; 
+  cursor: pointer; 
+  
  
 }
 
 .carte-produit button:hover {
-  background-color: #2e5f33; /* Couleur de fond au survol */
+  background-color: #99B951; /* Couleur de fond au survol */
 }
 
 .image-produit {
@@ -575,248 +617,486 @@ font-family: 'Roboto', sans-serif; /* Police pour H1 */
   margin-left: 5px; /* Espace entre le texte et l'image */
 }
 
+/* Animation pour le titre de la section */
+#produits h2 {
+  text-align: center;
+  font-family: 'Roboto', sans-serif;
+  animation: fadeIn 2s ease-in-out; /* Animation d'apparition progressive */
 
-
-
-
-
-#partenaires h2{
-  text-align: center; /* Centre le texte */
-  margin-bottom: 1%;
-  font-size: 50px; /* Taille du texte */
-  font-family: 'Roboto', sans-serif; /* Police pour H1 */
+  font-size: 1.6em;
+  margin-bottom: 20px;
+  text-transform: uppercase;
 }
 
-#partenaires {
-  text-align: center; /* Centre le texte */
-  padding: 20px 10px;
+/* Animation pour l'apparition des cartes */
+.carte-produit {
+  border: 2px solid #3F7E44;
+  border-radius: 5px;
+  display: flex;
+  justify-content: space-between;
+  width: 99%;
+  max-width: 590px;
+  padding: 10px;
+  margin-top: 2%;
+  opacity: 0; /* Masqué au départ */
+  transform: translateY(50px); /* Position décalée vers le bas */
+  animation: slideUp 1s forwards ease-in-out; /* Animation de glissement vers le haut */
+  animation-delay: 0.5s; /* Retard pour les premières cartes */
+}
+
+/* Animation pour un effet d'apparition échelonné des cartes */
+.carte-produit:nth-child(2) {
+  animation-delay: 0.7s; /* Retard pour la deuxième carte */
+}
+
+.carte-produit:nth-child(3) {
+  animation-delay: 0.9s; /* Retard pour la troisième carte */
+}
+
+/* Animation sur les images des produits */
+.image-produit {
+  width: 220px;
+  height: auto;
+  margin-left: 1px;
+  transition: transform 0.5s ease; /* Transition douce pour l'effet de zoom */
+}
+
+.image-produit:hover {
+  transform: scale(1.1); /* Agrandissement de l'image au survol */
+}
+
+/* Keyframes pour l'animation d'apparition */
+@keyframes fadeIn {
+  from {
+      opacity: 0;
+  }
+  to {
+      opacity: 1;
+  }
+}
+
+@keyframes slideUp {
+  from {
+      opacity: 0;
+      transform: translateY(50px);
+  }
+  to {
+      opacity: 1;
+      transform: translateY(0);
+  }
+}
+
+
+
+
+@keyframes clignotement {
+  0%, 100% {
+      opacity: 1; /* Opacité normale */
+  }
+  50% {
+      opacity: 0.5; /* Opacité réduite pour le clignotement */
+  }
+}
+
+
+/* Adaptations pour les différentes tailles d'écran */
+@media (max-width: 768px) {
+  .carte-produit {
+    flex-direction: column; /* Disposer les éléments en colonne sur les écrans plus petits */
+    align-items: center; /* Centrer les éléments */
+  }
+
+  .carte-produit button {
+    align-self: center; /* Centrer le bouton pour les petits écrans */
+    margin-top: 15px; /* Ajouter un espacement en haut */
+  }
+}
+
+
+/* Adaptations pour les différentes tailles d'écran */
+@media (max-width: 768px) {
+  .carte-produit {
+    flex-direction: column; /* Disposer les éléments en colonne sur les écrans plus petits */
+    align-items: center; /* Centrer les éléments */
+  }
+
+  .carte-produit button {
+    align-self: center; /* Centrer le bouton pour les petits écrans */
+    margin-top: 15px; /* Ajouter un espacement en haut */
+  }
+}
+
+
+
+/* ici produits */
+
+.voirplus {
+  text-align: center; /* Centrer le bouton */
+  margin-top: 20px; /* Ajouter de l'espace au-dessus */
+}
+
+.voirplus a {
+  display: inline-block; /* Le bouton reste inline mais se comporte comme un block */
+  color: white; /* Couleur du texte */
+  text-decoration: none; /* Supprimer le soulignement */
+
+background-color: #3F7E44; 
+  padding: 8px 20px; /* Espacement intérieur du bouton */
+  font-size: 1.2em; 
+  cursor: pointer; 
+  margin-top: 10px; 
+  transition: background-color 0.3s ease; /* Transition douce pour le changement de couleur */color: white; 
+  border: none; 
+  border-radius: 3px; 
+  padding: 10px 15px; 
+  font-size: 16px; 
+  cursor: pointer; 
   
 }
 
-.grille-partenaires {
-  display: flex; /* Flex pour aligner les cartes */
-  justify-content: center; /* Centre les cartes */
-  gap: 60px; /* Espace entre les cartes */
+.voirplus a:hover {
+  background-color: #99B951; /* Couleur légèrement plus foncée au survol */
+  transform: scale(1.05); /* Légère augmentation de la taille au survol */
 }
 
-.carte-partenaire {
-  background-color: #fff; /* Fond blanc pour les cartes */
-  border: 1px solid #656363; /* Bordure noire */
-  border-radius: 3px; /* Arrondi pour toutes les bordures */
-  padding: 5px;
-  width: 400px; /* Largeur fixe pour les cartes */
-}
-
-.carte-partenaire h4 {
-  color: #8f948f; /* Couleur verte pour le titre */
-  margin-bottom: 10px;
-}
-
-.carte-partenaire p {
-  margin-bottom: 13px;
-}
-
-.partenariat-duration {
-  color: #3F7E44; /* Couleur verte pour la durée du partenariat */
-}
-
-.carte-partenaire img {
-  width: 80%; /* Largeur de l'image */
-  height: auto; /* Conserve les proportions */
-  border-radius: 3px; /* Arrondi léger pour l'image */
-}
-@media (max-width: 1200px) {
-  .grille-partenaires {
-    gap: 40px; /* Réduction de l'espace entre les cartes sur des écrans plus petits */
-  }
-
-  .carte-partenaire {
-    width: 350px; /* Réduction de la largeur des cartes pour les écrans moyens */
-  }
-}
-
-@media (max-width: 768px) {
-  .grille-partenaires {
-    flex-direction: column; /* Les cartes s'empilent en colonne sur les petits écrans */
-    gap: 30px; /* Réduction de l'espace entre les cartes */
-  }
-
-  .carte-partenaire {
-    width: 90%; /* Les cartes prennent presque toute la largeur sur mobile */
-  }
-}
-
-@media (max-width: 480px) {
-  .carte-partenaire {
-    width: 100%; /* Les cartes prennent toute la largeur sur les très petits écrans */
-    padding: 10px; /* Réduction du padding pour un design compact */
-  }
+.voirplus a:active {
+  background-color: #388e3c; /* Couleur encore plus foncée lorsque le bouton est cliqué */
 }
 
 
 
 
 
-/*      ICI FOOTERRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRR */
 
-
-
-
-
-
-#footer {
-  background-color: #fff;
-  color: #343F69;
-  padding: 10px 15px; /* Réduction du padding pour diminuer la taille du footer */
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+.temoignages-section {
+  /* background: linear-gradient(135deg, #B7D7B3, #343F69); */
+  padding: 40px;
   text-align: center;
+  border-radius: 15px;
+  position: relative;
+  /* box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); */
+  overflow: hidden; /* Pour que les flèches ne débordent pas */
 }
 
-/* Image en haut du footer */
-#footer img {
-  width: 80px;
-  margin-bottom: 10px; /* Réduction de l'espacement */
+.section-title {
+  font-size: 2.5em;
+  margin-bottom: 20px;
+  color: rgb(15, 1, 1); /* Meilleur contraste */
+  text-transform: uppercase;
 }
 
-/* Section newsletter */
-.footer-newsletter {
-  background-color: #216718;
-  padding: 10px; /* Réduction du padding pour ajuster la taille */
-  border-radius: 5px;
-  width: 90%;
-  text-align: center;
-  margin-bottom: 10px; /* Réduction de la marge */
+.temoignages-container {
+  max-width: 800px;
+  margin: 0 auto;
+  position: relative;
+  overflow: hidden;
 }
 
-.footer-newsletter h3 {
-  margin-bottom: 5px; /* Réduction de l'espacement */
-  font-size: 16px;
-  color: white;
-}
-
-.footer-newsletter form {
-  display: flex;
-  justify-content: center;
-}
-
-.footer-newsletter input {
-  padding: 8px; /* Réduction du padding */
-  width: 180px;
-  font-size: 14px;
-}
-
-.footer-newsletter button {
-  padding: 8px 12px; /* Réduction de la taille du bouton */
-  background-color: #4CAF50;
-  color: #fff;
-  border: none;
-  border-radius: 0 5px 5px 0;
-  cursor: pointer;
-  font-size: 14px;
-}
-
-.footer-newsletter button:hover {
-  background-color: #45a049;
-}
-
-/* Liens de navigation et informations légales en ligne horizontale */
-.footer-links {
-  display: flex;
-  justify-content: space-around; /* Distribution égale des sections */
+.temoignages-container div {
+  opacity: 0;
+  position: absolute;
+  top: 0;
+  left: 0;
   width: 100%;
-  margin-top: 10px; /* Réduction de la marge supérieure */
+  transition: opacity 0.8s ease-in-out;
 }
 
-.footer-section {
-  text-align: left;
-  flex: 1; /* Chaque section prend la même largeur */
-  padding: 0 10px; /* Espacement interne entre les sections */
-}
-
-.footer-section ul {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-  display: flex; /* Liens en horizontal */
-  justify-content: center;
-}
-
-.footer-section ul li {
-  margin: 0 10px; /* Espacement entre les liens */
-}
-
-.footer-section a {
-  color: #343F69;
-  text-decoration: none;
-}
-
-.footer-section a:hover {
-  color: #4CAF50;
-  text-decoration: underline;
-}
-
-/* Réseaux sociaux */
-.footer-icons {
-  display: flex;
-  justify-content: center;
-  margin: 5px 0; /* Réduction de la marge */
-}
-
-.footer-icons a {
-  margin: 0 8px; /* Réduction de l'espacement entre les icônes */
-}
-
-.footer-icons img {
-  width: 28px;
-  height: 28px;
-}
-
-hr {
-  border: 1px solid #343F69;
-  width: 100%;
-  margin: 15px 0; /* Réduction de la marge */
-}
-
-/* Logo centré */
-.footer-logo-container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.footer-logo {
-  width: 120px; /* Réduction de la taille du logo */
-  opacity: 0.9;
-  transition: opacity 0.3s ease-in-out;
-}
-
-.footer-logo:hover {
+.temoignages-container div.active {
   opacity: 1;
+  position: relative;
 }
 
-/* Responsive design */
+blockquote {
+  background-color: rgba(255, 255, 255, 0.9);
+  padding: 80px;
+  border-radius: 15px; /* Coins plus arrondis pour plus de style */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  font-style: italic;
+  color: #555;
+  transition: transform 0.5s ease;
+  max-width: 900px;
+  margin: 20px auto;
+}
+
+blockquote:hover {
+  transform: scale(1.05);
+}
+
+.author {
+  margin-top: 10px;
+  font-weight: bold;
+  color: #343F69; /* Navy blue */
+}
+
+.pages {
+  margin-top: 30px;
+}
+
+.pages span {
+  cursor: pointer;
+  font-size: 20px;
+  padding: 5px;
+  transition: color 0.3s ease;
+}
+
+.pages span.active {
+  color: #ffffff;
+}
+
+.pages span:hover {
+  color: #B7D7B3; /* Greenish color */
+}
+
+.prev, .next {
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 40px;
+  color: white;
+  padding: 10px;
+  transition: color 0.3s ease;
+  z-index: 1; /* Place les flèches derrière le contenu */
+}
+
+.prev {
+  left: -500px; /* Flèche gauche déplacée en dehors du conteneur */
+  color: #000;
+}
+
+.next {
+  right: -500px; /* Flèche droite déplacée en dehors du conteneur */
+  color: #000;
+}
+
+.prev:hover, .next:hover {
+  color: #B7D7B3; /* Couleur au survol */
+}
+
+.temoignages-container {
+  position: relative;
+  max-width: 800px;
+  margin: 0 auto;
+  overflow: visible; /* Permet aux flèches de sortir du conteneur */
+}
+
+.temoignages-section {
+  /* background: linear-gradient(135deg, #B7D7B3, #343F69); */
+  padding: 40px;
+  text-align: center;
+  border-radius: 15px;
+  position: relative;
+  /* box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); */
+  overflow: visible; /* Assure que les flèches peuvent s'afficher au-delà des limites de la section */
+}
+
+
+.temoignages-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: url('/assets/images/png.png');
+  background-size: cover;
+  opacity: 300.2;
+  z-index: -1;
+}
+
+/* Animation pour le changement automatique chaque 4 secondes */
+@keyframes slide {
+  0% { opacity: 0; }
+  25% { opacity: 1; }
+  75% { opacity: 1; }
+  100% { opacity: 0; }
+}
+
+/* Appliquer l'animation */
+.temoignages-container div {
+  animation: slide 4s infinite;
+}
+
+
+/* Section "Comment ça marche ?" */
+
+.how-it-works-section {
+  background-color: #c5dcbf;
+  ;
+
+  border-radius: 10000000000% 0 80% 90; /* Bordure arrondie */
+
+  background-size: cover;
+  padding: 60px 20px;
+  text-align: center;
+  border-radius: 15px;
+}
+
+.section-title {
+  font-size: 1.6em;
+  margin-bottom: 40px;
+  color: #000; /* Navy blue */
+  text-transform: uppercase;
+}
+
+.steps-container {
+  display: flex;
+  justify-content: center; /* Centrer les éléments */
+  flex-wrap: wrap;
+}
+
+.step {
+  background-color: #3F7E44;
+  border-radius: 100% 0 0% 0; /* Bordure arrondie */
+  width: 30%;
+  padding: 16px;
+  margin-bottom: 40px;
+  text-align: center; /* Centrer les titres et images */
+
+}
+
+.step-title {
+  font-size: 1.6em;
+  color: #fff; 
+  margin-left: -30%;/* Greenish color */
+  margin-bottom: 65px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.step-image {
+  width: 100%;
+  max-width: 450px; /* Assure une taille égale pour toutes les images */
+  height: 380px; /* Fixer une hauteur égale pour uniformiser les images */
+  object-fit: cover; /* Garde le ratio et remplit l'espace */
+  margin-bottom: -80px;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Effet de survol */
+.step-image:hover {
+  background-color: #3F7E44; /* Couleur verte au survol */
+  transform: scale(1.05); /* Légère augmentation de la taille au survol */
+  color: white; /* Change la couleur du texte au survol */
+}
+
+/* Styles pour la version mobile */
 @media (max-width: 768px) {
-  .footer-links {
+  .steps-container {
     flex-direction: column;
-    align-items: center;
   }
 
-  .footer-section ul {
-    flex-direction: column; /* Repasser en colonne sur mobile */
-  }
-
-  .footer-section {
+  .step {
     width: 100%;
-    text-align: center;
-    margin-bottom: 10px;
-  }
-
-  .footer-logo-container {
-    margin-bottom: 10px;
   }
 }
+
+
+
+
+
+
+
+/* Témoignage - Media Queries pour les écrans moyens (tablettes) */
+@media (max-width: 1024px) {
+  .temoignages-section {
+    padding: 20px;
+  }
+
+  .section-title {
+    font-size: 1.8em; /* Réduire la taille du titre */
+    margin-bottom: 15px; /* Ajuster l'espacement inférieur */
+  }
+
+  blockquote {
+    padding: 30px; /* Réduire le padding du bloc citation */
+    font-size: 0.95em; /* Ajuster la taille du texte */
+    margin: 15px auto; /* Ajuster les marges */
+  }
+
+  .prev, .next {
+    font-size: 25px; /* Réduire la taille des flèches */
+    top: 60%; /* Ajuster la position des flèches */
+  }
+
+  .pages {
+    margin-top: 20px;
+  }
+
+  .pages span {
+    font-size: 18px;
+  }
+}
+
+/* Témoignage - Media Queries pour les petits écrans (mobiles) */
+@media (max-width: 768px) {
+  .temoignages-section {
+    padding: 15px;
+  }
+
+  .section-title {
+    font-size: 1.6em; /* Réduire la taille du titre */
+    margin-bottom: 10px;
+  }
+
+  blockquote {
+    padding: 20px;
+    font-size: 0.85em;
+    margin: 10px auto;
+  }
+
+  .temoignages-container {
+    max-width: 80%;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .prev, .next {
+    color: #fff;
+    font-size: 20px;
+    left: 5px; /* Positionner les flèches plus près du contenu */
+    right: 5px;
+    top: 55%; /* Ajuster la position verticale */
+  }
+
+  .pages {
+    margin-top: 15px;
+  }
+
+  .pages span {
+    font-size: 16px;
+  }
+}
+
+/* Témoignage - Media Queries pour les très petits écrans */
+@media (max-width: 480px) {
+  .temoignages-section {
+    padding: 10px;
+  }
+
+  .section-title {
+    font-size: 1.4em; /* Réduire davantage la taille du titre */
+  }
+
+  blockquote {
+    padding: 15px;
+    font-size: 0.8em;
+    margin: 5px auto;
+  }
+
+  .prev, .next {
+    font-size: 18px;
+    top: 50%; /* Centrer verticalement */
+  }
+
+  .pages span {
+    font-size: 14px;
+  }
+}
+
+
 
 
 
@@ -825,26 +1105,20 @@ hr {
 /* Contact Section Styles */
 .contact-section {
   opacity: 73%;
-  background-color: #f4f4f4; /* Couleur de fond légère en contraste */
-  
-  /* background-image: url('assets/images/imageba.png');  */
-   /* Assurez-vous que le chemin est correct */ 
-
-
-  background-size: cover; /* Ajuste la taille de l'image pour couvrir toute la section */
-  background-position: center; /* Centre l'image dans la section */
-  background-repeat: no-repeat; /* Empêche la répétition de l'image */
+  background-color: #f4f4f4;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
   padding: 40px 20px;
   text-align: center;
-  color: white; /* Assure que le texte est lisible sur l'image de fond */
+  color: white;
 }
-
 
 /* Style des boutons Envoyer et Réinitialiser avec texte blanc */
 input[type="submit"],
 input[type="reset"] {
   background-color: #3F7E44;
-  color: #fff; /* Texte en blanc */
+  color: #fff;
   font-weight: bold;
   padding: 10px 20px;
   border-radius: 5px;
@@ -857,29 +1131,93 @@ input[type="reset"]:hover {
   background-color: #3F7E44;
 }
 
-
-
-.voirplus {
-  text-align: center; /* Centrer le bouton */
-  margin-top: 20px; /* Ajouter de l'espace au-dessus */
+/* Container principal */
+.min-h-screen {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #f4f4f4;
 }
 
-.voirplus a {
-  display: inline-block; /* Le bouton reste inline mais se comporte comme un block */
-  padding: 15px 20px; /* Ajuster la taille intérieure du bouton */
-  background-color: #3F7E44; /* Couleur de fond (vert) */
-  color: white; /* Couleur du texte */
-  text-decoration: none; /* Supprimer le soulignement */
-  border-radius: 1px; /* Bord arrondi pour un effet de bouton */
-  font-size: 16px; /* Taille du texte */
-  transition: background-color 0.3s ease, transform 0.3s ease; /* Transition pour l'effet de hover */
+.relative {
+  position: relative;
+  width: 100%;
 }
 
-.voirplus a:hover {
-  background-color: #45a049; /* Couleur légèrement plus foncée au survol */
-  transform: scale(1.05); /* Légère augmentation de la taille au survol */
+/* Adaptation aux tailles d'écran */
+@media (max-width: 1024px) {
+  .sm\:max-w-xl {
+    max-width: 90%;
+  }
+  .sm\:mx-auto {
+    margin: 0 auto;
+  }
+  .sm\:rounded-3xl {
+    border-radius: 20px;
+  }
+  .sm\:p-20 {
+    padding: 15px;
+  }
 }
 
-.voirplus a:active {
-  background-color: #388e3c; /* Couleur encore plus foncée lorsque le bouton est cliqué */
+@media (max-width: 768px) {
+  .relative {
+    padding: 15px;
+  }
+  .text-5xl {
+    font-size: 2.5em;
+  }
+  .text-lg {
+    font-size: 1.1em;
+  }
 }
+
+@media (max-width: 480px) {
+  .text-5xl {
+    font-size: 2em;
+  }
+  .text-lg {
+    font-size: 1em;
+  }
+  .flex {
+    flex-direction: column;
+    gap: 10px;
+  }
+  .flex input {
+    width: 100%;
+    margin-bottom: 10px;
+  }
+}
+
+/* Style des formulaires */
+form input,
+form textarea {
+  width: 100%;
+  margin-bottom: 10px;
+}
+
+.shadow {
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Espace entre les boutons Envoyer et Réinitialiser */
+.flex {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px; /* Ajoute un espace de 20px entre les boutons */
+}
+
+/* Pour les écrans plus petits, garder l'espace */
+@media (max-width: 480px) {
+  .flex {
+    flex-direction: column;
+    gap: 10px; /* Réduit l'espace entre les boutons sur les écrans plus petits */
+  }
+}
+
+
+
+
+
+

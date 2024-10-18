@@ -54,10 +54,6 @@
 </div> -->
 
 
-<div class="search-container">
-  <input type="text" [(ngModel)]="searchTerm" placeholder="Rechercher une categorie..." />
-  <button (click)="rechercher()">Rechercher</button>
-</div>
 
 
 <div class="bacgraimage">
@@ -65,6 +61,11 @@
     <h1>Nos différents catégories laitiers</h1>
   </div>
   <img src="../assets/images/frommage.jpeg" alt="Bassine" class="header-image">
+</div>
+
+<div class="search-container">
+  <input type="text" [(ngModel)]="searchTerm" placeholder="Rechercher une categorie..." />
+  <button (click)="rechercher()">Rechercher</button>
 </div>
 
 <div class="card-container">
