@@ -21,7 +21,6 @@ export class LigneCommandeAjouterComponent implements OnInit {
 
   // Propriété pour stocker les informations de la nouvelle ligne de commande
   nouvelleLigneCommande: LigneCommande = {
-    produit_boutique_id: 0,
     user_id: 0,
     date: '',
     statut: 'en attente',
@@ -66,25 +65,23 @@ export class LigneCommandeAjouterComponent implements OnInit {
   // Méthode pour ajouter une nouvelle ligne de commande
   ajouterLigneCommande(): void {
     this.submitted = true;
-
-    // Validation pour s'assurer que certains champs obligatoires sont remplis
-    if (!this.nouvelleLigneCommande.produit_boutique_id || !this.nouvelleLigneCommande.user_id) {
-      return; // Ne pas soumettre si des champs sont manquants
-    }
-
-    // Affichage des données avant l'appel API pour débogage
+  
     console.log('Données de la nouvelle ligne de commande:', this.nouvelleLigneCommande);
-
-    // Appel du service pour créer une nouvelle ligne de commande
+  
     this.ligneCommandeService.createLigneCommande(this.nouvelleLigneCommande).subscribe(
       () => {
         console.log('Ligne de commande ajoutée avec succès !');
-        this.router.navigate(['lignecommande']); // Rediriger vers la liste des commandes après succès
+        this.router.navigate(['lignecommande']);
       },
-      (error: any) => { // Déclaration du type
+      (error: any) => {
         console.error('Erreur lors de la création de la ligne de commande:', error);
-        this.messageErreur = 'Une erreur est survenue lors de l\'ajout de la ligne de commande.';
+        if (error.status === 422) {
+          this.messageErreur = 'Erreur de validation: ' + JSON.stringify(error.error.errors);
+        } else {
+          this.messageErreur = 'Une erreur est survenue lors de l\'ajout de la ligne de commande.';
+        }
       }
     );
   }
+  
 }

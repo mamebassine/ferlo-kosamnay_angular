@@ -55,7 +55,7 @@ export class AdminComponent implements OnInit {
   loadLignesCommandes(): void {
     this.ligneCommandeService.getLignesCommandes().subscribe(
       (data) => {
-        this.lignesCommandes = data;
+        // this.lignesCommandes = data;
       },
       (error: any) => {
         this.errorMessage = 'Erreur lors de la récupération des lignes de commande.';

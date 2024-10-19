@@ -1,16 +1,9 @@
 <form (ngSubmit)="ajouterLigneCommande()">
   <!-- Sélection du produit de la boutique -->
-  <div class="form-group">
-    <label for="produit_boutique_id">Produit boutique:</label>
-    <select id="produit_boutique_id" name="produit_boutique_id" class="form-control" [(ngModel)]="nouvelleLigneCommande.produit_boutique_id" required
-            [ngClass]="{'is-invalid': submitted && !nouvelleLigneCommande.produit_boutique_id}">
-        <option value="" disabled>-- Sélectionnez un produit boutique --</option>
-        <option *ngFor="let produit_boutique of ligne_commandes" [value]="produit_boutique.id">{{ produit_boutique.produit_boutique_id }}</option>
-    </select>
-  </div>
+  
 
   
-  <!-- Sélection de l'utilisateur -->
+  <!-- Sélection de l'utilisateur
   <div class="form-group">
     <label for="user_id">Client:</label>
     <select id="user_id" name="user_id" class="form-control" [(ngModel)]="nouvelleLigneCommande.user_id" required
@@ -18,7 +11,7 @@
         <option value="" disabled>-- Sélectionnez un utilisateur --</option>
         <option *ngFor="let user of users" [value]="user.id">{{ user.nom_complet }}</option>
     </select>
-  </div>
+  </div> -->
 
 <!-- Date de la commande -->
   <div>

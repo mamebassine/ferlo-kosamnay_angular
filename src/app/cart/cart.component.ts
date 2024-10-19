@@ -17,8 +17,6 @@ export class CartComponent implements OnInit {
   // Constructeur pour injecter CartService
   // constructor(private cartService: CartService) { }
   constructor(private cartService: CartService, private authService: AuthService) { }
-
-
   // Méthode du cycle de vie qui s'exécute après l'initialisation du composant
   ngOnInit(): void {
     // S'abonner à l'observable cartItems pour obtenir les articles du panier actuels
@@ -76,14 +74,44 @@ clearCart(): void {
 
 
   // 1 ERE TEXTE Méthode pour gérer le processus de passage à la caisse
-  commanderr(): void {
-    if (this.authService.isAuthenticated()) {
-      // Si l'utilisateur est connecté, redirigez vers le paiement
-      window.location.href = 'https://checkout.naboopay.com/checkout/bf9fa099'; 
-    } else {
-      // Si l'utilisateur n'est pas connecté, redirigez vers la page de connexion
-      window.location.href = '/login'; // Remplacez '/login' par l'URL de votre page de connexion
-    }
+//   commanderr(): void {
+//     if (this.authService.isAuthenticated()) {
+//       // Si l'utilisateur est connecté, redirigez vers le paiement
+//       window.location.href = 'https://checkout.naboopay.com/checkout/bf9fa099'; 
+//     } else {
+//       // Si l'utilisateur n'est pas connecté, redirigez vers la page de connexion
+//       window.location.href = '/login'; // Remplacez '/login' par l'URL de votre page de connexion
+//     }
+// }
+
+
+commanderr(): void {
+  if (this.authService.isAuthenticated()) {
+    const produits = this.cartItems.map(item => ({
+
+
+
+      produit_boutique_id: item.productId,    // ID du produit
+      quantite_totale: item.quantite,  // Quantité de l'article
+      prix_totale: item.prix           // Prix unitaire de l'article
+    }));
+
+    // Envoyer la commande au backend Laravel
+    this.cartService.createOrder(produits).subscribe(
+      response => {
+        console.log('Commande enregistrée avec succès:', response);
+        // Rediriger vers la page de paiement après l'enregistrement de la commande
+        window.location.href = 'https://checkout.naboopay.com/checkout/bf9fa099'; 
+      },
+      error => {
+        console.error('Erreur lors de l\'enregistrement de la commande:', error);
+        // Vous pouvez aussi afficher un message d'erreur à l'utilisateur ici
+      }
+    );
+  } else {
+    // Rediriger vers la page de connexion si l'utilisateur n'est pas connecté
+    window.location.href = '/login';
+  }
 }
 
 
