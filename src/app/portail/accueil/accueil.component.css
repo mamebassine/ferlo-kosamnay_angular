@@ -1097,54 +1097,6 @@ blockquote:hover {
 }
 
 
-
-
-
-
-
-/* Contact Section Styles */
-.contact-section {
-  opacity: 73%;
-  background-color: #f4f4f4;
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  padding: 40px 20px;
-  text-align: center;
-  color: white;
-}
-
-/* Style des boutons Envoyer et Réinitialiser avec texte blanc */
-input[type="submit"],
-input[type="reset"] {
-  background-color: #3F7E44;
-  color: #fff;
-  font-weight: bold;
-  padding: 10px 20px;
-  border-radius: 5px;
-  cursor: pointer;
-  transition: background-color 0.3s, color 0.3s, transform 0.1s;
-}
-
-input[type="submit"]:hover,
-input[type="reset"]:hover {
-  background-color: #3F7E44;
-}
-
-/* Container principal */
-.min-h-screen {
-  min-height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background-color: #f4f4f4;
-}
-
-.relative {
-  position: relative;
-  width: 100%;
-}
-
 /* Adaptation aux tailles d'écran */
 @media (max-width: 1024px) {
   .sm\:max-w-xl {
@@ -1190,6 +1142,60 @@ input[type="reset"]:hover {
   }
 }
 
+/* Pour les écrans plus petits, garder l'espace */
+@media (max-width: 480px) {
+  .flex {
+    flex-direction: column;
+    gap: 10px; /* Réduit l'espace entre les boutons sur les écrans plus petits */
+  }
+}
+
+/* pppppppppppppppppppppppppppppppppppppppppppppppp */
+
+
+
+/* Contact Section Styles */
+.contact-section {
+  opacity: 73%;
+  background-color: #f4f4f4;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  padding: 40px 20px;
+  text-align: center;
+  color: white;
+}
+
+/* Style des boutons Envoyer et Réinitialiser avec texte blanc */
+input[type="submit"],
+input[type="reset"] {
+  background-color: #3F7E44;
+  color: #fff;
+  font-weight: bold;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s, color 0.3s, transform 0.1s;
+}
+
+input[type="submit"]:hover,
+input[type="reset"]:hover {
+  background-color: #3F7E44;
+}
+
+/* Container principal */
+.min-h-screen {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #f4f4f4;
+}
+
+.relative {
+  position: relative;
+  width: 100%;
+}
 /* Style des formulaires */
 form input,
 form textarea {
@@ -1207,17 +1213,3 @@ form textarea {
   justify-content: space-between;
   gap: 20px; /* Ajoute un espace de 20px entre les boutons */
 }
-
-/* Pour les écrans plus petits, garder l'espace */
-@media (max-width: 480px) {
-  .flex {
-    flex-direction: column;
-    gap: 10px; /* Réduit l'espace entre les boutons sur les écrans plus petits */
-  }
-}
-
-
-
-
-
-

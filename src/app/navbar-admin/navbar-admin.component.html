@@ -1,18 +1,30 @@
-<!-- src/app/dashboard/admin/navbar-admin/navbar-admin.component.html -->
+<!-- Navbar Structure -->
+<nav class="navbar">
+  <div class="navbar-title">Tableau de Bord Admin</div>
+  <div class="navbar-right">
+      <div class="profile-section">
+<strong><h3>Admin</h3></strong>          
+        <img src="profil.jpg" alt="Photo de profil" class="profile-image">
+          <div class="notifications">
+              <i class="fas fa-bell"></i><span class="notification-count">0</span>
+          </div>
+      </div>
+  </div>
+</nav>
+
+<!-- Sidebar Structure -->
 <aside class="sidebar">
-    <h2>Tableau de Bord Admin</h2>
-    <nav>
+  <nav>
       <ul>
-        <li><a routerLink="/"><i class="fas fa-home"></i> Accueil</a></li>
-        <li><a routerLink="/produitsadmin"><i class="fas fa-box"></i> Produits</a></li>
-        <li><a routerLink="/CategorieAdmin"><i class="fas fa-tags"></i> Catégories</a></li>
-        <li><a routerLink="/representants"><i class="fas fa-users"></i> Représentants</a></li>
-        <li><a routerLink="/region"><i class="fas fa-map-marker-alt"></i> Régions</a></li>
-        <li><a routerLink="/boutique"><i class="fas fa-store"></i> Boutiques</a></li>
-        <li><a routerLink="/produitboutique"><i class="fas fa-tags"></i> Produit boutique</a></li>
-        <li><a routerLink="/commandes"><i class="fas fa-shopping-cart"></i> Commandes</a></li>
+          <li><a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }"><i class="fas fa-home"></i> Accueil</a></li>
+          <li><a routerLink="/produitsadmin" routerLinkActive="active"><i class="fas fa-box"></i> Produits</a></li>
+          <li><a routerLink="/CategorieAdmin" routerLinkActive="active"><i class="fas fa-tags"></i> Catégories</a></li>
+          <li><a routerLink="/representants" routerLinkActive="active"><i class="fas fa-users"></i> Représentants</a></li>
+          <li><a routerLink="/region" routerLinkActive="active"><i class="fas fa-map-marker-alt"></i> Régions</a></li>
+          <li><a routerLink="/boutique" routerLinkActive="active"><i class="fas fa-store"></i> Boutiques</a></li>
+          <li><a routerLink="/produitboutique" routerLinkActive="active"><i class="fas fa-tags"></i> Produit boutique</a></li>
+          <li><a routerLink="/commandes" routerLinkActive="active"><i class="fas fa-shopping-cart"></i> Commandes</a></li>
       </ul>
-    </nav>
-    <button class="deconnexion" (click)="logout()"><i class="fas fa-sign-out-alt"></i> Déconnexion</button>
-  </aside>
-  
+  </nav>
+  <button class="deconnexion"><i class="fas fa-sign-out-alt"></i> Déconnexion</button>
+</aside>

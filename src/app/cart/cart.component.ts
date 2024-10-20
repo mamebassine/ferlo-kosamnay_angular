@@ -101,7 +101,7 @@ commanderr(): void {
       response => {
         console.log('Commande enregistrée avec succès:', response);
         // Rediriger vers la page de paiement après l'enregistrement de la commande
-        window.location.href = 'https://checkout.naboopay.com/checkout/bf9fa099'; 
+        // window.location.href = 'https://checkout.naboopay.com/checkout/bf9fa099'; 
       },
       error => {
         console.error('Erreur lors de l\'enregistrement de la commande:', error);
