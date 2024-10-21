@@ -19,6 +19,8 @@ export interface User {
 export class AuthService {
   
   // Déclaration de l'URL de base de l'API backend
+  private apiUrl = 'http://localhost:8000/api/login'; 
+//private apiUrl = "https://ferlo-kosamnay.mamebassine06.simplonfabriques.com/api/"
 
   // BehaviorSubject pour stocker l'état actuel de l'utilisateur
   private currentUserSubject: BehaviorSubject<User | null>;

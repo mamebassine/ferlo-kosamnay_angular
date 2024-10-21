@@ -1,5 +1,12 @@
 /* Style des cartes */
 .cards {
+    max-width: 65%; /* Ajustez selon vos préférences */
+  margin: 0 auto; /* Centre le conteneur horizontalement */
+  margin-top: 10%; /* Ajustez cette valeur pour faire descendre le tableau */
+  padding: 20px;
+  margin-left: 25%;
+
+
     display: flex;
     flex-wrap: wrap;
     justify-content: center; /* Centre les cartes horizontalement */
@@ -105,8 +112,20 @@
 
 
 
+h1{
+    color: #000;
+    font-size: 2rem;
+    margin-left: 25%;
+}
 
 .table {
+    max-width: 65%; /* Ajustez selon vos préférences */
+    margin: 0 auto; /* Centre le conteneur horizontalement */
+    margin-top: 10%; /* Ajustez cette valeur pour faire descendre le tableau */
+    padding: 20px;
+    margin-left: 25%;
+
+
     width: 100%;
     border-collapse: collapse;
     margin-top: 20px;

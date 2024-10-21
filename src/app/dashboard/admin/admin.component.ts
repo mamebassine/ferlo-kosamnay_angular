@@ -41,16 +41,17 @@ export class AdminComponent implements OnInit {
   private ligneCommandeService = inject(LigneCommandeService);
 
   ngOnInit(): void {
-    // Remplissez le tableau des cartes avec des données dynamiques en français
+    // Mise à jour du tableau des cartes avec les informations demandées en français
     this.cards = [
-      { title: 'Total d\'Utilisateurs', value: 1000, color: '#007bff', position: 'top-left' },
-      { title: 'Commandes Actives', value: 500, color: '#dc3545', position: 'top-right' },
-      { title: 'Revenu', value: '10,000 CFA', color: '#28a745', position: 'bottom-left' },
-      { title: 'Nouveaux Produits', value: 50, color: '#ffc107', position: 'bottom-right' }
+      { title: 'Voir Toutes les Ventes', value: '1500', color: '#007bff', position: 'top-left' },
+      { title: 'Produits les Mieux Vendus', value: 'Lait', color: '#dc3545', position: 'top-right' },
+      { title: 'Nombre de Produits sur le Site', value: 200, color: '#28a745', position: 'bottom-left' },
+      { title: 'Produits Restants', value: 50, color: '#ffc107', position: 'bottom-right' }
     ];
-
+  
     this.loadLignesCommandes();
   }
+  
 
   loadLignesCommandes(): void {
     this.ligneCommandeService.getLignesCommandes().subscribe(
@@ -58,7 +59,7 @@ export class AdminComponent implements OnInit {
         // this.lignesCommandes = data;
       },
       (error: any) => {
-        this.errorMessage = 'Erreur lors de la récupération des lignes de commande.';
+        // this.errorMessage = 'Erreur lors de la récupération des lignes de commande.';
       }
     );
   }

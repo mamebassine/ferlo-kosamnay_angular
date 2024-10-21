@@ -4,6 +4,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { regionService, region } from '../../services/region.service';
+import { NavbarAdminComponent } from "../../navbar-admin/navbar-admin.component";
 
 
 @Component({
@@ -12,8 +13,9 @@ import { regionService, region } from '../../services/region.service';
   imports: [
     CommonModule,
     FormsModule,
-    ReactiveFormsModule
-  ],
+    ReactiveFormsModule,
+    NavbarAdminComponent
+],
   templateUrl: './region-modifier.component.html',
   styleUrls: ['./region-modifier.component.css']
 })

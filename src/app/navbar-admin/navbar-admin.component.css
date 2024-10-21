@@ -4,10 +4,6 @@
     font-weight: bold; /* Gras pour l'onglet actif */
 }
 
-
-
-
-
 /* Style de la barre latérale */
 .sidebar {
     position: fixed; /* Gardez fixed pour qu'il reste en place lors du défilement */
@@ -37,9 +33,9 @@
 .profile-image {
 
     margin-right: 14%;
-    width: 50px;
-    height: 50px;
-    border-radius: 40%;
+    width: 30px;
+    height: 30px;
+    border-radius: 100%;
     border: 2px solid #fff;
     margin-left: 16px; /* Espacement entre le nom et l'image */
 }

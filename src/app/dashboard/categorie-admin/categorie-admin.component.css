@@ -1,11 +1,21 @@
 /* Container Styling */
 .container {
-    max-width: 80%;
+  max-width: 65%; /* Ajustez selon vos préférences */
+    margin: 0 auto; /* Centre le conteneur horizontalement */
+    margin-top: 8%; /* Ajustez cette valeur pour faire descendre le tableau */
+    padding: 4px;
+    margin-left: 25%;
+    background-color: #f8f9fa;
+
+
+
+
+    /* max-width: 80%;
     margin: 30px auto;
     background-color: #f8f9fa;
     padding: 30px;
     border-radius: 8px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15); */
   }
   
   /* Heading Styling */

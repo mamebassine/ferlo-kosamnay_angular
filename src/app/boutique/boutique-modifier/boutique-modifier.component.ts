@@ -5,13 +5,14 @@ import { BoutiqueService } from '../../services/boutique.service';
 import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
+import { NavbarAdminComponent } from "../../navbar-admin/navbar-admin.component";
 
 @Component({
   standalone: true,
   selector: 'app-boutique-modifier',
   templateUrl: './boutique-modifier.component.html',
   styleUrls: ['./boutique-modifier.component.css'],
-  imports: [CommonModule, FormsModule, ReactiveFormsModule, RouterModule]
+  imports: [CommonModule, FormsModule, ReactiveFormsModule, RouterModule, NavbarAdminComponent]
 })
 export class BoutiqueModifierComponent implements OnInit {
   boutique: any = {};

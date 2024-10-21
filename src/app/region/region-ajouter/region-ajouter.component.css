@@ -1,0 +1,64 @@
+.container {
+    margin-bottom: -97%;
+    max-width: 600px; /* Ajustez selon vos besoins */
+    margin: 160px auto; /* Centre le conteneur et ajoute de l'espace en haut */
+    padding: 20px;
+    background-color: #f9f9f9; /* Fond léger pour le contraste */
+    border-radius: 8px; /* Coins arrondis */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Ombre subtile */
+    display: flex; /* Utilise flexbox pour centrer le contenu */
+    flex-direction: column; /* Aligne les éléments en colonne */
+    align-items: center; /* Centre horizontalement */
+}
+
+h2 {
+    text-align: center; /* Centre le titre */
+    color: #4F772D;
+    margin-bottom: 30px;
+}
+
+.form-group {
+    margin-bottom: 20px; /* Espace entre les champs du formulaire */
+    width: 100%; /* Assure que le formulaire utilise la largeur complète */
+}
+
+label {
+    font-weight: bold; /* Rend les labels en gras */
+}
+
+input[type="text"] {
+    width: 100%; /* Largeur complète pour l'input */
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px; /* Coins arrondis pour l'input */
+    font-size: 14px;
+}
+
+.btn {
+    font-size: 14px;
+    padding: 10px 20px;
+    border-radius: 5px;
+    text-transform: uppercase; /* Met le texte en majuscules */
+    display: inline-block; /* Assure que les boutons restent sur la même ligne */
+}
+
+.btn-primary {
+    background-color: #4F772D; /* Couleur du bouton principal */
+    color: #fff;
+    border: none;
+    margin-right: 10px; /* Espace entre les boutons */
+}
+
+.btn-primary:hover {
+    background-color: #3b5e24; /* Couleur plus foncée au survol */
+}
+
+.btn-secondary {
+    background-color: #ccc; /* Couleur du bouton secondaire */
+    color: #000;
+    border: none;
+}
+
+.btn-secondary:hover {
+    background-color: #b3b3b3; /* Couleur plus foncée au survol */
+}
