@@ -1,10 +1,9 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { Observable, throwError } from 'rxjs';
 
 export interface LigneCommande {
   id?: number; // L'ID peut être optionnel pour les nouvelles commandes
-  produit_boutique_id: number;
   user_id: number;
   date: string; // Utilisez un type Date si nécessaire
   statut: string;
@@ -38,12 +37,29 @@ export class LigneCommandeService {
   }
 
   // Méthode pour créer une nouvelle ligne de commande
+  // createLigneCommande(ligneCommande: LigneCommande): Observable<LigneCommande> {
+  //   const headers = new HttpHeaders({
+  //     'Authorization': 'Bearer ' + localStorage.getItem('token')
+  //   });
+  //   return this.http.post<LigneCommande>(this.apiUrl, ligneCommande, { headers });
+  // }
   createLigneCommande(ligneCommande: LigneCommande): Observable<LigneCommande> {
+    const token = localStorage.getItem('token');  // Récupérez le token depuis le localStorage
+    
+    // Vérifiez si le token est disponible avant d'envoyer la requête
+    if (!token) {
+      console.error('Token non disponible !');
+      return throwError('Token non disponible.');
+    }
+  
     const headers = new HttpHeaders({
-      'Authorization': 'Bearer ' + localStorage.getItem('token')
+      'Authorization': `Bearer ${token}`,  // Ajoutez le token JWT
+      'Content-Type': 'application/json'
     });
+  
     return this.http.post<LigneCommande>(this.apiUrl, ligneCommande, { headers });
   }
+  
 
   // Méthode pour mettre à jour une ligne de commande existante
   updateLigneCommande(id: number, ligneCommande: LigneCommande): Observable<LigneCommande> {

@@ -10,7 +10,6 @@ import { ActivatedRoute, Router } from '@angular/router';
 export class LigneCommandeModifierComponent implements OnInit {
   ligneCommande: any = {
     id: null,
-    produit_boutique_id: 0,
     user_id: 0,
     date: '',
     statut: '',

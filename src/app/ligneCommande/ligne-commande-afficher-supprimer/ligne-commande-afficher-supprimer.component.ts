@@ -5,7 +5,6 @@ import { RouterLink } from '@angular/router';
 
 interface LigneCommande {
   id?: number;
-  produit_boutique_id: number;
   user_id: number;
   date: string;
   statut: string;
@@ -36,14 +35,12 @@ export class LigneCommandeAfficherSupprimerComponent implements OnInit {
     console.log('loadLignesCommandes: Chargement des lignes de commande...');
     this.ligneCommandeService.getLignesCommandes().subscribe(
       (data) => {
-        console.log('loadLignesCommandes: Lignes de commande chargées avec succès.', data);
+        console.log('Réponse de l\'API:', data);
         this.lignesCommandes = data;
       },
       (error: any) => {
         console.error('Erreur lors de la récupération des lignes de commande', error);
-        console.log('loadLignesCommandes: Lignes pas vu.');
-
-        this.errorMessage = 'Erreur lors de la récupération des lignes de commande.';
+        this.errorMessage = error.message || 'Erreur lors de la récupération des lignes de commande.';
       }
     );
   }

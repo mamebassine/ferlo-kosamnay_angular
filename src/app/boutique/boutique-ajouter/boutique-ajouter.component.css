@@ -1,0 +1,78 @@
+.container {
+    max-width: 600px; /* Largeur maximale du conteneur */
+    margin: 80px auto; /* Augmenté l'espace en haut pour centrer le conteneur avec plus d'espace */
+    padding: 20px; /* Espacement interne */
+    background-color: #f9f9f9; /* Fond léger pour le contraste */
+    border-radius: 8px; /* Coins arrondis */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Ombre subtile */
+    display: flex; /* Utilise flexbox pour centrer le contenu */
+    flex-direction: column; /* Aligne les éléments en colonne */
+    align-items: center; /* Centre horizontalement */
+}
+
+h2 {
+    text-align: center; /* Centre le titre */
+    color: #4F772D; /* Couleur du texte */
+    margin-top: 40px; /* Ajouté un espace au-dessus du titre */
+    margin-bottom: 30px; /* Espacement en bas du titre */
+}
+
+.form-group {
+    width: 100%; /* Assure que les groupes de formulaire utilisent la largeur complète */
+    margin-bottom: 20px; /* Espace entre les champs du formulaire */
+    margin-top: 20px; /* Ajouté un espace au-dessus du groupe de formulaire */
+}
+
+label {
+    font-weight: bold; /* Rendre les labels en gras */
+}
+
+input[type="text"],
+select {
+    width: 100%; /* Largeur complète pour input et select */
+    padding: 10px; /* Espacement interne */
+    border: 1px solid #ccc; /* Bordure pour input et select */
+    border-radius: 5px; /* Coins arrondis pour input et select */
+    font-size: 14px; /* Taille de police */
+    transition: border-color 0.3s; /* Transition pour l'effet de focus */
+}
+
+input[type="text"]:focus,
+select:focus {
+    border-color: #4F772D; /* Couleur de bordure au focus */
+}
+
+.btn {
+    font-size: 14px; /* Taille de police pour les boutons */
+    padding: 10px 20px; /* Espacement interne pour les boutons */
+    border-radius: 5px; /* Coins arrondis pour les boutons */
+    text-transform: uppercase; /* Mettre le texte en majuscules */
+    background-color: #4F772D; /* Couleur du bouton principal */
+    color: #fff; /* Couleur du texte */
+    border: none; /* Pas de bordure */
+    cursor: pointer; /* Changer le curseur au survol */
+    margin-top: 20px; /* Espacement au-dessus du bouton */
+}
+
+.btn:hover {
+    background-color: #3b5e24; /* Couleur plus foncée au survol */
+}
+
+.alert {
+    width: 100%; /* Largeur complète pour les alertes */
+    padding: 15px; /* Espacement interne */
+    border-radius: 5px; /* Coins arrondis */
+    margin-top: 10px; /* Espacement au-dessus de l'alerte */
+}
+
+.alert-danger {
+    background-color: #f8d7da; /* Fond pour les messages d'erreur */
+    color: #721c24; /* Couleur du texte pour les messages d'erreur */
+    border: 1px solid #f5c6cb; /* Bordure pour les messages d'erreur */
+}
+
+.alert-success {
+    background-color: #d4edda; /* Fond pour les messages de succès */
+    color: #155724; /* Couleur du texte pour les messages de succès */
+    border: 1px solid #c3e6cb; /* Bordure pour les messages de succès */
+}

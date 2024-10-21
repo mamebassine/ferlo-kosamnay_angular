@@ -37,7 +37,7 @@ export class regionAfficherSupprimerComponent implements OnInit {
   }
 
   createNewregion() {
-    this.router.navigate(['/region/ajouter']);
+    this.router.navigate(['region/ajouter']);
   }
 
   editregion(id: number) {
