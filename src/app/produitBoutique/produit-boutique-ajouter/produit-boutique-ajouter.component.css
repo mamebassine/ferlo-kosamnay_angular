@@ -1,12 +1,58 @@
-/* Style du conteneur du formulaire */
-form {
-    background-color: #f9f9f9; /* Couleur de fond claire */
-    padding: 20px; /* Espacement interne */
-    border-radius: 5px; /* Coins arrondis */
-    margin: 20px auto; /* Marge autour du formulaire */
-    max-width: 400px; /* Largeur maximale */
+/* Style pour le titre */
+h1 {
+    font-size: 2em;
+    text-align: center; /* Centrer le titre */
+    margin-top: 100px; /* Marge supérieure pour descendre le titre */
+    color: #000; /* Couleur du texte */
 }
 
+/* Style pour le conteneur du formulaire */
+.form-wrapper {
+    background-color: #f9f9f9; 
+    padding: 20px;
+    border-radius: 5px; 
+    margin: 100px auto; /* Augmenter la marge supérieure pour faire descendre le formulaire */
+    max-width: 500px; /* Largeur maximale */
+}
+
+/* Style pour le conteneur de l'en-tête */
+.header-container {
+    display: flex;
+    justify-content: space-between; /* Espacer les éléments */
+    align-items: center; /* Aligner verticalement */
+    margin-bottom: 20px; /* Espacement en bas */
+}
+
+/* Style pour le bouton Retour */
+.retour {
+    color: #090909; 
+    background: none; 
+    border: none; 
+    font-size: 1em; 
+    cursor: pointer;
+    display: flex; 
+    align-items: center; 
+    transition: color 0.3s; 
+}
+
+/* Effet de survol pour le bouton Retour */
+.retour:hover {
+    color: #88A44B; 
+}
+
+/* Style pour le formulaire */
+form {
+    display: flex;
+    flex-direction: column; 
+    gap: 15px; 
+}
+
+/* Autres styles existants */
+input[type="number"], button[type="submit"] {
+    width: 100%; 
+}
+
+/* Style pour les champs du formulaire */
 label {
     display: block; 
     margin-bottom: 5px;
@@ -14,38 +60,25 @@ label {
 }
 
 input[type="number"] {
-    width: 100%; /* Largeur complète */
-    padding: 10px; /* Espacement interne */
-    margin-bottom: 15px; /* Espacement sous chaque champ */
-    border: 1px solid #ccc; /* Bordure grise */
-    border-radius: 1px; /* Coins arrondis */
-    box-sizing: border-box; /* Inclut la bordure dans la largeur totale */
+    width: 100%; 
+    padding: 10px;
+    margin-bottom: 15px; 
+    border: 1px solid #ccc; 
+    border-radius: 1px; 
+    box-sizing: border-box; 
 }
 
+/* Style pour le bouton Ajouter */
 button[type="submit"] {
-    background-color: #3F7E44; /* Couleur de fond */
-    color: #fff; /* Couleur du texte */
-    padding: 10px 20px; /* Espacement interne */
-    border: none; /* Pas de bordure */
-    border-radius: 1px; /* Coins arrondis */
-    cursor: pointer; /* Curseur en main */
-    transition: background-color 0.3s; /* Transition de couleur */
+    background-color: #3F7E44; 
+    color: #fff; 
+    padding: 10px 20px; 
+    border: none; 
+    border-radius: 1px; 
+    cursor: pointer; 
+    transition: background-color 0.3s; 
 }
 
 button[type="submit"]:hover {
-    background-color: #88A44B; /* Couleur légèrement plus foncée au survol */
+    background-color: #88A44B; 
 }
-
-button {
-    text-align: center;
-    background-color: #3F7E44; /* Couleur bleue */
-    color: white; /* Couleur du texte blanc */
-    padding: 10px 20px; /* Espacement interne */
-    border: none; /* Pas de bordure */
-    border-radius: 1px; /* Coins arrondis */
-    cursor: pointer; /* Curseur en main */
-    transition: background-color 0.3s; /* Transition de couleur */
-    margin-top: 15px; /* Espacement au-dessus du bouton */
-}
-
-

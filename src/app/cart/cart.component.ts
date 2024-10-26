@@ -1,9 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { CartService, CartItem } from '../services/cart.service'; 
-import { AuthService } from '../services/auth.service'; // Assurez-vous d'importer AuthService
+import { AuthService } from '../services/auth.service'; 
 
 import { FormsModule } from '@angular/forms'; 
 import { CommonModule } from '@angular/common'; 
+import { PaiementService } from '../services/paiement.service';
 @Component({
   selector: 'app-cart', 
   standalone: true, 
@@ -13,10 +14,11 @@ import { CommonModule } from '@angular/common';
 })
 export class CartComponent implements OnInit {
   cartItems: CartItem[] = []; // Tableau pour contenir les articles du panier
-
+  paymentType: string = 'wallet'; // Le type de paiement
+  totalAmount: number = 0; // Le montant total à payer
   // Constructeur pour injecter CartService
   // constructor(private cartService: CartService) { }
-  constructor(private cartService: CartService, private authService: AuthService) { }
+  constructor(private cartService: CartService, private authService: AuthService, private paymentService: PaiementService) { }
   // Méthode du cycle de vie qui s'exécute après l'initialisation du composant
   ngOnInit(): void {
     // S'abonner à l'observable cartItems pour obtenir les articles du panier actuels
@@ -65,54 +67,57 @@ clearCart(): void {
   this.cartService.clearCart(); // Appeler la méthode du service pour vider le panier
 }
 
-  //INIATIALE  Méthode pour gérer le processus de passage à la caisse
-  // commanderr(): void {
-  //   // Rediriger vers la page de paiement
-  //   window.location.href = 'https://checkout.naboopay.com/checkout/bf9fa099'; 
-  // }
-
-
-
-  // 1 ERE TEXTE Méthode pour gérer le processus de passage à la caisse
-//   commanderr(): void {
-//     if (this.authService.isAuthenticated()) {
-//       // Si l'utilisateur est connecté, redirigez vers le paiement
-//       window.location.href = 'https://checkout.naboopay.com/checkout/bf9fa099'; 
-//     } else {
-//       // Si l'utilisateur n'est pas connecté, redirigez vers la page de connexion
-//       window.location.href = '/login'; // Remplacez '/login' par l'URL de votre page de connexion
-//     }
-// }
-
-
+  
 commanderr(): void {
   if (this.authService.isAuthenticated()) {
     const produits = this.cartItems.map(item => ({
-
-
-
-      produit_boutique_id: item.productId,    // ID du produit
-      quantite_totale: item.quantite,  // Quantité de l'article
-      prix_totale: item.prix           // Prix unitaire de l'article
+      produit_boutique_id: item.productId,
+      quantite_totale: item.quantite,
+      prix_totale: item.prix
     }));
+
+    // Calcul du montant total
+    this.totalAmount = this.cartItems.reduce((total, item) => total + item.prix * item.quantite, 0);
 
     // Envoyer la commande au backend Laravel
     this.cartService.createOrder(produits).subscribe(
       response => {
-        console.log('Commande enregistrée avec succès:', response);
-        // Rediriger vers la page de paiement après l'enregistrement de la commande
-        // window.location.href = 'https://checkout.naboopay.com/checkout/bf9fa099'; 
+
+        const ligneCommandeId = response.commande.id;
+        console.log('Commande enregistrée avec succès:', ligneCommandeId);
+
+        if (ligneCommandeId) {
+          const currentDate = new Date().toISOString().split('T')[0]; // Récupérer la date actuelle au format AAAA-MM-JJ
+
+          // Effectuer le paiement pour la commande
+          this.paymentService.effectuerPaiement(ligneCommandeId, this.totalAmount, currentDate, this.paymentType).subscribe(
+            paiementResponse => {
+              const urlDePaiement = paiementResponse?.payment_url;
+
+              if (urlDePaiement) {
+                // Rediriger l'utilisateur vers l'URL de paiement
+                window.location.href = urlDePaiement;
+              } else {
+                console.error('Erreur: l\'URL de paiement est introuvable.');
+              }
+            },
+            paiementError => {
+              console.error('Erreur lors du paiement:', paiementError);
+            }
+          );
+        } else {
+          console.error('Erreur: l\'ID de la commande est introuvable.');
+        }
       },
       error => {
         console.error('Erreur lors de l\'enregistrement de la commande:', error);
-        // Vous pouvez aussi afficher un message d'erreur à l'utilisateur ici
       }
     );
   } else {
-    // Rediriger vers la page de connexion si l'utilisateur n'est pas connecté
-    window.location.href = '/login';
+    window.location.href = '/login'; // Rediriger vers la page de connexion si non authentifié
   }
 }
+
 
 
 

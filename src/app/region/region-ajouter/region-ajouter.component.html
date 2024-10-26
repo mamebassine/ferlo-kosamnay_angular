@@ -1,17 +1,25 @@
 <app-navbar-admin></app-navbar-admin>
 
-
 <div class="container">
-    <h2>Ajouter une nouvelle région</h2>
-  
-    <form (ngSubmit)="onSubmit()" #f="ngForm">
-      <div class="form-group">
-        <label for="nom">Nom de la région :</label>
-        <input type="text" id="nom" name="nom" [(ngModel)]="region.nom" required>
+  <h2>Ajouter une nouvelle région</h2>
+
+  <!-- Display error messages -->
+  <div *ngIf="errorMessage" class="alert alert-danger">{{ errorMessage }}</div>
+
+  <form (ngSubmit)="onSubmit()" #f="ngForm">
+    <div class="form-group">
+      <label for="nom">Nom de la région :</label>
+      <input type="text" id="nom" name="nom" class="form-control" [(ngModel)]="region.nom" required pattern="[A-Za-z]*" 
+             #nomField="ngModel" [ngClass]="{'is-invalid': nomField.invalid && (nomField.dirty || f.submitted)}">
+
+      <!-- Error message for invalid region name -->
+      <div *ngIf="nomField.invalid && (nomField.dirty || f.submitted)" class="invalid-feedback">
+        <div *ngIf="nomField.errors?.['required']">Le nom de la région est obligatoire.</div>
+        <div *ngIf="nomField.errors?.['pattern']">Le nom de la région doit contenir uniquement des lettres.</div>
       </div>
-  
-      <button type="submit" [disabled]="!f.valid" class="btn btn-primary">Ajouter</button>
-      <button type="button" (click)="cancel()" class="btn btn-secondary">Annuler</button>
-    </form>
-  </div>
-  
+    </div>
+
+    <button type="submit" [disabled]="!f.valid" class="btn btn-primary">Ajouter</button>
+    <button type="button" (click)="cancel()" class="btn btn-secondary">Annuler</button>
+  </form>
+</div>

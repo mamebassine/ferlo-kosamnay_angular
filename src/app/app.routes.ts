@@ -1,21 +1,17 @@
 import { Routes } from '@angular/router';
 import { AdminGuard } from './admin.guard';
 
+
 // Import des composants login, register, dashoady
 import { LoginComponent } from './auth/login/login.component';
 import { RegisterComponent } from './auth/register/register.component';
 import { AdminComponent } from './dashboard/admin/admin.component'; 
 import { ClientComponent } from './dashboard/admin/client/client.component'; 
+//import { RepresentantComponent } from './dashboard/admin/representant/representant.component';
 
-
-
-
+//import { RepresentantComponent } from './dashboard/admin/representant/representant.component';
 import {   CategorieAdminComponent } from './dashboard/categorie-admin/categorie-admin.component'; 
-
 import { ProduitsAdminComponent } from './dashboard/produits-admin/produits-admin.component';
-
-
-
 // Import des composants accueil et contact
 import { AccueilComponent } from './portail/accueil/accueil.component'; 
 import { ContactComponent } from './portail/contact/contact.component'; 
@@ -36,8 +32,6 @@ import { regionAfficherSupprimerComponent } from './region/region-afficher-suppr
 import { regionAjouterComponent } from './region/region-ajouter/region-ajouter.component';
 import { regionModifierComponent } from './region/region-modifier/region-modifier.component';
 
-
-
 import { BoutiqueAfficherSupprimerComponent } from './boutique/boutique-afficher-supprimer/boutique-afficher-supprimer.component';
 import { BoutiqueAjouterComponent } from './boutique/boutique-ajouter/boutique-ajouter.component';
 import { BoutiqueModifierComponent } from './boutique/boutique-modifier/boutique-modifier.component';
@@ -56,6 +50,8 @@ import { LigneCommandeAjouterComponent } from './ligneCommande/ligne-commande-aj
 import { LigneCommandeModifierComponent } from './ligneCommande/ligne-commande-modifier/ligne-commande-modifier.component';
 import { LigneCommandeVoirDetailComponent } from './ligneCommande/ligne-commande-voir-detail/ligne-commande-voir-detail.component';
 
+import { CommandeComponent } from './commande/commande/commande.component';
+
 
 import { CategorieFromageComponent } from './portail/categorie/categorie-fromage/categorie-fromage.component';
 import { CategorieLaitComponent } from './portail/categorie/categorie-lait/categorie-lait.component';
@@ -66,8 +62,10 @@ import { CategorieLaitCailleComponent } from './portail/categorie/categorie-lait
 
 
 //pour representant
+import { RepresentantDashboardComponent } from './dashboard/admin/representant-dashboard/representant-dashboard.component'; // Assure-toi que le chemin est correct
 
-import { AjoutRepresentantComponent } from './dashboard/admin/ajout-representant/ajout-representant.component'; // Import du composant
+
+import { AjoutRepresentantComponent } from './dashboard/admin/ajout-representant/ajout-representant.component'; 
 import { CartComponent } from './cart/cart.component';
 
 
@@ -125,7 +123,8 @@ import { CartComponent } from './cart/cart.component';
 
  { path: 'representants', component: AjoutRepresentantComponent, canActivate: [AdminGuard] },
 
-{ path: 'clients', component: ClientComponent },
+   
+ { path: 'clients', component: ClientComponent },
 
  
 
@@ -143,6 +142,11 @@ import { CartComponent } from './cart/cart.component';
 { path: 'lignecommande/modifier/:id', component: LigneCommandeModifierComponent },
 { path: 'lignecommande/detail/:id', component: LigneCommandeVoirDetailComponent },
 { path: 'panier', component: CartComponent },
+{ path: 'lignecommande/detail/:id', component: LigneCommandeVoirDetailComponent },
+
+{ path: 'commande', component: CommandeComponent },
+
+
 
 // const routes: Routes = [
 //   { path: 'admin', component: AdminComponent, canActivate: [adminGuard] },
@@ -153,6 +157,7 @@ import { CartComponent } from './cart/cart.component';
 
 // { path: 'admindec', component:AdmindeclarationComponent, canActivate: [AuthGuard]},
 
+{ path: 'dashboardrepresentant', component: RepresentantDashboardComponent },
 
 
 

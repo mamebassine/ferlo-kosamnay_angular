@@ -49,10 +49,6 @@ html, body {
     transition: transform 0.3s;
 }
 
-.product-image:hover {
-    transform: scale(1.08); /* Animation sur l'image au hover */
-}
-
 .product-info {
     padding-left: 30px;
     flex: 1;
@@ -209,3 +205,5 @@ html, body {
         margin-bottom: 15px;
     }
 }
+
+

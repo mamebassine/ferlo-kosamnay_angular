@@ -1,19 +1,27 @@
 <app-navbar-admin></app-navbar-admin>
 
-<h1>Ajouter un produit boutique</h1>
+<div class="form-container">
+  <div class="form-wrapper">
+      <div class="header-container">
+          <h1>Ajouter un produit boutique</h1>
+          <div class="button-container">
+              <button (click)="goBack()" class="retour">
+                  <span>&larr;</span>
+              </button>
+          </div>
+      </div>
 
-<form [formGroup]="produitBoutiqueForm" (ngSubmit)="onSubmit()">
-    <label for="produit_id">Produit ID</label>
-    <input id="produit_id" formControlName="produit_id" type="number" />
-  
-    <label for="boutique_id">Boutique ID</label>
-    <input id="boutique_id" formControlName="boutique_id" type="number" />
-  
-    <label for="quantite">Quantité</label>
-    <input id="quantite" formControlName="quantite" type="number" />
-  
-    <button type="submit">Ajouter</button>
-  </form>
-  
-  <button (click)="goBack()">Retour à la liste des produits</button>
-  
+      <form [formGroup]="produitBoutiqueForm" (ngSubmit)="onSubmit()">
+          <label for="produit_id">Produit ID</label>
+          <input id="produit_id" formControlName="produit_id" type="number" />
+
+          <label for="boutique_id">Boutique ID</label>
+          <input id="boutique_id" formControlName="boutique_id" type="number" />
+
+          <label for="quantite">Quantité</label>
+          <input id="quantite" formControlName="quantite" type="number" />
+
+          <button type="submit">Ajouter</button>
+      </form>
+  </div>
+</div>

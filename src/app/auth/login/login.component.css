@@ -5,7 +5,7 @@
 
 .error-message {
     color: red;
-    font-size: 0.9em; /* Ajuste la taille des messages si besoin */
+    font-size: 1em; /* Ajuste la taille des messages si besoin */
     margin-top: 5px;
   }
 

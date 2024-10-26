@@ -11,6 +11,8 @@ import { AuthService, User } from '../../../services/auth.service';
 import { ProduitBoutiqueService } from '../../../services/produit-boutique.service';
 import Swal from 'sweetalert2';
 import { CartService, CartItem } from '../../../services/cart.service';
+import { Location } from '@angular/common'; // Assurez-vous de cet import
+
 
 
 
@@ -47,7 +49,9 @@ export class ProduitVoirDetailComponent implements OnInit {
     private route: ActivatedRoute, 
     private produitService: ProduitService,
     private router: Router, 
-    private cartService: CartService // Inject CartService here
+    private cartService: CartService, // Inject CartService here
+    private location: Location
+
 
   ) {}
 
@@ -85,6 +89,12 @@ export class ProduitVoirDetailComponent implements OnInit {
     );
   }
 
+// Méthode pour revenir à la page précédente
+goBack(): void {
+  this.location.back();
+
+  
+}
 
 
 

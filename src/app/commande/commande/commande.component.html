@@ -1,0 +1,21 @@
+<table>
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Produit</th>
+        <th>Ligne de Commande</th>
+        <th>Quantité</th>
+        <th>Montant</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let commande of commandes">
+        <td>{{ commande.id }}</td>
+        <td>{{ commande.produit_boutique.id }}</td> 
+        <td>{{ commande.ligne_commande.id }}</td>
+        <td>{{ commande.quantite }}</td>
+        <td>{{ commande.montant }}</td>
+      </tr>
+    </tbody>
+  </table>
+  
