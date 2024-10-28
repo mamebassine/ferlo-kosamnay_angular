@@ -78,9 +78,7 @@ export class BoutiqueAjouterComponent implements OnInit {
       }
     );
   }
-
-
-  // Soumission du formulaire
+// Soumission du formulaire
   onSubmit(): void {
     // Vérifier que tous les champs requis sont remplis
     if (

@@ -2,6 +2,7 @@
 import { Component, OnInit } from '@angular/core';
 import { CommandeService } from '../../services/commande.service';
 import { CommonModule } from '@angular/common';
+import { NavbarAdminComponent } from "../../navbar-admin/navbar-admin.component";
 
 
 @Component({
@@ -9,7 +10,7 @@ import { CommonModule } from '@angular/common';
   templateUrl: './commande.component.html',
   styleUrls: ['./commande.component.css'],
   standalone: true, 
-  imports: [CommonModule], 
+  imports: [CommonModule, NavbarAdminComponent], 
 })
 export class CommandeComponent implements OnInit {
   commandes: any[] = []; // Déclaration d'un tableau pour stocker les commandes
@@ -20,6 +21,20 @@ export class CommandeComponent implements OnInit {
     this.loadCommandes(); // Appel de la méthode pour charger les commandes
   }
 
+  onCardClick(commande: any): void {
+    console.log(`Carte cliquée pour la commande ID: ${commande.id}`);
+    // Ajoutez ici la logique pour rediriger ou ouvrir des détails
+  }
+
+
+  onDelete(id: number): void {
+    if (confirm('Êtes-vous sûr de vouloir supprimer cette commande ?')) {
+      // Ajoutez votre logique de suppression ici
+      this.commandes = this.commandes.filter(commande => commande.id !== id);
+      console.log('Commande supprimée:', id);
+    }
+  }
+  
   loadCommandes(): void {
     this.commandeService.getCommandes().subscribe(
       (data) => {

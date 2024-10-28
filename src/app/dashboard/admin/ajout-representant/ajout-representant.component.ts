@@ -18,13 +18,17 @@ export class AjoutRepresentantComponent {
   submitted = false;
 
   constructor(private formBuilder: FormBuilder, private representantService: RepresentantService) {
-    this.representantForm = this.formBuilder.group({
-      nom_complet: ['', Validators.required],
-      telephone: ['', [Validators.pattern('^[0-9]*$')]], 
-      adresse: [''],
-      email: ['', [Validators.required, Validators.email]],
-      password: ['', [Validators.required, Validators.minLength(8)]],
+   this.representantForm = this.formBuilder.group({
+      nom_complet: ['', [Validators.required, Validators.pattern('^[a-zA-Z\\s]*$')]],  // Validation des lettres et espaces uniquement
+      telephone: ['', [Validators.required, Validators.pattern('^[0-9]*$')]],         // Validation pour les chiffres uniquement
+      adresse: ['', [Validators.required, Validators.pattern('^[a-zA-Z\\s]*$')]],  // Validation pour lettres, chiffres et espaces
+      email: ['', [Validators.required, Validators.email]],                          // Email requis et valide
+      password: ['', [Validators.required, Validators.minLength(8)]],                // Mot de passe requis avec longueur min
       role: ['representant'] 
+
+      
+      //('^[a-zA-Z0-9\\s]*$')]],  // Validation pour lettres, chiffres et espaces
+
     });
   }
 
@@ -39,13 +43,7 @@ export class AjoutRepresentantComponent {
             text: 'Formulaire invalide. Veuillez vérifier vos informations.'
           });
           return;
-
-
-
-// if (this.representantForm.invalid) {
-//       window.alert('Formulaire invalide. Veuillez vérifier vos informations.');
-//       return;
-    }
+}
 
  // Appel au service pour ajouter le représentant
  this.representantService.ajouterRepresentant(this.representantForm.value).subscribe(
@@ -82,18 +80,3 @@ get f() { return this.representantForm.controls; }
 
 
 
-
-//     this.representantService.ajouterRepresentant(this.representantForm.value).subscribe(
-//       (response) => {
-//         window.alert('Représentant ajouté avec succès !');
-//         console.log('Représentant ajouté avec succès', response);
-//       },
-//       (error) => {
-//         window.alert('Erreur lors de l\'ajout du représentant. Veuillez réessayer.');
-//         console.error('Erreur lors de l\'ajout du représentant', error);
-//       }
-//     );
-//   }
-
-//   get f() { return this.representantForm.controls; }
-// }

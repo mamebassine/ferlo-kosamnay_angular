@@ -4,6 +4,7 @@ import { ProduitBoutiqueService } from '../../services/produit-boutique.service'
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
 import { NavbarAdminComponent } from "../../navbar-admin/navbar-admin.component"; // Importer ReactiveFormsModule
+import { CommonModule } from '@angular/common';
 
 export interface ProduitBoutique {
   id: number;
@@ -16,13 +17,14 @@ export interface ProduitBoutique {
 
 @Component({
   standalone: true,
-  imports: [ReactiveFormsModule, NavbarAdminComponent],
+  imports: [ReactiveFormsModule, NavbarAdminComponent, CommonModule],
   selector: 'app-produit-boutique-ajouter',
   templateUrl: './produit-boutique-ajouter.component.html',
   styleUrls: ['./produit-boutique-ajouter.component.css']
 })
 export class ProduitBoutiqueAjouterComponent implements OnInit {
   produitBoutiqueForm!: FormGroup;
+  formSubmitAttempt = false; // Nouveau booléen pour vérifier la tentative de soumission
 
   constructor(
     private router: Router,
@@ -39,6 +41,8 @@ export class ProduitBoutiqueAjouterComponent implements OnInit {
   }
 
   onSubmit(): void {
+    this.formSubmitAttempt = true; // Définir à vrai lors de la soumission
+
     if (this.produitBoutiqueForm.valid) {
       const newProduitBoutique: ProduitBoutique = {
         id: 0, // Supposé généré par le backend
@@ -50,13 +54,55 @@ export class ProduitBoutiqueAjouterComponent implements OnInit {
           this.router.navigate(['/produitboutique']);
         },
         (error: any) => {
-          console.error('Erreur lors de l\'ajout de l\'association', error);
+          console.error("Erreur lors de l'ajout de l'association", error);
         }
       );
     }
   }
 
   goBack(): void {
-    this.router.navigate(['/produitboutique']); // Changez ceci pour la route souhaitée
+    this.router.navigate(['/produitboutique']);
   }
+
+
+
+
+// export class ProduitBoutiqueAjouterComponent implements OnInit {
+//   produitBoutiqueForm!: FormGroup;
+
+//   constructor(
+//     private router: Router,
+//     private produitBoutiqueService: ProduitBoutiqueService,
+//     private fb: FormBuilder
+//   ) {}
+
+//   ngOnInit(): void {
+//     this.produitBoutiqueForm = this.fb.group({
+//       produit_id: ['', Validators.required],
+//       boutique_id: ['', Validators.required],
+//       quantite: ['', [Validators.required, Validators.min(1)]],
+//     });
+//   }
+
+//   onSubmit(): void {
+//     if (this.produitBoutiqueForm.valid) {
+//       const newProduitBoutique: ProduitBoutique = {
+//         id: 0, // Supposé généré par le backend
+//         ...this.produitBoutiqueForm.value,
+//       };
+//       this.produitBoutiqueService.create(newProduitBoutique).subscribe(
+//         () => {
+//           console.log('Association ajoutée avec succès');
+//           this.router.navigate(['/produitboutique']);
+//         },
+//         (error: any) => {
+//           console.error('Erreur lors de l\'ajout de l\'association', error);
+//         }
+//       );
+//     }
+//   }
+
+//   goBack(): void {
+//     this.router.navigate(['/produitboutique']); // Changez ceci pour la route souhaitée
+//   }
 }

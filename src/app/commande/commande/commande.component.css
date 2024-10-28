@@ -1,0 +1,104 @@
+h1 {
+    text-align: center; /* Centre le titre */
+    margin-top: 10%;
+    font-size: 3em;
+  }
+  
+  .card-container {
+    margin-left: 13%;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    grid-template-columns: repeat(4, 1fr); /* Crée 4 colonnes égales */
+
+    justify-content: center; /* Centre les cartes horizontalement */
+    padding: 220px 210px; /* Ajoute un espacement à droite et à gauche */
+    margin-top: -8%; /* Descend l’ensemble des cartes */
+  }
+  
+  .commande-card {
+    background-color: #f8f8f8;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 15px;
+    width: 250px;
+    transition: transform 0.2s, box-shadow 0.2s;
+    cursor: pointer;
+    text-align: left;
+    margin: 15px; /* Ajoute un peu plus d’espace autour des cartes */
+  }
+  
+  .commande-card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.2);
+  }
+  
+  .commande-card:active {
+    animation: blink 0.2s ease-in-out;
+  }
+  
+  @keyframes blink {
+    0%, 100% {
+      background-color: #f8f8f8;
+    }
+    50% {
+      background-color: #e0e0e0;
+    }
+  }
+  
+  .commande-card h3 {
+    color: #99B951;
+    margin-bottom: 10px;
+  }
+  
+  .commande-card p {
+    margin: 15px 20;
+    color: #333;
+  }
+  
+
+
+  .commande-card {
+    position: relative; /* Pour positionner le bouton dans la carte */
+    background-color: #f8f8f8;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 15px;
+    transition: transform 0.2s, box-shadow 0.2s;
+    cursor: pointer;
+    text-align: left;
+  }
+  .delete-btn {
+    background-color: transparent;
+    border: none;
+    color: #ff4d4f; /* Rouge pour l'icône et le texte */
+    font-size: 16px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+  }
+  
+  .delete-btn i {
+    margin-right: 5px; /* Espace entre l'icône et le texte */
+    font-size: 18px;
+  }
+  
+  .delete-btn:hover {
+    color: #d11a2a; /* Rouge foncé au survol */
+  }
+  
+/* .delete-btn {
+    background-color: transparent;
+    border: none;
+    color: #ff4d4f; 
+    font-size: 16px;
+    cursor: pointer;
+    position: absolute;
+    bottom: 9px;
+    right: 9px;
+  }
+  
+  .delete-btn:hover {
+    color: #d11a2a;
+  }  */
+  

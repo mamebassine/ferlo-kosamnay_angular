@@ -5,6 +5,7 @@ import { ProduitService, Produit } from '../../../services/produit.service';
 import { CategorieService, Categorie } from '../../../services/categorie.service';
 import { CommonModule } from '@angular/common';
 import { Router } from '@angular/router';
+import { NavbarAdminComponent } from "../../../navbar-admin/navbar-admin.component";
 
 @Component({
   selector: 'app-produit-ajouter',
@@ -13,8 +14,9 @@ import { Router } from '@angular/router';
   styleUrls: ['./produit-ajouter.component.css'],
   imports: [
     CommonModule,
-    FormsModule
-  ]
+    FormsModule,
+    NavbarAdminComponent
+]
 })
 export class ProduitAjouterComponent implements OnInit {
   produit: Produit = {
@@ -70,38 +72,32 @@ export class ProduitAjouterComponent implements OnInit {
     this.errorMessages = [];
     this.successMessage = '';
 
-    // Validation du champ nom: lettres et voyelles uniquement
-    const lettresEtVoyellesRegex = /^[a-zA-Z]+$/;
-    if (!this.produit.nom || !lettresEtVoyellesRegex.test(this.produit.nom)) {
-        this.errorMessages.push('Le nom ne doit contenir que des lettres.');
-          // Regex pour le champ `nom`: lettres uniquement, longueur 3 à 9, pas de @
+    // Vérification si tous les champs obligatoires sont remplis
+    if (!this.produit.nom || !this.produit.reference || !this.produit.description || this.produit.prix <= 0 || this.produit.quantite <= 0 || !this.produit.categorie_id || !this.imageFile) {
+        this.errorMessages.push('Veuillez remplir tous les champs obligatoires.');
+    } else {
+        // Validation du champ nom: lettres et voyelles uniquement
+        const lettresEtVoyellesRegex = /^[a-zA-Z]+$/;
+        if (!this.produit.nom || !lettresEtVoyellesRegex.test(this.produit.nom)) {
+            this.errorMessages.push('Le nom ne doit contenir que des lettres.');
+        }
 
-        this.errorMessages.push('Le nom doit contenir entre 3 et 9 lettres sans caractères spéciaux (@ non autorisé).');
+        // Validation du champ description: lettres et voyelles uniquement
+        if (!this.produit.description || !lettresEtVoyellesRegex.test(this.produit.description)) {
+            this.errorMessages.push('La description ne doit contenir que des lettres.');
+        }
 
+        // Validation du champ référence: 3 chiffres et 3 lettres seulement
+        const referenceRegex = /^[a-zA-Z]{3}[0-9]{3}$/;
+        if (!this.produit.reference || !referenceRegex.test(this.produit.reference)) {
+            this.errorMessages.push('La référence doit contenir exactement 3 lettres suivies de 3 chiffres.');
+        }
     }
 
-    // Validation du champ description: lettres et voyelles uniquement
-    if (!this.produit.description || !lettresEtVoyellesRegex.test(this.produit.description)) {
-        this.errorMessages.push('La description ne doit contenir que des lettres.');
-          // Regex pour le champ `description`: lettres uniquement, pas de @, max 255 caractères
-
-        this.errorMessages.push('La description ne doit contenir que des lettres et ne pas dépasser 255 caractères (sans @).');
-
+    // Si des erreurs sont présentes, arrêter l'envoi
+    if (this.errorMessages.length > 0) {
+        return;
     }
-
-    // Validation du champ reference: 3 chiffres et 3 lettres seulement
-    const referenceRegex = /^[a-zA-Z]{3}[0-9]{3}$/;
-    if (!this.produit.reference || !referenceRegex.test(this.produit.reference)) {
-        this.errorMessages.push('La référence doit contenir exactement 3 lettres suivies de 3 chiffres.');
-    }
-
-
-// Validation simple avant l'envoi
-    if (!this.produit.nom || this.produit.prix <= 0 || !this.produit.categorie_id) {
-      console.error('Validation échouée : Nom, prix ou catégorie manquant');
-      this.errorMessages.push('Veuillez remplir tous les champs obligatoires.');
-      return;
-    }   
 
     const formData = new FormData();
     formData.append('nom', this.produit.nom);
@@ -112,44 +108,44 @@ export class ProduitAjouterComponent implements OnInit {
     formData.append('categorie_id', this.produit.categorie_id.toString());
 
     if (this.imageFile) {
-      formData.append('image', this.imageFile); // Assurez-vous que c'est bien un File
+        formData.append('image', this.imageFile); // Assurez-vous que c'est bien un File
     } else {
-      console.warn('Aucun fichier image sélectionné');
+        console.warn('Aucun fichier image sélectionné');
     }
 
     console.log('FormData avant envoi:');
     formData.forEach((value, key) => {
-      console.log(`  ${key}:`, value);
+        console.log(`  ${key}:`, value);
     });
 
     this.produitService.createProduit(formData).subscribe(
-      (data: Produit) => {
-        this.successMessage = 'Produit ajouté avec succès !';
-        console.log('Produit ajouté avec succès:', data);
-        this.router.navigate(['/produit']);
-
-          // Délai pour afficher le message de succès avant la redirection
-          setTimeout(() => {
+        (data: Produit) => {
+            this.successMessage = 'Produit ajouté avec succès !';
+            console.log('Produit ajouté avec succès:', data);
             this.router.navigate(['/produit']);
-          }, 2000);
 
-      },
-      (error) => {
-        console.error('Erreur lors de l\'ajout du produit', error);
-        if (error.error && error.error.errors) {
-          for (const key in error.error.errors) {
-            if (error.error.errors.hasOwnProperty(key)) {
-              const messages = error.error.errors[key];
-              this.errorMessages.push(...messages);
-              console.log(`Erreur de validation pour ${key}:`, messages);
+            // Délai pour afficher le message de succès avant la redirection
+            setTimeout(() => {
+                this.router.navigate(['/produit']);
+            }, 2000);
+        },
+        (error) => {
+            console.error('Erreur lors de l\'ajout du produit', error);
+            if (error.error && error.error.errors) {
+                for (const key in error.error.errors) {
+                    if (error.error.errors.hasOwnProperty(key)) {
+                        const messages = error.error.errors[key];
+                        this.errorMessages.push(...messages);
+                        console.log(`Erreur de validation pour ${key}:`, messages);
+                    }
+                }
+            } else {
+                this.errorMessages.push('Une erreur est survenue lors de l\'ajout du produit.');
             }
-          }
-        } else {
-          this.errorMessages.push('Une erreur est survenue lors de l\'ajout du produit.');
         }
-      }
     );
-  }
+}
+
 
   resetForm(): void {
     console.log('Réinitialisation du formulaire');
