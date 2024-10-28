@@ -19,6 +19,8 @@ export class  ProduitsAdminComponent implements OnInit {
 
   produits: Produit[] = [];
   categories: Categorie[] = [];
+  errorMessage: string = ""; // Message d'erreur à afficher
+
 
   constructor(
     private produitService: ProduitService,
@@ -38,6 +40,8 @@ export class  ProduitsAdminComponent implements OnInit {
       },
       (error) => {
         console.error('Erreur lors du chargement des produits', error);
+        this.errorMessage = "Erreur lors du chargement des produits"; // Affiche un message d'erreur
+
       }
     );
   }
@@ -49,6 +53,8 @@ export class  ProduitsAdminComponent implements OnInit {
       },
       (error) => {
         console.error('Erreur lors du chargement des catégories', error);
+        this.errorMessage = "Erreur lors du chargement des catégories"; // Affiche un message d'erreur
+
       }
     );
   }

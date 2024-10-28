@@ -109,6 +109,8 @@ import { FormsModule } from '@angular/forms';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent {
+// Ajout d'une propriété pour stocker le message d'erreur
+errorMessage: string = '';
 
   constructor(private authService: AuthService) { }
 
@@ -121,44 +123,70 @@ export class LoginComponent {
 
   connexion() {
     console.log(this.userObjet);
+// Réinitialise le message d'erreur avant chaque connexion
+    this.errorMessage = ''
+
+    // Vérifie que les champs email et password ne sont pas vides
 
     if (this.userObjet.email && this.userObjet.password) {
       const loginData = {
         email: this.userObjet.email,
         password: this.userObjet.password
       };
-
-      this.authService.login(this.userObjet).subscribe(
+this.authService.login(this.userObjet).subscribe(
         (response: any) => {
           console.log('Response structure:', response);
+          // Vérifie si le token est présent dans la réponse
 
           if (response.token) {
             console.log('Token:', response.token);
             localStorage.setItem("token", response.token);
-            if(response.role =='client'){
-              this.router.navigateByUrl("/produit");
-            }
-            else if(response.role = 'admin'){
-               this.router.navigateByUrl("/dashboard");
-            }
-            else if(response.role = 'representant'){
-              this.router.navigateByUrl("/dashboard");
 
+                        // Redirection en fonction du rôle de l'utilisateur
+
+            // if(response.role =='client'){
+            //   this.router.navigateByUrl("/produit");
+            // }
+            // else if(response.role = 'admin'){
+            //    this.router.navigateByUrl("/dashboard");
+            // }
+            // else if(response.role = 'representant'){
+            //   this.router.navigateByUrl("/dashboardrepresentant");
+
+            // }
+            if (response.role === 'client') {
+              console.log('Redirection vers /produit');
+              this.router.navigateByUrl("/produit");
+            } else if (response.role === 'admin') {
+              console.log('Redirection vers /dashboard');
+              this.router.navigateByUrl("/dashboard");
+            } else if (response.role === 'representant') {
+              console.log('Redirection vers /dashboardrepresentant');
+              this.router.navigateByUrl("/dashboardrepresentant");
             }
+            
+
+
+
           } else if (response.data && response.data.token) {
             console.log('Token in data:', response.data.token);
             localStorage.setItem("token", response.data.token);
             this.router.navigateByUrl("/inscription_user");
           } else {
-            console.error('No token in the response');
+            console.error('Aucun token dans la réponse');
           }
         },
         (error: any) => {
-          console.error('Error during login:', error);
+          console.error('Erreur lors de la connexion :', error);
+          this.errorMessage = 'Erreur d\'authentification : email ou mot de passe incorrect.'; // Ajout du message d'erreur
         }
       );
+    } else {
+      this.errorMessage = 'Veuillez remplir tous les champs.'; // Message si les champs sont vides
     }
-  }
+      
+    }
+  
 
  
 }

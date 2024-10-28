@@ -29,8 +29,12 @@
 
    
    <app-header></app-header>
+
+   
      <div class="phovoirdetail" *ngIf="produit; else loadingOrError">
     <div class="product-detail">
+      <button class="btn btn-secondary mt-3" (click)="goBack()">Retour</button>
+
         <img *ngIf="produit.image" [src]="'http://localhost:8000/storage/' + produit.image" alt="{{ produit.nom }}" />
         <div class="product-info">
             <h1>{{ produit.nom }}</h1>

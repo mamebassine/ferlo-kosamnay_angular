@@ -1,6 +1,6 @@
 .container {
     max-width: 600px; /* Largeur maximale du conteneur */
-    margin: 80px auto; /* Augmenté l'espace en haut pour centrer le conteneur avec plus d'espace */
+    margin: 120px auto; /* Augmenté l'espace en haut pour descendre le conteneur */
     padding: 20px; /* Espacement interne */
     background-color: #f9f9f9; /* Fond léger pour le contraste */
     border-radius: 8px; /* Coins arrondis */

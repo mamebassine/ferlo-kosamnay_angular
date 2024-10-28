@@ -70,12 +70,38 @@ export class ProduitAjouterComponent implements OnInit {
     this.errorMessages = [];
     this.successMessage = '';
 
-    // Validation simple avant l'envoi
+    // Validation du champ nom: lettres et voyelles uniquement
+    const lettresEtVoyellesRegex = /^[a-zA-Z]+$/;
+    if (!this.produit.nom || !lettresEtVoyellesRegex.test(this.produit.nom)) {
+        this.errorMessages.push('Le nom ne doit contenir que des lettres.');
+          // Regex pour le champ `nom`: lettres uniquement, longueur 3 à 9, pas de @
+
+        this.errorMessages.push('Le nom doit contenir entre 3 et 9 lettres sans caractères spéciaux (@ non autorisé).');
+
+    }
+
+    // Validation du champ description: lettres et voyelles uniquement
+    if (!this.produit.description || !lettresEtVoyellesRegex.test(this.produit.description)) {
+        this.errorMessages.push('La description ne doit contenir que des lettres.');
+          // Regex pour le champ `description`: lettres uniquement, pas de @, max 255 caractères
+
+        this.errorMessages.push('La description ne doit contenir que des lettres et ne pas dépasser 255 caractères (sans @).');
+
+    }
+
+    // Validation du champ reference: 3 chiffres et 3 lettres seulement
+    const referenceRegex = /^[a-zA-Z]{3}[0-9]{3}$/;
+    if (!this.produit.reference || !referenceRegex.test(this.produit.reference)) {
+        this.errorMessages.push('La référence doit contenir exactement 3 lettres suivies de 3 chiffres.');
+    }
+
+
+// Validation simple avant l'envoi
     if (!this.produit.nom || this.produit.prix <= 0 || !this.produit.categorie_id) {
       console.error('Validation échouée : Nom, prix ou catégorie manquant');
       this.errorMessages.push('Veuillez remplir tous les champs obligatoires.');
       return;
-    }
+    }   
 
     const formData = new FormData();
     formData.append('nom', this.produit.nom);
@@ -101,6 +127,12 @@ export class ProduitAjouterComponent implements OnInit {
         this.successMessage = 'Produit ajouté avec succès !';
         console.log('Produit ajouté avec succès:', data);
         this.router.navigate(['/produit']);
+
+          // Délai pour afficher le message de succès avant la redirection
+          setTimeout(() => {
+            this.router.navigate(['/produit']);
+          }, 2000);
+
       },
       (error) => {
         console.error('Erreur lors de l\'ajout du produit', error);
