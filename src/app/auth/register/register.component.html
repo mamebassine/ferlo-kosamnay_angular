@@ -1,6 +1,6 @@
-<div class="signup-container">
+<!-- <div class="signup-container">
   <div class="signup-form">
-      <h2>Inscription</h2>
+      <h2>Inscription</h2> 
       <form (ngSubmit)="register()" #signupForm="ngForm">
           <div class="form-group">
               <input type="text" id="nom_complet" placeholder="Prénom" required [(ngModel)]="userObject.nom_complet" name="nom_complet">
@@ -39,4 +39,76 @@
   <div class="signup-image">
       <img src="../assets/images/frommage.jpeg" alt="Image d'inscription">
   </div>
+</div> -->
+
+
+
+<div class="signup-container">
+    <div class="signup-form">
+        <h2>Inscription</h2>
+        <form (ngSubmit)="register()" [formGroup]="signupForm">
+            <div class="form-group">
+                <label for="nom_complet">Nom Complet :</label>
+                <input type="text" id="nom_complet" formControlName="nom_complet" placeholder="Nom Complet">
+                <div class="error-message" *ngIf="signupForm.get('nom_complet')?.invalid && signupForm.get('nom_complet')?.touched">
+                    <div *ngIf="signupForm.get('nom_complet')?.errors?.['required']">Le nom complet est requis.</div>
+                    <div *ngIf="signupForm.get('nom_complet')?.errors?.['pattern']">Le nom complet doit contenir uniquement des lettres et voyelles.</div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="telephone">Téléphone :</label>
+                <input type="text" id="telephone" formControlName="telephone" placeholder="Téléphone">
+                <div class="error-message" *ngIf="signupForm.get('telephone')?.invalid && signupForm.get('telephone')?.touched">
+                    <div *ngIf="signupForm.get('telephone')?.errors?.['required']">Le numéro de téléphone est requis.</div>
+                    <div *ngIf="signupForm.get('telephone')?.errors?.['pattern']">Numéro de téléphone doit être un nombre.</div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="email">Email :</label>
+                <input type="email" id="email" formControlName="email" placeholder="Email">
+                <div class="error-message" *ngIf="signupForm.get('email')?.invalid && signupForm.get('email')?.touched">
+                    <div *ngIf="signupForm.get('email')?.errors?.['required']">L'email est requis.</div>
+                    <div *ngIf="signupForm.get('email')?.errors?.['email']">Email non valide.</div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="adresse">Adresse :</label>
+                <input type="text" id="adresse" formControlName="adresse" placeholder="Adresse">
+                <div class="error-message" *ngIf="signupForm.get('adresse')?.invalid && signupForm.get('adresse')?.touched">
+                    <div *ngIf="signupForm.get('adresse')?.errors?.['required']">L'adresse est requise.</div>
+                    <div *ngIf="signupForm.get('adresse')?.errors?.['pattern']">L'adresse doit contenir uniquement des lettres et voyelles.</div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="password">Mot de passe :</label>
+                <input type="password" id="password" formControlName="password" placeholder="Mot de passe">
+                <div class="error-message" *ngIf="signupForm.get('password')?.invalid && signupForm.get('password')?.touched">
+                    <div *ngIf="signupForm.get('password')?.errors?.['required']">Le mot de passe est requis.</div>
+                    <div *ngIf="signupForm.get('password')?.errors?.['minlength']">Le mot de passe doit contenir au moins 8 caractères.</div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="password_confirmation">Confirmer le mot de passe :</label>
+                <input type="password" id="password_confirmation" formControlName="password_confirmation" placeholder="Confirmer le mot de passe">
+                <div class="error-message" *ngIf="signupForm.get('password_confirmation')?.touched && signupForm.errors?.['passwordMismatch']">
+                    Les mots de passe ne correspondent pas.
+                </div>
+            </div>
+            
+            <button type="submit">S'inscrire</button>
+            <p>Déjà inscrit ? <a routerLink="/login">Se connecter</a></p>
+        </form>
+        
+          <!-- Affichage d'un message d'erreur global si le formulaire est invalide -->
+          <div *ngIf="formSubmitted && signupForm.invalid" class="error-message">
+            Veuillez corriger les erreurs ci-dessus avant de soumettre.
+        </div>
+
+
+    </div>
+    <div class="signup-image">
+        <img src="../assets/images/frommage.jpeg" alt="Image d'inscription">
+    </div>
 </div>
+
+  

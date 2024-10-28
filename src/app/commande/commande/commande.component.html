@@ -1,3 +1,44 @@
+<app-navbar-admin></app-navbar-admin>
+
+<div class="tout">
+<h1>La liste de toutes les commandes</h1>
+
+<div class="card-container">
+  <div 
+    class="commande-card" 
+    *ngFor="let commande of commandes" 
+    (click)="onCardClick(commande)"
+  >
+    <h3>Commande ID: {{ commande.id }}</h3>
+    <p><strong>Produit:</strong> {{ commande.produit_boutique.id }}</p>
+    <p><strong>Ligne de Commande:</strong> {{ commande.ligne_commande.id }}</p>
+    <p><strong>Quantité:</strong> {{ commande.quantite }}</p>
+    <p><strong>Montant:</strong> {{ commande.montant | number:'' }} CFA</p>
+
+       <!-- Bouton de suppression -->
+       <button class="delete-btn" (click)="onDelete(commande.id)">
+        <i class="fas fa-trash"></i> Supprimer
+      </button>
+
+
+       <!-- <button class="delete-btn" (click)="onDelete(commande.id)">
+        <i class="fas fa-trash"></i> Supprimer -->
+
+      
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+<!-- 
+          <p>Prix: {{ produit.prix | number:'1.0-2' }} CFA</p>
+
+<app-navbar-admin></app-navbar-admin>
+<h1>La liste de tous les commandes</h1>
 <table>
     <thead>
       <tr>
@@ -18,4 +59,10 @@
       </tr>
     </tbody>
   </table>
-  
+   -->
+
+  <!-- @foreach($ligneCommande->produitBoutiques as $produitBoutique)
+  <li><strong>Produit :</strong> {{ $produitBoutique->produit->nom ?? 'N/A' }}</li> 
+  <li><strong>Quantité :</strong> {{ $produitBoutique->pivot->quantite }}</li>
+  <li><strong>Prix Unitaire :</strong> {{ $produitBoutique->pivot->montant }} FCA</li>
+@endforeach -->

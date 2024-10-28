@@ -43,12 +43,18 @@
     <div>
       <div>
         <label for="description">Description</label>
-        <textarea
-          id="description"
-          name="description"
-          [(ngModel)]="nouvelleCategorie.description"
-        ></textarea>
+        <textarea 
+        id="description" 
+        name="description"
+        [(ngModel)]="nouvelleCategorie.description" 
+        required
+        #description="ngModel"
+        [ngClass]="{ 'is-invalid': categorieForm.submitted && description.invalid }">
+      </textarea>
+      <div *ngIf="categorieForm.submitted && description.invalid" class="error">
+        La description est requise.
       </div>
+    </div>
     </div>
 
     <button type="submit">Ajouter</button>

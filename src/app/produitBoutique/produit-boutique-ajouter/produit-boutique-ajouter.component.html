@@ -10,8 +10,37 @@
               </button>
           </div>
       </div>
-
+      
       <form [formGroup]="produitBoutiqueForm" (ngSubmit)="onSubmit()">
+        <label for="produit_id">Produit ID</label>
+        <input id="produit_id" formControlName="produit_id" type="number" />
+        <div *ngIf="produitBoutiqueForm.get('produit_id')?.invalid && produitBoutiqueForm.get('produit_id')?.touched">
+          <span class="error">Le champ Produit ID est requis.</span>
+        </div>
+      
+        <label for="boutique_id">Boutique ID</label>
+        <input id="boutique_id" formControlName="boutique_id" type="number" />
+        <div *ngIf="produitBoutiqueForm.get('boutique_id')?.invalid && produitBoutiqueForm.get('boutique_id')?.touched">
+          <span class="error">Le champ Boutique ID est requis.</span>
+        </div>
+      
+        <label for="quantite">Quantité</label>
+        <input id="quantite" formControlName="quantite" type="number" />
+        <div *ngIf="produitBoutiqueForm.get('quantite')?.invalid && produitBoutiqueForm.get('quantite')?.touched">
+          <span class="error">Le champ Quantité est requis et doit être supérieur à 0.</span>
+        </div>
+      
+        <button type="submit">Ajouter</button>
+      
+        <!-- Message d'erreur global -->
+        <div *ngIf="formSubmitAttempt && produitBoutiqueForm.invalid" class="error">
+          Tous les champs doivent être remplis correctement.
+        </div>
+      </form>
+      
+
+
+      <!-- <form [formGroup]="produitBoutiqueForm" (ngSubmit)="onSubmit()">
           <label for="produit_id">Produit ID</label>
           <input id="produit_id" formControlName="produit_id" type="number" />
 
@@ -22,6 +51,6 @@
           <input id="quantite" formControlName="quantite" type="number" />
 
           <button type="submit">Ajouter</button>
-      </form>
+      </form> -->
   </div>
 </div>

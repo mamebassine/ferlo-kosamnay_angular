@@ -1,6 +1,5 @@
 <app-navbar-admin></app-navbar-admin>
 
-
 <div class="container">
     <h2>Ajouter une Nouvelle Boutique</h2>
   
@@ -19,7 +18,6 @@
         <label for="telephone">Téléphone</label>
         <input type="text" id="telephone" class="form-control" [(ngModel)]="nouvelleBoutique.telephone" name="telephone" required>
       </div>
-<!-- Représentant -->
  <div class="form-group">
     <label for="user_id">Representant</label>
     <select id="user_id" name="user_id" class="form-control" [(ngModel)]="nouvelleBoutique.user_id" required
@@ -28,7 +26,6 @@
         <option *ngFor="let user of users" [value]="user.id">{{ user.nom_complet }}</option>
     </select>
   </div>
-<!-- region -->
 
 <div class="form-group">
     <label for="region_id">region</label>

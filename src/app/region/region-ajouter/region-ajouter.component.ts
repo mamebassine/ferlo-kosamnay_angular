@@ -39,7 +39,9 @@ export class regionAjouterComponent implements OnInit {
 
   onSubmit() {
     if (!this.region.nom || !/^[A-Za-z]+$/.test(this.region.nom)) {
-      this.errorMessage = 'Le nom de la région est obligatoire et doit contenir uniquement des lettres.';
+      // const nomCompletPattern = /^[a-zA-Z\s]*$/; // Autorise les lettres et les espaces
+
+      this.errorMessage = 'Le nom de la région est obligatoire et doit contenir uniquement des lettres et voyelles.';
       return;
     }
     
