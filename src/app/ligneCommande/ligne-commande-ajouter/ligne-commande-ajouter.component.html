@@ -1,17 +1,7 @@
 <form (ngSubmit)="ajouterLigneCommande()">
-  <!-- Sélection du produit de la boutique -->
-  
-
-  
-  <!-- Sélection de l'utilisateur
-  <div class="form-group">
-    <label for="user_id">Client:</label>
-    <select id="user_id" name="user_id" class="form-control" [(ngModel)]="nouvelleLigneCommande.user_id" required
-            [ngClass]="{'is-invalid': submitted && !nouvelleLigneCommande.user_id}">
-        <option value="" disabled>-- Sélectionnez un utilisateur --</option>
-        <option *ngFor="let user of users" [value]="user.id">{{ user.nom_complet }}</option>
-    </select>
-  </div> -->
+  <div *ngIf="loading" class="loader">Chargement...
+    
+  </div> <!-- Loader -->
 
 <!-- Date de la commande -->
   <div>
@@ -44,3 +34,4 @@
   <!-- Bouton pour soumettre le formulaire -->
   <button type="submit">Soumettre</button>
 </form>
+

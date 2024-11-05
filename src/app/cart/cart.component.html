@@ -4,8 +4,8 @@
                 <button (click)="goBack()" class="back-button">
                 &#8592; Retour
                 </button>
-
-    <h2>Aperçu de la commande</h2>
+<h2>Dernier(s) produit(s) ajouté(s)</h2>
+    <!-- <h2>Aperçu de la commande</h2> -->
   <!-- Afficher les cartes des articles seulement si le panier n'est pas vide -->
     <div *ngIf="cartItems.length > 0; else emptyCart">
       <div class="cart-items">
@@ -26,8 +26,11 @@
   
       <div class="total">
         <h3>Totales: {{ formatCurrency(getTotal()) }} CFA</h3>
-        <button (click)="commanderr()" class="passeCommande">Passer à la caisse</button>
-      </div>
+        <button (click)="commanderr()" class="passeCommande">Commander</button>
+
+        
+      <!-- <button (click)="commanderr()" class="passeCommande">Passer à la caisse</button> -->
+     </div>
     </div>
 
     <!-- <h3>Totales: {{ formatCurrency(getTotal()) }} CFA</h3> -->

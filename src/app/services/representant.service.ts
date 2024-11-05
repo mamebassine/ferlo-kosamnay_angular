@@ -14,7 +14,7 @@ export class RepresentantService {
 
   ajouterRepresentant(data: any): Observable<any> {
     // Utilisation de l'URL importée
-    return this.http.post<any>(`${apiUrl}/representant`, data);
+    return this.http.post<any>(`${apiUrl}/representants`, data);
   }
 }
 

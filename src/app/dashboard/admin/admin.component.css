@@ -1,42 +1,41 @@
 /* Style des cartes */
 .cards {
-    max-width: 65%; /* Ajustez selon vos préférences */
-  margin: 0 auto; /* Centre le conteneur horizontalement */
-  margin-top: 10%; /* Ajustez cette valeur pour faire descendre le tableau */
-  padding: 20px;
-  margin-left: 25%;
-
-
+    width: 70%; /* Prend plus d'espace horizontal */
+    border-radius: 5px;
+    max-width: 90%; /* Augmenté pour plus de largeur */
+    margin: 40px auto 40px -5%; /* Décale le conteneur vers la gauche */
+    padding: 90px; /* Augmente le padding pour plus d'espace intérieur */
     display: flex;
     flex-wrap: wrap;
-    justify-content: center; /* Centre les cartes horizontalement */
-    gap: 20px; /* Espace entre les cartes */
+    justify-content: center;
+    gap: 70px; /* Augmente l'espace entre les cartes */
+    /* box-shadow: 0 6px 18px rgba(0, 0, 0, 0.15); Ombre légèrement plus prononcée */
+
+    background: linear-gradient(120deg, #e8eff0 20%, #c3d9df 100%);
+
+    backdrop-filter: blur(5px);
+
+
 }
 
+
+/* Style individuel pour les cartes */
 .card {
-    background-color: #99B951;
-    border-radius: 8px;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-    width: 250px;
-    padding: 40px;
+    /* background: linear-gradient(120deg, #e8eff0 20%, #c3d9df 100%); */
+    border-radius: 4px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    width: calc(40% - 30px); /* 4 cartes par ligne avec un espace supplémentaire */
+    padding: 95px; /* Augmentez l'espacement interne */
     text-align: center;
     transition: transform 0.2s, background-color 0.3s;
     position: relative;
-    animation: float 3s ease-in-out infinite;
-    
-}
-
-.card-up {
-    margin-top: -20px;
-}
-
-.card-down {
-    margin-bottom: -20px;
+    animation: float 3s ease-in-out infinite; /* Animation de flottement */
+    margin-left: 13%;
 }
 
 .card:hover {
-    transform: translateY(-5px);
-    background-color: #88a030;
+    transform: translateY(-5px); /* Légère élévation */
+    background-color: #88a030; /* Changement de couleur au survol */
 }
 
 .card h3 {
@@ -52,111 +51,199 @@
 
 /* Animation pour les cartes */
 @keyframes float {
-    0% {
-        transform: translateY(0px);
-    }
-    50% {
-        transform: translateY(-10px);
-    }
-    100% {
-        transform: translateY(0px);
-    }
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
 }
 
 /* Media Queries pour Responsivité */
-
 @media (max-width: 1024px) {
-    .dashboard {
-        margin-left: 200px;
-    }
-
-    .sidebar {
-        width: 200px;
-    }
+    .card { width: calc(48% - 20px); } /* 2 cartes par ligne */
 }
 
 @media (max-width: 768px) {
-    .sidebar {
-        width: 100%;
-        height: auto;
-        position: relative;
-    }
-
-    .dashboard {
-        margin-left: 0;
-    }
-
     .cards {
         flex-direction: column;
-        align-items: center;
+        align-items: center; /* Centre les cartes sur mobile */
     }
-
     .card {
-        width: 80%;
+        width: 80%; /* Une seule carte par ligne sur mobile */
         padding: 20px;
     }
 }
 
 @media (max-width: 480px) {
-    .card {
-        width: 100%;
-    }
+    .card { width: 100%; } /* Une seule carte par ligne sur très petits écrans */
 }
 
+/* Style pour le bouton de suppression */
+.delete-btn {
+    background-color: #ff4d4d; /* Couleur rouge */
+    color: white;
+    border: none;
+    border-radius: 3%; /* Coins arrondis */
+    padding: 5px 10px; /* Espacement interne */
+    font-size: 0.8em;
+    cursor: pointer;
+    transition: background-color 0.3s ease; /* Transition au survol */
+}
 
+.delete-btn:hover {
+    background-color: #e60000; /* Couleur au survol */
+}
 
-
-
-
-
-
-
-
-h1{
+h1 {
     color: #000;
     font-size: 2rem;
     margin-left: 25%;
 }
 
-.table {
-    max-width: 65%; /* Ajustez selon vos préférences */
+
+
+
+
+.tout {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 50px;
+    font-family: Arial, sans-serif;
+    text-align: center;
+}
+
+.tout h1 {
+    font-size: 2em;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+.card-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+}
+
+.commande-card {
+    background-color: #f9f9f9;
+    border: 2px solid #4f772d;
+    padding: 20px 10px;
+    width: 300px;
+    height: 190px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+    text-align: center;
+    position: relative;
+    clip-path: polygon(20% 0%, 80% 0%, 100% 100%, 0% 100%);
+    margin-left: 15%;
+}
+
+.commande-card:hover {
+    transform: scale(1.05);
+}
+
+.commande-card h3 {
+    font-size: 1.1em;
+    color: #4f772d;
+    margin-bottom: 5px;
+}
+
+.commande-card p {
+    font-size: 0.9em;
+    color: #555;
+    margin: 3px 0;
+}
+
+.delete-btn {
+    background-color: #ff4d4d;
+    color: white;
+    border: none;
+    border-radius: 3%;
+    padding: 3px;
+    font-size: 0.8em;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    position: absolute;
+    bottom: 9px;
+    right: 15px;
+}
+
+.delete-btn i {
+    margin-right: 0;
+}
+
+
+
+
+/* Style des cartes */
+.cards {
+    max-width: 80%; /* Augmentez si nécessaire pour plus d'espace */
     margin: 0 auto; /* Centre le conteneur horizontalement */
     margin-top: 10%; /* Ajustez cette valeur pour faire descendre le tableau */
     padding: 20px;
-    margin-left: 25%;
+    display: flex;
+    flex-wrap: wrap; /* Permet aux cartes de passer à la ligne suivante */
+    justify-content: center; /* Centre les cartes dans le conteneur */
+    gap: 30px; /* Espace entre les cartes */
+}
 
+/* Style individuel pour les cartes */
+.card {
+    background-color: #99B951; /* Couleur de fond */
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    width: calc(25% - 20px); /* 4 cartes par ligne, ajustez si besoin */
+    padding: 45px;
+    text-align: center;
+    transition: transform 0.2s, background-color 0.3s;
+    position: relative;
+    animation: float 3s ease-in-out infinite; /* Animation de flottement */
+}
 
-    width: 100%;
-    border-collapse: collapse;
-    margin-top: 20px;
-  }
-  
-  .table th,
-  .table td {
-    border: 1px solid #ddd;
-    padding: 8px;
-    text-align: left;
-  }
-  
-  .table th {
-    background-color: #f4f4f4;
-    color: #333;
-  }
-  
-  .table tr:hover {
-    background-color: #f1f1f1;
-  }
-  
-  .table button {
-    padding: 5px 10px;
-    background-color: #ff4c4c;
+/* Effet de survol */
+.card:hover {
+    transform: translateY(-5px); /* Légère élévation */
+    background-color: #88a030; /* Changement de couleur */
+}
+
+/* Animation pour les cartes */
+@keyframes float {
+    0% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+    100% { transform: translateY(0); }
+}
+
+/* Media Queries pour Responsivité */
+@media (max-width: 1024px) {
+    .card { width: calc(48% - 20px); } /* 2 cartes par ligne */
+}
+
+@media (max-width: 768px) {
+    .cards { flex-direction: column; align-items: center; }
+    .card { width: 80%; padding: 20px; } /* Une seule carte par ligne sur mobile */
+}
+
+@media (max-width: 480px) {
+    .card { width: 100%; } /* Une seule carte par ligne sur très petits écrans */
+}
+
+/* Style pour le bouton de suppression */
+.delete-btn {
+    background-color: #ff4d4d; /* Couleur rouge */
     color: white;
     border: none;
-    border-radius: 5px;
+    border-radius: 3%; /* Coins arrondis */
+    padding: 5px 10px; /* Espacement interne */
+    font-size: 0.8em;
     cursor: pointer;
-  }
-  
-  .table button:hover {
-    background-color: #e63939;
-  }
-  
+    transition: background-color 0.3s ease; /* Transition au survol */
+}
+
+.delete-btn:hover {
+    background-color: #e60000; /* Couleur au survol */
+}
+
+
+

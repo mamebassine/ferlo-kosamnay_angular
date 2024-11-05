@@ -30,26 +30,32 @@
     color: white;
   }
   
+  
   .footer-newsletter form {
     display: flex;
-    justify-content: center;
+    justify-content: center; /* Centrer les éléments horizontalement */
+    align-items: center; /* Aligner verticalement au centre */
+    flex-wrap: nowrap; /* Empêche de passer à la ligne */
   }
   
   .footer-newsletter input {
-    padding: 8px; /* Réduction du padding */
-    width: 180px;
-    font-size: 14px;
+    padding: 8px;
+    width: 200px; /* Ajuster selon vos préférences */
+    font-size: 17px;
+    margin-right: 8px; /* Espacement entre l'input et le bouton */
   }
   
   .footer-newsletter button {
-    padding: 8px 12px; /* Réduction de la taille du bouton */
+    padding: 10px 15px;
     background-color: #4CAF50;
     color: #fff;
     border: none;
-    border-radius: 0 5px 5px 0;
+    border-radius: 2px; /* Arrondir tous les coins */
     cursor: pointer;
     font-size: 14px;
   }
+  
+
   
   .footer-newsletter button:hover {
     background-color: #45a049;

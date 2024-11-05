@@ -55,5 +55,12 @@ import { CommonModule } from '@angular/common';
     ngOnDestroy() {
       clearInterval(this.intervalId);
     }
+
+
+
+
+
+
+    
   }
   
