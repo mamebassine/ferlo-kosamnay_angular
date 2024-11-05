@@ -1,0 +1,135 @@
+.bacgraimage h1 {
+    font-size: 2.5em; /* Taille du titre */
+    z-index: 2;
+    margin-top: 300%;
+}
+
+.header-image {
+    width: 300%;
+    height: 450px; /* Réduction de la taille de l'image en haut */
+    object-fit: cover;
+}
+
+
+
+
+
+
+.commandes {
+    width: 90%;
+    margin: auto;
+    font-family: Arial, sans-serif;
+    color: #333;
+    padding:-15px 0; /* Réduit l'espace en haut et en bas */
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+
+}
+
+.commandes h1 {
+    text-align: center;
+    font-size: 2em;
+    margin-top: 10px; /* Ajoute un espacement en haut du titre */
+
+    margin-bottom: 20px;
+    color: #000;
+    animation: clignotement 1.5s infinite;
+    width: 100%;
+}
+
+.commande-detail {
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    margin: 10px; /* Ajuste la marge pour espacer les cartes */
+    padding: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    background-color: #fafafa;
+    transition: transform 0.2s;
+    cursor: pointer;
+    width: calc(23% - 20px); /* Ajuste la largeur pour 4 cartes par ligne */
+}
+
+
+
+
+.commande-detail:active {
+    animation: rebond 0.5s; /* Rebondit au clic */
+}
+
+.commande-info,
+.produit-info {
+    margin-bottom: 5px;
+}
+
+.commande-info p,
+.produit-info p {
+    margin: 2px 0;
+    font-size: 3rem;
+    line-height: 1.2;
+}
+
+.produit-info h4 {
+    margin-top: 10px;
+    font-size: 1em;
+    color: #3b5998;
+}
+
+.commande-info p strong,
+.produit-info p strong {
+    color: #555;
+}
+
+img {
+    display: block;
+    margin-top: 5px;
+    border-radius: 4px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    width: 100px;
+    height: auto;
+}
+
+hr {
+    border: none;
+    height: 1px;
+    background-color: #ddd;
+    margin-top: 10px;
+}
+
+
+/* Media Queries pour la responsivité */
+
+/* Pour les petits écrans (moins de 900px) */
+@media (max-width: 900px) {
+    .commande-detail {
+        width: calc(48% - 10px); /* 2 cartes par ligne */
+    }
+
+    .commandes h1 {
+        font-size: 1.3em; /* Diminuer la taille du titre */
+    }
+}
+
+/* Pour les écrans mobiles (moins de 600px) */
+@media (max-width: 600px) {
+    .commandes {
+        width: 90%; /* Augmente la largeur pour les mobiles */
+    }
+
+    .commande-detail {
+        width: 100%; /* 1 carte par ligne */
+    }
+
+    .commandes h1 {
+        font-size: 1.5em; /* Diminuer la taille du titre */
+    }
+
+    img {
+        width: 80px; /* Réduire la taille des images */
+    }
+
+    .commande-info p,
+    .produit-info p {
+        font-size: 0.8em; /* Diminuer la taille du texte pour les petits écrans */
+    }
+}

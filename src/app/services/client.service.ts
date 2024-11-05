@@ -31,10 +31,7 @@ export class ClientService {
   getClients(): Observable<Client[]> {
     const clients: Client[] = [
      
-      
-
-      
-    ];
+  ];
     return of(clients); // Retourne un Observable
   }
 }

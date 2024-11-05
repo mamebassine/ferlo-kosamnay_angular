@@ -1,85 +1,70 @@
-<!-- <app-navbar-admin></app-navbar-admin> -->
-
 <div class="container">
-  <h2>Ajouter un Nouveau Produit</h2>
+    <h2>Ajouter un Nouveau Produit</h2>
 
-  <!-- Affichage des messages d'erreur -->
-  <div *ngIf="errorMessages.length > 0" class="alert alert-danger">
-      <ul>
-          <li *ngFor="let error of errorMessages">{{ error }}</li>
-      </ul>
-  </div>
-
-  <!-- Affichage du message de succès -->
-  <div *ngIf="successMessage" class="alert alert-success">
-      {{ successMessage }}
-  </div>
-
-  <form (ngSubmit)="onSubmit()" #produitForm="ngForm">
-      <!-- Nom -->
-      <div class="form-group">
-          <label for="nom">Nom</label>
-          <input type="text" id="nom" name="nom" class="form-control" [(ngModel)]="produit.nom" required
-                 [ngClass]="{'is-invalid': produitForm.submitted && produitForm.controls['nom'].invalid}">
-      </div>
-
-      <!-- Référence -->
-      <div class="form-group">
-          <label for="reference">Référence</label>
-          <input type="text" id="reference" name="reference" class="form-control" [(ngModel)]="produit.reference" required
-                 [ngClass]="{'is-invalid': produitForm.submitted && produitForm.controls['reference'].invalid}">
-      </div>
-
-      <!-- Description -->
-      <div class="form-group">
-          <label for="description">Description</label>
-          <textarea id="description" name="description" class="form-control" [(ngModel)]="produit.description" required
-                    [ngClass]="{'is-invalid': produitForm.submitted && produitForm.controls['description'].invalid}"></textarea>
-      </div>
-
-      <!-- Prix -->
-      <div class="form-group">
-          <label for="prix">Prix</label>
-          <input type="number" id="prix" name="prix" class="form-control" [(ngModel)]="produit.prix" required min="0"
-                 [ngClass]="{'is-invalid': produitForm.submitted && produitForm.controls['prix'].invalid}">
-      </div>
-
-      <!-- Quantité -->
-      <div class="form-group">
-          <label for="quantite">Quantité</label>
-          <input type="number" id="quantite" name="quantite" class="form-control" [(ngModel)]="produit.quantite" required min="0"
-                 [ngClass]="{'is-invalid': produitForm.submitted && produitForm.controls['quantite'].invalid}">
-      </div>
-
-    
-      <div class="form-group">
-        <label for="image">Image</label>
-        <input type="file" id="image" (change)="onFileChange($event)" class="form-control" required>
-        
-    </div>
-
-      <!-- Catégorie -->
-      <div class="form-group">
-          <label for="categorie_id">Catégorie</label>
-          <select id="categorie_id" name="categorie_id" class="form-control" [(ngModel)]="produit.categorie_id" required
-                  [ngClass]="{'is-invalid': produitForm.submitted && produitForm.controls['categorie_id'].invalid}">
-              <option value="" disabled>-- Sélectionnez une catégorie --</option>
-              <option *ngFor="let categorie of categories" [value]="categorie.id">{{ categorie.nom_complet }}</option>
-          </select>
-      </div>
-
-      <button type="submit" class="btn btn-primary" [disabled]="!produitForm.form.valid">Ajouter</button>
-      <button type="button" class="btn btn-secondary" (click)="resetForm()">Réinitialiser</button>
-
-      <!-- <div *ngIf="!produitForm.form.valid && produitForm.submitted" class="alert alert-danger">
-          Veuillez corriger les erreurs dans le formulaire.
-      </div> -->
-
-      <div *ngIf="errorMessages.length > 0" class="alert alert-danger">
+    <!-- Affichage des messages d'erreur -->
+    <div *ngIf="errorMessages.length > 0" class="alert alert-danger">
         <ul>
             <li *ngFor="let error of errorMessages">{{ error }}</li>
         </ul>
     </div>
-    
-  </form>
+
+    <!-- Affichage du message de succès -->
+    <div *ngIf="successMessage" class="alert alert-success">
+        {{ successMessage }}
+    </div>
+
+    <form (ngSubmit)="onSubmit()" #produitForm="ngForm">
+        <!-- Nom -->
+        <div class="form-group">
+            <label for="nom">Nom</label>
+            <input type="text" id="nom" name="nom" class="form-control" [(ngModel)]="produit.nom" required
+                [ngClass]="{'is-invalid': produitForm.submitted && produitForm.controls['nom'].invalid}">
+        </div>
+
+        <!-- Référence -->
+        <div class="form-group">
+            <label for="reference">Référence</label>
+            <input type="text" id="reference" name="reference" class="form-control" [(ngModel)]="produit.reference" required
+                [ngClass]="{'is-invalid': produitForm.submitted && produitForm.controls['reference'].invalid}">
+        </div>
+
+        <!-- Description -->
+        <div class="form-group">
+            <label for="description">Description</label>
+            <textarea id="description" name="description" class="form-control" [(ngModel)]="produit.description" required
+                [ngClass]="{'is-invalid': produitForm.submitted && produitForm.controls['description'].invalid}"></textarea>
+        </div>
+
+        <!-- Prix -->
+        <div class="form-group">
+            <label for="prix">Prix</label>
+            <input type="number" id="prix" name="prix" class="form-control" [(ngModel)]="produit.prix" required min="0"
+                [ngClass]="{'is-invalid': produitForm.submitted && produitForm.controls['prix'].invalid}">
+        </div>
+
+        <!-- Quantité -->
+        <div class="form-group">
+            <label for="quantite">Quantité</label>
+            <input type="number" id="quantite" name="quantite" class="form-control" [(ngModel)]="produit.quantite" required min="0"
+                [ngClass]="{'is-invalid': produitForm.submitted && produitForm.controls['quantite'].invalid}">
+        </div>
+
+        <!-- Image -->
+        <div class="form-group">
+            <label for="image">Image</label>
+            <input type="file" id="image" (change)="onFileChange($event)" class="form-control" required>
+        </div>
+
+        <!-- Catégorie -->
+        <div class="form-group">
+            <label for="categorie_id">Catégorie</label>
+            <select id="categorie_id" name="categorie_id" class="form-control" [(ngModel)]="produit.categorie_id" required
+                [ngClass]="{'is-invalid': produitForm.submitted && produitForm.controls['categorie_id'].invalid}">
+                <option *ngFor="let categorie of categories" [value]="categorie.id">{{ categorie.nom_complet }}</option>
+            </select>
+        </div>
+
+        <button type="submit" class="btn btn-primary">Ajouter</button>
+        <button type="button" class="btn btn-secondary" (click)="resetForm()">Réinitialiser</button>
+    </form>
 </div>

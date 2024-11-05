@@ -43,30 +43,35 @@
   </div>
    -->
 
-
-
-   
-   <app-header></app-header>
-
-<!-- <div class="search-container">
+   <!-- <div class="search-container">
   <input type="text" id="searchInput" placeholder="Rechercher un produit...">
   <button>Rechercher</button>
+</div> -->
+
+  <!-- <img src="../assets/images/frommage.jpeg" alt="Bassine" class="header-image"> -->
+
+<!-- <div class="search-container">
+  <input type="text" [(ngModel)]="searchTerm" placeholder="Rechercher une categorie..." />
+  <button (click)="rechercher()">Rechercher</button>
 </div> -->
 
 
 
 
-<div class="bacgraimage">
-  <div class="overlay">
-    <h1>Nos différents catégories laitiers</h1>
-  </div>
-  <img src="../assets/images/frommage.jpeg" alt="Bassine" class="header-image">
+<app-header></app-header>
+
+<div class="body">
+
+  <div class="bacgraimage">
+<!-- <img src="../assets/images/formulaire.jpeg" alt="Bassine" class="header-image"> -->
+
+<img src="../assets/images/imagecat.jpg" alt="Bassine" class="header-image">
+
 </div>
 
-<div class="search-container">
-  <input type="text" [(ngModel)]="searchTerm" placeholder="Rechercher une categorie..." />
-  <button (click)="rechercher()">Rechercher</button>
-</div>
+<div class="overlay">
+    <h1>Nos différents catégories laitiers</h1>
+  </div>
 
 <div class="card-container">
   <div class="card" *ngFor="let categorie of categories">
@@ -74,12 +79,13 @@
       <h2>{{ categorie.nom_complet }}</h2>
       <p>{{ categorie.description }}</p>
       <a href="/ProduitsAdmin" class="view-more-btn">Voir plus</a>
+</div>
 
-      <!-- <button class="view-more">Voir plus</button> -->
-    </div>
     <img [src]="categorie.image" alt="{{ categorie.nom_complet }}" class="card-image"> 
   </div>
 </div>
+</div>
+
 
 <app-footer></app-footer>
 

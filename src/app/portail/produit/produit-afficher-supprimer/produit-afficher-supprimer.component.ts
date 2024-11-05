@@ -26,6 +26,11 @@ export class ProduitAfficherSupprimerComponent implements OnInit {
   quantiteSouhaitee: number = 1;
   errorMessage: string = '';
  
+
+  itemsPerPage: number = 4; // Limite des produits par page
+  currentPage: number = 1; // Page actuelle
+  produitsAffichesPagination: Produit[] = []; // Ajout de la propriété pour les produits affichés
+
   constructor(
     private produitService: ProduitService,
     private categorieService: CategorieService,
@@ -34,16 +39,60 @@ export class ProduitAfficherSupprimerComponent implements OnInit {
   ) {}
   
   ngOnInit(): void {
-    this.chargerProduits();
+    // this.chargerProduits();
+    this.chargerProduitsPagination();
     this.chargerCategories();
   }
 
 
+// Méthode pour charger les produits et appliquer la pagination
+chargerProduitsPagination(): void {
+  this.produitService.getProduits().subscribe(
+    (data) => {
+      this.produits = data;
+      this.mettreAJourProduitsAffiches(); // Met à jour les produits affichés après le chargement
+    },
+    (error) => {
+      console.error('Erreur lors du chargement des produits', error);
+    }
+  );
+}
+
+
+
+// Met à jour la liste des produits affichés en fonction de la page active
+mettreAJourProduitsAffiches(): void {
+  const startIndex = (this.currentPage - 1) * this.itemsPerPage;
+  // Utilisez les produits filtrés pour la pagination
+  const produitsAFiltrer = this.produitsFiltres; // Produits après filtrage
+  this.produitsAffichesPagination = produitsAFiltrer.slice(startIndex, startIndex + this.itemsPerPage);
+}
+
+
+// Méthode pour changer de page
+changerPage(page: number): void {
+  if (page < 1 || page > this.totalPages) return; // Ne pas changer si hors limites
+  this.currentPage = page;
+  this.mettreAJourProduitsAffiches();
+}
+
+// Méthode pour obtenir le nombre total de pages
+get totalPages(): number {
+  return Math.ceil(this.produits.length / this.itemsPerPage);
+}
+
+
+
+
+
 
 // recherche() conçue pour exécuter une action
-  rechercher(): void { //Nom de la methodes void ne renvoi rien
-    console.log('Recherche effectuée avec le terme:', this.searchTerm);
-  }
+rechercher(): void {
+  console.log('Recherche effectuée avec le terme:', this.searchTerm);
+  this.currentPage = 1; // Réinitialisez la page actuelle à 1 lors d'une nouvelle recherche
+  this.mettreAJourProduitsAffiches(); // Met à jour les produits affichés
+}
+
   
 
   ajouterAuPanier(produit: Produit): void {

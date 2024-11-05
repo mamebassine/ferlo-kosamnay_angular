@@ -1,0 +1,45 @@
+<app-header></app-header>
+<div class="bacgraimage">
+    
+    <img src="../assets/images/imagecategorie1.jpg" alt="Bassine" class="header-image">
+    
+    
+<div class="commandes">
+    <h1>La liste de mes commandes</h1>
+
+    <div *ngIf="commandes.length === 0">
+        <p>Aucune commande pour ce client.</p>
+    </div>
+
+<div *ngFor="let commande of commandes" class="commande-detail">
+        <p><strong>Commande:</strong> {{ commande.ligne_commande.id }}</p>
+        <div class="commande-info">
+
+            <p><strong>Date de Commande:</strong> {{ commande.ligne_commande.date }}</p>
+            <p><strong>Statut:</strong> {{ commande.ligne_commande.statut }}</p>
+            <p><strong>Quantité Totale:</strong> {{ commande.ligne_commande.quantite_totale }}</p>
+            <p><strong>Prix Total:</strong> {{ commande.ligne_commande.prix_totale | number:'1.0-2' }} CFA</p>
+        </div>
+
+        <div class="produit-info">
+            <h4>Détails du Produit</h4>
+            <p><strong>Nom du Produit:</strong> {{ commande.produit_boutique.produit.nom }}</p>
+            <p><strong>Description:</strong> {{ commande.produit_boutique.produit.description }}</p>
+            <p><strong>Prix Unitaire:</strong> {{ commande.produit_boutique.produit.prix | number:'1.0-2' }} CFA</p>
+            <p><strong>Quantité Commandée:</strong> {{ commande.quantite }}</p>
+            <p><strong>Image du Produit:</strong></p>
+
+            <!-- <img [src]="commande.produit_boutique.produit.image" alt="Image de {{ commande.produit_boutique.produit.nom }}" style="width: 150px; height: auto;"> -->
+                <img [src]="commande.produit_boutique.produit.image" alt="{{ commande.produit_boutique.produit.image }}" class="card-image"> 
+
+        
+        <!-- <img *ngIf="produit.image" [src]="'http://localhost:8000/storage/' + produit.image" alt="{{ produit.nom }}" /> -->
+
+        <!-- <img [src]="categorie.image" alt="{{ categorie.nom_complet }}" class="card-image">  -->
+
+        </div>
+
+        <hr>
+    </div>
+</div>
+<app-footer></app-footer>

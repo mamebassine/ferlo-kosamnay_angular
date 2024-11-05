@@ -1,8 +1,10 @@
 import { Component } from '@angular/core'; 
 import { CommonModule } from '@angular/common';
 import { RouterModule, Router } from '@angular/router';  
-import { AuthService } from '../../services/auth.service';  // Chemin à adapter selon votre projet
+import { AuthService } from '../../services/auth.service';  
 import { CartService } from '../../services/cart.service';
+import { CommandeService } from '../../services/commande.service';
+
 
 @Component({
   selector: 'app-header',
@@ -41,4 +43,6 @@ constructor(private authService: AuthService, private router: Router, private ca
   isActive(route: string): boolean {
     return this.router.url === route;
   }
+
+  
 }

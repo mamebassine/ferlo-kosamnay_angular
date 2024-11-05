@@ -27,8 +27,13 @@ export class CategorieAjouterComponent {
     console.log('Données soumises :', this.nouvelleCategorie);
 
     // Définir les motifs de validation pour les champs
-    const nomCompletPattern = /^[a-zA-Z\s]*$/; // Autorise les lettres et les espaces
-    const descriptionPattern = /^[a-zA-Z\s]*$/; // Autorise les lettres et les espaces
+    // const nomCompletPattern = /^[a-zA-Z\s]*$/; 
+    // const descriptionPattern = /^[a-zA-Z\s]*$/; 
+
+    const nomCompletPattern = /^[a-zA-Z\s]*$/;
+    const descriptionPattern = /^[a-zA-Z\s]*$/;
+
+
 
     // Vérifier les champs requis et appliquer les validations
     if (this.nouvelleCategorie.nom_complet.trim() === '') {

@@ -1,4 +1,3 @@
-/* Ton CSS actuel */
 * {
     margin: 0;
     padding: 0;
@@ -15,13 +14,18 @@
     color: #000;
     padding: 100px;
     opacity: 100%;
+    
 }
 
 h1 {
+    
     text-align: center;
     color: #000;
-    font-size: 2.5em;
-    margin-bottom: 20px;
+    font-size: 2em;
+    /* margin-bottom: 40px; */
+
+    margin: 40px 0 20px; /* Ajoute un espace au-dessus et en dessous */
+
 }
 
 .search-container {
@@ -39,7 +43,7 @@ h1 {
 }
 
 .search-container button {
-    padding: 3px 9px;
+    padding: 9px 9px;
     background-color: #3F7E44;
     color: white;
     border: none;
@@ -59,20 +63,31 @@ h1 {
 
 .product {
     background-color: rgba(255, 255, 255, 0.8);
-    padding: 20px;
+    padding: 45px;
     border-radius: 3px;
     text-align: center;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+
+    
 }
+
+/* .product img {
+    display: block; 
+    width: 750%; 
+    height: auto;
+    border-radius: 4px;
+    margin: 0 auto 15px auto; 
+} */
+
 
 .product img {
     display: block; /* Pour que l'image se comporte comme un bloc */
-    width: 750%; /* Ajustez la taille selon vos besoins */
-    height: auto;
+    width: 100%; /* Largeur fixe */
+    height: 65%; /* Hauteur fixe pour uniformiser toutes les images */
+    object-fit: cover; /* S'assure que l'image couvre complètement l'élément */
     border-radius: 4px;
     margin: 0 auto 15px auto; /* Centre l'image horizontalement avec des marges automatiques */
 }
-
 h3 {
     margin-bottom: 10px;
     color: #343F69;
@@ -93,7 +108,7 @@ p {
 
 /* ici */
 .buttons button {  
-    padding: 6x 10px;
+    padding: 2px 16px;
     width: 100%; /* Assurez que tous les boutons occupent la même largeur */
     padding: 10px;
     border: 2px solid black;
@@ -123,80 +138,112 @@ p {
     background-color: #f1f1f1;
 }
 
-/* Media Queries pour la responsivité */
 
 
-/* Pour les petits écrans (moins de 900px) */
-@media (max-width: 900px) {
-    .product-grid {
-        grid-template-columns: repeat(2, 1fr); /* 2 produits par ligne */
-    }
 
-    .search-container input {
-        width: 100%;
-    }
 
-    .search-container {
-        flex-direction: column;
-    }
-
-    .search-container button {
-        width: 100%;
-        margin-top: 10px;
-    }
-
-    .product {
-        padding: 40px; /* Réduire le padding pour diminuer la taille des cartes */
-    }
-
+/* Styles pour rendre le site responsive sur mobile */
+@media (max-width: 480px) {
     .product img {
-        width: 90%; /* Réduire légèrement la taille des images */
+        width: 80%; /* Diminue la largeur de l'image */
+        height: auto; /* Conserve le ratio d'aspect de l'image */
+        margin: 0 auto 10px auto; /* Centre l'image et réduit l'espace en bas */
     }
 
-    .buttons {
-        flex-direction: row;
-        gap: 5px; /* Réduire l'espace entre les boutons */
-    }
 
-    .buttons button {
-        font-size: 0.8em; /* Diminuer la taille du texte des boutons */
-        padding: 10px; /* Réduire le padding des boutons */
-    }
-
-    .product h3, .product p {
-        font-size: 0.9em; /* Diminuer légèrement la taille du texte */
-    }
-}
-
-/* Pour les mobiles (moins de 600px) */
-@media (max-width: 600px) {
-    .product-grid {
-        grid-template-columns: 1fr; /* 1 produit par ligne */
+    .bacgr {
+        padding: 20px;
+        opacity: 1; /* Assure une opacité complète pour éviter les effets de transparence */
     }
 
     h1 {
-        font-size: 1.5em; /* Diminuer la taille du titre */
+
+        font-size: 1.5em; /* Taille du texte légèrement réduite pour mobile */
+        color: #000; /* Change la couleur en blanc pour un meilleur contraste */
+        text-align: center;
+        margin-top: 30%; /* Ajoute un espace supplémentaire au-dessus pour descendre le titre */
+        margin-bottom: 29px; 
+
+    }
+
+    .search-container {
+        flex-direction: column; /* Empile l'input et le bouton verticalement */
+        align-items: center; /* Centre les éléments horizontalement */
+    }
+
+    .search-container input {
+        width: 100%; /* Prend toute la largeur de l'écran */
+        margin-bottom: 10px; /* Ajoute de l'espace en bas pour séparer de l'input */
+    }
+
+    .product-grid {
+        grid-template-columns: 1fr; /* Affiche un seul produit par ligne */
+        gap: 20px; /* Espace entre les cartes produits */
     }
 
     .product {
-        padding: 30px; /* Réduire encore le padding pour diminuer la taille des cartes */
-    }
+        padding: 15px; /* Réduit le padding pour mieux s'adapter aux petits écrans */
+        margin: 20px; /* Réduit l'espace autour des cartes sur les petits écrans */
 
-    .product img {
-        width: 100%; /* L'image prend toute la largeur mais reste dans une taille réduite */
-    }
-
-    .product h3, .product p {
-        font-size: 0.8em; /* Réduire la taille du texte pour les petits écrans */
     }
 
     .buttons {
-        flex-direction: column;
-        gap: 5px;
+        flex-direction: column; /* Empile les boutons verticalement */
+        gap: 10px; /* Ajoute un espace entre les boutons pour une meilleure lisibilité */
     }
 
     .buttons button {
-        font-size: 0.7em; /* Diminuer la taille du texte des boutons */
-        padding: 8px; /* Réduire la taille des boutons */
+        padding: 4px; /* Réduit le padding pour les petits écrans */
+        font-size: 0.9em; /* Ajuste la taille de la police pour garder les boutons lisibles */
     }
 }
+
+
+
+
+
+.pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center; /* Aligner verticalement les éléments */
+    margin-top: 20px;
+    flex-wrap: wrap; /* Permet de passer à la ligne si nécessaire */
+  }
+  
+  .pagination button {
+    margin: 0 5px;
+    padding: 10px 15px; /* Ajustement des valeurs de padding */
+    border: none;
+    background-color: #3F7E44;
+    color: white;
+    cursor: pointer;
+    border-radius: 3px; /* Arrondi des coins des boutons */
+    transition: background-color 0.3s; /* Transition pour un effet de survol */
+  }
+  
+  /* Changer la couleur du bouton au survol */
+  .pagination button:hover {
+    background-color: #99B951; /* Couleur plus foncée au survol */
+  }
+  
+  .pagination button:disabled {
+    background-color: grey;
+    cursor: not-allowed;
+  }
+  
+
+
+
+  /* Styles pour les écrans de petite taille */
+  @media (max-width: 600px) {
+    .pagination {
+      flex-direction: column; /* Aligne les éléments en colonne sur mobile */
+      align-items: center; /* Centre les éléments horizontalement */
+    }
+  
+    .pagination button {
+      width: 100%; /* Les boutons prennent toute la largeur */
+      margin-bottom: 10px; /* Espace entre les boutons */
+    }
+  }
+  

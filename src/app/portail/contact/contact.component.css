@@ -15,6 +15,7 @@ body {
     color: #333;
 }
 
+
 .bacgraimage {
     position: relative;
     text-align: center;
@@ -28,15 +29,24 @@ body {
     left: 0;
     right: 0;
     bottom: 0;
-    background: rgba(0, 0, 0, 0.5);
+    /* background: rgba(0, 0, 0, 0.5); */
     display: flex;
     justify-content: center;
     align-items: center;
+}
+h2{
+    margin-top: 102px;
+}
+h3{
+    margin-top: -18%;
+    font-size: 5rem;
+
 }
 
 .bacgraimage h1 {
     font-size: 2.5em; /* Taille du titre */
     z-index: 2;
+    margin-top: 300%;
 }
 
 .header-image {
@@ -45,6 +55,7 @@ body {
     object-fit: cover;
 }
 .contact-section {
+    
     font-family: Arial, sans-serif;
     background-color: rgb(187, 212, 193);
     /* background-image: url('/assets/images/ooiun.jpg'); */

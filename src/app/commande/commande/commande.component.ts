@@ -1,4 +1,4 @@
-// src/app/commande/commande.component.ts
+import { Router, RouterModule } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 import { CommandeService } from '../../services/commande.service';
 import { CommonModule } from '@angular/common';
@@ -23,7 +23,6 @@ export class CommandeComponent implements OnInit {
 
   onCardClick(commande: any): void {
     console.log(`Carte cliquée pour la commande ID: ${commande.id}`);
-    // Ajoutez ici la logique pour rediriger ou ouvrir des détails
   }
 
 

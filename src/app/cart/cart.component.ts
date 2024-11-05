@@ -5,6 +5,8 @@ import { AuthService } from '../services/auth.service';
 import { FormsModule } from '@angular/forms'; 
 import { CommonModule } from '@angular/common'; 
 import { PaiementService } from '../services/paiement.service';
+import { Router } from '@angular/router'; // Import the Router
+
 @Component({
   selector: 'app-cart', 
   standalone: true, 
@@ -16,9 +18,15 @@ export class CartComponent implements OnInit {
   cartItems: CartItem[] = []; // Tableau pour contenir les articles du panier
   paymentType: string = 'wallet'; // Le type de paiement
   totalAmount: number = 0; // Le montant total à payer
+  messageSucces: string = ''; // Ajout de la propriété pour le message de succès
+   
+
   // Constructeur pour injecter CartService
   // constructor(private cartService: CartService) { }
-  constructor(private cartService: CartService, private authService: AuthService, private paymentService: PaiementService) { }
+
+  constructor(private cartService: CartService, private authService: AuthService, private paymentService: PaiementService, private router: Router 
+  ) { }
+  
   // Méthode du cycle de vie qui s'exécute après l'initialisation du composant
   ngOnInit(): void {
     // S'abonner à l'observable cartItems pour obtenir les articles du panier actuels
@@ -68,7 +76,8 @@ clearCart(): void {
 }
 
   
-commanderr(): void {
+ // Méthode pour vérifier l'authentification et gérer la redirection
+ commanderr(): void {
   if (this.authService.isAuthenticated()) {
     const produits = this.cartItems.map(item => ({
       produit_boutique_id: item.productId,
@@ -76,26 +85,21 @@ commanderr(): void {
       prix_totale: item.prix
     }));
 
-    // Calcul du montant total
-    this.totalAmount = this.cartItems.reduce((total, item) => total + item.prix * item.quantite, 0);
+    this.totalAmount = this.getTotal(); // Calculer le montant total
 
-    // Envoyer la commande au backend Laravel
     this.cartService.createOrder(produits).subscribe(
       response => {
-
         const ligneCommandeId = response.commande.id;
         console.log('Commande enregistrée avec succès:', ligneCommandeId);
 
         if (ligneCommandeId) {
-          const currentDate = new Date().toISOString().split('T')[0]; // Récupérer la date actuelle au format AAAA-MM-JJ
+          const currentDate = new Date().toISOString().split('T')[0];
 
-          // Effectuer le paiement pour la commande
           this.paymentService.effectuerPaiement(ligneCommandeId, this.totalAmount, currentDate, this.paymentType).subscribe(
             paiementResponse => {
               const urlDePaiement = paiementResponse?.payment_url;
 
               if (urlDePaiement) {
-                // Rediriger l'utilisateur vers l'URL de paiement
                 window.location.href = urlDePaiement;
               } else {
                 console.error('Erreur: l\'URL de paiement est introuvable.');
@@ -114,7 +118,9 @@ commanderr(): void {
       }
     );
   } else {
-    window.location.href = '/login'; // Rediriger vers la page de connexion si non authentifié
+    // Stocker l'URL actuelle avant de rediriger
+    this.authService.setRedirectUrl(this.router.url); 
+    this.router.navigate(['/login']); // Rediriger vers la page de connexion
   }
 }
 

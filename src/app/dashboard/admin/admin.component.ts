@@ -1,92 +1,170 @@
-import { Component, inject, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { HttpErrorResponse } from '@angular/common/http';
-import { Router, RouterModule } from '@angular/router'; // Import RouterModule
-import { AuthService } from '../../services/auth.service';
-import { LigneCommandeService } from '../../services/ligne-commande.service';
+import { Router, RouterModule } from '@angular/router';
 import { NavbarAdminComponent } from "../../navbar-admin/navbar-admin.component";
-
+import { CommandeService } from '../../services/commande.service';
+import { HttpClientModule } from '@angular/common/http';
 interface Card {
   title: string;
   value: string | number;
   color: string;
   position: string;
 }
-
-interface LigneCommande {
-  id?: number;
-  produit_boutique_id: number;
-  user_id: number;
-  date: string;
-  statut: string;
-  quantite_totale: number;
-  prix_totale: number;
-}
-
 @Component({
   selector: 'app-admin',
   standalone: true,
-  imports: [CommonModule, RouterModule, NavbarAdminComponent], // Include RouterModule here
+  imports: [HttpClientModule,
+    CommonModule, RouterModule, NavbarAdminComponent],
   templateUrl: './admin.component.html',
   styleUrls: ['./admin.component.css']
 })
 export class AdminComponent implements OnInit {
   cards: Card[] = [];
-  lignesCommandes: LigneCommande[] = [];
+  commandes: any[] = [];
+
+  nombreProduits: number = 0; // Pour stocker le nombre de produits
+  produitPlusCommande: string = ''; // Pour stocker le nom du produit le plus commandé
+  nombreBoutiques: number = 0; // Propriété pour stocker le nombre de boutiques
+  nombreRepresentants: number = 0; // Propriété pour stocker le nombre de représentants
+
+
+constructor(private commandeService: CommandeService) {}
   
-  errorMessage: string | null = null;
-
-  private router = inject(Router);
-  private authService = inject(AuthService);
-  private ligneCommandeService = inject(LigneCommandeService);
-
   ngOnInit(): void {
-    // Mise à jour du tableau des cartes avec les informations demandées en français
-    this.cards = [
-      { title: 'Voir Toutes les Ventes', value: '1500', color: '#007bff', position: 'top-left' },
-      { title: 'Produits les Mieux Vendus', value: 'Lait', color: '#dc3545', position: 'top-right' },
-      { title: 'Nombre de Produits sur le Site', value: 200, color: '#28a745', position: 'bottom-left' },
-      { title: 'Produits Restants', value: 50, color: '#ffc107', position: 'bottom-right' }
-    ];
-  
-    this.loadLignesCommandes();
-  }
-  
+    this.loadCommandes(); // Charge les commandes ici pour les afficher sur le dashboard
+    this.loadNombreProduits(); // Charge le nombre de produits et charge les cartes après
+    this.loadProduitPlusCommande(); // Charge le produit le plus commandé
+    this.loadNombreBoutiques(); // Charge le nombre de boutiques au démarrage
+    this.loadNombreRepresentants(); // Charge le nombre de représentants au démarrage
 
-  loadLignesCommandes(): void {
-    this.ligneCommandeService.getLignesCommandes().subscribe(
+  }
+
+// Nombre Produits
+  loadNombreProduits(): void {
+    this.commandeService.getNombreProduits().subscribe(
       (data) => {
-        // this.lignesCommandes = data;
+        this.nombreProduits = data.nombre_produits; // Extraire la valeur de "nombre_produits"
+        console.log('nombre', this.nombreProduits); // Assurez-vous qu'il affiche 13
+        this.loadCards(); // Charger les cartes après avoir obtenu le nombre de produits
       },
-      (error: any) => {
-        // this.errorMessage = 'Erreur lors de la récupération des lignes de commande.';
+      (error) => {
+        console.log('Erreur lors de la récupération du nombre de produits', error);
+      }
+    );
+  }
+  // Produit Plus Commande
+loadProduitPlusCommande(): void {
+    this.commandeService.getproduitPlusCommande().subscribe(
+      (data) => {
+        this.produitPlusCommande = data.produit.nom; // Récupère le nom du produit
+        this.loadCards(); // Charger les cartes après avoir obtenu le produit le plus commandé
+      },
+      (error) => {
+        
+        console.log('Erreur lors de la récupération du produit le plus commandé', error);
+      }
+    );
+  }
+  
+// Nombre Boutiques
+  loadNombreBoutiques(): void {
+    this.commandeService.getnombreBoutiquesActuelles().subscribe(
+      (data) => {
+        this.nombreBoutiques = data.nombre_boutiques; // Récupère la valeur de 'nombre_boutiques'
+        this.loadCards(); // Met à jour les cartes après avoir reçu le nombre de boutiques
+      },
+      (error) => {
+        console.log('Erreur lors de la récupération du nombre de boutiques', error);
       }
     );
   }
 
-  logout(): void {
-    const token = localStorage.getItem('token');
+// Nombre Representants
+  loadNombreRepresentants(): void {
+    this.commandeService.getNombreTotalRepresentants().subscribe(
+      (data) => {
+        this.nombreRepresentants = data.total_representants; // Récupère la valeur de 'total_representants'
+        this.loadCards(); // Met à jour les cartes après avoir reçu le nombre de représentants
+      },
+      (error) => {
+        console.log('Erreur lors de la récupération du nombre de représentants', error);
+      }
+    );
+  }
 
-    if (!token) {
-      console.error('Aucun token trouvé, impossible de déconnecter.');
-      return;
-    } else {
-      localStorage.removeItem('token');
-      localStorage.removeItem('user');
-      this.router.navigate(['/login']);
+
+  loadCards(): void {
+    this.cards = [
+      {
+        title: 'Nombre de produits dans le site',
+        value: this.nombreProduits, // Utilise le nombre de produits mis à jour
+        color: '#B7D7B3',
+        position: 'position-class'
+      },
+      {
+        title: 'Produit avec le plus de commandes',
+        value: this.produitPlusCommande || 'Non disponible', // Affiche le nom du produit ou un message par défaut
+        color: '#FF5733',
+        position: 'position-class'
+  
+      },
+      {
+        title: 'Le nombre de boutiques actuellement',
+        value: this.nombreBoutiques, // Affiche le nombre de boutiques récupéré
+        color: '#C70039',
+        position: 'position-class'
+      },
+      {
+        title: 'Le nombre de représentants dans les régions',
+        value: this.nombreRepresentants, // Affiche le nombre de représentants
+        color: '#FFC300',
+        position: 'position-class'
+      }
+    ];
+  }
+  
+
+  getProduitPlusCommandes(): number {
+    // Ajoutez la logique pour récupérer le produit avec le plus de commandes
+    // Exemple statique pour le moment
+    return 0; 
+  }
+
+  getProduitsActuels(): number {
+    // Ajoutez la logique pour récupérer le nombre de produits actuellement disponibles
+    return this.commandes.length; // Exemple: renvoie le nombre de commandes
+  }
+
+  getProduitsRestants(): number {
+    // Ajoutez la logique pour récupérer le nombre de produits restants
+    return 0; // Valeur d'exemple
+  }
+
+onCardClick(commande: any): void {
+    console.log(`Carte cliquée pour la commande ID: ${commande.id}`);
+  }
+onDelete(id: number): void {
+    if (confirm('Êtes-vous sûr de vouloir supprimer cette commande ?')) {
+      this.commandes = this.commandes.filter(commande => commande.id !== id);
+      console.log('Commande supprimée:', id);
     }
-    
   }
-
-  deleteLigneCommande(id: number): void {
-    // Implémentez la logique pour supprimer la ligne de commande ici
-    this.ligneCommandeService.deleteLigneCommande(id).subscribe(
-      () => {
-        this.loadLignesCommandes(); // Recharger les lignes de commande après la suppression
+  
+  
+  
+  
+  loadCommandes(): void {
+    this.commandeService.getCommandes().subscribe(
+      (data) => {
+        this.commandes = data;
+        console.log('Commandes reçues:', this.commandes); // Vérifiez ici les données reçues
       },
-      (error: HttpErrorResponse) => {
-        this.errorMessage = 'Erreur lors de la suppression de la ligne de commande.';
+      (error) => {
+        console.error('Erreur lors de la récupération des commandes', error);
       }
     );
   }
+
+
+  
 }

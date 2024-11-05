@@ -12,10 +12,13 @@ import { CommonModule } from '@angular/common';
   styleUrls: ['./ligne-commande-ajouter.component.css']
 })
 export class LigneCommandeAjouterComponent implements OnInit {
+  loading: boolean = false; // Initialisez 'loading' ici
+
+
   // Propriété indiquant si le formulaire a été soumis
   submitted = false;
-  
-  // Propriétés pour stocker les données
+messageSucces: string = ''; // Ajoutez cette ligne pour éviter l'erreur
+// Propriétés pour stocker les données
   ligne_commandes: LigneCommande[] = []; 
   users: any[] = []; 
 
@@ -27,9 +30,7 @@ export class LigneCommandeAjouterComponent implements OnInit {
     quantite_totale: 0,
     prix_totale: 0
     // client: '' // Initialisation avec une chaîne vide
-  };
-
-  // Message d'erreur en cas de problème
+  };// Message d'erreur en cas de problème
   messageErreur: string | null = null;
 
   constructor(private ligneCommandeService: LigneCommandeService, private router: Router) {}
@@ -47,17 +48,6 @@ export class LigneCommandeAjouterComponent implements OnInit {
       }
     );
 
-    // Charger les utilisateurs
-    // this.ligneCommandeService.getUsers().subscribe(
-    //   (data: any[]) => {
-    //     this.users = data; // Assignez les utilisateurs à la propriété
-    //     console.log(this.users);
-        
-    //   },
-    //   (error: any) => {
-    //     console.error('Erreur lors du chargement des utilisateurs:', error);
-    //   }
-    // );
 
   }
   
@@ -65,6 +55,10 @@ export class LigneCommandeAjouterComponent implements OnInit {
   // Méthode pour ajouter une nouvelle ligne de commande
   ajouterLigneCommande(): void {
     this.submitted = true;
+    this.loading = true; // Afficher le loader
+    console.log('Loader affiché:', this.loading); // Ajoutez ceci
+
+
   
     console.log('Données de la nouvelle ligne de commande:', this.nouvelleLigneCommande);
   
@@ -80,8 +74,17 @@ export class LigneCommandeAjouterComponent implements OnInit {
         } else {
           this.messageErreur = 'Une erreur est survenue lors de l\'ajout de la ligne de commande.';
         }
+      },
+      () => {
+        this.loading = false; // Cacher le loader à la fin
+        console.log('Loader caché:', this.loading); // Ajoutez ceci
+
       }
     );
   }
+  
+
+
+  
   
 }

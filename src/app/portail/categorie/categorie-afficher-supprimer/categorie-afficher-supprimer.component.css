@@ -1,17 +1,12 @@
-/* Base CSS */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
 
-body {
+
+/* body {
   font-family: Arial, sans-serif;
   background-color: #fff;
   color: #333;
-}
+} */
 
-.search-container {
+/* .search-container {
   display: flex;
   justify-content: center;
   margin-bottom: 20px;
@@ -19,7 +14,7 @@ body {
 
 .search-container input {
   padding: 10px;
-  width: 250px; /* Réduire la largeur de l'input */
+  width: 250px; 
   border: 2px solid #343F69;
   border-radius: 3px;
   margin-right: 10px;
@@ -36,9 +31,14 @@ body {
 
 .search-container button:hover {
   background-color: #99B951;
-}
+} */
 
-.bacgraimage {
+
+
+
+
+
+/* .bacgraimage {
   position: relative;
   text-align: center;
   color: #000;
@@ -47,35 +47,83 @@ body {
 
 .bacgraimage .overlay {
   position: absolute;
-  top: 0;
   left: 0;
   right: 0;
-  bottom: 0;
-  background: rgba(0, 0, 0, 0.5);
   display: flex;
   justify-content: center;
   align-items: center;
+  margin-top: 9%;
 }
 
 .bacgraimage h1 {
+  margin-bottom: 20px;
+
   font-size: 2.5em;
   z-index: 2;
+} */
+
+
+/* * {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+  color: #000;
+} */
+
+
+
+
+
+
+
+
+
+
+
+
+.bacgraimage h1 {
+  font-size: 2.5em; /* Taille du titre */
+  z-index: 2;
+  margin-top: 300%;
 }
 
 .header-image {
-  margin-top: -2%;
   width: 100%;
-  height: 250px;
+  height: 350px; /* Réduction de la taille de l'image en haut */
   object-fit: cover;
-  border-bottom-right-radius: 80px;
 }
 
+
+body {
+  font-family: Arial, sans-serif;
+  background-color: #fff;
+  color: #333;
+
+  margin-bottom: 300%; 
+}
+.overlay {
+  text-align: center;
+  margin-bottom: -5px; 
+
+  padding-top: -90px; /* Déplace l'ensemble de l'overlay vers le bas */}
+
+.overlay h1 {
+  color: #000;
+  font-size: 2.5em;
+  margin-top: 30px; /* Ajuste la marge pour plus d'espace */
+   margin-top: 20px; /* Augmente la marge supérieure */
+
+  
+
+  /* margin-top: 10%; */
+}
 .card-container {
-  background-color: rgba(251, 249, 247, 0.989);
   display: flex;
   justify-content: space-around;
   flex-wrap: wrap;
   padding: 20px;
+  margin-top: 70px; 
 }
 
 .card {
@@ -99,7 +147,6 @@ body {
 
 h2 {
   font-size: 1.5em;
-  margin-bottom: 20px;
   color: #fff;
 }
 
@@ -138,6 +185,13 @@ p {
 .view-more-btn:hover {
   background-color: #a7b9a8;
 }
+
+
+
+
+
+
+
 
 /* Responsivité */
 

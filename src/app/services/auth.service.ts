@@ -17,6 +17,20 @@ export interface User {
   providedIn: 'root' // Spécifie que ce service est fourni au niveau racine de l'application
 })
 export class AuthService {
+  private redirectUrl: string | null = null;
+
+  setRedirectUrl(url: string) {
+    this.redirectUrl = url;
+  }
+
+  getRedirectUrl(): string | null {
+    return this.redirectUrl;
+  }
+
+  clearRedirectUrl() {
+    this.redirectUrl = null;
+  }
+
   
   // Déclaration de l'URL de base de l'API backend
   private apiUrl = 'http://localhost:8000/api/login'; 

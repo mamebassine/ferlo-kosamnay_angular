@@ -68,6 +68,8 @@ import { RepresentantDashboardComponent } from './dashboard/admin/representant-d
 import { AjoutRepresentantComponent } from './dashboard/admin/ajout-representant/ajout-representant.component'; 
 import { CartComponent } from './cart/cart.component';
 
+import { UserCommandeComponent } from './usercommande/usercommande/usercommande.component';
+
 
 
                                 export const routes: Routes = [
@@ -145,6 +147,8 @@ import { CartComponent } from './cart/cart.component';
 { path: 'lignecommande/detail/:id', component: LigneCommandeVoirDetailComponent },
 
 { path: 'commande', component: CommandeComponent },
+
+{ path: 'usercommande', component: UserCommandeComponent }, // Route for authenticated user's orders
 
 
 

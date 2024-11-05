@@ -71,3 +71,34 @@ h2 {
 .btn-secondary:hover {
     background-color: #5a6268; /* Couleur de fond au survol pour le bouton secondaire */
 }
+
+
+
+
+
+.container {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+h2 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.alert {
+    margin-bottom: 20px;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+.is-invalid {
+    border-color: red;
+}
+
+.btn {
+    margin-right: 10px;
+}
