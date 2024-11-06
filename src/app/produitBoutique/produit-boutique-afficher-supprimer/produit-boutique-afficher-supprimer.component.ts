@@ -37,7 +37,7 @@ export class ProduitBoutiqueAfficherSupprimerComponent implements OnInit {
       (data: ProduitBoutique[]) => {
         this.produitBoutiques = data;
       },
-      (error: any) => { // Typage explicite
+      (error: any) => { 
         console.error('Erreur lors du chargement des associations produit-boutique', error);
         console.log();
         console.log(this.produitBoutiques);

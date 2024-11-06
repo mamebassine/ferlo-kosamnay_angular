@@ -7,29 +7,57 @@ div {
 h2 {
     color: #000; 
     text-align: center;
+    margin-top: 60px; /* Ajoute un espace au-dessus du titre */
+    margin-bottom: 5px; /* Espace supplémentaire entre le titre et le contenu suivant */
+font-size: 2rem;
 }
 
 .btn-ajouter {
+margin-right: 23%;
+
+    text-align: center;
     display: inline-block;
     background-color: #99B951; 
     color: #fff; 
-    padding: 10px 20px;
-    margin: 10px 0;
+    padding: 8px 16px;
+    margin: 5px 0;
     text-decoration: none;
     border-radius: 5px;
     transition: background-color 0.3s;
-}
+    margin-left: 20%; /* Positionne le bouton vers la gauche */
 
+}
+.Bajouter{
+    margin-left: 37%; 
+    margin-top: 10px;
+}
+/* Titre */
+h2.titreB {
+    color: #000; 
+    text-align: center;
+    margin-top: 160px; /* Descend le titre */
+    margin-bottom: 60px; /* Réduit l’espace entre le titre et le bouton */
+    font-size: 2rem;
+}
+.tousBoutiq{
+    margin-bottom: 900px; /* Réduit l’espace entre le titre et le bouton */
+
+}
 .btn-ajouter:hover {
     background-color: #99B951; 
 }
-
-
-
 table {
-    width: 100%;
+
+    margin: 20px auto; /* Centre la table et descend légèrement */
+    width: 40%; /* Ajuste la largeur pour occuper plus d’espace */
     border-collapse: collapse;
-    margin-top: 20px;
+    margin-left: 37%;
+
+
+    /* margin-left: 37%;
+    width: 40%;
+    border-collapse: collapse;
+    margin-top: 200px; */
 }
 
 
