@@ -3,14 +3,13 @@
     
 <section class="cards">
   <div class="card-container">
-    <div *ngFor="let card of cards" 
-         [ngStyle]="{'background-color': card.color}" 
-         class="card" 
-         [ngClass]="card.position">
-      <h2>{{ card.title }} : {{ card.value }}</h2>
+    <div *ngFor="let card of cards" [ngStyle]="{'background-color': card.color}" class="card" [ngClass]="card.position">
+      <i [ngClass]="card.iconClass"></i> <!-- Icon element with iconClass binding -->
+      <h2>{{ card.title }} : <br>{{ card.value }}</h2>
     </div>
   </div>
 </section>
+
 
 
 <div class="tout">

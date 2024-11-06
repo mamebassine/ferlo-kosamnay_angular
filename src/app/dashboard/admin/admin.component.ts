@@ -9,6 +9,8 @@ interface Card {
   value: string | number;
   color: string;
   position: string;
+  iconClass?: string; // Add iconClass property
+
 }
 @Component({
   selector: 'app-admin',
@@ -97,30 +99,34 @@ loadProduitPlusCommande(): void {
     this.cards = [
       {
         title: 'Nombre de produits dans le site',
-        value: this.nombreProduits, // Utilise le nombre de produits mis à jour
+        value: this.nombreProduits,
         color: '#B7D7B3',
-        position: 'position-class'
+        position: 'position-class',
+        iconClass: 'fas fa-box' 
       },
       {
         title: 'Produit avec le plus de commandes',
-        value: this.produitPlusCommande || 'Non disponible', // Affiche le nom du produit ou un message par défaut
+        value: this.produitPlusCommande || 'Non disponible',
         color: '#FF5733',
-        position: 'position-class'
-  
+        position: 'position-class',
+        iconClass: 'fas fa-chart-line'
       },
       {
         title: 'Le nombre de boutiques actuellement',
-        value: this.nombreBoutiques, // Affiche le nombre de boutiques récupéré
+        value: this.nombreBoutiques,
         color: '#C70039',
-        position: 'position-class'
+        position: 'position-class',
+        iconClass: 'fas fa-store'
       },
       {
         title: 'Le nombre de représentants dans les régions',
-        value: this.nombreRepresentants, // Affiche le nombre de représentants
+        value: this.nombreRepresentants,
         color: '#FFC300',
-        position: 'position-class'
+        position: 'position-class',
+        iconClass: 'fas fa-user-tie'
       }
     ];
+    
   }
   
 

@@ -11,17 +11,12 @@
     gap: 70px; /* Augmente l'espace entre les cartes */
     /* box-shadow: 0 6px 18px rgba(0, 0, 0, 0.15); Ombre légèrement plus prononcée */
 
-    background: linear-gradient(120deg, #e8eff0 20%, #c3d9df 100%);
-
-    backdrop-filter: blur(5px);
-
-
+     /* Ajuste le gradient pour le décaler vers la gauche */
+     background: linear-gradient(110deg, #e8eff0 85%, #99B951 55%);
+     backdrop-filter: blur(5px)
 }
-
-
 /* Style individuel pour les cartes */
 .card {
-    /* background: linear-gradient(120deg, #e8eff0 20%, #c3d9df 100%); */
     border-radius: 4px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     width: calc(40% - 30px); /* 4 cartes par ligne avec un espace supplémentaire */
@@ -30,8 +25,11 @@
     transition: transform 0.2s, background-color 0.3s;
     position: relative;
     animation: float 3s ease-in-out infinite; /* Animation de flottement */
-    margin-left: 13%;
+    margin-left: 15%;
+    
 }
+
+
 
 .card:hover {
     transform: translateY(-5px); /* Légère élévation */
@@ -96,6 +94,20 @@ h1 {
     font-size: 2rem;
     margin-left: 25%;
 }
+
+.card i {
+    font-size: 1.5rem;
+    color: #fff;
+    margin-bottom: 8px;
+}
+
+
+
+
+
+
+
+
 
 
 
@@ -173,10 +185,6 @@ h1 {
 .delete-btn i {
     margin-right: 0;
 }
-
-
-
-
 /* Style des cartes */
 .cards {
     max-width: 80%; /* Augmentez si nécessaire pour plus d'espace */
