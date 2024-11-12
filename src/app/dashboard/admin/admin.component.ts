@@ -4,33 +4,40 @@ import { Router, RouterModule } from '@angular/router';
 import { NavbarAdminComponent } from "../../navbar-admin/navbar-admin.component";
 import { CommandeService } from '../../services/commande.service';
 import { HttpClientModule } from '@angular/common/http';
+
+import { Chart, ChartConfiguration, ChartItem, registerables } from 'chart.js';
+
 interface Card {
   title: string;
   value: string | number;
   color: string;
   position: string;
-  iconClass?: string; // Add iconClass property
-
+  iconClass?: string; 
 }
+Chart.register(...registerables);
+
 @Component({
   selector: 'app-admin',
   standalone: true,
-  imports: [HttpClientModule,
-    CommonModule, RouterModule, NavbarAdminComponent],
+  imports: [HttpClientModule, CommonModule, RouterModule, NavbarAdminComponent],
   templateUrl: './admin.component.html',
   styleUrls: ['./admin.component.css']
 })
 export class AdminComponent implements OnInit {
+  
   cards: Card[] = [];
   commandes: any[] = [];
 
-  nombreProduits: number = 0; // Pour stocker le nombre de produits
+  nombreProduits: number = 0; // Déclaration correcte avec un point-virgule
+
+  //nombreProduits: number = 0; // Pour stocker le nombre de produits
   produitPlusCommande: string = ''; // Pour stocker le nom du produit le plus commandé
   nombreBoutiques: number = 0; // Propriété pour stocker le nombre de boutiques
   nombreRepresentants: number = 0; // Propriété pour stocker le nombre de représentants
+  
+  chart: Chart | null = null;
 
-
-constructor(private commandeService: CommandeService) {}
+  constructor(private commandeService: CommandeService) {}
   
   ngOnInit(): void {
     this.loadCommandes(); // Charge les commandes ici pour les afficher sur le dashboard
@@ -38,22 +45,26 @@ constructor(private commandeService: CommandeService) {}
     this.loadProduitPlusCommande(); // Charge le produit le plus commandé
     this.loadNombreBoutiques(); // Charge le nombre de boutiques au démarrage
     this.loadNombreRepresentants(); // Charge le nombre de représentants au démarrage
+    
+    
+    this.loadChartData();
 
   }
 
 // Nombre Produits
-  loadNombreProduits(): void {
-    this.commandeService.getNombreProduits().subscribe(
-      (data) => {
-        this.nombreProduits = data.nombre_produits; // Extraire la valeur de "nombre_produits"
-        console.log('nombre', this.nombreProduits); // Assurez-vous qu'il affiche 13
-        this.loadCards(); // Charger les cartes après avoir obtenu le nombre de produits
-      },
-      (error) => {
-        console.log('Erreur lors de la récupération du nombre de produits', error);
-      }
-    );
-  }
+loadNombreProduits(): void {
+  this.commandeService.getNombreProduits().subscribe(
+    (data) => {
+      this.nombreProduits = data.nombre_produits;
+      console.log('nombre', this.nombreProduits);
+      this.loadCards();
+    },
+    (error) => {
+      console.log('Erreur lors de la récupération du nombre de produits', error);
+    }
+  );
+}
+
   // Produit Plus Commande
 loadProduitPlusCommande(): void {
     this.commandeService.getproduitPlusCommande().subscribe(
@@ -100,28 +111,28 @@ loadProduitPlusCommande(): void {
       {
         title: 'Nombre de produits dans le site',
         value: this.nombreProduits,
-        color: '#B7D7B3',
+        color: '#fff',
         position: 'position-class',
         iconClass: 'fas fa-box' 
       },
       {
         title: 'Produit avec le plus de commandes',
         value: this.produitPlusCommande || 'Non disponible',
-        color: '#FF5733',
+        color: '#fff',
         position: 'position-class',
         iconClass: 'fas fa-chart-line'
       },
       {
         title: 'Le nombre de boutiques actuellement',
         value: this.nombreBoutiques,
-        color: '#C70039',
+        color: '#fff',
         position: 'position-class',
         iconClass: 'fas fa-store'
       },
       {
         title: 'Le nombre de représentants dans les régions',
         value: this.nombreRepresentants,
-        color: '#FFC300',
+        color: '#fff',
         position: 'position-class',
         iconClass: 'fas fa-user-tie'
       }
@@ -155,10 +166,6 @@ onDelete(id: number): void {
       console.log('Commande supprimée:', id);
     }
   }
-  
-  
-  
-  
   loadCommandes(): void {
     this.commandeService.getCommandes().subscribe(
       (data) => {
@@ -172,5 +179,154 @@ onDelete(id: number): void {
   }
 
 
-  
+
+
+//Courbe biiii
+
+loadChartData(): void {
+  this.commandeService.getNombreProduitsTemps().subscribe(
+    (response) => {
+      // Supposons que chaque `item` contient `semaine`, `mois`, `annee` et `produits`
+      const labels = response.nombre_produits.map((item: any) => `Semaine ${item.semaine}, ${item.mois} ${item.annee}`);
+      const data = response.nombre_produits.map((item: any) => item.produits);
+
+      // Appel de renderChart avec les labels et data pour une vue par semaine
+      this.renderChart(labels, data);
+    },
+    (error) => {
+      console.error('Erreur lors de la récupération des données de produits :', error);
+    }
+  );
 }
+
+
+
+
+// loadChartData(): void {
+//   this.commandeService.getNombreProduitsTemps().subscribe(
+//     (response) => {
+//       const labels = response.nombre_produits.map((item: any) => `${item.mois} ${item.annee}`);
+//       const data = response.nombre_produits.map((item: any) => item.produits);
+
+//       // Appel de renderChart avec les arguments labels et data
+//       this.renderChart(labels, data);
+//     },
+//     (error) => {
+//       console.error('Erreur lors de la récupération des données de produits :', error);
+//     }
+//   );
+// }
+
+
+renderChart(labels: string[], data: number[]): void {
+  const chartData = {
+    labels: labels,
+    datasets: [{
+      label: 'Nombre de Produits',
+      data: data,
+      fill: false,
+      borderColor: '#99B951',
+      tension: 0.1
+    }]
+  };
+
+  const config: ChartConfiguration = {
+    type: 'line',
+    data: chartData,
+    options: {
+      animations: {
+        tension: {
+          duration: 1000,
+          easing: 'linear',
+          from: 1,
+          to: 0,
+          loop: true
+        }
+      },
+      scales: {
+        x: {
+          ticks: {
+            font: {
+              size: 25
+            }
+          }
+        },
+        y: {
+          ticks: {
+            font: {
+              size: 20
+            }
+          }
+        }
+      }
+    }
+  };
+
+  const chartItem: ChartItem = document.getElementById('myChart') as ChartItem;
+  this.chart = new Chart(chartItem, config);
+}
+
+
+
+ 
+  
+//Courbe biiii
+
+
+// renderChart(): void {
+//   const labels = ['Janvier', 'Février', 'Mars', 'Avril', 'Mai', 'Juin', 'Juillet'];
+//   const data = [65, 59, 80, 81, 26, 55, this.nombreProduits];
+
+//   const chartData = {
+//     labels: labels,
+//     datasets: [{
+//       label: 'Nombre de Produits',
+//       data: data,
+//       fill: false,
+//       borderColor: '#99B951', // Couleur de la courbe
+//       tension: 0.1
+//     }]
+//   };
+
+//   const config: ChartConfiguration = {
+//     type: 'line', // Graphique linéaire
+//     data: chartData,
+//     options: {
+//       animations: {
+//         tension: {
+//           duration: 1000,
+//           easing: 'linear',
+//           from: 1,
+//           to: 0,
+//           loop: true // Animation en boucle pour la tension
+//         }
+//       },
+//       scales: {
+//         x: {
+//           ticks: {
+//             font: {
+//               size: 25, // Taille de la police pour les dates
+//             }
+//           }
+//         },
+//         y: {
+//           ticks: {
+//             font: {
+//               size: 20, // Taille de la police pour les numéros
+//             },
+           
+//           }
+//         }
+//       }
+//     }
+//   };
+
+//   const chartItem: ChartItem = document.getElementById('myChart') as ChartItem;
+//   this.chart = new Chart(chartItem, config);
+// }
+
+}
+
+
+
+

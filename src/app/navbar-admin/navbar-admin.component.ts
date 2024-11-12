@@ -56,21 +56,46 @@ closeNotificationsModal(): void {
 
 
 
-
-toggleMenu(): void {
-  this.isMenuOpen = !this.isMenuOpen;
-}
 logout(): void {
-  this.authService.logout();
-  localStorage.removeItem('token');
-  this.isLoggedIn = false;
+  console.log('Déconnexion en cours depuis NavbarAdminComponent...');
+  const token = localStorage.getItem('token');
+  
+  if (token) {
+    console.log('Token trouvé, suppression...');
+    localStorage.removeItem('token');
+    this.isLoggedIn = false;
+    console.log('Utilisateur déconnecté.');
+  } else {
+    console.log('Aucun token trouvé, l’utilisateur est probablement déjà déconnecté.');
+  }
+
   this.router.navigate(['/login']);
+  console.log('Redirection vers la page de connexion...');
 }
 
-// Méthode pour vérifier si le lien est actif
-isActive(route: string): boolean {
-  return this.router.url === route;
-}
+
+
+
+
+
+
+
+
+
+// toggleMenu(): void {
+//   this.isMenuOpen = !this.isMenuOpen;
+// }
+// logout(): void {
+//   this.authService.logout();
+//   localStorage.removeItem('token');
+//   this.isLoggedIn = false;
+//   this.router.navigate(['/login']);
+// }
+
+// // Méthode pour vérifier si le lien est actif
+// isActive(route: string): boolean {
+//   return this.router.url === route;
+// }
 
 
 

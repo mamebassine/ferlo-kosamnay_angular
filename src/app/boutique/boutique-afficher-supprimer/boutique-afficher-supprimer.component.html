@@ -1,6 +1,6 @@
 <app-navbar-admin></app-navbar-admin>
 
-<div>
+<div class="tousoutiques">
   <h2>Liste des Boutiques</h2>
   <a [routerLink]="['/boutique/ajouter']" class="btn-ajouter">Ajouter une boutique</a>  
 
@@ -29,11 +29,17 @@
         <td>{{ boutique.region?.nom }}</td>
         <td>{{ boutique.user?.nom_complet }}</td>
         <td>
-          <a [routerLink]="['/boutique/detail', boutique.id]" class="btn-details">Détails</a>
+          <!-- <a [routerLink]="['/boutique/detail', boutique.id]" class="btn-details">
+            <i class="fas fa-info-circle"></i> 
+          </a> -->
 
-          <a [routerLink]="['/boutique/modifier', boutique.id]" class="btn-modifier">Modifier</a>
-          
-          <button (click)="deleteBoutique(boutique.id)">Supprimer</button>
+          <a [routerLink]="['/boutique/modifier', boutique.id]" class="btn-modifier">
+            <i class="fas fa-pencil-alt"></i> 
+          </a>
+
+          <button (click)="deleteBoutique(boutique.id)" class="btn-supprimer">
+            <i class="fas fa-trash-alt"></i> 
+          </button>
         </td>
       </tr>
     </tbody>

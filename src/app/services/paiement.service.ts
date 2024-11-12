@@ -7,7 +7,10 @@ import { Observable } from 'rxjs';
 })
 export class PaiementService {
 
-  private baseUrl = 'http://localhost:8000/api'; // Remplace par l'URL de ton backend Laravel
+  private baseUrl = 'http://localhost:8000/api'; 
+
+  //private apiUrl = "https://ferlo-kosamnay.mamebassine06.simplonfabriques.com/api/paiements";
+
 
   constructor(private http: HttpClient) { }
 

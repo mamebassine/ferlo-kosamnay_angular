@@ -1,0 +1,106 @@
+/* Styles généraux pour la page */
+.tousproduitBoutiq {
+    
+    margin-top: 11%;
+    padding: 20px;
+    max-width: 800px;
+    margin-left: 35%;
+}
+  
+  /* Styles pour le titre de la page */
+  .tousproduitBoutiq h2 {
+    font-size: 2rem;
+    color: #000;
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  /* Styles pour le formulaire */
+  form {
+    background-color: #f9f9f9;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+  }
+  
+  /* Styles pour chaque champ du formulaire */
+  form div {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+  }
+  
+  /* Labels du formulaire */
+  form label {
+    font-size: 14px;
+    font-weight: bold;
+    color: #000;
+  }
+  
+  /* Champs de saisie */
+  form input {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 14px;
+    width: 100%;
+  }
+  
+  /* Bouton de soumission */
+  button {
+    background-color: #99B951;
+    color: white;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  button:disabled {
+    background-color: #dcdcdc;
+    cursor: not-allowed;
+  }
+  
+  button:hover:enabled {
+    background-color: #3F7E44;
+  }
+  
+  /* Style pour le lien "Annuler" */
+  a {
+    text-decoration: none;
+    color: #000;
+    text-align: center;
+    font-size: 19px;
+    margin-top: 10px;
+  }
+  
+  a:hover {
+    text-decoration: underline;
+    color: #99B951;
+  }
+  
+  /* Responsive pour les petits écrans */
+  @media (max-width: 600px) {
+    .tousproduitBoutiq {
+      padding: 10px;
+    }
+  
+    form {
+      padding: 15px;
+    }
+  
+    button {
+      font-size: 14px;
+      padding: 8px;
+    }
+  
+    input {
+      padding: 8px;
+    }
+  }
+  

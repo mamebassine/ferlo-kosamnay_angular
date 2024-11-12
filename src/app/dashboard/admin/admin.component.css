@@ -1,94 +1,135 @@
-/* Style des cartes */
+/* .toutCarte {
+    padding-left: 10%; 
+    background: linear-gradient(110deg, #e8eff0 85%, #3F7E44 5%);
+    backdrop-filter: blur(5px);
+}
+
 .cards {
-    width: 70%; /* Prend plus d'espace horizontal */
-    border-radius: 5px;
-    max-width: 90%; /* Augmenté pour plus de largeur */
-    margin: 40px auto 40px -5%; /* Décale le conteneur vers la gauche */
-    padding: 90px; /* Augmente le padding pour plus d'espace intérieur */
+    max-width: 90%; 
+    margin: 0 auto;
+    margin-top: 10%;
+    padding: 20px;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    gap: 70px; /* Augmente l'espace entre les cartes */
-    /* box-shadow: 0 6px 18px rgba(0, 0, 0, 0.15); Ombre légèrement plus prononcée */
-
-     /* Ajuste le gradient pour le décaler vers la gauche */
-     background: linear-gradient(110deg, #e8eff0 85%, #99B951 55%);
-     backdrop-filter: blur(5px)
+    gap: 30px;
 }
-/* Style individuel pour les cartes */
+
 .card {
-    border-radius: 4px;
+    background-color: #99B951;
+    border-radius: 8px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    width: calc(40% - 30px); /* 4 cartes par ligne avec un espace supplémentaire */
-    padding: 95px; /* Augmentez l'espacement interne */
+    width: calc(25% - 20px); 
     text-align: center;
     transition: transform 0.2s, background-color 0.3s;
     position: relative;
-    animation: float 3s ease-in-out infinite; /* Animation de flottement */
-    margin-left: 15%;
-    
+    animation: float 3s ease-in-out infinite;
 }
-
-
 
 .card:hover {
-    transform: translateY(-5px); /* Légère élévation */
-    background-color: #88a030; /* Changement de couleur au survol */
+    transform: translateY(-5px);
+    background-color: #88a030;
 }
 
-.card h3 {
-    margin-bottom: 10px;
-    color: #2c3e50;
-}
-
-.card p {
-    font-size: 24px;
-    color: #fff;
-    transition: color 0.3s;
-}
-
-/* Animation pour les cartes */
 @keyframes float {
-    0%, 100% { transform: translateY(0); }
+    0% { transform: translateY(0); }
     50% { transform: translateY(-10px); }
+    100% { transform: translateY(0); }
+}
+.commande-card {
+    background-color: #f9f9f9;
+    border: 2px solid #4f772d;
+    padding: 20px 10px;
+    width: 300px;
+    height: 190px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+    text-align: center;
+    position: relative;
+    clip-path: polygon(20% 0%, 80% 0%, 100% 100%, 0% 100%);
+    margin-left: 15%;
 }
 
-/* Media Queries pour Responsivité */
-@media (max-width: 1024px) {
-    .card { width: calc(48% - 20px); } /* 2 cartes par ligne */
+.commande-card:hover {
+    transform: scale(1.05);
 }
 
-@media (max-width: 768px) {
-    .cards {
-        flex-direction: column;
-        align-items: center; /* Centre les cartes sur mobile */
-    }
-    .card {
-        width: 80%; /* Une seule carte par ligne sur mobile */
-        padding: 20px;
-    }
-}
-
-@media (max-width: 480px) {
-    .card { width: 100%; } /* Une seule carte par ligne sur très petits écrans */
-}
-
-/* Style pour le bouton de suppression */
 .delete-btn {
-    background-color: #ff4d4d; /* Couleur rouge */
+    background-color: #ff4d4d;
     color: white;
     border: none;
-    border-radius: 3%; /* Coins arrondis */
-    padding: 5px 10px; /* Espacement interne */
+    border-radius: 3%;
+    padding: 5px 10px;
     font-size: 0.8em;
     cursor: pointer;
-    transition: background-color 0.3s ease; /* Transition au survol */
+    transition: background-color 0.3s ease;
 }
 
 .delete-btn:hover {
-    background-color: #e60000; /* Couleur au survol */
+    background-color: #e60000;
+} */
+
+
+
+
+
+
+.toutCarte{
+    padding-left: 205px;
+
+    background: linear-gradient(110deg, #e8eff0 85%, #3F7E44 5%);
+    backdrop-filter: blur(5px)
+
 }
 
+.cards {
+    max-width: 80%; 
+    margin: 0 auto; 
+    margin-top: 10%; 
+    padding: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center; 
+    gap: 30px; 
+
+}
+
+.card {
+    background-color: #99B951;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    width: calc(13% - 10px); 
+    padding: 20px; 
+    text-align: center;
+    transition: transform 0.2s, background-color 0.9s;
+    position: relative;
+    animation: float 3s ease-in-out infinite;
+
+
+}
+
+.card:hover {
+    transform: translateY(-5px); 
+    background-color: #88a030;
+}
+
+.card i {
+    font-size: 2rem;
+    color: #fff;
+    position: absolute;
+    bottom: 10px; 
+    left: 10px;   
+}
+
+@keyframes float {
+    0% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+    100% { transform: translateY(0); }
+}
 h1 {
     color: #000;
     font-size: 2rem;
@@ -96,23 +137,10 @@ h1 {
 }
 
 .card i {
-    font-size: 1.5rem;
-    color: #fff;
+    font-size: 2.5rem;
+    color: #3F7E44;
     margin-bottom: 8px;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
 .tout {
     max-width: 1200px;
     margin: 0 auto;
@@ -185,73 +213,228 @@ h1 {
 .delete-btn i {
     margin-right: 0;
 }
-/* Style des cartes */
 .cards {
-    max-width: 80%; /* Augmentez si nécessaire pour plus d'espace */
-    margin: 0 auto; /* Centre le conteneur horizontalement */
-    margin-top: 10%; /* Ajustez cette valeur pour faire descendre le tableau */
+    max-width: 80%; 
+    margin: 0 auto; 
+    margin-top: 10%; 
     padding: 20px;
     display: flex;
-    flex-wrap: wrap; /* Permet aux cartes de passer à la ligne suivante */
-    justify-content: center; /* Centre les cartes dans le conteneur */
-    gap: 30px; /* Espace entre les cartes */
+    flex-wrap: wrap; 
+    justify-content: center; 
+    gap: 30px; 
 }
 
-/* Style individuel pour les cartes */
 .card {
-    background-color: #99B951; /* Couleur de fond */
+    background-color: #99B951; 
     border-radius: 8px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    width: calc(25% - 20px); /* 4 cartes par ligne, ajustez si besoin */
+    width: calc(25% - 20px); 
     padding: 45px;
     text-align: center;
     transition: transform 0.2s, background-color 0.3s;
     position: relative;
-    animation: float 3s ease-in-out infinite; /* Animation de flottement */
+    animation: float 3s ease-in-out infinite; 
 }
 
-/* Effet de survol */
 .card:hover {
-    transform: translateY(-5px); /* Légère élévation */
-    background-color: #88a030; /* Changement de couleur */
+    transform: translateY(-5px); 
+    background-color: #88a030; 
 }
 
-/* Animation pour les cartes */
 @keyframes float {
     0% { transform: translateY(0); }
     50% { transform: translateY(-10px); }
     100% { transform: translateY(0); }
 }
+.delete-btn {
+    background-color: #ff4d4d; 
+    color: white;
+    border: none;
+    border-radius: 3%; 
+    padding: 5px 10px; 
+    font-size: 0.8em;
+    cursor: pointer;
+    transition: background-color 0.3s ease; 
+}
 
-/* Media Queries pour Responsivité */
+.delete-btn:hover {
+    background-color: #e60000; 
+}
+
+
+
+/* Responsivité pour les petits écrans mobiles */
+
+/* Modifier la largeur et le padding pour les petits écrans */
+@media (max-width: 768px) {
+    .toutCarte {
+        padding-left: 20px; /* Réduit le padding pour les petits écrans */
+    }
+
+    .cards {
+        max-width: 90%; /* Ajuste la largeur des cartes */
+        margin-top: 5%;
+        padding: 10px;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 20px; /* Réduit l'espace entre les cartes */
+    }
+
+    .card {
+        width: calc(45% - 10px); /* Ajuste la taille des cartes à 2 par ligne */
+        padding: 15px;
+    }
+
+    .card i {
+        font-size: 1.8rem; /* Réduit la taille des icônes */
+        bottom: 5px; /* Ajuste la position de l'icône */
+    }
+
+    h1 {
+        font-size: 1.5rem; /* Réduit la taille du titre */
+        margin-left: 10%; /* Centre le titre sur petit écran */
+    }
+
+    .commande-card {
+        width: 100%; /* La commande prend toute la largeur */
+        margin-left: 0; /* Retire la marge à gauche */
+        height: auto; /* Ajuste la hauteur */
+    }
+
+    .commande-card h3 {
+        font-size: 1.2em; /* Réduit la taille des titres */
+    }
+
+    .commande-card p {
+        font-size: 0.9em; /* Réduit la taille du texte */
+    }
+
+    .delete-btn {
+        font-size: 0.7em; /* Réduit la taille du bouton */
+        padding: 5px;
+    }
+}
+
+/* Responsivité pour les écrans très petits (mobiles en portrait) */
+@media (max-width: 480px) {
+    .cards {
+        max-width: 100%; /* Utilise toute la largeur de l'écran */
+        margin-top: 20%;
+        padding: 5px;
+    }
+
+    .card {
+        width: 100%; /* Une seule carte par ligne */
+        padding: 10px;
+    }
+
+    .card i {
+        font-size: 1.5rem; /* Taille d'icône plus petite */
+        bottom: 3px; /* Ajuste la position de l'icône */
+    }
+
+    h1 {
+        font-size: 1.2rem; /* Ajuste la taille du titre */
+        margin-left: 0; /* Centre le titre */
+    }
+
+    .commande-card {
+        width: 100%; /* Utilise toute la largeur de l'écran */
+        height: auto; /* Ajuste la hauteur de la carte */
+    }
+
+    .commande-card h3 {
+        font-size: 1em; /* Réduit la taille du titre */
+    }
+
+    .commande-card p {
+        font-size: 0.8em; /* Réduit la taille du texte */
+    }
+
+    .delete-btn {
+        font-size: 0.7em; /* Réduit la taille du bouton */
+        padding: 4px;
+    }
+}
+
+
+
+
+
+
+
+
+
+/* CSS pour LE COURBE */
+
+
+.blinking {
+    animation: blink 1s infinite;
+    margin-left: 15%;
+    font-size: 1.5rem;
+  }
+@keyframes blink {
+    50% {
+      opacity: 0.5;
+    }
+  }
+.chart-container {
+    width: 80%;
+    margin: auto;
+    text-align: center;
+    margin-top: 1%;
+  }
+.chart-title {
+    margin-left: 15%;
+    font-size: 2rem;
+    font-weight: bold; 
+    text-decoration: underline; 
+  }
+  
+  
+  
+
+
+  
+
+
+
+
+  
+
+
+
+  
+
+/* Media Queries pour Responsivité
 @media (max-width: 1024px) {
-    .card { width: calc(48% - 20px); } /* 2 cartes par ligne */
+    .card { width: calc(48% - 20px); } 
 }
 
 @media (max-width: 768px) {
     .cards { flex-direction: column; align-items: center; }
-    .card { width: 80%; padding: 20px; } /* Une seule carte par ligne sur mobile */
+    .card { width: 80%; padding: 20px; } 
 }
 
 @media (max-width: 480px) {
-    .card { width: 100%; } /* Une seule carte par ligne sur très petits écrans */
+    .card { width: 100%; } 
+} */
+
+
+
+
+
+/* Media Queries pour Responsivité */
+/* @media (max-width: 1024px) {
+    .card { width: calc(48% - 20px); } 
 }
 
-/* Style pour le bouton de suppression */
-.delete-btn {
-    background-color: #ff4d4d; /* Couleur rouge */
-    color: white;
-    border: none;
-    border-radius: 3%; /* Coins arrondis */
-    padding: 5px 10px; /* Espacement interne */
-    font-size: 0.8em;
-    cursor: pointer;
-    transition: background-color 0.3s ease; /* Transition au survol */
+@media (max-width: 768px) {
+    .cards { flex-direction: column; align-items: center; }
+    .card { width: 80%; padding: 20px; }
 }
 
-.delete-btn:hover {
-    background-color: #e60000; /* Couleur au survol */
-}
-
-
-
+@media (max-width: 480px) {
+    .card { width: 100%; }
+} */

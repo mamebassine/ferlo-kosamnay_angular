@@ -24,6 +24,7 @@ export interface Boutique {
 })
 export class BoutiqueService {
    private apiUrl = 'http://localhost:8000/api/boutiques'; 
+   
 //private apiUrl = "https://ferlo-kosamnay.mamebassine06.simplonfabriques.com/api/boutiques"
 
   constructor(private http: HttpClient) { }
@@ -46,11 +47,34 @@ export class BoutiqueService {
       .pipe(catchError(this.handleError));
   }
 
-  // Met à jour une boutique existante
+  // // Met à jour une boutique existante
+
+  // updateBoutique(id: number, boutique: Partial<Boutique>): Observable<{ message: string, boutique: Boutique }> {
+  //   return this.http.put<{ message: string, boutique: Boutique }>(`${this.apiUrl}/${id}`, boutique)
+  //     .pipe(catchError(this.handleError));
+  // }
+
+  
+
   updateBoutique(id: number, boutique: Partial<Boutique>): Observable<{ message: string, boutique: Boutique }> {
     return this.http.put<{ message: string, boutique: Boutique }>(`${this.apiUrl}/${id}`, boutique)
       .pipe(catchError(this.handleError));
   }
+  getRegions(): Observable<any[]> {
+    return this.http.get<any[]>('http://localhost:8000/api/regions');
+}
+
+getRepresentants(): Observable<any[]> {
+  return this.http.get<any[]>('http://127.0.0.1:8000/api/representants');
+
+
+
+    // return this.http.get<any[]>('http://127.0.0.1:8000/api/users ');
+}
+
+
+
+  
 
   // Supprime une boutique
   deleteBoutique(id: number): Observable<{ message: string }> {

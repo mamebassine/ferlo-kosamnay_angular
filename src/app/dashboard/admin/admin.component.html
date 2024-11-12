@@ -1,35 +1,23 @@
 
 <app-navbar-admin></app-navbar-admin>
-    
+
+  <div class="toutCarte"> 
 <section class="cards">
   <div class="card-container">
     <div *ngFor="let card of cards" [ngStyle]="{'background-color': card.color}" class="card" [ngClass]="card.position">
-      <i [ngClass]="card.iconClass"></i> <!-- Icon element with iconClass binding -->
+      <i [ngClass]="card.iconClass"></i> 
       <h2>{{ card.title }} : <br>{{ card.value }}</h2>
     </div>
   </div>
 </section>
+</div> 
+
+<!-- Section pour le graphique -->
+<div class="chart-container">
+  <h2 class="chart-title">Statistiques de nos produits</h2>
+  <canvas id="myChart" class="blinking"></canvas>
+</div>
 
 
 
-<div class="tout">
-      <h1>La liste de toutes les commandes</h1>
-      
-      <div class="card-container">
-        <div 
-          class="commande-card" 
-          *ngFor="let commande of commandes" 
-          (click)="onCardClick(commande)">
-          <h3>Commande: {{ commande.id }}</h3>
-          <p><strong>Produit:</strong> {{ commande.produit_boutique.id }}</p>
-          <p><strong>Ligne de Commande:</strong> {{ commande.ligne_commande.id }}</p>
-          <p><strong>Quantité:</strong> {{ commande.quantite }}</p>
-          <p><strong>Montant:</strong> {{ commande.montant | number:'' }} CFA</p>
-      
-             <button class="delete-btn" (click)="onDelete(commande.id)">
-              <i class="fas fa-trash"></i> 
-            </button>
-       </div>
-      </div>
-    </div>
-      
+

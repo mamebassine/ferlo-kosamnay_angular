@@ -1,15 +1,29 @@
-<h2>Détails de la Ligne de Commande</h2>
+<app-navbar-admin></app-navbar-admin>
+
+<div class="VOIRDETAIL">
+
+  <h2>Détails de la Ligne de Commande</h2>
 
 <div *ngIf="messageErreur" class="alert alert-danger">
   {{ messageErreur }}
 </div>
 
-<div *ngIf="ligneCommande">
+<div *ngIf="ligneCommande" class="commande-card">
   <p><strong>ID:</strong> {{ ligneCommande.id }}</p>
   <p><strong>Utilisateur ID:</strong> {{ ligneCommande.user_id }}</p>
   <p><strong>Date:</strong> {{ ligneCommande.date }}</p>
   <p><strong>Statut:</strong> {{ ligneCommande.statut }}</p>
   <p><strong>Quantité Totale:</strong> {{ ligneCommande.quantite_totale }}</p>
-  <p><strong>Prix Total:</strong> {{ ligneCommande.prix_totale }} €</p>
+  <p><strong>Prix Total:</strong> {{ ligneCommande.prix_totale }} CFA</p>
 </div>
-<button>Retour</button>lignecommande
+
+
+<div class="product-detail">
+  <button class="btn btn-secondary mt-3 btn-retour" (click)="goBack()"><i class="fas fa-arrow-left"></i></button>
+</div>
+
+</div>
+
+<!-- <div class="product-detail">
+  <button class="btn btn-secondary mt-3 btn-retour" (click)="goBack()"><i class="fas fa-arrow-left"></i></button>
+</div> -->

@@ -1,48 +1,46 @@
 <app-navbar-admin></app-navbar-admin>
 
-<div>
+<div class="tousBoutique">
     <h2>Modification de la boutique</h2>
     
-    <!-- Formulaires de modification -->
     <form [formGroup]="form" (ngSubmit)="submitForm()">
         <div>
-            <label for="nom">Nom :</label>
-            <input id="nom" formControlName="nom" required>
+          <label for="nom">Nom :</label>
+          <input id="nom" formControlName="nom" required>
         </div>
-        
         <div>
-            <label for="adresse">Adresse :</label>
-            <input id="adresse" formControlName="adresse" required>
+          <label for="adresse">Adresse :</label>
+          <input id="adresse" formControlName="adresse" required>
         </div>
-        
         <div>
-            <label for="telephone">Téléphone :</label>
-            <input id="telephone" type="tel" formControlName="telephone" required>
+          <label for="telephone">Téléphone :</label>
+          <input id="telephone" type="tel" formControlName="telephone" required>
         </div>
-        
+       
         <div>
             <label for="region">Région :</label>
-            <select id="region" formControlName="adresse_id" required>
-                <option value="">-- Sélectionnez une région --</option>
-            </select>
+        <select id="region" formControlName="region_id" required>
+            <option value="">-- Sélectionnez une région --</option>
+            <option *ngFor="let region of regions" [value]="region.id">
+              {{ region.nom }}
+            </option>
+          </select>
         </div>
-        
+
         <div>
             <label for="user">Utilisateur :</label>
             <select id="user" formControlName="user_id" required>
                 <option value="">-- Sélectionnez un utilisateur --</option>
-                <!-- Ajoutez ici les options d'utilisateurs -->
+                <option *ngFor="let user of users" [value]="user.id">
+                    {{ user.nom_complet }}
+                </option>
             </select>
         </div>
         
         <div>
-            <label for="representant">Représentant :</label>
-            <input id="representant" formControlName="representant">
+          <button type="submit" class="boutomodifier">Modifier</button>
+          <button type="button" (click)="cancel()">Annuler</button>
         </div>
-        
-        <div>
-            <button type="submit">Modifier</button>
-            <button type="button" (click)="cancel()">Annuler</button>
-        </div>
-    </form>
+      </form>
+      
 </div>

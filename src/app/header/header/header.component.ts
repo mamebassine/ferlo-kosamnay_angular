@@ -14,9 +14,19 @@ import { CommandeService } from '../../services/commande.service';
   styleUrls: ['./header.component.css']
 })
 export class HeaderComponent {
-  isMenuOpen: boolean = false;
   isLoggedIn: boolean = false;
   cartItemCount = 0;
+  isMenuOpen: boolean = false; // État d'ouverture du menu
+  
+  isModalOpen: boolean = false;
+
+  toggleModal(): void {
+    this.isModalOpen = !this.isModalOpen;
+  }
+
+  closeModal(): void {
+    this.isModalOpen = false;
+  }
   
 constructor(private authService: AuthService, private router: Router, private cartService: CartService) {
     this.isLoggedIn = this.authService.isAuthenticated();
@@ -28,10 +38,11 @@ constructor(private authService: AuthService, private router: Router, private ca
     });
   }
 
-  toggleMenu(): void {
-    this.isMenuOpen = !this.isMenuOpen;
-  }
-
+ 
+ // Méthode pour ouvrir/fermer le menu
+ toggleMenu(): void {
+  this.isMenuOpen = !this.isMenuOpen;
+}
   logout(): void {
     this.authService.logout();
     localStorage.removeItem('token');

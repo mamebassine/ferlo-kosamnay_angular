@@ -17,7 +17,7 @@ export interface ProduitBoutique {
   providedIn: 'root'
 })
 export class ProduitBoutiqueService {
-  private apiUrl = 'http://localhost:8000/api/produitBoutique'; // Mettez à jour l'URL selon votre configuration
+  private apiUrl = 'http://localhost:8000/api/produitBoutique'; 
   
   //private apiUrl = "https://ferlo-kosamnay.mamebassine06.simplonfabriques.com/api/produitBoutique";
 

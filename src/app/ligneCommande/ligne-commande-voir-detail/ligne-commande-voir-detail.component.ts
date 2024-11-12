@@ -16,8 +16,19 @@
 import { Component, OnInit } from '@angular/core';
 import { LigneCommandeService } from '../../services/ligne-commande.service';
 import { ActivatedRoute } from '@angular/router';
+import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
+import { NavbarAdminComponent } from "../../navbar-admin/navbar-admin.component"; 
+
+import { Location } from '@angular/common'; //Retour
+
+
 
 @Component({
+  //imports: [FormsModule, CommonModule, NavbarAdminComponent, AdminComponent],
+  imports: [CommonModule, NavbarAdminComponent],
+
+  standalone: true, 
   selector: 'app-ligne-commande-voir-detail',
   templateUrl: './ligne-commande-voir-detail.component.html',
   styleUrls: ['./ligne-commande-voir-detail.component.css']
@@ -28,7 +39,9 @@ export class LigneCommandeVoirDetailComponent implements OnInit {
 
   constructor(
     private ligneCommandeService: LigneCommandeService,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+
+    private location: Location  //retour
   ) {}
 
   ngOnInit(): void {
@@ -43,4 +56,11 @@ export class LigneCommandeVoirDetailComponent implements OnInit {
       }
     );
   }
+  
+// Méthode pour revenir à la page précédente
+goBack(): void {
+  this.location.back();
+
+  
+}
 }

@@ -37,6 +37,7 @@ messageSucces: string = ''; // Ajoutez cette ligne pour éviter l'erreur
 
   // Méthode exécutée lors de l'initialisation du composant
   ngOnInit(): void {
+
     // Récupérer la liste des lignes de commande via le service
     this.ligneCommandeService.getLignesCommandes().subscribe(
       (data: LigneCommande[]) => { // Déclaration du type
@@ -50,17 +51,15 @@ messageSucces: string = ''; // Ajoutez cette ligne pour éviter l'erreur
 
 
   }
-  
-
   // Méthode pour ajouter une nouvelle ligne de commande
   ajouterLigneCommande(): void {
     this.submitted = true;
     this.loading = true; // Afficher le loader
-    console.log('Loader affiché:', this.loading); // Ajoutez ceci
+    // console.log('Loader affiché:', this.loading); // Ajoutez ceci
 
 
   
-    console.log('Données de la nouvelle ligne de commande:', this.nouvelleLigneCommande);
+  console.log('Données de la nouvelle ligne de commande:', this.nouvelleLigneCommande);
   
     this.ligneCommandeService.createLigneCommande(this.nouvelleLigneCommande).subscribe(
       () => {

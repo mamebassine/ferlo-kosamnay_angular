@@ -1,7 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
+import { ActivatedRoute, Router, RouterLink } from '@angular/router';
 import { ProduitBoutiqueService } from '../../services/produit-boutique.service';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { ReactiveFormsModule } from '@angular/forms';
+import { CommonModule } from '@angular/common';
+import { NavbarAdminComponent } from "../../navbar-admin/navbar-admin.component";
 
 // Interface pour définir la structure d'un produit-boutique
 export interface ProduitBoutique {
@@ -12,8 +15,10 @@ export interface ProduitBoutique {
   produit?: { id: number; nom: string };
   boutique?: { id: number; nom: string };
 }
-
+//imports: [CommonModule, RouterModule, NavbarAdminComponent],
 @Component({
+  standalone: true,
+  imports: [ReactiveFormsModule, CommonModule, RouterLink, NavbarAdminComponent],
   selector: 'app-produit-boutique-modifier',
   templateUrl: './produit-boutique-modifier.component.html',
   styleUrls: ['./produit-boutique-modifier.component.css']

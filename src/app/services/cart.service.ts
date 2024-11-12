@@ -121,7 +121,10 @@ export interface CartItem {
   providedIn: 'root'  // Fournisseur de service disponible au niveau racine de l'application
 })
 export class CartService {
-  private apiUrl = 'http://localhost:8000/api/lignes_commandes';  // L'URL de votre API Laravel
+  private apiUrl = 'http://localhost:8000/api/lignes_commandes'; 
+
+  //private apiUrl = "https://ferlo-kosamnay.mamebassine06.simplonfabriques.com/api/";
+
   
   // BehaviorSubject pour stocker les articles du panier avec un état initial vide
   private cartItemsSubject: BehaviorSubject<CartItem[]> = new BehaviorSubject<CartItem[]>([]);

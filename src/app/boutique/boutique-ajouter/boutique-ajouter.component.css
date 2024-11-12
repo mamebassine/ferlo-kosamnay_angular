@@ -11,10 +11,14 @@
 }
 
 h2 {
-    text-align: center; /* Centre le titre */
-    color: #4F772D; /* Couleur du texte */
-    margin-top: 40px; /* Ajouté un espace au-dessus du titre */
-    margin-bottom: 30px; /* Espacement en bas du titre */
+    font-size: 2rem;
+    text-align: center;
+    color: #000;
+    font-weight: bold;
+margin-top: 13%;
+margin-bottom: 80px; /* Espacement en bas du titre */
+ margin-top: 40px; /* Ajouté un espace au-dessus du titre */
+
 }
 
 .form-group {
@@ -39,7 +43,7 @@ select {
 
 input[type="text"]:focus,
 select:focus {
-    border-color: #4F772D; /* Couleur de bordure au focus */
+    border-color: #3F7E44; /* Couleur de bordure au focus */
 }
 
 .btn {
@@ -47,7 +51,7 @@ select:focus {
     padding: 10px 20px; /* Espacement interne pour les boutons */
     border-radius: 5px; /* Coins arrondis pour les boutons */
     text-transform: uppercase; /* Mettre le texte en majuscules */
-    background-color: #4F772D; /* Couleur du bouton principal */
+    background-color: #3F7E44; /* Couleur du bouton principal */
     color: #fff; /* Couleur du texte */
     border: none; /* Pas de bordure */
     cursor: pointer; /* Changer le curseur au survol */

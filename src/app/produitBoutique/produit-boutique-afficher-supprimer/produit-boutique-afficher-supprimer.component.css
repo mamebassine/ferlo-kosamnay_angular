@@ -17,7 +17,7 @@ margin-right: 23%;
 
     text-align: center;
     display: inline-block;
-    background-color: #99B951; 
+    background-color: #3F7E44; 
     color: #fff; 
     padding: 8px 16px;
     margin: 5px 0;
@@ -30,9 +30,12 @@ margin-right: 23%;
 .Bajouter{
     margin-left: 37%; 
     margin-top: 10px;
+    background-color: #3F7E44;
 }
 /* Titre */
 h2.titreB {
+    font-weight: bold;
+
     color: #000; 
     text-align: center;
     margin-top: 160px; /* Descend le titre */

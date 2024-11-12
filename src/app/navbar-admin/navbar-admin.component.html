@@ -1,4 +1,3 @@
-<!-- Navbar Structure -->
 <nav class="navbar">
   <div class="navbar-title">Tableau de Bord Admin</div>
   <div class="navbar-right">
@@ -13,7 +12,6 @@
   </div>
 </nav>
 
-<!-- Sidebar Structure -->
 <aside class="sidebar">
   <nav>
       <ul>
@@ -25,8 +23,13 @@
           <li><a routerLink="/region" routerLinkActive="active"><i class="fas fa-map-marker-alt"></i> Régions</a></li>
           <li><a routerLink="/boutique" routerLinkActive="active"><i class="fas fa-store"></i> Boutiques</a></li>
           <li><a routerLink="/produitboutique" routerLinkActive="active"><i class="fas fa-tags"></i> Produit boutique</a></li>
-          <li><a routerLink="/commande" routerLinkActive="active"><i class="fas fa-shopping-cart"></i> La liste des commandes</a></li>
+
+          <li><a routerLink="/lignecommande" routerLinkActive="active"><i class="fas fa-shopping-cart"></i>ligne commande</a></li>
+          
+          <li><a routerLink="/commande" routerLinkActive="active"><i class="fas fa-history"></i> La liste des commandes</a></li>
       </ul>
   </nav>
-  <button class="deconnexion"><i class="fas fa-sign-out-alt"></i> Déconnexion</button>
+  <button class="deconnexion" (click)="logout()">
+    <i class="fas fa-sign-out-alt"></i>
+</button>
 </aside>
