@@ -95,21 +95,7 @@
     margin-right: 10px;
 }
 
-.deconnexion {
-    width: 80%;
-    padding: 10px;
-    background-color: #e74c3c;
-    border: none;
-    color: #ecf0f1;
-    font-size: 16px;
-    cursor: pointer;
-    border-radius: 5px;
-    transition: background-color 0.3s;
-}
 
-.deconnexion:hover {
-    background-color: #c0392b;
-}
 
 /* Responsivité */
 @media (max-width: 768px) {
@@ -230,22 +216,31 @@
 
 /* Deconnexion Button */
 .deconnexion {
-    background-color: #e74c3c;
+    text-align: center;
     border: none;
     color: #ecf0f1;
-    font-size: 16px;
+    font-size: 30px;
     cursor: pointer;
     border-radius: 5px;
-    padding: 10px 15px;
-    transition: background-color 0.3s;
-    align-self: flex-end;
-    margin-bottom: 53%;
-    margin-right: 17%;
+    padding: 2px 5px;
+    margin: auto; /* Centrage horizontal */
+    display: flex; /* Pour l'alignement vertical */
+    justify-content: center;
+    width: 45%;
+    padding-bottom: 36%;
+    margin-left: -12%;
+    
 }
 
-.deconnexion:hover {
-    background-color: #c0392b;
+@media (max-width: 768px) {
+    .deconnexion {
+        width: 70%;
+        margin-top: 20px;
+
+        margin-left: -39%;
+    }
 }
+
 
 /* Adjust Sidebar Positioning */
 .sidebar {

@@ -1,4 +1,3 @@
-// src/app/commande.service.ts
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
@@ -10,7 +9,12 @@ import { Observable } from 'rxjs';
 export class CommandeService {
   private apiUrl = 'http://localhost:8000/api'; 
 
+  //private apiUrl = "https://ferlo-kosamnay.mamebassine06.simplonfabriques.com/api/";
+
+
   constructor(private http: HttpClient) {}
+
+  
   // Méthode pour récupérer toutes les commandes
 getCommandes(): Observable<any[]> {
   return this.http.get<any[]>(`${this.apiUrl}/listcommandes`);
@@ -26,6 +30,16 @@ getCommandes(): Observable<any[]> {
 
     return this.http.get<any[]>(`${this.apiUrl}/listDeMescommandes`, { headers });
   }
+
+// Supprimer une ligne de commande
+supprimerLigneCommande(id: number): Observable<void> {
+  return this.http.delete<void>(`${this.apiUrl}/ligne/commandes/${id}`);
+}
+
+
+
+
+  
 // POUR NOMBRE DE PRODUITS
 
   getNombreProduits(): Observable<any> {
@@ -43,5 +57,15 @@ getCommandes(): Observable<any[]> {
  getnombreBoutiquesActuelles(): Observable<any> {
    return this.http.get<any>(`${this.apiUrl}/nombre/boutiques`);
    }
-  
+
+// getNombreProduitsParMois(): Observable<any> {
+//    return this.http.get<any>(`${this.apiUrl}/nombre/produits/mois`);
+
+//   } 
+
+
+  // Méthode pour obtenir les statistiques des produits par intervalle de temps
+  getNombreProduitsTemps(): Observable<any> {
+    return this.http.get<any>(`${this.apiUrl}/nombre/produits/temps`);
+  }
 }

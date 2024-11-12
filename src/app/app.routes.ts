@@ -50,6 +50,12 @@ import { LigneCommandeAjouterComponent } from './ligneCommande/ligne-commande-aj
 import { LigneCommandeModifierComponent } from './ligneCommande/ligne-commande-modifier/ligne-commande-modifier.component';
 import { LigneCommandeVoirDetailComponent } from './ligneCommande/ligne-commande-voir-detail/ligne-commande-voir-detail.component';
 
+//LignecommandemodifierREPComponent
+import { LignecommandemodifierREPComponent } from './lignecommandemodifierREP/lignecommandemodifier-rep/lignecommandemodifier-rep.component';
+
+//import { LignecommandeafficherREPComponent } from './lignecommandeafficherREP/lignecommandeafficherer-rep/lignecommandemodifier-rep.component';
+import {LignecommandeafficherrREPComponent} from './lignecommandeafficherREP/lignecommandeafficherr-rep/lignecommandeafficherr-rep.component'
+
 import { CommandeComponent } from './commande/commande/commande.component';
 
 
@@ -69,6 +75,7 @@ import { AjoutRepresentantComponent } from './dashboard/admin/ajout-representant
 import { CartComponent } from './cart/cart.component';
 
 import { UserCommandeComponent } from './usercommande/usercommande/usercommande.component';
+import { HeaderComponent } from './header/header/header.component';
 
 
 
@@ -77,7 +84,7 @@ import { UserCommandeComponent } from './usercommande/usercommande/usercommande.
      // Routes pour l'authentification et dashoard
 { path: 'login', component: LoginComponent },
 { path: 'register', component: RegisterComponent},
-
+{path: 'header', component: HeaderComponent},
 // Routes pour l'accueil et contact 
 { path: '', component: AccueilComponent }, // MOI Route pour l'accueil
 { path: 'contact', component: ContactComponent }, // MOI Route pour l'accueil
@@ -145,6 +152,13 @@ import { UserCommandeComponent } from './usercommande/usercommande/usercommande.
 { path: 'lignecommande/detail/:id', component: LigneCommandeVoirDetailComponent },
 { path: 'panier', component: CartComponent },
 { path: 'lignecommande/detail/:id', component: LigneCommandeVoirDetailComponent },
+
+//AFFIC MODIFIER LIGNE COMMANDE PAR REPRESENTER
+{ path: 'lignecommande/afficherREP', component: LignecommandeafficherrREPComponent },
+
+{ path: 'lignecommande/modifierREP/:id', component: LignecommandemodifierREPComponent },
+
+
 
 { path: 'commande', component: CommandeComponent },
 

@@ -13,6 +13,12 @@ export class RepresentantService {
   constructor(private http: HttpClient) {}
 
   ajouterRepresentant(data: any): Observable<any> {
+
+    //private apiUrl = 'http://localhost:8000/api/representants';
+
+    //private apiUrl = "https://ferlo-kosamnay.mamebassine06.simplonfabriques.com/api/representants";
+       
+
     // Utilisation de l'URL importée
     return this.http.post<any>(`${apiUrl}/representants`, data);
   }

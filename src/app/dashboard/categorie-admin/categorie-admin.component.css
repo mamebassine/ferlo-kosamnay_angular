@@ -20,8 +20,9 @@
   
   /* Heading Styling */
   .container h2 {
+    font-size: 2rem;
     text-align: center;
-    color: #3F7E44;
+    color: #000;
     font-weight: bold;
     margin-bottom: 2px;
   }
@@ -65,7 +66,7 @@
   }
   
   .table th {
-    background-color: #4F772D;
+    background-color: #3F7E44;
     color: white;
     font-weight: bold;
     text-align: center;
@@ -88,7 +89,7 @@
   
   /* Button Styling for Actions */
   .btn-secondary {
-    background-color: #6c757d;
+    background-color: #99B951;
     border-color: #6c757d;
     color: #fff;
   }
@@ -98,7 +99,7 @@
   }
   
   .btn-danger {
-    background-color: #dc3545;
+    background-color: #99B951;
     border-color: #dc3545;
     color: #fff;
   }

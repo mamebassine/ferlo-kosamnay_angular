@@ -1,20 +1,20 @@
 <div class="dashboard-container">
-    <!-- Navbar -->
-    <nav class="navbar">
-        <div class="navbar-title">Tableau de Bord Représentant</div>
-        <div class="navbar-right">
-            <div class="profile-section">
-                <strong><h3>Représentant</h3></strong>  
-                <img src="../assets/images/frommage.jpeg" alt="Profile" class="profile-image">
-                <div class="notifications" (click)="openNotificationsModal()">
-                    <i class="fas fa-bell"></i>
-                    <span *ngIf="notifications.length >0" class="badge">{{ notifications.length }}</span>
-                </div>
-            </div>
-        </div>
-    </nav>
 
-<div class="modal" *ngIf="showModal">
+  <nav class="navbar">
+    <div class="navbar-title">Tableau de Bord Représentant</div>
+    <div class="navbar-right">
+      <div class="profile-section">
+        <strong><h3>Représentant</h3></strong>  
+        <img src="../assets/images/frommage.jpeg" alt="Profile" class="profile-image">
+        <div class="notifications" (click)="openNotificationsModal()">
+          <i class="fas fa-bell"></i>
+          <span *ngIf="notifications.length > 0" class="badge">{{ notifications.length }}</span>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <div class="modal" *ngIf="showModal">
     <div class="modal-content">
       <h3>Notifications</h3>
       <ul>
@@ -26,28 +26,63 @@
     </div>
   </div>
   
-<aside class="sidebar">
-        <nav>
-         <ul>
-            <li><a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }"><i class="fas fa-home"></i> Accueil</a></li>
-            <li><a routerLink="/commande" routerLinkActive="active"><i class="fas fa-receipt"></i>Commandes reçues</a></li>
-            <li><a routerLink="parametre" routerLinkActive="active"><i class="fas fa-cog"></i> Parametre</a></li>
-         </ul>
-        </nav>
-        <button class="deconnexion" (click)="logout()"><i class="fas fa-sign-out-alt"></i> Déconnexion</button>
-</aside>
+  <aside class="sidebar">
+    <nav>
+      <ul>
+        <li><a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }"><i class="fas fa-home"></i> Accueil</a></li>
+        <li><a routerLink="/dashboardrepresentant" routerLinkActive="active"><i class="fas fa-receipt"></i>Commandes reçues</a></li>
+        <li><a routerLink="/lignecommande/afficherREP" routerLinkActive="active"><i class="fas fa-shopping-cart"></i>ligne commande</a></li>
 
-    <main class="main-content">
-        <div class="cards-container">
-            <div *ngFor="let card of cards" class="card" (click)="cardClicked(card)">
-                <div class="card-icon">
-                </div>
-                
-                <div class="card-content">
-                    <h3>{{ card.title }}</h3>
-                    <p>{{ card.value }}</p>
-                </div>
-            </div>
+        <li><a routerLink="parametre" routerLinkActive="active"><i class="fas fa-cog"></i> Paramètre</a></li>
+      </ul>
+    </nav>
+    <button class="deconnexion" (click)="logout()">
+      <i class="fas fa-sign-out-alt"></i>
+    </button>
+  </aside>
+
+  <main class="main-content">
+    <div class="cards-container">
+      <div *ngFor="let card of cards" class="card" (click)="cardClicked(card)">
+        <div class="card-icon">
+          <i *ngIf="card.title === 'Commandes Reçues'" class="fas fa-box"></i>
+          <i *ngIf="card.title === 'Commandes Livrées'" class="fas fa-check-circle"></i>
+          <i *ngIf="card.title === 'Commandes Annulées'" class="fas fa-clock"></i>
         </div>
-    </main>
+        
+        <div class="card-content">
+          <h3>{{ card.title }}</h3>
+          <p>{{ card.value }}</p>
+        </div>
+      </div>
+    </div>
+  </main>
 </div>
+
+<div class="tous">
+
+<div class="tout">
+      <h1>La liste de toutes les commandes</h1>
+      
+      <div class="card-container">
+
+        <div class="commande-card" *ngFor="let commande of commandes"(click)="onCardClick(commande)">
+          <h3>Commande: {{ commande.id }}</h3>
+          <img [src]="commande.produit_boutique.image" alt="Image du produit" class="product-image">
+
+
+          <p><strong>Produit:</strong> {{ commande.produit_boutique.id }}</p>
+
+          <p><strong>Ligne de Commande:</strong> {{ commande.ligne_commande.id }}</p>
+          <p><strong>Quantité:</strong> {{ commande.quantite }}</p>
+          <p><strong>Montant:</strong> {{ commande.montant | number:'' }} CFA</p>
+          <p><strong>Statut de la Commande:</strong> {{ commande.ligne_commande.statut }}</p> <!-- Affichage du statut -->
+
+             <button class="delete-btn" (click)="onDelete(commande.id)">
+              <i class="fas fa-trash"></i> 
+            </button>
+       </div>
+      </div>
+    </div>
+  </div>
+      

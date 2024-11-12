@@ -1,66 +1,119 @@
-/* Style pour le conteneur principal */
-div {
-    max-width: 600px; /* Largeur maximale du conteneur */
-    margin: 60px auto; /* Centre le conteneur avec un espace en haut */
-    padding: 20px; /* Espacement interne */
-    background-color: #f9f9f9; /* Fond léger pour le contraste */
-    border-radius: 3px; /* Coins arrondis */
-    /* box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); Ombre subtile */
+/* Styles généraux pour la page */
+.tousBoutique {
+    margin-top: 11%;
+    padding: 20px;
+    max-width: 800px;
+    margin-left: 35%;
+    font-family: 'Arial', sans-serif;
+}
+  
+/* Styles pour le titre de la page */
+.tousBoutique h2 {
+    font-size: 2rem;
+    color: #000;
+    text-align: center;
+    margin-bottom: 20px;
 }
 
-/* Style pour le titre */
-h2 {
-    text-align: center; /* Centre le titre */
-    color: #4F772D; /* Couleur du texte */
-    margin-bottom: 20px; /* Espacement en bas du titre */
+/* Styles pour le formulaire */
+form {
+    background-color: #f9f9f9;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
 }
 
-/* Style pour les groupes de formulaire */
-form > div {
-    margin-bottom: 15px; /* Espacement entre les champs du formulaire */
+/* Styles pour chaque champ du formulaire */
+form div {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
 }
 
-/* Style pour les labels */
-label {
-    font-weight: bold; /* Rendre les labels en gras */
-    display: block; /* Chaque label occupe une nouvelle ligne */
-    margin-bottom: 5px; /* Espacement en bas du label */
+/* Labels du formulaire */
+form label {
+    font-size: 14px;
+    font-weight: bold;
+    color: #000;
 }
 
-/* Style pour les champs de texte et les sélecteurs */
-input[type="text"],
-input[type="tel"],
-select {
-    width: 100%; /* Largeur complète pour input et select */
-    padding: 10px; /* Espacement interne */
-    border: 1px solid #ccc; /* Bordure pour input et select */
-    border-radius: 5px; /* Coins arrondis pour input et select */
-    font-size: 14px; /* Taille de police */
+/* Champs de saisie */
+form input, form select {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 14px;
+    width: 100%;
 }
 
-/* Style pour les boutons */
-button {
-    font-size: 14px; /* Taille de police pour les boutons */
-    padding: 10px 20px; /* Espacement interne pour les boutons */
-    border-radius: 5px; /* Coins arrondis pour les boutons */
-    background-color: #4F772D; /* Couleur du bouton principal */
-    color: #fff; /* Couleur du texte */
-    border: none; /* Pas de bordure */
-    cursor: pointer; /* Changer le curseur au survol */
-    margin-right: 10px; /* Espacement entre les boutons */
+/* Style pour le bouton de soumission */
+.boutomodifier {
+    background-color: #99B951;
+    color: white;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
 }
 
-/* Style au survol des boutons */
-button:hover {
-    background-color: #3b5e24; /* Couleur plus foncée au survol */
+/* Bouton désactivé */
+button:disabled {
+    background-color: #dcdcdc;
+    cursor: not-allowed;
 }
 
-/* Style pour le bouton d'annulation */
+/* Hover pour bouton */
+.boutomodifier:hover:enabled {
+    background-color: #3F7E44;
+}
+
+/* Style pour le bouton Annuler */
 button[type="button"] {
-    background-color: #f44336; /* Couleur rouge pour le bouton d'annulation */
+    color: #000;
+    margin-top: 10px;
 }
 
-/* Style au survol du bouton d'annulation */
+/* Hover pour bouton Annuler */
 button[type="button"]:hover {
-    background-color: #d32f2f; /* Couleur plus foncée au survol */
+    color: #d32f2f;
+    text-decoration: underline;
+}
+
+/* Style pour les liens (si présents) */
+a {
+    text-decoration: none;
+    color: #000;
+    text-align: center;
+    font-size: 14px;
+    margin-top: 10px;
+}
+
+a:hover {
+    text-decoration: underline;
+    color: #99B951;
+}
+
+/* Responsive pour les petits écrans */
+@media (max-width: 600px) {
+    .tousBoutique {
+        padding: 10px;
+    }
+
+    form {
+        padding: 15px;
+    }
+
+    button {
+        font-size: 14px;
+        padding: 8px;
+    }
+
+    input, select {
+        padding: 8px;
+    }
 }

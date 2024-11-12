@@ -1,24 +1,35 @@
 /* Styles pour le conteneur principal */
-div {
+.tousoutiques{
+    margin-left: 31%;
     max-width: 950px; /* Largeur maximale du conteneur */
-    margin: 40px auto; /* Centre le conteneur avec un espacement en haut */
     padding: 20px; /* Espacement interne */
-    background-color: #f9f9f9; /* Fond léger pour contraste */
-    border-radius: 8px; /* Coins arrondis */
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Ombre subtile */
+    background-color: #fffffffd; /* Fond léger pour contraste */
+    border-radius: 4px; /* Coins arrondis */
+    box-shadow: 0 4px 10px rgba(183, 168, 168, 0.1); /* Ombre subtile */
 }
 
 /* Styles pour le titre */
 h2 {
-    text-align: center; /* Centre le titre */
-    color: #4F772D; /* Couleur du texte */
-    margin-bottom: 30px; /* Espacement en bas du titre */
+    font-size: 2rem;
+    text-align: center;
+    color: #000;
+    font-weight: bold;
+margin-top: 13%;
+
+    margin-bottom: 80px; /* Espacement en bas du titre */
+}
+
+/* Styles pour le tableau */
+table {
+    width: 100%; /* Largeur complète pour le tableau */
+    border-collapse: collapse; /* Élimine les espaces entre les cellules */
+    margin-top: 30px; /* Augmente l'espacement au-dessus du tableau */
 }
 
 /* Styles pour le bouton "Ajouter une boutique" */
 .btn-ajouter {
     display: inline-block; /* Affiche le bouton en tant qu'élément bloc */
-    background-color: #4F772D; /* Couleur du bouton */
+    background-color: #3F7E44; /* Couleur du bouton */
     color: #fff; /* Couleur du texte */
     padding: 10px 20px; /* Espacement interne */
     border-radius: 5px; /* Coins arrondis */
@@ -30,7 +41,7 @@ h2 {
 
 /* Effet de survol pour le bouton */
 .btn-ajouter:hover {
-    background-color: #3b5e24; /* Couleur plus foncée au survol */
+    background-color: #3F7E44; /* Couleur plus foncée au survol */
 }
 
 /* Styles pour les messages d'erreur */
@@ -52,7 +63,7 @@ table {
 
 /* Styles pour l'en-tête du tableau */
 thead {
-    background-color: #4F772D; /* Couleur de fond de l'en-tête */
+    background-color: #3F7E44; /* Couleur de fond de l'en-tête */
     color: #fff; /* Couleur du texte de l'en-tête */
 }
 
@@ -64,7 +75,7 @@ th, td {
 
 /* Styles pour les liens des boutons dans le tableau */
 .btn-details, .btn-modifier {
-    background-color: #4F772D; /* Couleur du bouton */
+    background-color: #99B951; /* Couleur du bouton */
     color: #fff; /* Couleur du texte */
     padding: 5px 10px; /* Espacement interne */
     border-radius: 5px; /* Coins arrondis */
@@ -81,7 +92,7 @@ th, td {
 
 /* Styles pour le bouton supprimer */
 button {
-    background-color: #e74c3c; /* Couleur pour le bouton supprimer */
+    background-color: #99B951; /* Couleur pour le bouton supprimer */
     color: #fff; /* Couleur du texte */
     border: none; /* Pas de bordure */
     padding: 5px 10px; /* Espacement interne */

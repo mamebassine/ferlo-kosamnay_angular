@@ -35,9 +35,17 @@
           <td>{{ produit.reference }}</td>
           <td>{{ produit.prix | number:'1.0-2' }} CFA</td>
           <td>{{ produit.quantite }}</td>
-          <td>
+          <!-- <td>
             <button class="btn btn-sm btn-danger" (click)="supprimer(produit.id!)">Supprimer</button>
             <button class="btn btn-sm btn-warning" (click)="modifier(produit.id!)">Modifier</button>
+          </td> -->
+          <td>
+            <button class="btn btn-sm btn-danger" (click)="supprimer(produit.id!)">
+              <i class="fas fa-trash-alt"></i> 
+            </button>
+            <button class="btn btn-sm btn-warning" (click)="modifier(produit.id!)">
+              <i class="fas fa-edit"></i>
+            </button>
           </td>
         </tr>
       </tbody>

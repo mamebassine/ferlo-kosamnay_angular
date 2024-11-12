@@ -28,11 +28,17 @@
         </td>
           <td>{{ categorie.nom_complet }}</td>
           <td>{{ categorie.description }}</td>
+          <!-- <td>
+           <button class="btn btn-secondary btn-sm me-2" (click)="navigateToEdit(categorie.id)">Modifier</button>
+           <button class="btn btn-danger btn-sm" (click)="deleteCategorie(categorie.id)">Supprimer</button>
+          </td> -->
+
           <td>
-            <button class="btn btn-secondary btn-sm me-2" (click)="navigateToEdit(categorie.id)">Modifier</button>
-            
-            <button class="btn btn-danger btn-sm" (click)="deleteCategorie(categorie.id)">Supprimer</button>
+           <button class="btn btn-secondary btn-sm me-2" (click)="navigateToEdit(categorie.id)"><i class="fas fa-edit"></i></button>
+           <button class="btn btn-danger btn-sm" (click)="deleteCategorie(categorie.id)"><i class="fas fa-trash-alt"></i></button>
           </td>
+
+          
         </tr>
       </tbody>
     </table>

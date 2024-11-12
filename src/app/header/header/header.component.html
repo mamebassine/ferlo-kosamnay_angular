@@ -4,20 +4,21 @@
       <img src="assets/images/logo2ferlokosamnay.png" alt="Logo Ferlo Kosamnay" class="logo">
     </div>
 
-    <div class="hamburger" (click)="toggleMenu()">
-      <span></span>
-      <span></span>
-      <span></span>
+    <!-- Icone Burger pour mobile -->
+    <div class="burger-icon" (click)="toggleModal()">
+      <i class="fas fa-bars"></i>
     </div>
 
+    <!-- Menu Centre -->
     <ul class="menu-centre" [ngClass]="{'active': isMenuOpen}">
       <li [ngClass]="{'active': isActive('/')}"><a routerLink="/">Accueil</a></li>
-    <li [ngClass]="{'active': isActive('/produit')}"><a routerLink="/produit">Produits</a></li>
-    <li [ngClass]="{'active': isActive('/categorie')}"><a routerLink="/categorie">Catégories</a></li>
-    <li [ngClass]="{'active': isActive('/contact')}"><a routerLink="/contact">Contact</a></li>
-    <li [ngClass]="{'active': isActive('/usercommande')}"><a routerLink="/usercommande">Mes commandes</a></li>
+      <li [ngClass]="{'active': isActive('/produit')}"><a routerLink="/produit">Produits</a></li>
+      <li [ngClass]="{'active': isActive('/categorie')}"><a routerLink="/categorie">Catégories</a></li>
+      <li [ngClass]="{'active': isActive('/contact')}"><a routerLink="/contact">Contact</a></li>
+      <li [ngClass]="{'active': isActive('/usercommande')}"><a routerLink="/usercommande">Mes commandes</a></li>
     </ul>
 
+    <!-- Actions Droite -->
     <div class="actions-droite">
       <a routerLink="/panier" class="icone-panier">
         <i class="fas fa-shopping-cart"></i>
@@ -28,6 +29,15 @@
       <a *ngIf="isLoggedIn" (click)="logout()" class="bouton-deconnexion">Déconnexion</a>
     </div>
   </nav>
+  <!-- Modal -->
+<div class="full-screen-modal" *ngIf="isModalOpen">
+  <ul class="modal-menu">
+    <li><a routerLink="/">Accueil</a></li>
+    <li><a routerLink="/produit">Produits</a></li>
+    <li><a routerLink="/categorie">Catégories</a></li>
+    <li><a routerLink="/contact">Contact</a></li>
+    <li><a routerLink="/usercommande">Mes commandes</a></li>
+    <li (click)="closeModal()">Fermer</li>
+  </ul>
+</div>
 </header>
-
-

@@ -1,3 +1,11 @@
+h2{
+  font-size: 2rem;
+    text-align: center;
+    color: #000;
+    font-weight: bold;
+    margin-bottom: 2px;
+}
+
 /* Container Styling */
 .container {
   max-width: 65%; /* Ajustez selon vos préférences */
@@ -29,14 +37,14 @@
 }
 
 .btn-danger {
-  background-color: #dc3545;
+  background-color: #99B951;
   border: none;
 }
 
 .btn-warning {
-  background-color: #ffc107;
+  background-color: #99B951;
   border: none;
-  color: #212529;
+  color: #fff;
 }
 
 /* Table Styling */

@@ -7,7 +7,6 @@ header {
   font-family: 'Roboto', sans-serif;
   margin: 0;
   overflow-x: hidden; 
-
   position: fixed;  
   width: 100%
   
@@ -112,19 +111,7 @@ nav .actions-droite .bouton-deconnexion:hover {
   background-color: #99B951;
 }
 
-/* Bouton hamburger */
-nav .hamburger {
-  display: none;
-  flex-direction: column;
-  cursor: pointer;
-}
 
-nav .hamburger span {
-  height: 4px;
-  width: 25px;
-  background-color: #000;
-  margin: 3px 0;
-}
 span {
   position: relative;
   top: -20px;
@@ -140,9 +127,13 @@ span {
   font-weight: bold; /* Optionnel : pour un texte plus gras */
   text-decoration: underline; 
 }
-
-
-
+/* Styles pour l'icône burger */
+.burger-icon {
+  display: none;
+  font-size: 24px;
+  color: #000;
+  cursor: pointer;
+}
 
 
 @media (max-width: 768px) {
@@ -191,16 +182,71 @@ span {
     gap: 10px; /* Ajoute de l’espace entre chaque élément de la section actions-droite */
 
   }
-
-  nav .hamburger {
-    display: flex;
-    margin-left: auto;
-    margin-right: 29px; /* Ajoute un espace entre le menu hamburger et le panier */
-    cursor: pointer;
-    align-items: center;
-    padding-top: 3px; /* Ajustez ce padding pour descendre le menu hamburger */
-  z-index: 1001;
+  .burger-icon {
+    display: block;
+    margin-right: 15%;
   }
+
+  /* Cacher le menu en mode mobile par défaut */
+  .menu-centre {
+    display: none;
+    flex-direction: column;
+    width: 100%;
+    text-align: center;
+    position: absolute;
+    top: 75px;
+    z-index: 1;
+    background-color: #fff;
+    padding: 10px 0;
+  }
+
+  /* Afficher le menu lorsqu'il est actif */
+  .menu-centre.active {
+    display: flex;
+  }
+
+  .menu-centre li {
+    margin: 10px 0;
+    font-size: 17px;
+  }
+ /* Styles pour le modal en plein écran */
+.full-screen-modal {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh; /* Prend toute la hauteur */
+  background-color: rgba(255, 255, 255, 0.95); /* Couleur de fond avec transparence */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  animation: slideUp 0.3s ease-out; /* Animation de glissement vers le haut */
+  z-index: 1000;
+}
+
+/* Menu du modal */
+.modal-menu {
+  list-style: none;
+  padding: 0;
+  text-align: center;
+}
+
+.modal-menu li {
+  margin: 15px 0;
+  font-size: 24px;
+}
+
+.modal-menu li a {
+  text-decoration: none;
+  color: #3F7E44;
+}
+
+.modal-menu li a:hover {
+  color: #99B951;
+  text-decoration: underline;
+}
+
 }
 
 
@@ -209,38 +255,5 @@ span {
 
 
 
-
-/* Media Queries pour petits écrans */
-
-/* @media (max-width: 768px) {
-  nav {
-    flex-direction: column;
-    align-items: flex-start;
-  }
-
-  nav .menu-centre {
-    display: none;
-    flex-direction: column;
-    width: 100%;
-    text-align: center;
-  }
-
-  nav .menu-centre.active {
-    display: flex; 
-  }
-
-  nav .hamburger {
-    display: flex; 
-    margin-left: auto; 
-    cursor: pointer; 
-  }
-
-  nav .hamburger span {
-    height: 4px;
-    width: 25px;
-    background-color: #000;
-    margin: 3px 0;
-  }
-} */
 
 

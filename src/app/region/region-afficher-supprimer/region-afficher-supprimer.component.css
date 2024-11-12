@@ -2,12 +2,17 @@
   max-width: 800px;
   margin: 10% auto; /* Increase margin-top to 40px */
   padding: 20px;
+  margin-left: 35%;
 }
 
 h2 {
+    font-size: 2rem;
     text-align: center;
-    color: #4F772D;
-    margin-bottom: 30px;
+    color: #000;
+    font-weight: bold;
+    margin-bottom: 40px;
+    margin-left: -1%;
+
 }
 
 .btn {
@@ -18,7 +23,7 @@ h2 {
 }
 
 .btn-primary {
-    background-color: #4F772D;
+    background-color: #3F7E44;
     color: #fff;
     border: none;
     margin-bottom: 20px;
@@ -29,19 +34,28 @@ h2 {
 }
 
 .table {
-    width: 80%;
+    width: 50%;
     border-spacing: 0 5px; /* Espacement entre les lignes */
-    margin-top: 20px; /* Margin added to lower the table */
+    margin-top: 5px; /* Margin added to lower the table */
 }
 
 .table thead th {
-    color: #36494E;
+    background-color: #3F7E44;
+    color: #fff;
     text-transform: uppercase;
-    padding: 12px 15px;
+    padding: 12px 10px; /* Ajustement du padding pour un meilleur espacement */
     font-weight: bold;
-    text-align: right;
+    text-align: center;
+    margin-left: 33%;
 }
 
+
+.table {
+    width: 60%; /* Ajustez la largeur selon vos besoins */
+    margin: 0 auto; /* Centrer le tableau */
+    border-spacing: 0 5px;
+    margin-top: 20px; /* Espace au-dessus du tableau */
+}
 .table tbody tr {
     background-color: #f9f9f9; /* Couleur de fond pour les lignes */
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Ombre pour chaque ligne */
@@ -73,12 +87,12 @@ h2 {
 }
 
 .btn-warning {
-    background-color: #0fcc61;
+    background-color: #99B951;
     color: white;
 }
 
 .btn-danger {
-    background-color: #dc3545;
+    background-color: #99B951;
     color: white;
 }
 
@@ -94,89 +108,7 @@ h2 {
 
 
 
-.container {
-    max-width: 800px;
-    margin: 10% auto; /* Augmentez la marge supérieure pour plus d'espace */
-    padding: 20px;
-}
 
-h2 {
-    text-align: center;
-    color: #4F772D;
-    margin-bottom: 30px;
-}
-
-.btn {
-    font-size: 14px;
-    padding: 10px 20px;
-    border-radius: 5px;
-    text-transform: uppercase;
-}
-
-.btn-primary {
-    background-color: #4F772D;
-    color: #fff;
-    border: none;
-    margin-bottom: 20px;
-}
-
-.btn-primary:hover {
-    background-color: #3b5e24;
-}
-
-.table {
-    width: 80%;
-    border-spacing: 0 5px; /* Espacement entre les lignes */
-    margin-top: 20px; /* Marge ajoutée pour abaisser le tableau */
-}
-
-.table thead th {
-    color: #36494E;
-    text-transform: uppercase;
-    padding: 12px 15px;
-    font-weight: bold;
-    text-align: right;
-}
-
-.table tbody tr {
-    background-color: #f9f9f9; /* Couleur de fond pour les lignes */
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Ombre pour chaque ligne */
-    border-radius: 3px;
-}
-
-.table tbody td {
-    padding: 15px;
-    vertical-align: middle;
-}
-
-.table tbody tr:hover {
-    background-color: #f0f0f0; /* Couleur de fond au survol */
-}
-
-.table tbody td:first-child {
-    border-radius: 8px 0 0 8px; /* Arrondir côté gauche */
-}
-
-.table tbody td:last-child {
-    border-radius: 0 8px 8px 0; /* Arrondir côté droit */
-}
-
-.btn-warning,
-.btn-danger {
-    padding: 5px 10px;
-    font-size: 12px;
-    border-radius: 4px;
-}
-
-.btn-warning {
-    background-color: #0fcc61;
-    color: white;
-}
-
-.btn-danger {
-    background-color: #dc3545;
-    color: white;
-}
 
 /* Ajouts pour la responsivité */
 @media (max-width: 768px) {

@@ -33,9 +33,11 @@
    
      <div class="phovoirdetail" *ngIf="produit; else loadingOrError">
     <div class="product-detail">
-      <button class="btn btn-secondary mt-3" (click)="goBack()">Retour</button>
-
-        <img *ngIf="produit.image" [src]="'http://localhost:8000/storage/' + produit.image" alt="{{ produit.nom }}" />
+      <button class="btn btn-secondary mt-3 btn-retour" (click)="goBack()">
+        <i class="fas fa-arrow-left"></i>
+      </button>
+      
+      <img *ngIf="produit.image" [src]="'http://localhost:8000/storage/' + produit.image" alt="{{ produit.nom }}" />
         <div class="product-info">
             <h1>{{ produit.nom }}</h1>
             <p>{{ produit.description }}</p>

@@ -11,10 +11,16 @@
     (click)="onCardClick(commande)"
   >
     <h3>Commande ID: {{ commande.id }}</h3>
-    <p><strong>Produit:</strong> {{ commande.produit_boutique.id }}</p>
+    <img [src]="commande.produit_boutique.image" alt="Image du produit" class="product-image">
+
+          <p><strong>Produit:</strong> {{ commande.produit_boutique.produit.nom }}</p>
+    <!-- <p><strong>Produit:</strong> {{ commande.produit_boutique.id }}</p> -->
     <p><strong>Ligne de Commande:</strong> {{ commande.ligne_commande.id }}</p>
     <p><strong>Quantité:</strong> {{ commande.quantite }}</p>
     <p><strong>Montant:</strong> {{ commande.montant | number:'' }} CFA</p>
+
+    <p><strong>Statut de la Commande:</strong> {{ commande.ligne_commande.statut }}</p> 
+
 
        <!-- Bouton de suppression -->
        <button class="delete-btn" (click)="onDelete(commande.id)">

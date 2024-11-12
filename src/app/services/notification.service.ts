@@ -9,6 +9,8 @@ import { catchError } from 'rxjs/operators';
 export class NotificationService {
   private apiUrl = 'http://127.0.0.1:8000/api';
 
+  //private apiUrl = "https://ferlo-kosamnay.mamebassine06.simplonfabriques.com/api/notifications";
+
   constructor(private http: HttpClient) { }
 
   private getHeaders(): HttpHeaders {
@@ -25,6 +27,46 @@ getAllNotifications(): Observable<{ status: boolean; data: any[] }> {
     );
 }
 
+ // Méthode pour récupérer les statistiques des commandes
+//  getCommandStatistics(): Observable<any> {
+//   return this.http.get<any>(`${this.apiUrl}/statistiques/commandes`)
+//     .pipe(
+//       catchError(this.handleError)
+//     );
+// }
+
+// Méthode pour obtenir les statistiques des commandes en attente
+getCommandesEnAttente(): Observable<any> {
+  return this.http.get(`${this.apiUrl}/statistiques/commandes/en-attente`)
+  .pipe(
+    catchError(this.handleError)
+  );
+}
+
+// Méthode pour obtenir les statistiques des commandes livrées
+getCommandesLivrees(): Observable<any> {
+  return this.http.get(`${this.apiUrl}/statistiques/commandes/livree`)
+  .pipe(
+    catchError(this.handleError)
+  );
+}
+
+// Méthode pour obtenir les statistiques des commandes en cours de traitement
+getCommandesEnCours(): Observable<any> {
+  return this.http.get(`${this.apiUrl}/statistiques/commandes/en-cours-de-traitement`)
+  .pipe(
+    catchError(this.handleError)
+  );
+}
+
+
+
+
+
+
+
+
+
 private handleError(error: HttpErrorResponse) {
     console.error('Une erreur s\'est produite:', error.message);
     if (error.error && error.error.errors) {
@@ -32,4 +74,5 @@ private handleError(error: HttpErrorResponse) {
     }
     return throwError(() => new Error('Une erreur s\'est produite, veuillez réessayer plus tard.'));
   }
+  
 }

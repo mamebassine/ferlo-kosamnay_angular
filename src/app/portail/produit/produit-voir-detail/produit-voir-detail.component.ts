@@ -16,7 +16,7 @@ import { Location } from '@angular/common'; // Assurez-vous de cet import
 
 
 
-// import { LigneCommandeService } from 'chemin/vers/LigneCommandeService'; // Assure-toi d'importer le service
+// import { LigneCommandeService } from 'chemin/vers/LigneCommandeService'; 
  // Définition de l'interface LigneCommande ici
  //l'interface
  interface LigneCommande {

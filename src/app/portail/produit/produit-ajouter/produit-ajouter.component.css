@@ -1,4 +1,5 @@
 .container {
+    
     max-width: 600px; /* Largeur maximale du conteneur */
     margin: 2rem auto; /* Centrer le conteneur verticalement et horizontalement */
     padding: 2rem; /* Rembourrage interne */
@@ -71,10 +72,6 @@ h2 {
 .btn-secondary:hover {
     background-color: #5a6268; /* Couleur de fond au survol pour le bouton secondaire */
 }
-
-
-
-
 
 .container {
     max-width: 600px;
