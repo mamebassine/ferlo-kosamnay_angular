@@ -1,16 +1,3 @@
-// import { Component } from '@angular/core';
-
-// @Component({
-//   selector: 'app-commande-detail',
-//   standalone: true,
-//   imports: [],
-//   templateUrl: './commande-detail.component.html',
-//   styleUrl: './commande-detail.component.css'
-// })
-// export class CommandeDetailComponent {
-
-// }
-
 
 
 import { Component, OnInit } from '@angular/core';
