@@ -36,6 +36,7 @@ import { Location } from '@angular/common'; //Retour
 export class LigneCommandeVoirDetailComponent implements OnInit {
   ligneCommande: any;
   messageErreur: string | null = null;
+  nom_complet: string | null = null; 
 
   constructor(
     private ligneCommandeService: LigneCommandeService,
@@ -49,13 +50,29 @@ export class LigneCommandeVoirDetailComponent implements OnInit {
     this.ligneCommandeService.getLigneCommandeById(id).subscribe(
       (data) => {
         this.ligneCommande = data;
+        if (data && data.user_id) {
+          this.fetchUserFullName(data.user_id); 
+        }
       },
-      (error) => {
+      (error: any) => {
         console.error('Erreur lors du chargement de la ligne de commande', error);
         this.messageErreur = 'Erreur lors du chargement de la ligne de commande.';
       }
     );
   }
+
+  fetchUserFullName(userId: number): void {
+    this.ligneCommandeService.getUserById(userId).subscribe(
+      (user: any) => {
+        this.nom_complet = user.nom_complet || 'Nom inconnu';
+      },
+      (error: any) => {
+        console.error('Erreur lors du chargement du nom complet de l\'utilisateur', error);
+        this.nom_complet = 'Nom inconnu';
+      }
+    );
+  }
+
   
 // Méthode pour revenir à la page précédente
 goBack(): void {

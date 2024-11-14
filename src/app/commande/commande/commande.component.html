@@ -10,29 +10,27 @@
     *ngFor="let commande of commandes" 
     (click)="onCardClick(commande)"
   >
-    <h3>Commande ID: {{ commande.id }}</h3>
-    <img [src]="commande.produit_boutique.image" alt="Image du produit" class="product-image">
-
-          <p><strong>Produit:</strong> {{ commande.produit_boutique.produit.nom }}</p>
+    <h3>Numero de la commande: {{ commande.id }}</h3>
+    <img *ngIf="commande?.produit_boutique?.produit?.image" [src]="'http://localhost:8000/storage/' + commande.produit_boutique.produit.image" alt="Image du Produit" width="100">
+    <p><strong>Produit:</strong> {{ commande.produit_boutique.produit.nom }}</p>
     <!-- <p><strong>Produit:</strong> {{ commande.produit_boutique.id }}</p> -->
-    <p><strong>Ligne de Commande:</strong> {{ commande.ligne_commande.id }}</p>
+    <!-- <p><strong>Ligne de Commande:</strong> {{ commande.ligne_commande.id }}</p> -->
     <p><strong>Quantité:</strong> {{ commande.quantite }}</p>
     <p><strong>Montant:</strong> {{ commande.montant | number:'' }} CFA</p>
 
-    <p><strong>Statut de la Commande:</strong> {{ commande.ligne_commande.statut }}</p> 
+    <!-- <p><strong>Statut de la Commande:</strong> {{ commande.ligne_commande.statut }}</p>  -->
 
-
-       <!-- Bouton de suppression -->
-       <button class="delete-btn" (click)="onDelete(commande.id)">
-        <i class="fas fa-trash"></i> Supprimer
+    <div class="button-container">
+      <button class="detail-btn" (click)="onVoirDetail(commande)">
+        <i class="fas fa-eye"></i> 
       </button>
-
-
-       <!-- <button class="delete-btn" (click)="onDelete(commande.id)">
-        <i class="fas fa-trash"></i> Supprimer -->
-
-      
+    
+      <button class="delete-btn" (click)="onDelete(commande.id)">
+        <i class="fas fa-trash"></i> 
+      </button>
     </div>
+    
+</div>
   </div>
 </div>
 
@@ -41,35 +39,3 @@
 
 
 
-<!-- 
-          <p>Prix: {{ produit.prix | number:'1.0-2' }} CFA</p>
-
-<app-navbar-admin></app-navbar-admin>
-<h1>La liste de tous les commandes</h1>
-<table>
-    <thead>
-      <tr>
-        <th>ID</th>
-        <th>Produit</th>
-        <th>Ligne de Commande</th>
-        <th>Quantité</th>
-        <th>Montant</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr *ngFor="let commande of commandes">
-        <td>{{ commande.id }}</td>
-        <td>{{ commande.produit_boutique.id }}</td> 
-        <td>{{ commande.ligne_commande.id }}</td>
-        <td>{{ commande.quantite }}</td>
-        <td>{{ commande.montant }}</td>
-      </tr>
-    </tbody>
-  </table>
-   -->
-
-  <!-- @foreach($ligneCommande->produitBoutiques as $produitBoutique)
-  <li><strong>Produit :</strong> {{ $produitBoutique->produit->nom ?? 'N/A' }}</li> 
-  <li><strong>Quantité :</strong> {{ $produitBoutique->pivot->quantite }}</li>
-  <li><strong>Prix Unitaire :</strong> {{ $produitBoutique->pivot->montant }} FCA</li>
-@endforeach -->

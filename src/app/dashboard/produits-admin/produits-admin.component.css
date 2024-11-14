@@ -81,13 +81,144 @@ h2{
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
-/* Responsiveness */
-@media (max-width: 768px) {
-  .table {
+
+
+
+
+/* Styles responsive pour les écrans de 768px ou moins */
+@media only screen and (max-width: 768px) {
+  h2 {
+    font-size: 1.2rem; /* Réduction de la taille du titre */
+    margin-top: 10px; /* Ajouter un léger espacement supérieur */
+    text-align: center; /* Centrage du titre */
+  }
+
+  .container {
+    max-width: 100%; /* Prend toute la largeur de l'écran */
+    margin-top: 2%; /* Espacement réduit */
+    padding: 10px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .actions {
+    display: flex;
+    flex-direction: column;
+    gap: 10px; /* Espacement entre les boutons */
+    align-items: center; /* Centrer les boutons */
+    margin-bottom: 15px;
+  }
+
+  .btn {
+    padding: 8px; /* Réduction de la taille des boutons */
     font-size: 12px;
+    width: 90%; /* Largeur réduite pour mieux s'adapter */
+    margin-right: 0;
+  }
+
+  /* Adapter le tableau pour mobile */
+  .table-responsive {
+    overflow-x: auto;
+    margin-bottom: 15px; /* Ajouter un espacement sous le tableau */
+  }
+
+  .table {
+    font-size: 11px; /* Taille de texte plus petite pour les cellules */
+    width: 100%; /* Prend toute la largeur */
+    margin: 0 auto;
+  }
+
+  .table th,
+  .table td {
+    padding: 6px; /* Espacement réduit pour plus de compacité */
+    text-align: center;
+    white-space: nowrap; /* Empêche le texte de passer à la ligne */
   }
 
   .table img {
-    width: 50px;
+    width: 30px; /* Réduction de la taille de l'image */
+  }
+
+  /* Centrage et ajustement des boutons d'action dans le tableau */
+  .table td:last-child {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 3px; /* Espacement réduit entre les boutons d'action */
+  }
+}
+
+
+
+
+
+/* Styles responsive pour les écrans de 768px ou moins */
+@media only screen and (max-width: 768px) {
+  h2 {
+    font-size: 1.2rem; /* Réduction de la taille du titre */
+    margin-top: 30px; /* Déplacement plus bas du titre */
+    text-align: center; /* Centrage du titre */
+  }
+
+  .container {
+    max-width: 99%; /* Prend toute la largeur de l'écran */
+    margin-top: 5%; /* Espacement réduit */
+    padding: 10px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .actions {
+    display: flex;
+    flex-direction: column;
+    gap: 10px; /* Espacement entre les boutons */
+    align-items: center; /* Centrer les boutons */
+    margin-bottom: 15px;
+  }
+
+  .btn {
+    padding: 8px; /* Réduction de la taille des boutons */
+    font-size: 12px;
+    width: 90%; /* Largeur réduite pour mieux s'adapter */
+    margin-right: 0;
+  }
+
+  /* Adapter le tableau pour mobile */
+  .table-responsive {
+    overflow-x: auto;
+    margin-bottom: 15px; /* Ajouter un espacement sous le tableau */
+  }
+
+  .table {
+    font-size: 12px; /* Taille de texte plus petite pour les cellules */
+    width: 100%; /* Prend toute la largeur */
+    margin: 0 auto;
+  }
+
+  .table th,
+  .table td {
+    padding: 6px; /* Espacement réduit pour plus de compacité */
+    text-align: center;
+    white-space: nowrap; /* Empêche le texte de passer à la ligne */
+  }
+
+  /* Masquer les colonnes spécifiques (exemple : 2ème et 4ème colonnes) */
+  .table th:nth-child(2),
+  .table td:nth-child(2),
+  .table th:nth-child(4),
+  .table td:nth-child(4) {
+    display: none;
+  }
+
+  .table img {
+    width: 30px; /* Réduction de la taille de l'image */
+  }
+
+  /* Centrage et ajustement des boutons d'action dans le tableau */
+  .table td:last-child {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 3px; /* Espacement réduit entre les boutons d'action */
   }
 }

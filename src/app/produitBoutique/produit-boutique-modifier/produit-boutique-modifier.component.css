@@ -84,23 +84,51 @@
     color: #99B951;
   }
   
-  /* Responsive pour les petits écrans */
-  @media (max-width: 600px) {
-    .tousproduitBoutiq {
-      padding: 10px;
-    }
-  
-    form {
+ 
+
+
+  /* Media Query pour les écrans de taille mobile */
+@media only screen and (max-width: 768px) {
+
+  /* Styles généraux pour la page */
+  .tousproduitBoutiq {
+      margin-top: 5%; /* Réduit l'espace supérieur */
       padding: 15px;
-    }
-  
-    button {
-      font-size: 14px;
-      padding: 8px;
-    }
-  
-    input {
-      padding: 8px;
-    }
+      max-width: 90%; /* Occupe une grande partie de la largeur */
+      margin-left: auto;
+      margin-right: auto;
   }
-  
+
+  /* Styles pour le titre de la page */
+  .tousproduitBoutiq h2 {
+      font-size: 1.5rem; /* Réduit la taille du titre */
+      margin-top: 50px; /* Ajoute une marge pour descendre le titre */
+  }
+
+  /* Formulaire */
+  form {
+      padding: 15px; /* Réduit le padding du formulaire */
+  }
+
+  /* Labels du formulaire */
+  form label {
+      font-size: 12px; /* Réduit la taille de la police pour les labels */
+  }
+
+  /* Champs de saisie */
+  form input {
+      font-size: 13px; /* Réduit la taille de la police */
+      padding: 8px; /* Réduit le padding interne */
+  }
+
+  /* Bouton de soumission */
+  button {
+      font-size: 14px; /* Réduit la taille de la police du bouton */
+      padding: 8px; /* Ajuste le padding du bouton */
+  }
+
+  /* Style pour le lien "Annuler" */
+  a {
+      font-size: 16px; /* Réduit la taille de la police du lien */
+  }
+}

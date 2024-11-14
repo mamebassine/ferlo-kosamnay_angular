@@ -80,3 +80,41 @@ select:focus {
     color: #155724; /* Couleur du texte pour les messages de succès */
     border: 1px solid #c3e6cb; /* Bordure pour les messages de succès */
 }
+
+
+
+
+
+/* Media Queries pour rendre le contenu responsive sur mobile */
+@media only screen and (max-width: 768px) {
+    .container {
+        max-width: 90%; /* Prend 90% de la largeur de l'écran */
+        margin-top: 20px; /* Réduit l'espacement en haut */
+        padding: 15px; /* Réduit l'espacement interne */
+    }
+
+    h2 {
+        font-size: 1.6rem; /* Réduit la taille du titre */
+        margin-top: 20px; /* Réduit l'espacement au-dessus du titre */
+        margin-bottom: 40px; /* Réduit l'espacement en bas du titre */
+    }
+
+    .form-group {
+        margin-top: 10px; /* Réduit l'espacement au-dessus des groupes de formulaire */
+        margin-bottom: 15px; /* Réduit l'espacement entre les champs */
+    }
+
+    input[type="text"], select {
+        font-size: 12px; /* Réduit la taille de la police */
+        padding: 8px; /* Réduit l'espacement interne */
+    }
+
+    .btn {
+        font-size: 12px; /* Réduit la taille de la police du bouton */
+        padding: 8px 16px; /* Réduit l'espacement interne du bouton */
+    }
+
+    .alert {
+        padding: 10px; /* Réduit l'espacement interne des alertes */
+    }
+}

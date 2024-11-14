@@ -1,0 +1,50 @@
+<app-navbar-admin></app-navbar-admin>
+
+
+<div *ngIf="commande" class="container mt-5">
+       <div class="card mb-3">
+        <div class="card-header">
+            <h4 class="card-title">Détails de la Commande</h4>
+        </div>
+        <div class="card-body">
+            <!-- Informations sur la commande -->
+            <p><strong>Quantité:</strong> {{ commande.quantite }}</p>
+            <p><strong>Montant:</strong> {{ commande.montant }} CFA</p>
+
+            <!-- Informations sur le produit -->
+            <!-- <p><strong>Produit:</strong> {{ commande.produit_boutique.produit.nom }}</p> -->
+            <p><strong>Quantité:</strong> {{ commande.produit_boutique.quantite }}</p>
+            <!-- <p><strong>Date de Création du commande:</strong> {{ commande.produit_boutique.created_at | date:'dd/MM/yyyy' }}</p> -->
+
+            <!-- Détails supplémentaires sur le produit -->
+            <p><strong>Nom du Produit:</strong> {{ commande.produit_boutique.produit.nom }}</p>
+            <p><strong>Description:</strong> {{ commande.produit_boutique.produit.description }}</p>
+            <p><strong>Prix unitaire:</strong> {{ commande.produit_boutique.produit.prix }} CFA</p>
+            <p><strong>Référence:</strong> {{ commande.produit_boutique.produit.reference }}</p>
+
+            <!-- Image du produit -->
+            <div *ngIf="commande?.produit_boutique?.produit?.image">
+                <img [src]="'http://localhost:8000/storage/' + commande.produit_boutique.produit.image"
+                     alt="Image du Produit"
+                     class="img-fluid mt-3"
+                     style="max-width: 400px; height: auto;">
+            </div>
+
+            <!-- Informations sur la ligne de commande -->
+            <p><strong>Utilisateur:</strong> {{ commande.ligne_commande.user.nom_complet }}</p>
+            <!-- <p><strong>ID Utilisateur:</strong> {{ commande.ligne_commande.user_id }}</p> -->
+            <p><strong>Date:</strong> {{ commande.ligne_commande.date | date:'dd/MM/yyyy' }}</p>
+            <p><strong>Statut:</strong> {{ commande.ligne_commande.statut }}</p>
+            <p><strong>Quantité Totale:</strong> {{ commande.ligne_commande.quantite_totale }}</p>
+            <p><strong>Prix Total:</strong> {{ commande.ligne_commande.prix_totale }} CFA</p>
+            <!-- <p><strong>Créé le:</strong> {{ commande.ligne_commande.created_at | date:'dd/MM/yyyy' }}</p> -->
+
+            <div class="product-detail">
+                <button class="btn btn-secondary mt-3 btn-retour" (click)="goBack()"><i class="fas fa-arrow-left"></i></button>
+              </div>
+            
+        </div>
+    </div>
+</div>
+
+  

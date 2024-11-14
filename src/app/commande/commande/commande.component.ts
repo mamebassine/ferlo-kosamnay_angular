@@ -15,9 +15,12 @@ import { NavbarAdminComponent } from "../../navbar-admin/navbar-admin.component"
 export class CommandeComponent implements OnInit {
   commandes: any[] = []; // Déclaration d'un tableau pour stocker les commandes
 
-  constructor(private commandeService: CommandeService) {}
+  constructor(private commandeService: CommandeService,  
+       private router: Router // Injection du Router dans le constructeur
+  ) {}
 
   ngOnInit(): void {
+    
     this.loadCommandes(); // Appel de la méthode pour charger les commandes
   }
 
@@ -25,6 +28,13 @@ export class CommandeComponent implements OnInit {
     console.log(`Carte cliquée pour la commande ID: ${commande.id}`);
   }
 
+  
+  onVoirDetail(commande: any): void {
+    // Logique pour rediriger vers la page de détail de la commande
+    console.log('Voir Détail de la commande:', commande);
+    this.router.navigate(['/voirdetailcommandes', commande.id]); // Rediriger vers /commande-detail/:id
+  }
+  
 
   onDelete(id: number): void {
     if (confirm('Êtes-vous sûr de vouloir supprimer cette commande ?')) {

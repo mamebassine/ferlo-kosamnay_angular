@@ -53,3 +53,65 @@ h2 {
 
   }
   
+
+
+
+
+
+  /* Styles responsives pour les écrans de 768px et moins */
+@media only screen and (max-width: 768px) {
+  .VOIRDETAIL {
+      margin-left: 0;
+      margin-top: 20%;
+  }
+
+  h2 {
+    text-align: center;
+      font-size: 1.5rem; /* Réduit la taille du titre */
+      margin-top: 10px; /* Ajuste l'espacement */
+  }
+
+  .commande-card {
+      max-width: 90%; /* Assure que la carte prend toute la largeur disponible */
+      padding: 15px; /* Réduit le padding pour économiser de l'espace */
+      margin: 10px auto; /* Centre la carte et réduit la marge */
+  }
+
+  .commande-card p {
+      font-size: 14px; /* Réduit légèrement la taille de la police */
+  }
+
+  .btn-retour {
+      font-size: 0.9rem; /* Réduit la taille de la police */
+      width: 100%; /* Bouton prend toute la largeur */
+      text-align: center; /* Centre le texte du bouton */
+      padding: 10px; /* Ajoute un padding pour faciliter le clic sur mobile */
+  }
+}
+
+/* Styles responsives pour les écrans de 480px et moins */
+@media only screen and (max-width: 480px) {
+  .VOIRDETAIL {
+      margin-left: 0;
+      margin-top:25%;
+  }
+
+  h2 {
+      font-size: 1.2rem; /* Réduit encore plus la taille du titre */
+      margin-top: 8px; /* Ajuste l'espacement */
+  }
+
+  .commande-card {
+      padding: 10px; /* Réduit le padding pour les petits écrans */
+      margin: 5px auto; /* Réduit la marge pour plus d'espace */
+  }
+
+  .commande-card p {
+      font-size: 12px; /* Réduit davantage la taille de la police */
+  }
+
+  .btn-retour {
+      font-size: 0.8rem; /* Réduit encore la taille de la police */
+      padding: 8px; /* Réduit le padding */
+  }
+}

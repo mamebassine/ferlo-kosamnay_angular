@@ -104,3 +104,70 @@ button {
 button:hover {
     background-color: #c0392b; /* Couleur plus foncée au survol */
 }
+
+
+
+
+
+
+/* Media Query pour mobile */
+
+@media only screen and (max-width: 768px) {
+
+    /* Conteneur principal */
+    .tousoutiques {
+        margin-left: 5%;  /* Ajoute un espace de chaque côté */
+        margin-right: 5%;
+        max-width: 90%;
+        padding: 15px;
+    }
+
+    /* Titre */
+    h2 {
+        font-size: 1.5rem;
+        margin-top: 20%; /* Peut être ajusté pour donner plus de hauteur */
+        margin-bottom: 40px;
+    }
+
+    /* Bouton "Ajouter une boutique" */
+    .btn-ajouter {
+        font-size: 14px;
+        padding: 8px 15px;
+        margin-bottom: 15px; /* Espace supplémentaire en dessous */
+    }
+
+    /* Tableau */
+    th, td {
+        padding: 6px; /* Réduit l'espacement pour une meilleure lisibilité */
+        font-size: 12px; /* Réduit la taille de la police */
+    }
+
+    /* Réduit la largeur des colonnes */
+    table {
+        width: 100%; /* Tableau occupe toute la largeur disponible */
+        table-layout: fixed; /* Force un ajustement de la largeur des colonnes */
+    }
+
+    /* Réduit la largeur des colonnes */
+    th, td {
+        overflow: hidden; /* Cache le contenu qui dépasse */
+        text-overflow: ellipsis; /* Ajoute des points de suspension pour le texte trop long */
+        white-space: nowrap; /* Empêche le texte de se dérouler sur plusieurs lignes */
+    }
+
+    /* Boutons dans le tableau */
+    .btn-details, .btn-modifier, button {
+        font-size: 12px;
+        padding: 5px 8px;
+        display: block; /* Affichage en bloc pour prendre toute la largeur */
+        width: 90%; /* Moins que 100% pour laisser de l'espace sur les côtés */
+        margin: 8px auto; /* Centrer chaque bouton et ajouter espace en bas */
+    }
+
+    /* Messages d'erreur */
+    div[ngIf="errorMessage"] {
+        padding: 10px;
+        font-size: 14px;
+    }
+}
+

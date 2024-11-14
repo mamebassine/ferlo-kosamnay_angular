@@ -59,30 +59,44 @@
   </main>
 </div>
 
-<div class="tous">
+
+
 
 <div class="tout">
-      <h1>La liste de toutes les commandes</h1>
-      
-      <div class="card-container">
+<h1>La liste de toutes les commandes</h1>
 
-        <div class="commande-card" *ngFor="let commande of commandes"(click)="onCardClick(commande)">
-          <h3>Commande: {{ commande.id }}</h3>
-          <img [src]="commande.produit_boutique.image" alt="Image du produit" class="product-image">
+<div class="card-container">
+  <div 
+    class="commande-card" 
+    *ngFor="let commande of commandes" 
+    (click)="onCardClick(commande)"
+  >
+    <h3>Numero de la commande: {{ commande.id }}</h3>
+    <img *ngIf="commande?.produit_boutique?.produit?.image" [src]="'http://localhost:8000/storage/' + commande.produit_boutique.produit.image" alt="Image du Produit" width="100">
+    <p><strong>Produit:</strong> {{ commande.produit_boutique.produit.nom }}</p>
+    <!-- <p><strong>Produit:</strong> {{ commande.produit_boutique.id }}</p> -->
+    <!-- <p><strong>Ligne de Commande:</strong> {{ commande.ligne_commande.id }}</p> -->
+    <p><strong>Quantité:</strong> {{ commande.quantite }}</p>
+    <p><strong>Montant:</strong> {{ commande.montant | number:'' }} CFA</p>
 
+    <!-- <p><strong>Statut de la Commande:</strong> {{ commande.ligne_commande.statut }}</p>  -->
 
-          <p><strong>Produit:</strong> {{ commande.produit_boutique.id }}</p>
-
-          <p><strong>Ligne de Commande:</strong> {{ commande.ligne_commande.id }}</p>
-          <p><strong>Quantité:</strong> {{ commande.quantite }}</p>
-          <p><strong>Montant:</strong> {{ commande.montant | number:'' }} CFA</p>
-          <p><strong>Statut de la Commande:</strong> {{ commande.ligne_commande.statut }}</p> <!-- Affichage du statut -->
-
-             <button class="delete-btn" (click)="onDelete(commande.id)">
-              <i class="fas fa-trash"></i> 
-            </button>
-       </div>
-      </div>
+    <div class="button-container">
+      <button class="detail-btn" (click)="onVoirDetail(commande)">
+        <i class="fas fa-eye"></i> 
+      </button>
+    
+      <button class="delete-btn" (click)="onDelete(commande.id)">
+        <i class="fas fa-trash"></i> 
+      </button>
     </div>
+    
+</div>
   </div>
-      
+</div>
+
+
+
+
+
+

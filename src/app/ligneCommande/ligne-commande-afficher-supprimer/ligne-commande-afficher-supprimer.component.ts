@@ -12,6 +12,8 @@ interface LigneCommande {
   statut: string;
   quantite_totale: number;
   prix_totale: number;
+  nom_complet?: string; // Ajoutez cette ligne
+
 }
 
 @Component({
@@ -52,6 +54,14 @@ export class LigneCommandeAfficherSupprimerComponent implements OnInit {
       }
     );
   }
+
+  getNom_completuser(userId: number): string {
+    const user = this.lignesCommandes.find(ligne => ligne.user_id === userId);
+    return user?.nom_complet ?? 'Nom inconnu';
+  }
+  
+
+
 
  // Supprimer une ligne de commande
  deleteLigneCommande(id: number): void {
