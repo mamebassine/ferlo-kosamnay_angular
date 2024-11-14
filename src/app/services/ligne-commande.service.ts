@@ -79,21 +79,17 @@ export class LigneCommandeService {
         })
       );
     }
+//  update(id: number, data: LigneCommande): Observable<LigneCommande> {
+//     return this.http.put<LigneCommande>(`${this.apiUrl}/ligne/commandes/${id}`, data);
+//   }
   
-  
-  
-
-    
-  
-    // update(id: number, data: LigneCommande): Observable<LigneCommande> {
-  //   return this.http.put<LigneCommande>(`${this.apiUrl}/ligne/commandes/${id}`, data);
-  // }
-  
-  
+  getUserById(userId: number): Observable<any> {
+    return this.http.get<any>(`${this.apiUrl}lignes_commandes/${userId}`); // Replace with your actual user endpoint
+  }
 
 
-
-  //Méthode pour supprimer une ligne de commande par ID
+ 
+//Méthode pour supprimer une ligne de commande par ID
   deleteLigneCommande(id: number): Observable<any> {
     const headers = new HttpHeaders({
       'Authorization': 'Bearer ' + localStorage.getItem('token')

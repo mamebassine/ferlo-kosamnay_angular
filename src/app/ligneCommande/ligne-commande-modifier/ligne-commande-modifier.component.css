@@ -104,3 +104,42 @@ form {
     border: 1px solid #c3e6cb;
   }
   
+
+
+
+
+
+  /* Styles responsifs pour les écrans de 768px ou moins */
+@media only screen and (max-width: 768px) {
+  .statut {
+      margin-top: 5%;
+      margin-left: 0;
+      text-align: center;
+  }
+
+  h1, h2, .text-center { /* Ciblage des éléments de titre */
+      color: #000; /* Assure que le texte est bien visible */
+      font-size: 1.5rem; /* Taille du texte adaptée aux petits écrans */
+      margin-top: 70px; /* Ajuste l'espacement en haut */
+      text-align: center; /* Centre le titre */
+  }
+
+  form {
+      width: 90%; /* Formulaire prend presque toute la largeur de l'écran */
+      padding: 15px;
+      margin: 0 auto;
+  }
+
+  /* Ajustement de la taille des boutons et des marges */
+  .btn, .btn.success {
+      font-size: 16px;
+      padding: 8px;
+      width: 100%; /* Boutons prennent toute la largeur sur mobile */
+  }
+
+  .alert {
+      font-size: 14px;
+      padding: 8px;
+      text-align: center; /* Centre le texte d'alerte */
+  }
+}

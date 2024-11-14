@@ -18,7 +18,9 @@
   <table class="custom-table">
     <thead>
       <tr>
-        <th>User ID</th>
+        <!-- <th>User ID</th> -->
+        <th>Nom Complet de utilisateur</th>
+
         <th>Date</th>
         <th>Quantité Totale</th>
         <th>Prix Total (CFA)</th>
@@ -28,7 +30,9 @@
     </thead>
     <tbody>
       <tr *ngFor="let ligne of lignesCommandes">
-        <td>{{ ligne.user_id }}</td>
+        <!-- <td>{{ ligne.user_id }}</td> -->
+        <td>{{ getNom_completuser(ligne.user_id) }}</td>
+
         <td>{{ ligne.date }}</td>
         <td>{{ ligne.quantite_totale }}</td>
         <td>{{ ligne.prix_totale }}</td>

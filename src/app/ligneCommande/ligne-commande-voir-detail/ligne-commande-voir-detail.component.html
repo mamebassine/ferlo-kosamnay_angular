@@ -10,6 +10,9 @@
 
 <div *ngIf="ligneCommande" class="commande-card">
   <p><strong>ID:</strong> {{ ligneCommande.id }}</p>
+
+  <p><strong>Nom Complet:</strong> {{ nom_complet }}</p> <!-- Display user's full name -->
+
   <p><strong>Utilisateur ID:</strong> {{ ligneCommande.user_id }}</p>
   <p><strong>Date:</strong> {{ ligneCommande.date }}</p>
   <p><strong>Statut:</strong> {{ ligneCommande.statut }}</p>

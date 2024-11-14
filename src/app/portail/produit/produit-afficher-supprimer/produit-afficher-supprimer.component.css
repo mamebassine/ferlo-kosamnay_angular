@@ -67,19 +67,7 @@ h1 {
     border-radius: 3px;
     text-align: center;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-
-    
 }
-
-/* .product img {
-    display: block; 
-    width: 750%; 
-    height: auto;
-    border-radius: 4px;
-    margin: 0 auto 15px auto; 
-} */
-
-
 .product img {
     display: block; /* Pour que l'image se comporte comme un bloc */
     width: 100%; /* Largeur fixe */
@@ -138,12 +126,48 @@ p {
     background-color: #f1f1f1;
 }
 
-
-
-
-
-/* Styles pour rendre le site responsive sur mobile */
-@media (max-width: 480px) {
+.pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center; /* Aligner verticalement les éléments */
+    margin-top: 20px;
+    flex-wrap: wrap; /* Permet de passer à la ligne si nécessaire */
+  }
+  
+  .pagination button {
+    margin: 0 5px;
+    padding: 10px 15px; /* Ajustement des valeurs de padding */
+    border: none;
+    background-color: #3F7E44;
+    color: white;
+    cursor: pointer;
+    border-radius: 3px; /* Arrondi des coins des boutons */
+    transition: background-color 0.3s; /* Transition pour un effet de survol */
+  }
+  
+  /* Changer la couleur du bouton au survol */
+  .pagination button:hover {
+    background-color: #99B951; /* Couleur plus foncée au survol */
+  }
+  
+  .pagination button:disabled {
+    background-color: grey;
+    cursor: not-allowed;
+  }
+  
+/* Styles pour les écrans de petite taille */
+  @media (max-width: 600px) {
+    .pagination {
+      flex-direction: column; /* Aligne les éléments en colonne sur mobile */
+      align-items: center; /* Centre les éléments horizontalement */
+    }
+  
+    .pagination button {
+      width: 100%; /* Les boutons prennent toute la largeur */
+      margin-bottom: 10px; /* Espace entre les boutons */
+    }
+  }
+  @media (max-width: 480px) {
     .product img {
         width: 80%; /* Diminue la largeur de l'image */
         height: auto; /* Conserve le ratio d'aspect de l'image */
@@ -197,53 +221,3 @@ p {
         font-size: 0.9em; /* Ajuste la taille de la police pour garder les boutons lisibles */
     }
 }
-
-
-
-
-
-.pagination {
-    display: flex;
-    justify-content: center;
-    align-items: center; /* Aligner verticalement les éléments */
-    margin-top: 20px;
-    flex-wrap: wrap; /* Permet de passer à la ligne si nécessaire */
-  }
-  
-  .pagination button {
-    margin: 0 5px;
-    padding: 10px 15px; /* Ajustement des valeurs de padding */
-    border: none;
-    background-color: #3F7E44;
-    color: white;
-    cursor: pointer;
-    border-radius: 3px; /* Arrondi des coins des boutons */
-    transition: background-color 0.3s; /* Transition pour un effet de survol */
-  }
-  
-  /* Changer la couleur du bouton au survol */
-  .pagination button:hover {
-    background-color: #99B951; /* Couleur plus foncée au survol */
-  }
-  
-  .pagination button:disabled {
-    background-color: grey;
-    cursor: not-allowed;
-  }
-  
-
-
-
-  /* Styles pour les écrans de petite taille */
-  @media (max-width: 600px) {
-    .pagination {
-      flex-direction: column; /* Aligne les éléments en colonne sur mobile */
-      align-items: center; /* Centre les éléments horizontalement */
-    }
-  
-    .pagination button {
-      width: 100%; /* Les boutons prennent toute la largeur */
-      margin-bottom: 10px; /* Espace entre les boutons */
-    }
-  }
-  

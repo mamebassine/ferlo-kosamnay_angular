@@ -74,5 +74,14 @@ private handleError(error: HttpErrorResponse) {
     }
     return throwError(() => new Error('Une erreur s\'est produite, veuillez réessayer plus tard.'));
   }
+
+
+  getLigneCommandeById(id: number): Observable<any> {
+    return this.http.get<any>(`${this.apiUrl}ligne-commandes/${id}`);
+  }
+
+  getUserById(userId: number): Observable<any> {
+    return this.http.get<any>(`${this.apiUrl}users/${userId}`); // Replace with your actual user endpoint
+  }
   
 }

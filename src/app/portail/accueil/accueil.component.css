@@ -19,7 +19,12 @@
   border-radius: 50%;
   background-color: #99B951;
   animation: glognote 1s infinite alternate;
+  display: flex; /* Permet de centrer le contenu */
+  align-items: center; /* Centre verticalement le texte */
+  justify-content: center; /* Centre horizontalement le texte */
+  font-size: 0.8em; /* Ajustez la taille du texte si nécessaire */
 }
+
 
 /* Positionnement des bulles principales */
 #hero::before {
@@ -130,50 +135,53 @@
 
 
 /* Styles pour écrans mobiles */
+/* Styles pour écrans mobiles */
 @media (max-width: 768px) {
   #hero {
-    flex-direction: column; /* Passe en colonne pour mobile */
-    text-align: center; /* Centrage du texte */
+    flex-direction: column;
+    text-align: center;
     padding: 10px;
   }
 
   #hero .text-content {
-    max-width: 90%; /* Le texte prend une large partie de l'écran */
-    margin-top: 40%; /* Espace entre le texte et le haut de l'écran */
-    margin-bottom: 15px; /* Espace entre le texte et l'image */
-  }
-
-  #hero h1 {
-    font-size: 1.8em; /* Taille du titre adaptée pour mobile */
-    margin-bottom: 10px; /* Espace sous le titre */
-  }
-
-  #hero p {
-    font-size: 1.2em; /* Taille du texte du paragraphe réduite */
-    margin: 15px 0; /* Espace entre les paragraphes */
-  }
-
-  #hero button {
-    font-size: 1em; /* Taille du bouton réduite */
-    padding: 10px 20px;
-    margin-top: 15px;
-    margin-bottom: 20px; /* Ajoute un espace sous le bouton */
+    max-width: 90%;
+    margin-top: 40%;
+    margin-bottom: 15px;
   }
 
   #hero img {
-    max-width: 80%; /* L'image prend moins de largeur sur mobile */
-    margin: 20px auto 0; /* Centrage et espace au-dessus */
+    max-width: 80%;
+    margin: 20px auto 0;
     display: block;
   }
 
-  /* Ajustement des bulles */
+  /* Positionnement des bulles */
   #hero::before, #hero::after {
     width: 50px;
     height: 50px;
-    top: auto; /* Évite le chevauchement avec le texte */
-    bottom: 5%; /* Descend les bulles vers le bas de l'écran */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.8em;
   }
+
+  /* Bulle supérieure */
+  #hero::before {
+    top: 60%;
+    left: 70%;
+    transform: translateX(-50%);
+  }
+
+  /* Bulle inférieure */
+  #hero::after {
+    bottom: 15%;
+    left: 13%;
+    transform: translateX(-50%);
+  }
+
+  
 }
+
 
 
 
@@ -1159,6 +1167,7 @@ blockquote:hover {
     padding: 15px;
   }
 
+  
   .section-title {
     font-size: 1.6em; /* Réduire la taille du titre */
     margin-bottom: 10px;
@@ -1246,6 +1255,7 @@ blockquote:hover {
   .text-lg {
     font-size: 1.1em;
   }
+  
 }
 
 @media (max-width: 480px) {
@@ -1271,6 +1281,7 @@ blockquote:hover {
     flex-direction: column;
     gap: 10px; /* Réduit l'espace entre les boutons sur les écrans plus petits */
   }
+  
 }
 
 /* pppppppppppppppppppppppppppppppppppppppppppppppp */

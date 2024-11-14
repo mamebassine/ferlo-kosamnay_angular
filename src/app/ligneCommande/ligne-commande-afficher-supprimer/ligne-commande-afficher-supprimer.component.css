@@ -31,8 +31,8 @@
 
 /* Style général */
 h2 {
-    font-size: 24px;
-    color: #333;
+    font-size: 2rem;
+    color: #000;
     text-align: center; /* Centre le titre */
     /* padding-right: 83%; */
   }
@@ -134,4 +134,71 @@ h2 {
     color: #721c24;
     border: 1px solid #f5c6cb;
   }
+ 
   
+
+
+  
+
+/* Styles pour mobiles */
+@media only screen and (max-width: 768px) {
+  
+  /* Message de succès et d'erreur */
+  .alert.success, 
+  .alert.error {
+    font-size: 0.9em; /* Réduit la taille de la police */
+    padding: 8px;
+    margin-top: 15px;
+  }
+  
+  /* Loader */
+  .loader {
+    font-size: 16px; /* Réduit légèrement la taille */
+    margin: 15px 0;
+  }
+  
+  /* Style général pour les titres */
+  h2 {
+    font-size: 20px; /* Réduit la taille de police */
+    padding-right: 0; /* Supprime le padding à droite */
+    margin-top: 20px; /* Ajoute un espace au-dessus du titre pour le descendre un peu */
+  }
+
+  /* Centre les textes avec classe text-center */
+  .text-center {
+    margin-top: 10px; /* Réduit l'espacement au-dessus */
+  }
+  
+  /* Bouton de succès */
+  a.btnsuccess {
+    font-size: 1.2rem; /* Taille de police légèrement réduite */
+    margin-left: 0; /* Supprime la marge gauche pour centrer */
+    padding: 8px 16px; /* Réduit le padding */
+    width: 100%; /* Le bouton prend toute la largeur sur mobile */
+  }
+
+  /* Table customisée */
+  .table-container {
+    margin: 10px auto; /* Centre le conteneur de la table et réduit la marge */
+    width: 100%; /* Assure que le conteneur prend la largeur de l'écran */
+    margin-top: 23%;
+  }
+  
+  .custom-table {
+    width: 100%; /* La table prend toute la largeur du conteneur */
+  }
+  
+  .custom-table th, 
+  .custom-table td {
+    padding: 6px; /* Réduit le padding des cellules */
+    font-size: 0.9em; /* Réduit la taille de la police */
+  }
+  
+  /* Styles pour les boutons */
+  .btn {
+    padding: 5px 10px; /* Réduit le padding */
+    font-size: 12px; /* Réduit la taille de la police */
+    margin-right: 5px; /* Réduit l'espacement entre les boutons */
+  }
+}
+

@@ -1,0 +1,125 @@
+/* Style global de la carte */
+.container {
+    max-width: 900px;
+    margin: 30px auto 50px;
+    padding: 0 20px;
+}
+
+.card {
+    border-radius: 15px;
+    background: rgba(255, 255, 255, 0.9); /* Fond blanc translucide */
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    padding: 30px;
+    margin-bottom: 20px;
+    margin-top: 20%;
+
+    margin-left: 23%;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+.card-header {
+    /* background-color: #28a745; */
+    color: #000;
+    padding: 15px;
+    font-size: 1.75rem;
+    font-weight: 700;
+    border-radius: 8px;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+/* Style pour le corps de la carte */
+.card-body {
+    color: #555;
+    font-size: 1.1rem;
+    line-height: 1.6;
+}
+
+.card-body p {
+    margin-bottom: 15px;
+    border-bottom: 1px solid #e0e0e0;
+    padding-bottom: 10px;
+}
+
+/* Style pour l'image du produit */
+.card-body img {
+    border-radius: 10px;
+    max-width: 300px;
+    height: auto;
+    margin: 20px auto;
+    display: block;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.card-body img:hover {
+    transform: scale(1.05);
+}
+
+/* Bouton retour */
+.btn-retour {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 50px;
+    height: 50px;
+    font-size: 24px;
+    color: #fff;
+    background-color: #3F7E44;
+    border: none;
+    border-radius: 50%;
+    transition: background-color 0.3s ease;
+    margin-top: 20px;
+}
+
+.btn-retour:hover {
+    background-color: #2b5931;
+}
+
+
+
+
+
+
+/* Styles mobiles */
+@media only screen and (max-width: 768px) {
+  
+    /* Ajuste la largeur de la carte */
+    .card {
+      margin: 20px auto; /* Centre la carte */
+      padding: 20px;
+      width: 100%; /* Utilise toute la largeur disponible sur mobile */
+      margin-top: 10%;
+      margin-left: 0;
+    }
+  
+    /* Ajuste le titre de la carte */
+    .card-header {
+      font-size: 1.5rem;
+      padding: 10px;
+    }
+  
+    /* Style pour le corps de la carte */
+    .card-body {
+      font-size: 1rem;
+    }
+  
+    /* Ajuste la taille de l'image */
+    .card-body img {
+      max-width: 90%; /* Utilise la majorité de la largeur de l’écran */
+      margin: 10px auto;
+    }
+  
+    /* Ajuste le bouton retour pour mobile */
+    .btn-retour {
+      width: 40px;
+      height: 40px;
+      font-size: 18px;
+    }
+  }
+  

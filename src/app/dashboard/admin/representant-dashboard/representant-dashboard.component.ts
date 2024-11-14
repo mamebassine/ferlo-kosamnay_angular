@@ -178,7 +178,11 @@ export class RepresentantDashboardComponent implements OnInit {
   
 
 
-
+  onVoirDetail(commande: any): void {
+    // Logique pour rediriger vers la page de détail de la commande
+    console.log('Voir Détail de la commande:', commande);
+    this.router.navigate(['/voirdetailcommandes', commande.id]); // Rediriger vers /commande-detail/:id
+  }
 
 
   

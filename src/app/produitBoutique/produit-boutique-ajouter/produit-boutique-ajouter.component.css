@@ -92,3 +92,61 @@ button[type="submit"]:hover {
     border: 1px solid red;
   }
   
+
+
+
+
+
+  /* Responsive styles pour les écrans de 768px ou moins */
+@media only screen and (max-width: 768px) {
+    h1 {
+        font-size: 1.8em;
+        margin-top: 60px; /* Réduit la marge supérieure */
+    }
+
+    .form-wrapper {
+        margin: 60px auto; /* Réduit la marge supérieure */
+        padding: 15px;
+        max-width: 90%; /* Réduit la largeur */
+    }
+
+    .header-container {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+    }
+
+    .retour {
+        font-size: 0.9em;
+    }
+
+    button[type="submit"] {
+        padding: 8px 16px;
+    }
+}
+
+/* Responsive styles pour les écrans de 480px ou moins */
+@media only screen and (max-width: 480px) {
+    h1 {
+        font-size: 1.6em;
+        margin-top: 40px;
+    }
+
+    .form-wrapper {
+        padding: 10px;
+        margin: 40px auto;
+    }
+
+    input[type="number"], button[type="submit"] {
+        font-size: 0.9em;
+        padding: 8px;
+    }
+
+    .retour {
+        font-size: 0.8em;
+    }
+
+    .alert, .error {
+        font-size: 0.8em;
+    }
+}

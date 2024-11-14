@@ -58,6 +58,8 @@ import {LignecommandeafficherrREPComponent} from './lignecommandeafficherREP/lig
 
 import { CommandeComponent } from './commande/commande/commande.component';
 
+import { CommandeDetailComponent } from './commande-detail/commande-detail/commande-detail.component';
+
 
 import { CategorieFromageComponent } from './portail/categorie/categorie-fromage/categorie-fromage.component';
 import { CategorieLaitComponent } from './portail/categorie/categorie-lait/categorie-lait.component';
@@ -161,6 +163,9 @@ import { HeaderComponent } from './header/header/header.component';
 
 
 { path: 'commande', component: CommandeComponent },
+
+{ path: 'voirdetailcommandes/:id', component: CommandeDetailComponent },
+
 
 { path: 'usercommande', component: UserCommandeComponent }, // Route for authenticated user's orders
 

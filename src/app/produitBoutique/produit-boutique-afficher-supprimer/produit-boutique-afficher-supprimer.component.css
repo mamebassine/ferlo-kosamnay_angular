@@ -110,3 +110,88 @@ button {
 button:hover {
     background-color: #99B951; /* Couleur rouge foncé au survol */
 }
+
+
+
+
+
+
+
+/* Styles pour les écrans de taille mobile */
+@media only screen and (max-width: 768px) {
+
+    /* Style du conteneur principal */
+    div {
+      margin: 10px; /* Réduit les marges */
+    }
+  
+    /* Titre principal */
+    h2 {
+      font-size: 1rem; /* Réduit la taille de police */
+      margin-top: 20px; /* Diminue l'espace au-dessus du titre */
+      margin-bottom: 10px; /* Réduit l'espacement en dessous */
+    }
+  
+    /* Bouton "Ajouter" */
+    .btn-ajouter {
+      font-size: 1rem; /* Réduit la taille de police */
+      margin-left: 0; /* Centre le bouton */
+      margin-right: 0;
+      width: 100%; /* Le bouton prend toute la largeur sur mobile */
+      padding: 10px; /* Augmente légèrement le padding */
+    }
+    
+    .Bajouter {
+      margin-left: 0; /* Centre le bouton */
+      width: 100%; /* Largeur à 100% sur mobile */
+      margin-top: 10px;
+    }
+  
+    /* Titre de la classe "titreB" */
+    h2.titreB {
+      font-size: 1rem; /* Réduit la taille de la police */
+      margin-top: 70px; /* Ajuste l'espacement */
+      margin-bottom: 20px;
+    }
+  
+    /* Section "tousBoutiq" */
+    .tousBoutiq {
+      margin-bottom: 30px; /* Réduit l'espace en dessous */
+    }
+  
+    /* Table */
+    table {
+      width: 90%; /* La table prend presque toute la largeur sur mobile */
+      margin: 10px auto; /* Centre la table */
+    }
+  
+    /* En-têtes de table */
+    th {
+      font-size: 0.9rem; /* Réduit la taille de la police */
+      padding: 10px; /* Diminue le padding */
+    }
+  
+    /* Cellules de table */
+    td {
+      font-size: 0.9rem; /* Réduit la taille de la police */
+      padding: 8px; /* Diminue le padding */
+    }
+  
+    /* Boutons détails, modifier et liens */
+    .btn-details,
+    .btn-modifier, 
+    a {
+      font-size: 0.9rem; /* Réduit la taille de la police */
+      padding: 8px 10px; /* Ajuste le padding */
+      margin-left: 0; /* Supprime la marge gauche */
+      margin-right: 5px; /* Réduit l'espacement à droite */
+      width: auto; /* Laisse les boutons s'ajuster automatiquement */
+    }
+  
+    /* Style du bouton "Supprimer" */
+    button {
+      font-size: 0.9rem; /* Réduit la taille de la police */
+      padding: 8px 10px; /* Ajuste le padding */
+    }
+  }
+  

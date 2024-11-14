@@ -98,22 +98,49 @@ a:hover {
     color: #99B951;
 }
 
-/* Responsive pour les petits écrans */
-@media (max-width: 600px) {
+
+
+
+
+
+
+/* Media Queries pour la Responsivité */
+@media only screen and (max-width: 768px) {
+    
+    /* Adapter le conteneur principal pour les écrans plus petits */
     .tousBoutique {
-        padding: 10px;
+        max-width: 100%; /* Prend toute la largeur */
+        margin-left: auto; /* Centre le contenu */
+        margin-right: auto;
+        padding: 15px; /* Réduit l'espacement interne */
     }
 
+    /* Titre */
+    .tousBoutique h2 {
+        font-size: 1.6rem; /* Taille réduite pour mobile */
+        margin-top: 20px;
+    }
+
+    /* Formulaire */
     form {
         padding: 15px;
+        gap: 10px;
     }
 
-    button {
+    /* Champs de saisie */
+    form input, form select {
+        font-size: 10px; /* Réduction de la taille de police */
+        padding: 4px; /* Réduction du padding */
+    }
+
+    /* Bouton de soumission et bouton Annuler */
+    .boutomodifier {
         font-size: 14px;
-        padding: 8px;
+        padding: 8px 10px; /* Ajustement pour le bouton */
     }
 
-    input, select {
-        padding: 8px;
+    button[type="button"] {
+        font-size: 14px;
+        padding: 8px 10px;
     }
 }

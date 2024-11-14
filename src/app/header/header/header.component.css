@@ -62,10 +62,10 @@ nav .menu-centre li a {
   font-size: 1.5rem;
 }
 
-nav .menu-centre li a:hover {
+/* nav .menu-centre li a:hover {
   text-decoration: underline;
   color: #99B951;
-}
+} */
 
 /* Section Droite : Panier et Connexion/Déconnexion */
 nav .actions-droite {
@@ -136,6 +136,8 @@ span {
 }
 
 
+
+
 @media (max-width: 768px) {
    header {
     height: 16%; /* Augmentez la hauteur pour plus d'espace */
@@ -184,7 +186,7 @@ span {
   }
   .burger-icon {
     display: block;
-    margin-right: 15%;
+    margin-right: 10%;
   }
 
   /* Cacher le menu en mode mobile par défaut */
@@ -203,6 +205,7 @@ span {
   /* Afficher le menu lorsqu'il est actif */
   .menu-centre.active {
     display: flex;
+    color: #3F7E44;
   }
 
   .menu-centre li {
@@ -242,10 +245,11 @@ span {
   color: #3F7E44;
 }
 
-.modal-menu li a:hover {
+/* .modal-menu li a:hover {
   color: #99B951;
   text-decoration: underline;
-}
+} */
+
 
 }
 
