@@ -81,6 +81,10 @@ import { AjoutRepresentantComponent } from './dashboard/admin/ajout-representant
 import { CartComponent } from './cart/cart.component';
 
 import { UserCommandeComponent } from './usercommande/usercommande/usercommande.component';
+import { UservoirdetailcommandeComponent } from './uservoirdetailcommande/uservoirdetailcommande.component';
+
+
+
 import { HeaderComponent } from './header/header/header.component';
 
 
@@ -176,6 +180,8 @@ import { HeaderComponent } from './header/header/header.component';
 
 
 { path: 'usercommande', component: UserCommandeComponent }, 
+
+{ path: 'uservoirdetailcommande/:id', component: UservoirdetailcommandeComponent },
 
 
 

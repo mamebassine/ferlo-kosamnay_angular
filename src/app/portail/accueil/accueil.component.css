@@ -1,14 +1,10 @@
-
 /* Section Hero*/
-
 .body {
   font-family: 'Roboto', sans-serif;
   margin: 0;
   padding: 0;
   overflow-x: hidden; /* Empêche le débordement horizontal global */
-  
-}
-
+  }
 #hero::before,
 #hero::after {
   content: "welcome";
@@ -24,19 +20,15 @@
   justify-content: center; /* Centre horizontalement le texte */
   font-size: 0.8em; /* Ajustez la taille du texte si nécessaire */
 }
-
-
 /* Positionnement des bulles principales */
 #hero::before {
   top: 35%;
   left: 57%;
 }
-
 #hero::after {
   bottom: 20%;
   right: 10%;
 }
-
 /* Animation des bulles principales */
 @keyframes glognote {
   0% {
@@ -46,9 +38,7 @@
   100% {
     opacity: 1;
     transform: scale(1.2);
-  }
-}
-
+  }}
 /* Styles pour les petites bulles */
 .bubble {
   position: absolute;
@@ -58,7 +48,6 @@
   background-color: #99B951; /* Couleur de la petite bulle */
   animation: float 1.5s infinite ease-out;
 }
-
 /* Animation des petites bulles */
 @keyframes float {
   0% {
@@ -70,40 +59,32 @@
     opacity: 0;
   }
 }
-
 /* Positions aléatoires des petites bulles autour de la bulle principale */
 .bubble:nth-child(1) { --x: -1; --y: -1; }
 .bubble:nth-child(2) { --x: 5; --y: 11; }
 .bubble:nth-child(3) { --x: -1; --y: 14; }
 .bubble:nth-child(4) { --x: 1; --y: -1; }
-
-
 #hero {
-
-  display: flex; /* Utilisation de Flexbox pour aligner les éléments */
+ display: flex; /* Utilisation de Flexbox pour aligner les éléments */
   align-items: center; /* Alignement vertical des éléments */
   justify-content: space-between; /* Répartir les éléments sur toute la largeur */
   padding: 10px 10px; /* Espacement intérieur */
   margin-left: 3%;
-
 }
 
 #hero .text-content {
   max-width: 70%; /* Limiter la largeur du texte pour permettre de l'espace pour l'image */
   margin-top: 16%;
 }
-
 #hero h1 {
   font-size: 2.5em; /* Taille du titre */
   margin: 0 0 20px 0; /* Espacement sous le titre */
   font-weight: bold; /* Gras pour le titre */
 }
-
 #hero p {
   font-size: 2em; /* Taille du texte du paragraphe */
   margin: 20px 0; /* Espacement vertical entre les paragraphes */
 }
-
 #hero button {
   background-color: #3F7E44; 
   padding: 7px 18px; /* Espacement intérieur du bouton */
@@ -116,84 +97,17 @@
   padding: 10px 15px; 
   font-size: 16px; 
   cursor: pointer; 
-  
-}
-
+  }
 #hero button:hover {
   background-color: #99B951; /* Couleur de fond au survol */
 }
-
 #hero img {
   margin-top: 11%;
-
   max-width: 50%; /* Limiter la largeur de l'image */
   height: auto; /* Conserver les proportions de l'image */
   object-fit: cover; /* Couvrir l'espace sans déformer l'image */
   margin-left: 3%;
-
 }
-
-
-/* Styles pour écrans mobiles */
-/* Styles pour écrans mobiles */
-@media (max-width: 768px) {
-  #hero {
-    flex-direction: column;
-    text-align: center;
-    padding: 10px;
-  }
-
-  #hero .text-content {
-    max-width: 90%;
-    margin-top: 40%;
-    margin-bottom: 15px;
-  }
-
-  #hero img {
-    max-width: 80%;
-    margin: 20px auto 0;
-    display: block;
-  }
-
-  /* Positionnement des bulles */
-  #hero::before, #hero::after {
-    width: 50px;
-    height: 50px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 0.8em;
-  }
-
-  /* Bulle supérieure */
-  #hero::before {
-    top: 60%;
-    left: 70%;
-    transform: translateX(-50%);
-  }
-
-  /* Bulle inférieure */
-  #hero::after {
-    bottom: 15%;
-    left: 13%;
-    transform: translateX(-50%);
-  }
-
-  
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 /* Section pourquoi-choisir */ 
 #pourquoi-choisir {
@@ -201,19 +115,14 @@
   color: #fff; /* Couleur du texte */
   padding: 30px 10px; /* Espacement intérieur */
 }
-
 #pourquoi-choisir h2 {
   text-align: center; /* Centrer le titre principal */
   margin-bottom: 30px; /* Espacement en dessous du titre */
   font-family: 'Roboto', sans-serif; /* Police pour H1 */
-
-
   font-size: 1.6em;
   margin-bottom: 20px;
   text-transform: uppercase;
-
 }
-
 .caracteristiques {
   display: flex; /* Utilisation de Flexbox pour aligner les cartes */
   justify-content: center; /* Centrer les cartes dans la section */
@@ -222,7 +131,6 @@
   max-width: 1800px; /* Limiter la largeur totale de la section */
   margin: 0 auto; /* Centrer le conteneur sur la page */
 }
-
 .caracteristiques div {
   border: 1px solid #fff; /* Bordure de 3px blanche */
   color: #fff; /* Couleur du texte des cartes */
@@ -232,87 +140,14 @@
   max-width: 350px; /* Limiter la largeur maximale des cartes */
   text-align: center;
 }
-
 .caracteristiques h3 {
   font-size: 1.3em; /* Taille des titres des cartes */
   margin-bottom: 15px; /* Espacement sous les titres */
 }
-
 .caracteristiques p {
   font-size: 1em; /* Taille du texte */
   margin: 0; /* Supprimer les marges par défaut */
 }
-
-/* Media Queries pour petits écrans */
-/* Section Hero */
-@media (max-width: 768px) {
-  #hero {
-    flex-direction: column; /* Empiler le texte et l'image en colonne */
-    align-items: center; /* Centrer les éléments en colonne */
-    text-align: center; /* Centrer le texte */
-    padding: 20px 10px; /* Ajouter de l'espace autour */
-    margin-left: 0; /* Réinitialiser la marge gauche */
-  }
-
-  #hero .text-content {
-    max-width: 100%; /* Prendre toute la largeur disponible */
-    margin-bottom: 20px; /* Ajouter de l'espacement sous le texte */
-  }
-
-  #hero h1 {
-    font-size: 2em; /* Réduire la taille du titre */
-  }
-
-  #hero p {
-    font-size: 1.2em; /* Réduire la taille du paragraphe */
-  }
-
-  #hero button {
-    font-size: 1em; /* Réduire la taille du bouton */
-  }
-
-  #hero img {
-    max-width: 80%; /* Réduire la largeur maximale de l'image */
-    margin: 0 auto; /* Centrer l'image */
-  }
-}
-
-/* Section Pourquoi-Choisir */
-@media (max-width: 768px) {
-  #pourquoi-choisir {
-    padding: 20px 10px; /* Réduire le padding sur petits écrans */
-  }
-
-  .caracteristiques {
-    flex-direction: column; /* Empiler les cartes en colonne */
-    align-items: center; /* Centrer les cartes */
-  }
-
-  .caracteristiques div {
-    max-width: 100%; /* Les cartes prennent toute la largeur disponible */
-    margin-bottom: 20px; /* Ajouter de l'espace entre les cartes */
-  }
-}
-
-/* Media Queries pour très petits écrans (moins de 480px) */
-@media (max-width: 480px) {
-  #hero h1 {
-    font-size: 1.8em; /* Réduire encore la taille du titre */
-  }
-
-  #hero p {
-    font-size: 1em; /* Réduire la taille du paragraphe */
-  }
-
-  #hero button {
-    font-size: 0.9em; /* Réduire la taille du bouton */
-  }
-
-  .caracteristiques div {
-    padding: 10px; /* Réduire le padding des cartes */
-  }
-}
-
 
 /* Section APROPOS */
 #a-propos {
@@ -324,20 +159,16 @@ margin-top: 2%;
   padding: 80px 20px; /* Réduction de l'espacement interne */
   position: relative; 
 }
-
 /* Titre principal */
 h4 {
   font-family: 'Roboto', sans-serif; /* Police pour H1 */
 text-align: center;
   color: #000; 
   margin: 0; 
-
-
-  font-size: 1.6em;
+ font-size: 1.6em;
   margin-bottom: 20px;
   text-transform: uppercase;
 }
-
 /* Contenu général */
 .content {
   display: flex;
@@ -350,27 +181,22 @@ text-align: center;
   position: relative; 
   z-index: 2; 
 }
-
 /* Section texte à gauche */
 .text-gauche {
   width: 60%;
   padding-right: 20px;
 }
-
 .text-gauche h3 {
   font-size: 1.8em; 
   color: #3F7E44; 
   margin-bottom: 10px; 
 }
-
 .text-gauche p {
-  
-  margin-bottom: 22px; 
+ margin-bottom: 22px; 
   font-size: 1.5em; 
   line-height: 1.4; 
   color: #333; 
 }
-
 /* Section image à droite */
 .image-droite {
   left: 11%;
@@ -378,17 +204,13 @@ text-align: center;
   position: relative;
   text-align: center;
 }
-
 .image-droite img {
   width: 100%;
   border-radius: 10px;
   margin-bottom: 10px; 
 }
-
 .image-droite button {
   color: #fff;
-
-
   background-color: #3F7E44; 
   padding: 8px 20px; /* Espacement intérieur du bouton */
   font-size: 1.2em; 
@@ -400,105 +222,23 @@ text-align: center;
   padding: 10px 15px; 
   font-size: 16px; 
   cursor: pointer; 
-  
-}
-
+  }
 .image-droite button:hover {
   background-color: #99B951; 
 }
-
-/* Section À PROPOS */
-@media (max-width: 1024px) {
-  .content {
-    flex-direction: column; /* Passe les éléments en colonne */
-    align-items: center; /* Centre les éléments dans la colonne */
-    text-align: center; /* Centre le texte */
-  }
-
-  .text-gauche, .image-droite {
-    width: 100%; /* Les sections prennent toute la largeur */
-    padding: 0; /* Supprimer le padding */
-  }
-
-  .text-gauche {
-    margin-bottom: 20px; /* Espacement sous la section texte */
-  }
-}
-
-@media (max-width: 768px) {
-  #a-propos {
-    padding: 60px 15px; /* Réduction du padding */
-  }
-
-  h4 {
-    font-size: 1.4em; /* Taille du titre principale réduite */
-  }
-
-  .text-gauche h3 {
-    font-size: 1.3em; /* Réduction de la taille du sous-titre */
-  }
-
-  .text-gauche p {
-    font-size: 1em; /* Réduction de la taille du texte */
-  }
-
-  .image-droite {
-    margin-top: 20px; /* Ajouter de l'espacement au-dessus de l'image */
-  }
-
-  .image-droite button {
-    padding: 8px 16px; /* Ajustement du padding du bouton */
-    font-size: 1em; /* Taille du texte du bouton */
-  }
-}
-
-@media (max-width: 480px) {
-  #a-propos {
-    padding: 40px 10px; /* Réduction supplémentaire du padding */
-  }
-
-  .text-gauche h3 {
-    font-size: 1.2em; /* Réduction de la taille du sous-titre */
-  }
-
-  .text-gauche p {
-    font-size: 0.9em; /* Réduction de la taille du texte */
-    line-height: 1.3; /* Ajustement du line-height pour la lisibilité */
-  }
-
-  .image-droite img {
-    width: 80%; /* Réduction de la largeur de l'image pour les petits écrans */
-  }
-
-  .image-droite button {
-    padding: 6px 12px; /* Réduction du padding du bouton */
-    font-size: 0.8em; /* Réduction de la taille du bouton */
-  }
-}
-
-
-
-
-
 
 /* CATEGORIESSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSS */
 h2{
   text-align: center;
   margin-bottom: 5%;
   text-align: center;
-font-family: 'Roboto', sans-serif; /* Police pour H1 */
-
-
-
+  font-family: 'Roboto', sans-serif; /* Police pour H1 */
 font-size: 1.6em;
 margin-bottom: 20px;
 text-transform: uppercase;
 }
-
 .voirplus button {
   color: #fff;
-
-
   background-color: #3F7E44; 
   padding: 8px 20px; /* Espacement intérieur du bouton */
   font-size: 1.2em; 
@@ -510,21 +250,16 @@ text-transform: uppercase;
   padding: 10px 15px; 
   font-size: 16px; 
   cursor: pointer; 
-  
-}
-
-
+  }
 #categories {
   text-align: center;
   padding: 50px 20px;
 }
-
 .grille-categories {
   display: flex;
   justify-content: space-around;
   flex-wrap: wrap;
 }
-
 .carte {
   background-color: #f9f9f9; /* Couleur de fond par défaut */
   border-radius: 10px;
@@ -536,13 +271,10 @@ text-transform: uppercase;
   cursor: pointer;
   width: 300px; /* Largeur fixe pour les cartes */
 }
-
 .carte h3 {
   margin-top: 10px;
   color: #333;
-  
-}
-
+  }
 /* Image circulaire */
 .image-circulaire {
   width: 750%; /* Largeur de l'image */
@@ -551,25 +283,21 @@ text-transform: uppercase;
   object-fit: cover; /* Pour couvrir l'espace sans déformation */
   margin-left: 25%;
 }
-
 /* Effet de survol */
 .carte:hover {
   background-color: #3F7E44; /* Couleur verte au survol */
   transform: scale(1.05); /* Légère augmentation de la taille au survol */
   color: white; /* Change la couleur du texte au survol */
 }
-
 #categories {
 text-align: center;
 padding: 30px 10px;
 }
-
 .grille-categories {
 display: flex;
 justify-content: space-around;
 flex-wrap: wrap;
 }
-
 .carte {
 background-color: #f9f9f9; /* Couleur de fond par défaut */
 border-radius: 10px;
@@ -581,14 +309,11 @@ transition: background-color 0.3s, transform 0.3s; /* Ajout d'une transition pou
 cursor: pointer;
 width: 300px; /* Largeur fixe pour les cartes */
 }
-
 .carte h3 {
 font-size: 1.5em;
-
 margin-top: 10px;
 color: #333;
 }
-
 /* Image circulaire */
 .image-circulaire {
 width: 200px; /* Largeur de l'image */
@@ -597,30 +322,19 @@ border-radius: 50%; /* Pour rendre l'image circulaire */
 object-fit: cover; /* Pour couvrir l'espace sans déformation */
 margin-left: -2px;
 }
-
 /* Effet de survol */
 .carte:hover {
 background-color: #3F7E44; /* Couleur verte au survol */
 transform: scale(1.05); /* Légère augmentation de la taille au survol */
 color: white; /* Change la couleur du texte au survol */
 }
-
-
-
-
 /* FIN CATEGORIE */
-
-
-
 /* Contact Section Styles */
 .contact-section {
   opacity: 73%;
   background-color: #f4f4f4; /* Couleur de fond légère en contraste */
-  
   /* background-image: url('assets/images/imageba.png');  */
    /* Assurez-vous que le chemin est correct */ 
-
-
   background-size: cover; /* Ajuste la taille de l'image pour couvrir toute la section */
   background-position: center; /* Centre l'image dans la section */
   background-repeat: no-repeat; /* Empêche la répétition de l'image */
@@ -628,8 +342,6 @@ color: white; /* Change la couleur du texte au survol */
   text-align: center;
   color: white; /* Assure que le texte est lisible sur l'image de fond */
 }
-
-
 /* Style des boutons Envoyer et Réinitialiser avec texte blanc */
 input[type="submit"],
 input[type="reset"] {
@@ -639,44 +351,33 @@ input[type="reset"] {
   padding: 10px 20px;
   border-radius: 5px;
   cursor: pointer;
-  transition: background-color 0.3s, color 0.3s, transform 0.1s;
+  /* ICIIIII transition: background-color 0.3s, color 0.3s, transform 0.1s; */
 }
-
 input[type="submit"]:hover,
 input[type="reset"]:hover {
   background-color: #343F69;
 }
-
-
-
 /* Applique l'animation de clignotement à tout le conteneur lors du focus sur le formulaire */
-div:focus-within {
-  animation: blink 10s ease-in-out; /* Animation qui dure 5 secondes */
+/* div:focus-within {
+  animation: blink 10s ease-in-out; Animation qui dure 5 secondes
   outline: none;
-}
+} */
 
 /* Définir l'animation de clignotement */
-@keyframes blink {
+/* @keyframes blink {
   0%, 100% { 
       transform: scale(1); 
   }
   20%, 40%, 60%, 80% { 
       transform: scale(1.05); 
   }
-}
+} */
 
 /* ici produits */
-
-
-
 #produits h2 {
 text-align: center;
 font-family: 'Roboto', sans-serif; /* Police pour H1 */
-
-
-
 }
-
 #produits {
   margin-bottom: 1%;
   text-align: center;
@@ -701,19 +402,14 @@ font-family: 'Roboto', sans-serif; /* Police pour H1 */
   padding: 10px;
   margin-top: 2%;
 }
-
 .contenu-produit {
   text-align: left; /* Alignement du texte à gauche */
   flex: 1; /* Permet au contenu de prendre l'espace disponible */
 }
-
 .carte-produit h3 {
   color:#000; /* Couleur blanche pour le titre */
   margin-bottom: 10px;
-  
-  
-}
-
+  }
 .carte-produit p {
   color: #000; /* Couleur blanche pour le paragraphe */
   margin-bottom: 25px;
@@ -733,21 +429,16 @@ font-family: 'Roboto', sans-serif; /* Police pour H1 */
   border-radius: 3px; 
   font-size: 16px; 
   cursor: pointer; 
-  
- 
-}
-
+  }
 .carte-produit button:hover {
   background-color: #99B951; /* Couleur de fond au survol */
 }
-
 .image-produit {
   width: 190px; /* Largeur de l'image */
   height: auto; /* Conserve les proportions */
   /* border-radius: 50%; Image en forme de cercle */
   margin-left: 5px; /* Espace entre le texte et l'image */
 }
-
 /* Animation pour le titre de la section */
 #produits h2 {
   text-align: center;
@@ -758,7 +449,6 @@ font-family: 'Roboto', sans-serif; /* Police pour H1 */
   margin-bottom: 20px;
   text-transform: uppercase;
 }
-
 /* Animation pour l'apparition des cartes */
 .carte-produit {
   border: 2px solid #3F7E44;
@@ -774,7 +464,6 @@ font-family: 'Roboto', sans-serif; /* Police pour H1 */
   animation: slideUp 1s forwards ease-in-out; /* Animation de glissement vers le haut */
   animation-delay: 0.5s; /* Retard pour les premières cartes */
 }
-
 /* Animation pour un effet d'apparition échelonné des cartes */
 .carte-produit:nth-child(2) {
   animation-delay: 0.7s; /* Retard pour la deuxième carte */
@@ -783,7 +472,6 @@ font-family: 'Roboto', sans-serif; /* Police pour H1 */
 .carte-produit:nth-child(3) {
   animation-delay: 0.9s; /* Retard pour la troisième carte */
 }
-
 /* Animation sur les images des produits */
 .image-produit {
   width: 220px;
@@ -791,11 +479,9 @@ font-family: 'Roboto', sans-serif; /* Police pour H1 */
   margin-left: 1px;
   transition: transform 0.5s ease; /* Transition douce pour l'effet de zoom */
 }
-
 .image-produit:hover {
   transform: scale(1.1); /* Agrandissement de l'image au survol */
 }
-
 /* Keyframes pour l'animation d'apparition */
 @keyframes fadeIn {
   from {
@@ -816,10 +502,6 @@ font-family: 'Roboto', sans-serif; /* Police pour H1 */
       transform: translateY(0);
   }
 }
-
-
-
-
 @keyframes clignotement {
   0%, 100% {
       opacity: 1; /* Opacité normale */
@@ -828,36 +510,6 @@ font-family: 'Roboto', sans-serif; /* Police pour H1 */
       opacity: 0.5; /* Opacité réduite pour le clignotement */
   }
 }
-
-
-/* Adaptations pour les différentes tailles d'écran */
-@media (max-width: 768px) {
-  .carte-produit {
-    flex-direction: column; /* Disposer les éléments en colonne sur les écrans plus petits */
-    align-items: center; /* Centrer les éléments */
-  }
-
-  .carte-produit button {
-    align-self: center; /* Centrer le bouton pour les petits écrans */
-    margin-top: 15px; /* Ajouter un espacement en haut */
-  }
-}
-
-
-/* Adaptations pour les différentes tailles d'écran */
-@media (max-width: 768px) {
-  .carte-produit {
-    flex-direction: column; /* Disposer les éléments en colonne sur les écrans plus petits */
-    align-items: center; /* Centrer les éléments */
-  }
-
-  .carte-produit button {
-    align-self: center; /* Centrer le bouton pour les petits écrans */
-    margin-top: 15px; /* Ajouter un espacement en haut */
-  }
-}
-
-
 
 /* ici produits */
 
@@ -884,21 +536,12 @@ background-color: #3F7E44;
   cursor: pointer; 
   
 }
-
 .voirplus a:hover {
   background-color: #99B951; /* Couleur légèrement plus foncée au survol */
   transform: scale(1.05); /* Légère augmentation de la taille au survol */
-}
-
-.voirplus a:active {
+}.voirplus a:active {
   background-color: #388e3c; /* Couleur encore plus foncée lorsque le bouton est cliqué */
 }
-
-
-
-
-
-
 .temoignages-section {
   /* background: linear-gradient(135deg, #B7D7B3, #343F69); */
   padding: 40px;
@@ -1112,7 +755,287 @@ blockquote:hover {
   transform: scale(1.05); /* Légère augmentation de la taille au survol */
   color: white; /* Change la couleur du texte au survol */
 }
+/* pppppppppppppppppppppppppppppppppppppppppppppppp */
+/* Contact Section Styles */
+.contact-section {
+  opacity: 73%;
+  background-color: #f4f4f4;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  padding: 40px 20px;
+  text-align: center;
+  color: white;
+}
 
+/* Style des boutons Envoyer et Réinitialiser avec texte blanc */
+input[type="submit"],
+input[type="reset"] {
+  background-color: #3F7E44;
+  color: #fff;
+  font-weight: bold;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s, color 0.3s, transform 0.1s;
+}
+
+input[type="submit"]:hover,
+input[type="reset"]:hover {
+  background-color: #3F7E44;
+}
+
+/* Container principal */
+.min-h-screen {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #f4f4f4;
+}
+
+.relative {
+  position: relative;
+  width: 100%;
+}
+/* Style des formulaires */
+form input,
+form textarea {
+  width: 100%;
+  margin-bottom: 10px;
+}
+
+.shadow {
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Espace entre les boutons Envoyer et Réinitialiser */
+.flex {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px; /* Ajoute un espace de 20px entre les boutons */
+}
+
+
+
+
+
+/* RESPONSIVES */
+
+/* Styles pour écrans mobiles*/
+@media (max-width: 768px) {
+  #hero {
+    flex-direction: column;
+    text-align: center;
+    padding: 10px;
+  }
+
+  #hero .text-content {
+    max-width: 90%;
+    margin-top: 40%;
+    margin-bottom: 15px;
+  }
+
+  #hero img {
+    max-width: 80%;
+    margin: 20px auto 0;
+    display: block;
+  }
+
+  /* Positionnement des bulles */
+  #hero::before, #hero::after {
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.8em;
+  }
+
+  /* Bulle supérieure */
+  #hero::before {
+    top: 60%;
+    left: 70%;
+    transform: translateX(-50%);
+  }
+
+  /* Bulle inférieure */
+  #hero::after {
+    bottom: 15%;
+    left: 13%;
+    transform: translateX(-50%);
+  }
+
+  
+
+
+}
+
+
+/* Media Queries pour petits écrans */
+/* Section Hero */
+@media (max-width: 768px) {
+  #hero {
+    flex-direction: column; /* Empiler le texte et l'image en colonne */
+    align-items: center; /* Centrer les éléments en colonne */
+    text-align: center; /* Centrer le texte */
+    padding: 20px 10px; /* Ajouter de l'espace autour */
+    margin-left: 0; /* Réinitialiser la marge gauche */
+  }
+
+  #hero .text-content {
+    max-width: 100%; /* Prendre toute la largeur disponible */
+    margin-bottom: 20px; /* Ajouter de l'espacement sous le texte */
+  }
+
+  #hero h1 {
+    font-size: 2em; /* Réduire la taille du titre */
+  }
+
+  #hero p {
+    font-size: 1.2em; /* Réduire la taille du paragraphe */
+  }
+
+  #hero button {
+    font-size: 1.5em; /* Réduire la taille du bouton */
+    padding: 4%;
+  }
+
+  #hero img {
+    max-width: 80%; /* Réduire la largeur maximale de l'image */
+    margin: 0 auto; /* Centrer l'image */
+  }
+}
+
+/* Section Pourquoi-Choisir */
+@media (max-width: 768px) {
+  #pourquoi-choisir {
+    padding: 20px 10px; /* Réduire le padding sur petits écrans */
+  }
+
+  .caracteristiques {
+    flex-direction: column; /* Empiler les cartes en colonne */
+    align-items: center; /* Centrer les cartes */
+  }
+
+  .caracteristiques div {
+    max-width: 100%; /* Les cartes prennent toute la largeur disponible */
+    margin-bottom: 20px; /* Ajouter de l'espace entre les cartes */
+  }
+}
+
+/* Media Queries pour très petits écrans (moins de 480px) */
+@media (max-width: 480px) {
+  #hero h1 {
+    font-size: 1.8em; /* Réduire encore la taille du titre */
+  }
+
+  #hero p {
+    font-size: 1em; /* Réduire la taille du paragraphe */
+  }
+
+  #hero button {
+    font-size: 0.9em; /* Réduire la taille du bouton */
+  }
+
+  .caracteristiques div {
+    padding: 10px; /* Réduire le padding des cartes */
+  }
+}
+
+
+/* Section À PROPOS */
+@media (max-width: 1024px) {
+  .content {
+    flex-direction: column; /* Passe les éléments en colonne */
+    align-items: center; /* Centre les éléments dans la colonne */
+    text-align: center; /* Centre le texte */
+  }
+
+  .text-gauche, .image-droite {
+    width: 100%; /* Les sections prennent toute la largeur */
+    padding: 0; /* Supprimer le padding */
+  }
+
+  .text-gauche {
+    margin-bottom: 20px; /* Espacement sous la section texte */
+  }
+}
+
+@media (max-width: 768px) {
+  #a-propos {
+    padding: 60px 15px; /* Réduction du padding */
+  }
+
+  h4 {
+    font-size: 1.4em; /* Taille du titre principale réduite */
+  }
+
+  .text-gauche h3 {
+    font-size: 1.3em; /* Réduction de la taille du sous-titre */
+  }
+
+  .text-gauche p {
+    font-size: 1em; /* Réduction de la taille du texte */
+  }
+
+  .image-droite {
+    margin-top: 20px; /* Ajouter de l'espacement au-dessus de l'image */
+  }
+
+  .image-droite button {
+    padding: 8px 16px; /* Ajustement du padding du bouton */
+    font-size: 1em; /* Taille du texte du bouton */
+  }
+}
+
+@media (max-width: 480px) {
+  #a-propos {
+    padding: 40px 10px; /* Réduction supplémentaire du padding */
+  }
+
+  .text-gauche h3 {
+    font-size: 1.2em; /* Réduction de la taille du sous-titre */
+  }
+
+  .text-gauche p {
+    font-size: 0.9em; /* Réduction de la taille du texte */
+    line-height: 1.3; /* Ajustement du line-height pour la lisibilité */
+  }
+
+  .image-droite img {
+    width: 80%; /* Réduction de la largeur de l'image pour les petits écrans */
+  }
+
+  .image-droite button {
+    padding: 6px 12px; /* Réduction du padding du bouton */
+    font-size: 0.8em; /* Réduction de la taille du bouton */
+  }
+}
+/* Adaptations pour les différentes tailles d'écran */
+@media (max-width: 768px) {
+  .carte-produit {
+    flex-direction: column; /* Disposer les éléments en colonne sur les écrans plus petits */
+    align-items: center; /* Centrer les éléments */
+  }
+
+  .carte-produit button {
+    align-self: center; /* Centrer le bouton pour les petits écrans */
+    margin-top: 15px; /* Ajouter un espacement en haut */
+  }
+}
+
+/* Adaptations pour les différentes tailles d'écran */
+@media (max-width: 768px) {
+  .carte-produit {
+    flex-direction: column; /* Disposer les éléments en colonne sur les écrans plus petits */
+    align-items: center; /* Centrer les éléments */
+  }
+.carte-produit button {
+    align-self: center; /* Centrer le bouton pour les petits écrans */
+    margin-top: 15px; /* Ajouter un espacement en haut */
+  }
+}
 /* Styles pour la version mobile */
 @media (max-width: 768px) {
   .steps-container {
@@ -1123,12 +1046,6 @@ blockquote:hover {
     width: 100%;
   }
 }
-
-
-
-
-
-
 
 /* Témoignage - Media Queries pour les écrans moyens (tablettes) */
 @media (max-width: 1024px) {
@@ -1284,66 +1201,9 @@ blockquote:hover {
   
 }
 
-/* pppppppppppppppppppppppppppppppppppppppppppppppp */
 
 
 
-/* Contact Section Styles */
-.contact-section {
-  opacity: 73%;
-  background-color: #f4f4f4;
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  padding: 40px 20px;
-  text-align: center;
-  color: white;
-}
 
-/* Style des boutons Envoyer et Réinitialiser avec texte blanc */
-input[type="submit"],
-input[type="reset"] {
-  background-color: #3F7E44;
-  color: #fff;
-  font-weight: bold;
-  padding: 10px 20px;
-  border-radius: 5px;
-  cursor: pointer;
-  transition: background-color 0.3s, color 0.3s, transform 0.1s;
-}
 
-input[type="submit"]:hover,
-input[type="reset"]:hover {
-  background-color: #3F7E44;
-}
 
-/* Container principal */
-.min-h-screen {
-  min-height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background-color: #f4f4f4;
-}
-
-.relative {
-  position: relative;
-  width: 100%;
-}
-/* Style des formulaires */
-form input,
-form textarea {
-  width: 100%;
-  margin-bottom: 10px;
-}
-
-.shadow {
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-}
-
-/* Espace entre les boutons Envoyer et Réinitialiser */
-.flex {
-  display: flex;
-  justify-content: space-between;
-  gap: 20px; /* Ajoute un espace de 20px entre les boutons */
-}

@@ -15,121 +15,205 @@
 
 
 
-.commandes {
-    width: 90%;
-    margin: auto;
-    font-family: Arial, sans-serif;
-    color: #333;
-    padding:-15px 0; /* Réduit l'espace en haut et en bas */
+
+
+h1 {
+    text-align: center; /* Centre le titre */
+    margin-top: 1%;
+    font-size: 3em;
+  }
+  
+  .card-container {
+    margin-left: 13%;
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-between;
+    gap: 20px;
+    grid-template-columns: repeat(4, 1fr); /* Crée 4 colonnes égales */
 
-}
-
-.commandes h1 {
-    text-align: center;
-    font-size: 2em;
-    margin-top: 10px; /* Ajoute un espacement en haut du titre */
-
-    margin-bottom: 20px;
-    color: #000;
-    animation: clignotement 1.5s infinite;
-    width: 100%;
-}
-
-.commande-detail {
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    margin: 10px; /* Ajuste la marge pour espacer les cartes */
-    padding: 10px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    background-color: #fafafa;
-    transition: transform 0.2s;
+    justify-content: center; /* Centre les cartes horizontalement */
+    padding: 220px 210px; /* Ajoute un espacement à droite et à gauche */
+    margin-top: -10%; /* Descend l’ensemble des cartes */
+  }
+  
+  .commande-card {
+    background-color: #f8f8f8;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 15px;
+    width: 250px;
+    transition: transform 0.2s, box-shadow 0.2s;
     cursor: pointer;
-    width: calc(23% - 20px); /* Ajuste la largeur pour 4 cartes par ligne */
+    text-align: left;
+    margin: 15px; /* Ajoute un peu plus d’espace autour des cartes */
+  }
+  
+  .commande-card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.2);
+  }
+  
+  .commande-card:active {
+    animation: blink 0.2s ease-in-out;
+  }
+  
+  @keyframes blink {
+    0%, 100% {
+      background-color: #f8f8f8;
+    }
+    50% {
+      background-color: #e0e0e0;
+    }
+  }
+  
+  .commande-card h3 {
+    color: #99B951;
+    margin-bottom: 10px;
+  }
+  
+  .commande-card p {
+    margin: 15px 20;
+    color: #333;
+  }
+  
+
+
+  .commande-card {
+    position: relative; /* Pour positionner le bouton dans la carte */
+    background-color: #f8f8f8;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 15px;
+    transition: transform 0.2s, box-shadow 0.2s;
+    cursor: pointer;
+    text-align: left;
+  }
+  
+
+
+
+  /* Conteneur des boutons alignés sur la même ligne */
+.button-container {
+  display: flex;
+  gap: 113px; /* Ajoute de l'espace entre les boutons */
+  align-items: center; /* Aligne les éléments au centre verticalement */
+}
+
+/* Styles généraux pour les boutons */
+.delete-btn, 
+.detail-btn {
+  background-color: transparent;
+  border: none;
+  font-size: 18px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  padding: 8px 15px; /* Ajoute un peu d'espace autour des boutons */
+  border-radius: 5px; /* Arrondit les coins des boutons */
+  transition: all 0.3s ease; /* Transition fluide pour les changements */
+}
+
+/* Détail - Bouton vert */
+.detail-btn {
+  color: #99B951; /* Couleur verte */
+}
+
+.delete-btn {
+  color: #ff4d4f; /* Couleur rouge */
+}
+
+/* Ajouter un effet de survol sur les boutons */
+.detail-btn:hover {
+  background-color: #e6f7e6; /* Fond clair au survol */
+  color: #4a7c3f; /* Changer la couleur du texte au survol */
+}
+
+.delete-btn:hover {
+  background-color: #ffe6e6; /* Fond clair pour le bouton supprimer */
+  color: #d11a2a; /* Changer la couleur du texte au survol */
+}
+
+/* Effet de clic - Boutons */
+.detail-btn:active,
+.delete-btn:active {
+  transform: scale(0.98); /* Effet de réduction au clic */
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.2); /* Ajoute un ombrage lors du clic */
+}
+
+/* Styles des icônes dans les boutons */
+.delete-btn i, 
+.detail-btn i {
+  font-size: 20px; /* Taille des icônes */
+  margin-right: 8px; /* Espace entre l'icône et le texte */
+  transition: transform 0.3s ease; /* Transition pour l'effet de survol sur l'icône */
+}
+
+/* Effet de survol pour les icônes */
+.detail-btn:hover i {
+  transform: rotate(10deg); /* Légère rotation de l'icône au survol */
+}
+
+.delete-btn:hover i {
+  transform: rotate(-10deg); /* Légère rotation de l'icône au survol */
 }
 
 
 
 
-.commande-detail:active {
-    animation: rebond 0.5s; /* Rebondit au clic */
-}
 
-.commande-info,
-.produit-info {
-    margin-bottom: 5px;
-}
 
-.commande-info p,
-.produit-info p {
-    margin: 2px 0;
-    font-size: 3rem;
-    line-height: 1.2;
-}
 
-.produit-info h4 {
-    margin-top: 10px;
-    font-size: 1em;
-    color: #3b5998;
-}
 
-.commande-info p strong,
-.produit-info p strong {
-    color: #555;
-}
+/* Styles mobiles */
+@media only screen and (max-width: 768px) {
+  
+  /* Ajuste la taille du titre h1 sur mobile */
+  h1 {
+    font-size: 1.8em;
+    margin-top: 65px;
+    margin-bottom: 20px;
+    text-align: center;
+    color: #333;
+  }
 
-img {
-    display: block;
-    margin-top: 5px;
-    border-radius: 4px;
+  /* Ajuste le conteneur des cartes */
+  .card-container {
+    margin-left: 0;
+    padding: 15px;
+    gap: 20px;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  /* Ajuste les dimensions des cartes sur mobile */
+  .commande-card {
+    width: 90%;
+    max-width: 400px;
+    margin: 10px 0;
+    padding: 15px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    width: 100px;
-    height: auto;
-}
+    border-radius: 8px;
+  }
 
-hr {
-    border: none;
-    height: 1px;
-    background-color: #ddd;
-    margin-top: 10px;
-}
+  /* Ajuste la disposition des boutons dans .button-container */
+  .button-container {
+    flex-direction: row; /* Place les boutons sur la même ligne */
+    gap: 10px;
+    justify-content: space-around; /* Espace les boutons de manière égale */
+    align-items: center;
+    width: 100%; /* Assure que le conteneur prend toute la largeur */
+  }
 
+  .delete-btn, 
+  .detail-btn {
+    font-size: 15px;
+    padding: 8px 12px;
+    flex: 1; /* Assure que chaque bouton occupe un espace égal */
+    text-align: center;
+  }
 
-/* Media Queries pour la responsivité */
-
-/* Pour les petits écrans (moins de 900px) */
-@media (max-width: 900px) {
-    .commande-detail {
-        width: calc(48% - 10px); /* 2 cartes par ligne */
-    }
-
-    .commandes h1 {
-        font-size: 1.3em; /* Diminuer la taille du titre */
-    }
-}
-
-/* Pour les écrans mobiles (moins de 600px) */
-@media (max-width: 600px) {
-    .commandes {
-        width: 90%; /* Augmente la largeur pour les mobiles */
-    }
-
-    .commande-detail {
-        width: 100%; /* 1 carte par ligne */
-    }
-
-    .commandes h1 {
-        font-size: 1.5em; /* Diminuer la taille du titre */
-    }
-
-    img {
-        width: 80px; /* Réduire la taille des images */
-    }
-
-    .commande-info p,
-    .produit-info p {
-        font-size: 0.8em; /* Diminuer la taille du texte pour les petits écrans */
-    }
+  /* Ajuste la taille de l'icône dans les boutons */
+  .delete-btn i, 
+  .detail-btn i {
+    font-size: 16px;
+  }
 }

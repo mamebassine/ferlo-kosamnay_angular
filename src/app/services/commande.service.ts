@@ -102,4 +102,15 @@ supprimerLigneCommande(id: number): Observable<void> {
   getNombreProduitsTemps(): Observable<any> {
     return this.http.get<any>(`${this.apiUrl}/nombre/produits/temps`);
   }
+
+
+
+
+
+
+
+  // Supprimer une commande
+  supprimerCommande(commandeId: number): Observable<void> {
+    return this.http.delete<void>(`${this.apiUrl}/${commandeId}`);
+  } 
 }
