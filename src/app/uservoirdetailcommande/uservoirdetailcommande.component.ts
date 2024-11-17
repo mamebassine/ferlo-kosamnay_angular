@@ -1,35 +1,23 @@
-
-
-import { Component, OnInit } from '@angular/core';
-import { CommandeService } from '../../services/commande.service';
-import { ActivatedRoute } from '@angular/router';
+import { Component } from '@angular/core';
+import { CommandeService } from '../services/commande.service';
 import { CommonModule } from '@angular/common';
-import { tap } from 'rxjs/operators';  
+import { ActivatedRoute } from '@angular/router'; // Ajoutez cet import
 import { Location } from '@angular/common';
-import { NavbarAdminComponent } from "../../navbar-admin/navbar-admin.component";
-
-
-interface CommandeDetail {
-  id: number;
-  produit_boutique_id: number;
-  ligne_commande_id: number;
-  quantite: number;
-  montant: string;
-  lignesCommandes: any[];  // Adaptez le type si nécessaire pour 'lignesCommandes'
-}
+import { HeaderComponent } from "../header/header/header.component"; // Assurez-vous que l'import est bien là
+import { NavbarAdminComponent } from '../navbar-admin/navbar-admin.component';
+import { FooterComponent } from '../footer/footer/footer.component';
 
 @Component({
-standalone: true,
-selector: 'app-commande-detail',
-imports: [CommonModule, NavbarAdminComponent],
-
-templateUrl: './commande-detail.component.html',
-  styleUrls: ['./commande-detail.component.css']
+  selector: 'app-uservoirdetailcommande',
+  standalone: true,
+  imports: [CommonModule, HeaderComponent, FooterComponent, HeaderComponent],
+  templateUrl: './uservoirdetailcommande.component.html',
+  styleUrls: ['./uservoirdetailcommande.component.css'] // Corrigé ici
 })
 
+export class UservoirdetailcommandeComponent {
 
-export class CommandeDetailComponent implements OnInit {
-  lignesCommandes: any[] = []; // Déclarez cette variable pour stocker les lignes de commande
+lignesCommandes: any[] = []; // Déclarez cette variable pour stocker les lignes de commande
   commande: any;
   
 
@@ -44,11 +32,11 @@ export class CommandeDetailComponent implements OnInit {
     const id = +this.route.snapshot.paramMap.get('id')!;
 
     this.commandeService.getCommandeDetails(id).subscribe(
-      data => {
+      (data: any) => {  // Spécification du type de 'data'
         this.commande = data;
         console.log('Détails de la commande:', this.commande);
       },
-      error => {
+      (error: any) => {  // Spécification du type d' 'error'
         console.error('Erreur lors de la récupération des détails de la commande', error);
       }
     );
@@ -62,14 +50,7 @@ goBack(): void {
 }
 
 
-
-
-
-
-  
-  
-
-  // getNom_completuser(userId: number): string {
+// getNom_completuser(userId: number): string {
   //   console.log('Recherche de l\'utilisateur avec ID:', userId);
   //   console.log('Lignes de commandes disponibles:', this.lignesCommandes);
     

@@ -224,7 +224,7 @@ span {
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  animation: slideUp 0.3s ease-out; /* Animation de glissement vers le haut */
+  /* animation: slideUp 0.3s ease-out; Animation de glissement vers le haut */
   z-index: 1000;
 }
 

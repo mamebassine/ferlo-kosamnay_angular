@@ -7,6 +7,7 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    overflow: hidden;
 }
 
 body {
@@ -223,10 +224,13 @@ p {
       width: 100%; /* Le bouton prend toute la largeur */
   }
   h1 {
-      font-size: 2em; /* Réduction de la taille du titre */
+      font-size: 1em; /* Réduction de la taille du titre */
+      margin-top: 30%;
+
   }
+  
   p {
-      font-size: 1em; /* Réduction de la taille du texte */
+      font-size: 1px; /* Réduction de la taille du texte */
   }
   .info-section {
       margin-left: 0; /* Centrer l'info-section */

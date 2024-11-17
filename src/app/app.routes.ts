@@ -59,6 +59,10 @@ import {LignecommandeafficherrREPComponent} from './lignecommandeafficherREP/lig
 import { CommandeComponent } from './commande/commande/commande.component';
 
 import { CommandeDetailComponent } from './commande-detail/commande-detail/commande-detail.component';
+// CommandeVoirDetailREPComponent
+// import { CommandeVoirDetailREPComponent } from './commandeVoirDetailREP/commandeVoirDetailREP.component';
+import { CommandeVoirDetailREPComponent } from './commandeVoirDetailREP/commande-voir-detail-rep/commande-voir-detail-rep.component';
+
 
 
 import { CategorieFromageComponent } from './portail/categorie/categorie-fromage/categorie-fromage.component';
@@ -77,6 +81,10 @@ import { AjoutRepresentantComponent } from './dashboard/admin/ajout-representant
 import { CartComponent } from './cart/cart.component';
 
 import { UserCommandeComponent } from './usercommande/usercommande/usercommande.component';
+import { UservoirdetailcommandeComponent } from './uservoirdetailcommande/uservoirdetailcommande.component';
+
+
+
 import { HeaderComponent } from './header/header/header.component';
 
 
@@ -166,8 +174,14 @@ import { HeaderComponent } from './header/header/header.component';
 
 { path: 'voirdetailcommandes/:id', component: CommandeDetailComponent },
 
+// CommandeVoirDetailREPComponent
 
-{ path: 'usercommande', component: UserCommandeComponent }, // Route for authenticated user's orders
+{ path: 'CommandeVoirDetailREP/:id', component: CommandeVoirDetailREPComponent },
+
+
+{ path: 'usercommande', component: UserCommandeComponent }, 
+
+{ path: 'uservoirdetailcommande/:id', component: UservoirdetailcommandeComponent },
 
 
 
