@@ -1,8 +1,6 @@
-
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
-
 
 export interface Categorie {
   id?: number;
@@ -16,33 +14,84 @@ export interface Categorie {
 })
 export class CategorieService {
 
-  private apiUrl = 'http://localhost:8000/api/categories'; 
-  
-//private apiUrl = "https://ferlo-kosamnay.mamebassine06.simplonfabriques.com/api/categories";  
+  private apiUrl = 'http://localhost:8000/api/categories';
+
+  // private apiUrl = 'https://ferlo-kosamnay.mamebassine06.simplonfabriques.com/api/categories';
+
   constructor(private http: HttpClient) { }
 
-  // Récupérer toutes les catégories
+  // ================================
+  // RÉCUPÉRER TOUTES LES CATÉGORIES
+  // ================================
   getCategories(): Observable<Categorie[]> {
     return this.http.get<Categorie[]>(this.apiUrl);
   }
 
-  // Récupérer une catégorie par ID
+  // ================================
+  // RÉCUPÉRER UNE CATÉGORIE
+  // ================================
   getCategorie(id: number): Observable<Categorie> {
     return this.http.get<Categorie>(`${this.apiUrl}/${id}`);
   }
 
-  // Créer une nouvelle catégorie
-  createCategorie(categorie: Categorie): Observable<Categorie> {
-    return this.http.post<Categorie>(this.apiUrl, categorie);
+  // ================================
+  // CRÉER UNE CATÉGORIE
+  // ================================
+  createCategorie(
+    nom_complet: string,
+    description: string,
+    image: File
+  ): Observable<any> {
+
+    const formData = new FormData();
+
+    formData.append('nom_complet', nom_complet);
+    formData.append('description', description);
+    formData.append('image', image);
+
+    return this.http.post<any>(
+      this.apiUrl,
+      formData
+    );
   }
 
-  // Mettre à jour une catégorie
-  updateCategorie(id: number, categorie: Categorie): Observable<Categorie> {
-    return this.http.put<Categorie>(`${this.apiUrl}/${id}`, categorie);
+  // ================================
+  // MODIFIER UNE CATÉGORIE
+  // ================================
+  updateCategorie(
+    id: number,
+    nom_complet: string,
+    description: string,
+    image?: File
+  ): Observable<any> {
+
+    const formData = new FormData();
+
+    formData.append('nom_complet', nom_complet);
+    formData.append('description', description);
+
+    if (image) {
+      formData.append('image', image);
+    }
+
+    /*
+     * Laravel reçoit normalement une requête POST
+     * avec _method=PUT lorsqu'on utilise FormData.
+     */
+    formData.append('_method', 'PUT');
+
+    return this.http.post<any>(
+      `${this.apiUrl}/${id}`,
+      formData
+    );
   }
 
-  // Supprimer une catégorie
+  // ================================
+  // SUPPRIMER UNE CATÉGORIE
+  // ================================
   deleteCategorie(id: number): Observable<any> {
-    return this.http.delete(`${this.apiUrl}/${id}`);
+    return this.http.delete(
+      `${this.apiUrl}/${id}`
+    );
   }
 }

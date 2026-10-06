@@ -1,46 +1,111 @@
-
 <app-navbar-admin></app-navbar-admin>
+
 <div class="container">
-    <h2>Liste des Catégories</h2>
-  <div *ngIf="errorMessage" class="alert alert-danger">
-      {{ errorMessage }}
+
+    <h2>
+        Liste des Catégories
+    </h2>
+
+    <div
+        *ngIf="errorMessage"
+        class="alert alert-danger"
+    >
+        {{ errorMessage }}
     </div>
-  
-    <button class="btn btn-primary mb-3" (click)="navigateToCreate()">Ajouter une catégorie</button>
-  
+
+    <button
+        type="button"
+        class="btn btn-primary mb-3"
+        (click)="navigateToCreate()"
+    >
+        Ajouter une catégorie
+    </button>
+
     <table class="table table-striped">
-      <thead>
-        <tr>
-          <th>ID</th>
-          <th>image</th>
-          <th>Nom Complet</th>
-          <th>Description</th>
-          <th>Actions</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr *ngFor="let categorie of categories">
-          <td>{{ categorie.id }}</td>
-          <td>
-                <!-- <img [src]="'assets/images/' + categorie.image" alt="{{ categorie.image }}" style="width: 50px; height: auto;">  -->
-    
-                <img [src]="categorie.image" alt="{{ categorie.image }}" style="width: 50px; height: auto;" /> 
-        </td>
-          <td>{{ categorie.nom_complet }}</td>
-          <td>{{ categorie.description }}</td>
-          <!-- <td>
-           <button class="btn btn-secondary btn-sm me-2" (click)="navigateToEdit(categorie.id)">Modifier</button>
-           <button class="btn btn-danger btn-sm" (click)="deleteCategorie(categorie.id)">Supprimer</button>
-          </td> -->
 
-          <td>
-           <button class="btn btn-secondary btn-sm me-2" (click)="navigateToEdit(categorie.id)"><i class="fas fa-edit"></i></button>
-           <button class="btn btn-danger btn-sm" (click)="deleteCategorie(categorie.id)"><i class="fas fa-trash-alt"></i></button>
-          </td>
+        <thead>
 
-          
-        </tr>
-      </tbody>
+            <tr>
+                <th>ID</th>
+                <th>Image</th>
+                <th>Nom Complet</th>
+                <th>Description</th>
+                <th>Actions</th>
+            </tr>
+
+        </thead>
+
+        <tbody>
+
+            <tr
+                *ngFor="let categorie of categories"
+            >
+
+                <td>
+                    {{ categorie.id }}
+                </td>
+
+                <td>
+
+                    <img
+                        [src]="getImageUrl(categorie.image)"
+                        [alt]="categorie.nom_complet"
+                        width="70"
+                        height="70"
+                        style="
+                            object-fit: cover;
+                            border-radius: 8px;
+                            display: block;
+                        "
+                    />
+
+                </td>
+
+                <td>
+                    {{ categorie.nom_complet }}
+                </td>
+
+                <td>
+                    {{ categorie.description }}
+                </td>
+
+                <td>
+
+                    <button
+                        type="button"
+                        class="btn btn-secondary btn-sm me-2"
+                        (click)="navigateToEdit(categorie.id)"
+                    >
+                        <i class="fas fa-edit"></i>
+                    </button>
+
+                    <button
+                        type="button"
+                        class="btn btn-danger btn-sm"
+                        (click)="deleteCategorie(categorie.id)"
+                    >
+                        <i class="fas fa-trash-alt"></i>
+                    </button>
+
+                </td>
+
+            </tr>
+
+            <tr
+                *ngIf="categories.length === 0"
+            >
+
+                <td
+                    colspan="5"
+                    class="text-center"
+                >
+                    Aucune catégorie disponible.
+                </td>
+
+            </tr>
+
+        </tbody>
+
     </table>
-  </div>
-  
+
+</div>

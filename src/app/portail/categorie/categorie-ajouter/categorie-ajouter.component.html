@@ -1,63 +1,143 @@
 <div>
+
   <h2>Ajouter une Nouvelle Catégorie</h2>
 
-  <div *ngIf="errorMessage">
+  <!-- MESSAGE D'ERREUR -->
+  <div *ngIf="errorMessage" class="error">
     {{ errorMessage }}
   </div>
 
-  <form (ngSubmit)="ajouterCategorie(categorieForm)" #categorieForm="ngForm">
+
+  <form
+    (ngSubmit)="ajouterCategorie(categorieForm)"
+    #categorieForm="ngForm"
+  >
+
+    <!-- ================================================= -->
+    <!-- IMAGE -->
+    <!-- ================================================= -->
+
     <div>
-      <div>
-        <label for="image">Image URL</label>
-        <input
-          type="text"
-          id="image"
-          name="image"
-          [(ngModel)]="nouvelleCategorie.image"
-          required
-          #image="ngModel"
-          [ngClass]="{ 'is-invalid': categorieForm.submitted && image.invalid }"
-        />
-        <div *ngIf="categorieForm.submitted && image.invalid" class="error">
-          L'URL de l'image est requise.
-        </div>
+
+      <label for="image">
+        Image
+      </label>
+
+      <input
+        type="file"
+        id="image"
+        name="image"
+        accept="image/jpeg,image/png,image/jpg,image/gif,image/svg+xml,image/webp"
+        (change)="onFileSelected($event)"
+      />
+
+      <!-- Nom du fichier sélectionné -->
+      <div *ngIf="selectedImage" class="file-selected">
+
+        Image sélectionnée :
+        <strong>
+          {{ selectedImage.name }}
+        </strong>
+
       </div>
 
-      <div>
-        <label for="nom_complet">Nom Complet</label>
-        <input
-          type="text"
-          id="nom_complet"
-          name="nom_complet"
-          [(ngModel)]="nouvelleCategorie.nom_complet"
-          required
-          #nomComplet="ngModel"
-          [ngClass]="{ 'is-invalid': categorieForm.submitted && nomComplet.invalid }"
-        />
-        <div *ngIf="categorieForm.submitted && nomComplet.invalid" class="error">
-          Le nom complet est requis.
-        </div>
+      <!-- Erreur si aucune image -->
+      <div
+        *ngIf="categorieForm.submitted && !selectedImage"
+        class="error"
+      >
+        Veuillez sélectionner une image.
       </div>
+
     </div>
 
+
+    <!-- ================================================= -->
+    <!-- NOM COMPLET -->
+    <!-- ================================================= -->
+
     <div>
-      <div>
-        <label for="description">Description</label>
-        <textarea 
-        id="description" 
+
+      <label for="nom_complet">
+        Nom Complet
+      </label>
+
+      <input
+        type="text"
+        id="nom_complet"
+        name="nom_complet"
+        [(ngModel)]="nouvelleCategorie.nom_complet"
+        required
+        #nomComplet="ngModel"
+        [ngClass]="{
+          'is-invalid':
+          categorieForm.submitted && nomComplet.invalid
+        }"
+      />
+
+      <div
+        *ngIf="
+          categorieForm.submitted &&
+          nomComplet.invalid
+        "
+        class="error"
+      >
+        Le nom complet est requis.
+      </div>
+
+    </div>
+
+
+    <!-- ================================================= -->
+    <!-- DESCRIPTION -->
+    <!-- ================================================= -->
+
+    <div>
+
+      <label for="description">
+        Description
+      </label>
+
+      <textarea
+        id="description"
         name="description"
-        [(ngModel)]="nouvelleCategorie.description" 
+        [(ngModel)]="nouvelleCategorie.description"
         required
         #description="ngModel"
-        [ngClass]="{ 'is-invalid': categorieForm.submitted && description.invalid }">
-      </textarea>
-      <div *ngIf="categorieForm.submitted && description.invalid" class="error">
+        [ngClass]="{
+          'is-invalid':
+          categorieForm.submitted && description.invalid
+        }"
+      ></textarea>
+
+      <div
+        *ngIf="
+          categorieForm.submitted &&
+          description.invalid
+        "
+        class="error"
+      >
         La description est requise.
       </div>
-    </div>
+
     </div>
 
-    <button type="submit">Ajouter</button>
-    <button type="button" (click)="annuler()">Annuler</button>
+
+    <!-- ================================================= -->
+    <!-- BOUTONS -->
+    <!-- ================================================= -->
+
+    <button type="submit">
+      Ajouter
+    </button>
+
+    <button
+      type="button"
+      (click)="annuler()"
+    >
+      Annuler
+    </button>
+
   </form>
+
 </div>
