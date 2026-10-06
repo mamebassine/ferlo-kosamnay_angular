@@ -20,7 +20,7 @@
 
           <div class="buttons">
           <button class="view-more" (click)="voirDetail(produit.id!)">Voir détail</button>
-          <button (click)="ajouterAuPanier(produit)">Ajouter au panier</button>    
+          <button (click)="ajouterAuPanier(produit)">Ajouter au panier</button>
         </div>
       </div>
 </section>
@@ -37,7 +37,7 @@
 
 <section class="product-grid" id="productGrid">
 
-  
+
   <div class="product" *ngFor="let produit of produitsAffichesPagination">
     <img *ngIf="produit.image" [src]="'http://localhost:8000/storage/' + produit.image" alt="{{ produit.nom }}" />
     <h3>{{ produit.nom }}</h3>
@@ -45,10 +45,10 @@
     <p>Quantité : {{ produit.quantite }} litre(s)</p>
     <div class="buttons">
       <button class="view-more" (click)="voirDetail(produit.id!)">Voir détail</button>
-      <button (click)="ajouterAuPanier(produit)">Ajouter au panier</button>    
+      <button (click)="ajouterAuPanier(produit)">Ajouter au panier</button>
     </div>
   </div>
-  
+
 </section>
 
 <div class="pagination">
@@ -64,4 +64,4 @@
 <app-footer></app-footer>
 
 
-     
+

@@ -5,7 +5,7 @@ import { Router } from '@angular/router';
 import { CategorieService, Categorie } from '../../../services/categorie.service';
 import { HeaderComponent } from "../../../header/header/header.component";
 import { FooterComponent } from "../../../footer/footer/footer.component";
-import { FormsModule } from '@angular/forms'; 
+import { FormsModule } from '@angular/forms';
 import { CartService, CartItem } from '../../../services/cart.service';
 import Swal from 'sweetalert2';
 
@@ -21,11 +21,11 @@ export class ProduitAfficherSupprimerComponent implements OnInit {
 
   produits: Produit[] = [];
   categories: Categorie[] = [];
-  searchTerm: string = ''; 
+  searchTerm: string = '';
   produit: any; // Remplacez par votre modèle de produit
   quantiteSouhaitee: number = 1;
   errorMessage: string = '';
- 
+
 
   itemsPerPage: number = 4; // Limite des produits par page
   currentPage: number = 1; // Page actuelle
@@ -37,7 +37,7 @@ export class ProduitAfficherSupprimerComponent implements OnInit {
     private router: Router,
     private cartService: CartService
   ) {}
-  
+
   ngOnInit(): void {
     // this.chargerProduits();
     this.chargerProduitsPagination();
@@ -93,7 +93,7 @@ rechercher(): void {
   this.mettreAJourProduitsAffiches(); // Met à jour les produits affichés
 }
 
-  
+
 
   ajouterAuPanier(produit: Produit): void {
     // Créer un objet CartItem à partir du Produit
@@ -172,7 +172,7 @@ rechercher(): void {
     this.router.navigate(['/produit/modifier', id]);
   }
 
- 
+
   voirDetail(id: number): void {
     // Naviguer vers la page de détail du produit en utilisant le Router
     this.router.navigate(['produit/detail', id]);
@@ -193,11 +193,11 @@ rechercher(): void {
       produit.nom.toLowerCase().includes(this.searchTerm.toLowerCase()) // Filtre les produits
     );
   }
- 
-  
 
 
 
 
-  
+
+
+
 }

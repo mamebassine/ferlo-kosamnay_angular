@@ -1,124 +1,370 @@
+/* =========================================================
+   RESET
+========================================================= */
+
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
+
+/* =========================================================
+   CONTENEUR PRINCIPAL
+========================================================= */
+
 .bacgr {
+    width: 100%;
+    min-height: 100vh;
+
     background-color: #000;
-    font-family: Arial, sans-serif;
     background-image: url('/assets/images/bacgrproduit.png');
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
+
     color: #000;
-    padding: 100px;
-    opacity: 100%;
-    
+    font-family: Arial, sans-serif;
+
+    padding: 80px 5% 60px;
+
+    overflow-x: hidden;
 }
+
+
+/* =========================================================
+   TITRE
+========================================================= */
 
 h1 {
-    
     text-align: center;
     color: #000;
-    font-size: 2em;
-    /* margin-bottom: 40px; */
 
-    margin: 40px 0 20px; /* Ajoute un espace au-dessus et en dessous */
+    font-size: 2.2rem;
+    font-weight: 700;
 
+    margin: 30px 0 30px;
+
+    letter-spacing: 0.5px;
 }
 
+
+/* =========================================================
+   RECHERCHE
+========================================================= */
+
 .search-container {
+    width: 100%;
+
     display: flex;
     justify-content: center;
-    margin-bottom: 20px;
+    align-items: center;
+
+    margin-bottom: 40px;
 }
 
 .search-container input {
-    padding: 10px;
-    width: 300px;
+    width: 350px;
+    height: 48px;
+
+    padding: 0 15px;
+
     border: 2px solid #343F69;
-    border-radius: 3px;
-    margin-right: 10px;
+    border-radius: 6px;
+
+    background-color: white;
+
+    font-size: 15px;
+
+    outline: none;
+
+    transition: 0.3s;
+}
+
+.search-container input:focus {
+    border-color: #3F7E44;
+
+    box-shadow: 0 0 0 3px rgba(63, 126, 68, 0.15);
 }
 
 .search-container button {
-    padding: 9px 9px;
+    height: 48px;
+
+    padding: 0 22px;
+
+    margin-left: 10px;
+
     background-color: #3F7E44;
     color: white;
+
     border: none;
-    border-radius: 3px;
+    border-radius: 6px;
+
     cursor: pointer;
+
+    font-size: 15px;
+    font-weight: 600;
+
+    transition: 0.3s;
 }
 
 .search-container button:hover {
     background-color: #99B951;
+
+    transform: translateY(-2px);
 }
+
+
+/* =========================================================
+   GRILLE DES PRODUITS
+========================================================= */
 
 .product-grid {
+    width: 100%;
+
     display: grid;
-    grid-template-columns: repeat(4, 1fr); /* Limiter à 4 produits par ligne */
-    gap: 40px; /* Espace entre les cartes */
+
+    /*
+       4 cartes par ligne sur grand écran
+       Chaque carte garde une largeur minimum.
+    */
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+
+    gap: 30px;
+
+    align-items: stretch;
 }
+
+
+/* =========================================================
+   CARTE PRODUIT
+========================================================= */
 
 .product {
-    background-color: rgba(255, 255, 255, 0.8);
-    padding: 45px;
-    border-radius: 3px;
+    width: 100%;
+
+    /*
+       Toutes les cartes ont la même hauteur
+    */
+    min-height: 510px;
+    height: 100%;
+
+    display: flex;
+    flex-direction: column;
+
+    background-color: rgba(255, 255, 255, 0.95);
+
+    padding: 18px;
+
+    border-radius: 10px;
+
     text-align: center;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
+
+    overflow: hidden;
+
+    transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease;
 }
+
+
+/* =========================================================
+   EFFET SUR LA CARTE
+========================================================= */
+
+.product:hover {
+    transform: translateY(-7px);
+
+    box-shadow:
+        0 12px 25px rgba(0, 0, 0, 0.25);
+}
+
+
+/* =========================================================
+   IMAGE PRODUIT
+========================================================= */
+
 .product img {
-    display: block; /* Pour que l'image se comporte comme un bloc */
-    width: 100%; /* Largeur fixe */
-    height: 65%; /* Hauteur fixe pour uniformiser toutes les images */
-    object-fit: cover; /* S'assure que l'image couvre complètement l'élément */
-    border-radius: 4px;
-    margin: 0 auto 15px auto; /* Centre l'image horizontalement avec des marges automatiques */
+    /*
+       IMPORTANT :
+       Toutes les images ont EXACTEMENT
+       la même largeur et la même hauteur.
+    */
+
+    width: 100%;
+    height: 250px;
+
+    min-height: 250px;
+    max-height: 250px;
+
+    display: block;
+
+    object-fit: cover;
+
+    object-position: center;
+
+    border-radius: 8px;
+
+    margin: 0 0 18px 0;
+
+    background-color: #f1f1f1;
+
+    /*
+       Empêche l'image de déformer la carte.
+    */
+    flex-shrink: 0;
+
+    transition: transform 0.3s ease;
 }
-h3 {
-    margin-bottom: 10px;
+
+
+/* Petit effet uniquement sur l'image */
+
+.product:hover img {
+    transform: scale(1.03);
+}
+
+
+/* =========================================================
+   NOM DU PRODUIT
+========================================================= */
+
+.product h3 {
+    width: 100%;
+
+    min-height: 45px;
+
+    margin: 0 0 10px;
+
     color: #343F69;
+
+    text-align: left;
+
+    font-size: 18px;
+    font-weight: 700;
+
+    line-height: 1.4;
+
+  /*
+   Évite qu'un nom très long
+   déforme la carte.
+*/
+display: -webkit-box;
+-webkit-line-clamp: 2;
+line-clamp: 2;
+-webkit-box-orient: vertical;
+
+overflow: hidden;
+}
+
+
+/* =========================================================
+   INFORMATIONS PRODUIT
+========================================================= */
+
+.product p {
+    width: 100%;
+
+    margin: 0 0 8px;
+
+    color: #000;
+
+    font-size: 15px;
+
+    line-height: 1.5;
+
     text-align: left;
 }
 
-p {
-    font-size: 1em;
-    margin-bottom: 10px;
-    text-align: left;
-}
+
+/* =========================================================
+   ZONE DES BOUTONS
+========================================================= */
 
 .buttons {
+    width: 100%;
+
     display: flex;
-    justify-content: flex-start;
+
     gap: 10px;
+
+    margin-top: auto;
+
+    padding-top: 15px;
 }
 
-/* ici */
-.buttons button {  
-    padding: 2px 16px;
-    width: 100%; /* Assurez que tous les boutons occupent la même largeur */
-    padding: 10px;
-    border: 2px solid black;
-    border-radius: 3px;
+
+/* =========================================================
+   BOUTONS
+========================================================= */
+
+.buttons button {
+    flex: 1;
+
+    min-height: 44px;
+
+    padding: 10px 8px;
+
+    border: none;
+
+    border-radius: 6px;
+
     cursor: pointer;
-    font-size: 1em; /* Uniformiser la taille du texte */
-    box-sizing: border-box; /* Pour inclure les bordures dans la largeur totale */
+
+    font-size: 14px;
+    font-weight: 600;
+
+    transition:
+        background-color 0.3s ease,
+        transform 0.2s ease;
 }
+
+
+/* =========================================================
+   BOUTON VOIR DÉTAIL
+========================================================= */
 
 .buttons .view-more {
     background-color: #3F7E44;
+
     color: white;
-    border: none;
 }
 
 .buttons .view-more:hover {
     background-color: #99B951;
+
+    transform: translateY(-2px);
 }
+
+
+/* =========================================================
+   BOUTON AJOUTER AU PANIER
+========================================================= */
+
+.buttons button:not(.view-more) {
+    background-color: grey;
+
+    color: white;
+}
+
+.buttons button:not(.view-more):hover {
+    background-color: #3F7E44;
+
+    transform: translateY(-2px);
+}
+
+
+/* =========================================================
+   BOUTON DISPONIBLE
+========================================================= */
 
 .buttons .disponible {
     background-color: transparent;
+
     color: black;
+
     border: 2px solid black;
 }
 
@@ -126,98 +372,337 @@ p {
     background-color: #f1f1f1;
 }
 
+
+/* =========================================================
+   PAGINATION
+========================================================= */
+
 .pagination {
+    width: 100%;
+
     display: flex;
+
     justify-content: center;
-    align-items: center; /* Aligner verticalement les éléments */
-    margin-top: 20px;
-    flex-wrap: wrap; /* Permet de passer à la ligne si nécessaire */
-  }
-  
-  .pagination button {
-    margin: 0 5px;
-    padding: 10px 15px; /* Ajustement des valeurs de padding */
+    align-items: center;
+
+    gap: 10px;
+
+    margin-top: 45px;
+
+    flex-wrap: wrap;
+}
+
+
+/* Boutons pagination */
+
+.pagination button {
+    min-width: 110px;
+
+    padding: 11px 18px;
+
     border: none;
+
     background-color: #3F7E44;
+
     color: white;
+
     cursor: pointer;
-    border-radius: 3px; /* Arrondi des coins des boutons */
-    transition: background-color 0.3s; /* Transition pour un effet de survol */
-  }
-  
-  /* Changer la couleur du bouton au survol */
-  .pagination button:hover {
-    background-color: #99B951; /* Couleur plus foncée au survol */
-  }
-  
-  .pagination button:disabled {
+
+    border-radius: 6px;
+
+    font-size: 14px;
+    font-weight: 600;
+
+    transition: 0.3s;
+}
+
+.pagination button:hover:not(:disabled) {
+    background-color: #99B951;
+
+    transform: translateY(-2px);
+}
+
+
+/* Bouton désactivé */
+
+.pagination button:disabled {
     background-color: grey;
+
     cursor: not-allowed;
-  }
-  
-/* Styles pour les écrans de petite taille */
-  @media (max-width: 600px) {
-    .pagination {
-      flex-direction: column; /* Aligne les éléments en colonne sur mobile */
-      align-items: center; /* Centre les éléments horizontalement */
-    }
-  
-    .pagination button {
-      width: 100%; /* Les boutons prennent toute la largeur */
-      margin-bottom: 10px; /* Espace entre les boutons */
-    }
-  }
-  @media (max-width: 480px) {
-    .product img {
-        width: 80%; /* Diminue la largeur de l'image */
-        height: auto; /* Conserve le ratio d'aspect de l'image */
-        margin: 0 auto 10px auto; /* Centre l'image et réduit l'espace en bas */
-    }
+
+    opacity: 0.7;
+}
 
 
-    .bacgr {
-        padding: 20px;
-        opacity: 1; /* Assure une opacité complète pour éviter les effets de transparence */
-    }
+/* Numéro de page */
 
-    h1 {
+.pagination span {
+    min-width: 120px;
 
-        font-size: 1.5em; /* Taille du texte légèrement réduite pour mobile */
-        color: #000; /* Change la couleur en blanc pour un meilleur contraste */
-        text-align: center;
-        margin-top: 30%; /* Ajoute un espace supplémentaire au-dessus pour descendre le titre */
-        margin-bottom: 29px; 
+    text-align: center;
 
-    }
+    font-size: 15px;
 
-    .search-container {
-        flex-direction: column; /* Empile l'input et le bouton verticalement */
-        align-items: center; /* Centre les éléments horizontalement */
-    }
+    font-weight: 600;
 
-    .search-container input {
-        width: 100%; /* Prend toute la largeur de l'écran */
-        margin-bottom: 10px; /* Ajoute de l'espace en bas pour séparer de l'input */
-    }
+    color: #000;
+
+    background-color: rgba(255, 255, 255, 0.85);
+
+    padding: 10px 15px;
+
+    border-radius: 6px;
+}
+
+
+/* =========================================================
+   GRAND ÉCRAN
+========================================================= */
+
+@media (min-width: 1400px) {
 
     .product-grid {
-        grid-template-columns: 1fr; /* Affiche un seul produit par ligne */
-        gap: 20px; /* Espace entre les cartes produits */
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+
+        gap: 35px;
     }
 
     .product {
-        padding: 15px; /* Réduit le padding pour mieux s'adapter aux petits écrans */
-        margin: 20px; /* Réduit l'espace autour des cartes sur les petits écrans */
+        min-height: 520px;
+    }
 
+    .product img {
+        height: 260px;
+        min-height: 260px;
+        max-height: 260px;
+    }
+}
+
+
+/* =========================================================
+   ÉCRAN MOYEN
+========================================================= */
+
+@media (max-width: 1100px) {
+
+    .product-grid {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+
+        gap: 25px;
+    }
+
+    .product {
+        min-height: 500px;
+    }
+
+    .product img {
+        height: 230px;
+        min-height: 230px;
+        max-height: 230px;
+    }
+}
+
+
+/* =========================================================
+   TABLETTE
+========================================================= */
+
+@media (max-width: 800px) {
+
+    .bacgr {
+        padding: 70px 25px 50px;
+    }
+
+    h1 {
+        font-size: 1.9rem;
+
+        margin-bottom: 25px;
+    }
+
+    .product-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+
+        gap: 20px;
+    }
+
+    .product {
+        min-height: 480px;
+
+        padding: 15px;
+    }
+
+    .product img {
+        height: 220px;
+        min-height: 220px;
+        max-height: 220px;
     }
 
     .buttons {
-        flex-direction: column; /* Empile les boutons verticalement */
-        gap: 10px; /* Ajoute un espace entre les boutons pour une meilleure lisibilité */
+        flex-direction: column;
     }
 
     .buttons button {
-        padding: 4px; /* Réduit le padding pour les petits écrans */
-        font-size: 0.9em; /* Ajuste la taille de la police pour garder les boutons lisibles */
+        width: 100%;
+    }
+}
+
+
+/* =========================================================
+   PETIT ÉCRAN
+========================================================= */
+
+@media (max-width: 600px) {
+
+    .bacgr {
+        padding: 60px 18px 40px;
+    }
+
+    h1 {
+        font-size: 1.6rem;
+
+        margin-top: 25px;
+        margin-bottom: 25px;
+    }
+
+
+    /* Recherche */
+
+    .search-container {
+        flex-direction: column;
+
+        gap: 10px;
+
+        margin-bottom: 30px;
+    }
+
+    .search-container input {
+        width: 100%;
+
+        height: 46px;
+
+        margin-right: 0;
+    }
+
+    .search-container button {
+        width: 100%;
+
+        height: 46px;
+
+        margin-left: 0;
+    }
+
+
+    /* Une carte par ligne */
+
+    .product-grid {
+        grid-template-columns: 1fr;
+
+        gap: 25px;
+    }
+
+
+    /* Carte */
+
+    .product {
+        width: 100%;
+
+        min-height: 0;
+
+        height: auto;
+
+        padding: 15px;
+    }
+
+
+    /* Image identique pour toutes les cartes */
+
+    .product img {
+        width: 100%;
+
+        height: 260px;
+
+        min-height: 260px;
+        max-height: 260px;
+
+        object-fit: cover;
+    }
+
+
+    .product h3 {
+        font-size: 17px;
+
+        min-height: 42px;
+    }
+
+
+    .product p {
+        font-size: 14px;
+    }
+
+
+    /* Boutons */
+
+    .buttons {
+        flex-direction: column;
+
+        gap: 8px;
+
+        margin-top: 10px;
+    }
+
+    .buttons button {
+        width: 100%;
+
+        min-height: 44px;
+    }
+
+
+    /* Pagination */
+
+    .pagination {
+        flex-direction: column;
+
+        gap: 10px;
+
+        margin-top: 30px;
+    }
+
+    .pagination button {
+        width: 100%;
+
+        max-width: 300px;
+    }
+
+    .pagination span {
+        width: 100%;
+
+        max-width: 300px;
+    }
+}
+
+
+/* =========================================================
+   TRÈS PETIT ÉCRAN
+========================================================= */
+
+@media (max-width: 380px) {
+
+    .bacgr {
+        padding-left: 12px;
+        padding-right: 12px;
+    }
+
+    h1 {
+        font-size: 1.4rem;
+    }
+
+    .product {
+        padding: 12px;
+    }
+
+    .product img {
+        height: 230px;
+        min-height: 230px;
+        max-height: 230px;
     }
 }

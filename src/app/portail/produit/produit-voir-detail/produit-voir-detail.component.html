@@ -1,64 +1,83 @@
-<!-- 
-<div class="container" *ngIf="produit; else loadingOrError">
-    <h2>Détails du Produit</h2>
-    <div class="card">
-      <div class="card-header">
-        {{ produit.nom }} ({{ produit.reference }})
-      </div>
-      <div class="card-body">
-        <img [src]="produit.image" alt="{{ produit.nom }}" class="img-fluid mb-3" style="max-width: 200px;">
-        <p><strong>Description:</strong> {{ produit.description }}</p>
-        <p><strong>Prix:</strong> {{ produit.prix | currency }}</p>
-        <p><strong>Quantité:</strong> {{ produit.quantite }}</p>
-        <p><strong>Catégorie:</strong> {{ produit.categorie?.nom_complet }}</p>
-        Ajouter d'autres détails si nécessaire 
-      </div>
-    </div>
-    <button class="btn btn-secondary mt-3" (click)="goBack()">Retour</button>
-  </div>
-  
-  <ng-template #loadingOrError>
-    <div *ngIf="errorMessage" class="alert alert-danger">
-      {{ errorMessage }}
-    </div>
-    <div *ngIf="!errorMessage" class="alert alert-info">
-      Chargement des détails du produit...
-    </div>
-  </ng-template>
-   -->
+<app-header></app-header>
 
-   
-   <app-header></app-header>
+<div class="phovoirdetail" *ngIf="produit; else loadingOrError">
 
-   
-     <div class="phovoirdetail" *ngIf="produit; else loadingOrError">
     <div class="product-detail">
-      <button class="btn btn-secondary mt-3 btn-retour" (click)="goBack()">
-        <i class="fas fa-arrow-left"></i>
-      </button>
-      
-      <img *ngIf="produit.image" [src]="'http://localhost:8000/storage/' + produit.image" alt="{{ produit.nom }}" />
+
+        <!-- BOUTON RETOUR -->
+        <button
+            class="btn btn-secondary btn-retour"
+            (click)="goBack()">
+            <i class="fas fa-arrow-left"></i>
+        </button>
+
+
+        <!-- IMAGE DU PRODUIT -->
+        <div class="product-image-container">
+
+            <img
+                *ngIf="produit.image"
+                class="product-image"
+                [src]="'http://localhost:8000/storage/' + produit.image"
+                [alt]="produit.nom"
+            />
+
+        </div>
+
+
+        <!-- INFORMATIONS DU PRODUIT -->
         <div class="product-info">
+
             <h1>{{ produit.nom }}</h1>
+
             <p>{{ produit.description }}</p>
 
             <div class="product-price">
-              <span>Prix : {{ produit.prix }} CFA</span>
-              <span>Quantité : {{ produit.quantite }} litre(s)</span>
-            </div>
-<button class="add-to-cart" (click)="ajouterAuPanier(produit)">Ajouter au panier</button>
 
-           </div>
+                <span>
+                    Prix :
+                    <strong>{{ produit.prix }} CFA</strong>
+                </span>
+
+                <span>
+                    Quantité :
+                    <strong>{{ produit.quantite }} litre(s)</strong>
+                </span>
+
+            </div>
+
+
+            <!-- AJOUTER AU PANIER -->
+            <button
+                class="add-to-cart"
+                (click)="ajouterAuPanier(produit)">
+                Ajouter au panier
+            </button>
+
+        </div>
+
     </div>
+
 </div>
 
+
+<!-- CHARGEMENT / ERREUR -->
+
 <ng-template #loadingOrError>
-    <div *ngIf="errorMessage" class="alert alert-danger">
+
+    <div
+        *ngIf="errorMessage"
+        class="alert alert-danger">
         {{ errorMessage }}
     </div>
-    <div *ngIf="!errorMessage" class="alert alert-info">
+
+    <div
+        *ngIf="!errorMessage"
+        class="alert alert-info">
         Chargement des détails du produit...
     </div>
+
 </ng-template>
+
 
 <app-footer></app-footer>
